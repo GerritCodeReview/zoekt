@@ -22,6 +22,30 @@
       "revId": "50273d73d98e5b64e57868320e697525ac89051f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "778e56f1_00a906ee",
+        "filename": "cmd/zoekt-git-index/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-05-13T14:55:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97874ad1_a164ded7",
+      "range": {
+        "startLine": 152,
+        "startChar": 3,
+        "endLine": 152,
+        "endChar": 7
+      },
+      "revId": "50273d73d98e5b64e57868320e697525ac89051f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

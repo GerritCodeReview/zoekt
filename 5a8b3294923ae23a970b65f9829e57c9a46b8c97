@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "778e56f1_40894efb",
+        "filename": "CONTRIBUTING",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-05-14T13:27:49Z",
+      "side": 1,
+      "message": "it doesnt matter, both work.",
+      "parentUuid": "523080cd_c7e8bec9",
+      "revId": "5a8b3294923ae23a970b65f9829e57c9a46b8c97",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2337cd6_2ad07f04",
         "filename": "CONTRIBUTING",
         "patchSetId": 1
@@ -36,6 +54,30 @@
       "writtenOn": "2016-05-12T03:07:29Z",
       "side": 1,
       "message": "Change-Id",
+      "range": {
+        "startLine": 16,
+        "startChar": 8,
+        "endLine": 16,
+        "endChar": 12
+      },
+      "revId": "5a8b3294923ae23a970b65f9829e57c9a46b8c97",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2337cd6_6a4a7748",
+        "filename": "CONTRIBUTING",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-05-14T13:27:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2337cd6_2ad07f04",
       "range": {
         "startLine": 16,
         "startChar": 8,
@@ -71,6 +113,30 @@
     },
     {
       "key": {
+        "uuid": "523080cd_a753ca04",
+        "filename": "CONTRIBUTING",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-05-14T13:27:49Z",
+      "side": 1,
+      "message": "it would be nice if this doc mentioned a live URL where this hook can be downloaded.",
+      "parentUuid": "523080cd_a7e3caea",
+      "range": {
+        "startLine": 16,
+        "startChar": 51,
+        "endLine": 19,
+        "endChar": 78
+      },
+      "revId": "5a8b3294923ae23a970b65f9829e57c9a46b8c97",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2337cd6_4addb31b",
         "filename": "CONTRIBUTING",
         "patchSetId": 1
@@ -82,6 +148,30 @@
       "writtenOn": "2016-05-12T03:07:29Z",
       "side": 1,
       "message": "I\u0027m not 100% sure but gerrit-review might be running the reviewers plugin.  If that\u0027s the case, you can configure it to automatically add you on uploaded changes.",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 51
+      },
+      "revId": "5a8b3294923ae23a970b65f9829e57c9a46b8c97",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "523080cd_c758be23",
+        "filename": "CONTRIBUTING",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-05-14T13:27:49Z",
+      "side": 1,
+      "message": "apparently, it does, but I can\u0027t seem to find the place where it can be configured.",
+      "parentUuid": "b2337cd6_4addb31b",
       "range": {
         "startLine": 26,
         "startChar": 2,

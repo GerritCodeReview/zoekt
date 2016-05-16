@@ -181,6 +181,30 @@
       "revId": "5a8b3294923ae23a970b65f9829e57c9a46b8c97",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37813ec9_96db2c28",
+        "filename": "CONTRIBUTING",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-05-16T05:18:46Z",
+      "side": 1,
+      "message": "The UI is disabled, but it should be possible to configure it manually in reviewers.config on the project\u0027s refs/meta/config branch.\n\nhttps://gerrit.googlesource.com/plugins/reviewers/+/master/src/main/resources/Documentation/config.md",
+      "parentUuid": "523080cd_c758be23",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 51
+      },
+      "revId": "5a8b3294923ae23a970b65f9829e57c9a46b8c97",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

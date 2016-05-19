@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "b7e60e27_32e2d0b4",
+        "filename": "CONTRIBUTING",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011624
+      },
+      "writtenOn": "2016-05-19T15:36:59Z",
+      "side": 1,
+      "message": "Just recommend cloning with commit-msg hook?\n (taken from https://gerrit-review.googlesource.com/#/admin/projects/zoekt) :\ngit clone https://gerrit.googlesource.com/zoekt \u0026\u0026 (cd zoekt \u0026\u0026 curl -Lo `git rev-parse --git-dir`/hooks/commit-msg https://gerrit-review.googlesource.com/tools/hooks/commit-msg ; chmod +x `git rev-parse --git-dir`/hooks/commit-msg)",
+      "revId": "5a8b3294923ae23a970b65f9829e57c9a46b8c97",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "523080cd_c7e8bec9",
         "filename": "CONTRIBUTING",
         "patchSetId": 1
@@ -125,6 +142,30 @@
       "side": 1,
       "message": "it would be nice if this doc mentioned a live URL where this hook can be downloaded.",
       "parentUuid": "523080cd_a7e3caea",
+      "range": {
+        "startLine": 16,
+        "startChar": 51,
+        "endLine": 19,
+        "endChar": 78
+      },
+      "revId": "5a8b3294923ae23a970b65f9829e57c9a46b8c97",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7e60e27_52d554c4",
+        "filename": "CONTRIBUTING",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1011624
+      },
+      "writtenOn": "2016-05-19T15:36:59Z",
+      "side": 1,
+      "message": "See my comment above for the url.",
+      "parentUuid": "523080cd_a753ca04",
       "range": {
         "startLine": 16,
         "startChar": 51,

@@ -22,6 +22,30 @@
       "revId": "de9a228eefb733778ca2b7e3595c90b1285faf8d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcc06b17_addd9df3",
+        "filename": "cmd/zoekt-mirror-github/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-05-24T11:08:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcc06b17_cdcca979",
+      "range": {
+        "startLine": 34,
+        "startChar": 34,
+        "endLine": 34,
+        "endChar": 46
+      },
+      "revId": "de9a228eefb733778ca2b7e3595c90b1285faf8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

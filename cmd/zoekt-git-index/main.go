@@ -165,11 +165,6 @@ func findGitRepos(arg string) (map[string]string, error) {
 }
 
 func indexGitRepo(opts build.Options, branchPrefix string, branches []string, submodules bool) error {
-	builder, err := build.NewBuilder(opts)
-	if err != nil {
-		return err
-	}
-
 	repo, err := git.OpenRepository(opts.RepoDir)
 	if err != nil {
 		return err
@@ -180,6 +175,11 @@ func indexGitRepo(opts build.Options, branchPrefix string, branches []string, su
 		log.Printf("guessRepoURL(%s): %s", opts.RepoDir, err)
 	} else {
 		opts.RepoURL = url
+	}
+
+	builder, err := build.NewBuilder(opts)
+	if err != nil {
+		return err
 	}
 
 	// name => branch

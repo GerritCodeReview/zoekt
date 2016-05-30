@@ -1,0 +1,9 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/zoekt-app.html",
+  "fragments": [
+    "src/page-home.html",
+    "src/page-noResults.html",
+    "src/page-searchResults.html"
+  ]
+}

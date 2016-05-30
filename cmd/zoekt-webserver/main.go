@@ -29,6 +29,9 @@ import (
 	"github.com/google/zoekt"
 	"github.com/google/zoekt/build"
 	"github.com/google/zoekt/query"
+	"encoding/json"
+	"os"
+	"bufio"
 )
 
 var funcmap = template.FuncMap{
@@ -84,6 +87,147 @@ func (s *httpServer) serveSearch(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func (s *httpServer) serveAPI(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	qvals := r.URL.Query()
+	queryStr := qvals.Get("q")
+	if queryStr == "" {
+		return// fmt.Errorf("no query found")
+	}
+
+	log.Printf("got query %q", queryStr)
+	q, err := query.Parse(queryStr)
+	if err != nil {
+		return// err
+	}
+
+	numStr := qvals.Get("num")
+
+	num, err := strconv.Atoi(numStr)
+	if err != nil {
+		num = 50
+	}
+
+	num = 1000
+
+	sOpts := zoekt.SearchOptions{}
+
+	result, err := s.searcher.Search(q, &sOpts)
+	if err != nil {
+		return// err
+	}
+
+	res := ResultsPage{
+		LastQuery: queryStr,
+		Stats:     result.Stats,
+		Query:     q.String(),
+		QueryStr:  queryStr,
+	}
+
+	//res := ResultsPage{
+	//	LastQuery: queryStr,
+	//	Stats:     result.Stats,
+	//	Query:     q.String(),
+	//	QueryStr:  queryStr,
+	//}
+	//
+	if len(result.Files) > num {
+		result.Files = result.Files[:num]
+	}
+
+
+
+
+	for _, f := range result.Files {
+		fMatch := FileMatchData{
+			FileName: f.Name,
+			Repo:     f.Repo,
+			Branches: f.Branches,
+		}
+
+		for _, m := range f.Matches {
+			l := m.LineOff
+			e := l + m.MatchLength
+			if e > len(m.Line) {
+				e = len(m.Line)
+				log.Printf("%s %#v", f.Name, m)
+			}
+
+			// Load file dirty and slow
+			file, _ := os.Open("/usr/local/google/home/hiesel/gerrit-index/" + f.Name)
+			defer file.Close()
+
+
+			var snippet string
+			scanner := bufio.NewScanner(file)
+			offset := l
+			i := 1
+			for scanner.Scan() {
+				if (i > m.LineNum - 2 && i < m.LineNum + 5) {
+					snippet = snippet + "\n" + scanner.Text()
+				}
+				if (i<m.LineNum) {
+					offset = offset + len(scanner.Text())
+				}
+				i = i + 1
+			}
+
+			if (len(snippet) > 2) {
+				snippet = snippet[1:]
+			}
+
+			fMatch.Matches = append(fMatch.Matches, MatchData{
+				FileName:  f.Name,
+				LineNum:   m.LineNum,
+				Offset:    offset,
+				MatchRanges: []string{strconv.Itoa(offset) + ":" + strconv.Itoa(offset+len(m.Line[l:e]))},
+				Snippet:snippet,
+				//Pre:       string(m.Line[:l]),
+				//MatchText: string(m.Line[l:e]),
+				//Post:      string(m.Line[e:]),
+			})
+		}
+		res.FileMatches = append(res.FileMatches, fMatch)
+	}
+
+	json.NewEncoder(w).Encode(res.FileMatches)
+
+	//
+	//var buf bytes.Buffer
+	//if err := resultTemplate.Execute(&buf, res); err != nil {
+	//	return err
+	//}
+	//
+	//w.Write(buf.Bytes())
+	//return nil
+	//
+	//
+
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//err := s.serveSearchErr(w, r)
+	//
+	//if suggest, ok := err.(*query.SuggestQueryError); ok {
+	//	var buf bytes.Buffer
+	//	if err := didYouMeanTemplate.Execute(&buf, suggest); err != nil {
+	//		http.Error(w, err.Error(), http.StatusTeapot)
+	//	}
+	//
+	//	w.Write(buf.Bytes())
+	//	return
+	//}
+	//
+	//if err != nil {
+	//	http.Error(w, err.Error(), http.StatusTeapot)
+	//}
+}
+
 func (s *httpServer) servePrint(w http.ResponseWriter, r *http.Request) {
 	err := s.servePrintErr(w, r)
 	if err != nil {
@@ -115,7 +259,7 @@ dt {
 <div style="display: flex; justify-content: space-around; flex-direction: row;">
 
 <div>
-  Search examples:
+  Examples:
   <div style="margin-left: 4em;">
   <dl>
     <dt>needle</dt><dd>search for "needle"
@@ -138,26 +282,23 @@ dt {
     <dt>foo.*bar</dt><dd>search for the regular expression "foo.*bar"</dd>
     <dt>-(Path File) Stream</dt><dd>search "Stream", but exclude files containing both "Path" and "File"</dd>
     <dt>-Path\ File Stream</dt><dd>search "Stream", but exclude files containing "Path File"</dd>
-    <dt>phone repo:droid</dt><dd>search for "phone" in repositories whose name contains "droid"</dd>
-    <dt>phone r:droid</dt><dd>search for "phone" to repositories whose name contains "droid"</dd>
-    <dt>r:droid</dt><dd>list repositories whose name contains "droid"</dd>
-    <dt>phone branch:aster</dt><dd>for Git repos, find "phone" in files in branches whose name contains "aster".</dd>
+    <dt>repo:droid</dt><dd>restrict to repositories whose name contains "droid"</dd>
+    <dt>r:droid</dt><dd>restrict to repositories whose name contains "droid"</dd>
+    <dt>branch:aster</dt><dd>for Git repos, only look for files in branches whose name contains "aster".</dd>
   </dl>
   </div>
 </div>
 
 <div>
 <p>
-Used {{HumanUnit .Stats.IndexBytes}} memory for {{HumanUnit .Stats.ContentBytes}} indexed data from {{len .Stats.Repos}} repositories.
-
+Used {{HumanUnit .Stats.IndexBytes}} memory for {{HumanUnit .Stats.ContentBytes}} indexed data in these repos:
+</p>
 <p>
-To list repositories, try:
-  <div style="margin-left: 4em;">
-  <dl>
-    <dt>r:droid</dt><dd>list repositories whose name contains "droid".</dd>
-    <dt>r:go -r:google</dt><dd>list repositories whose name contains "go" but not "google".</dd>
-  </dl>
-  </div>
+<ul>
+{{range .Stats.Repos}}
+  <li>{{.}}</li>
+{{end}}
+</ul>
 </p>
 </div>
 </body>
@@ -222,6 +363,9 @@ type MatchData struct {
 	MatchText string
 	Post      string
 	LineNum   int
+	Offset    int
+	Snippet   string
+	MatchRanges []string
 }
 
 type ResultsPage struct {
@@ -270,15 +414,6 @@ func (s *httpServer) serveSearchErr(w http.ResponseWriter, r *http.Request) erro
 	q, err := query.Parse(queryStr)
 	if err != nil {
 		return err
-	}
-
-	repoOnly := true
-	query.VisitAtoms(q, func(q query.Q) {
-		_, ok := q.(*query.Repo)
-		repoOnly = repoOnly && ok
-	})
-	if repoOnly {
-		return s.serveListReposErr(q, queryStr, w, r)
 	}
 
 	numStr := qvals.Get("num")
@@ -368,51 +503,6 @@ func (s *httpServer) serveSearchErr(w http.ResponseWriter, r *http.Request) erro
 	return nil
 }
 
-var repoListTemplate = template.Must(template.New("repolist").Funcs(funcmap).Parse(`<html>
-  <head>
-    <title>Repo search result for {{.LastQuery}}</title>
-  </head>
-<body>` + searchBox +
-	`  <hr>
-  Found {{.RepoCount}} repositories:
-  <p>
-  {{range .Repo}}
-    <li><tt>{{.}}</tt></li>
-  {{end}}
-  </ul>
-</body>
-</html>
-`))
-
-func (s *httpServer) serveListReposErr(q query.Q, qStr string, w http.ResponseWriter, r *http.Request) error {
-	repos, err := s.searcher.List(q)
-	if err != nil {
-		return err
-	}
-
-	type resultData struct {
-		LastQuery string
-		QueryStr  string
-		RepoCount int
-		Repo      []string
-	}
-
-	res := resultData{
-		LastQuery: qStr,
-		QueryStr:  qStr,
-		RepoCount: len(repos.Repos),
-		Repo:      repos.Repos,
-	}
-
-	var buf bytes.Buffer
-	if err := repoListTemplate.Execute(&buf, res); err != nil {
-		return err
-	}
-
-	w.Write(buf.Bytes())
-	return nil
-}
-
 var printTemplate = template.Must(template.New("print").Parse(`
   <head>
     <title>{{.Repo}}:{{.Name}}</title>
@@ -479,6 +569,7 @@ func main() {
 	listen := flag.String("listen", ":6070", "address to listen on.")
 	index := flag.String("index", build.DefaultDir, "index file glob to use")
 	print := flag.Bool("print", false, "local result URLs")
+	frontend := flag.String("frontend", build.DefaultDir + "zoekt-frontend", "path to frontend")
 	flag.Parse()
 
 	searcher, err := zoekt.NewShardedSearcher(*index)
@@ -492,7 +583,10 @@ func main() {
 	}
 
 	http.HandleFunc("/search", serv.serveSearch)
-	http.HandleFunc("/", serv.serveSearchBox)
+	http.HandleFunc("/api", serv.serveAPI)
+	http.Handle("/", http.FileServer(http.Dir(*frontend)))
+
+
 	if *print {
 		http.HandleFunc("/print", serv.servePrint)
 	}

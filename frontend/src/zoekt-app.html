@@ -1,0 +1,146 @@
+<!--
+Copyright 2016 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import"
+      href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import"
+      href="../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import"
+      href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import"
+      href="../bower_components/app-layout/app-header/app-header.html">
+<link rel="import"
+      href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import"
+      href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import"
+      href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../bower_components/paper-search/paper-search.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+
+
+<dom-module id="zoekt-app">
+
+    <template>
+        <style>
+            :host {
+                display: block;
+                --app-primary-color: #4285f4;
+                --app-secondary-color: black;
+            }
+        </style>
+
+        <app-location route="{{route}}"></app-location>
+        <app-route
+                route="{{route}}"
+                pattern="/:page"
+                data="{{routeData}}"
+                tail="{{subroute}}"></app-route>
+
+            <app-header-layout has-scrolling-region>
+
+                <app-header standard style="background-color: #26C6F9;">
+                    <app-toolbar>
+                        <paper-search-bar id="searchBar"
+                                          placeholder="Enter search term"
+                                          style="width: 100%">
+                        </paper-search-bar>
+                    </app-toolbar>
+                </app-header>
+
+                <iron-ajax id="searchAPI"
+                           url="/api"
+                           on-response="apiResponse"
+                           handleAs="json">
+                </iron-ajax>
+
+                <iron-pages id="pages"
+                            role="main"
+                            selected="[[page]]"
+                            default="home"
+                            attr-for-selected="name"
+                            style="margin-top:-4px;">
+                    <page-home name="home"></page-home>
+                    <page-searchResults id="searchResultsPage"
+                                        name="searchResults"></page-searchResults>
+                    <my-view3 name="noResults"></my-view3>
+                </iron-pages>
+
+            </app-header-layout>
+
+    </template>
+
+    <script>
+
+        Polymer({
+
+            is: 'zoekt-app',
+
+            properties: {
+
+                page: {
+                    type: String,
+                    reflectToAttribute: true,
+                    observer: '_pageChanged'
+                },
+
+            },
+
+            observers: [
+                '_routePageChanged(routeData.page)'
+            ],
+
+            _routePageChanged: function (page) {
+                this.page = page || 'home';
+            },
+
+            _pageChanged: function (page) {
+                // load page import on demand.
+                this.importHref(
+                        this.resolveUrl('page-' + page + '.html'), null, null,
+                        true);
+            },
+            listeners: {
+                'paper-search-search': 'search',
+            },
+
+            search: function (e) {
+                this.page = 'searchResults';
+
+                var query = this.$.searchBar.query;
+                console.log(query);
+                var search = this.$.searchAPI;
+                search.params = {"q": query};
+                search.generateRequest();
+            },
+
+            apiResponse: function (request) {
+                if (request.detail.response != null
+                        && request.detail.response.length > 0) {
+                    this.$.searchResultsPage.searchResults = request.detail.response;
+                } else {
+                    this.page = 'home';
+                }
+            }
+        });
+
+    </script>
+
+</dom-module>

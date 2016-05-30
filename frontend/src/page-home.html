@@ -1,0 +1,128 @@
+<!--
+Copyright 2016 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="page-home">
+
+  <template>
+
+    <style>
+      :host {
+        display: block;
+        padding: 10px;
+      }
+      .card {
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        margin: 24px;
+        border-radius: 5px;
+        background-color: #fff;
+        color: #757575;
+        overflow: scroll;
+      }
+      h1 {
+        font-size: 22px;
+        margin: 16px 0;
+        color: #212121;
+      }
+      pre {
+        margin: 0;
+        line-height: 1.2;
+      }
+    </style>
+
+    <div class="card">
+      <h1 style="font-weight: lighter; text-align: center; margin: 0; font-size: 34px">Zoekt</h1>
+      <pre style="font-weight: bold;">needle</pre>
+      <pre>
+      search for "needle"
+      </pre>
+      <pre style="font-weight: bold;">class needle</pre>
+      <pre>
+      search for files containing both "class" and "needle"
+      </pre>
+      <pre style="font-weight: bold;">class Needle</pre>
+      <pre>
+      search for files containing both "class" and "Needle"
+      </pre>
+      <pre style="font-weight: bold;">class Needle case:yes</pre>
+      <pre>
+      search for files containing "class" and "Needle", both case sensitively
+      </pre>
+      <pre style="font-weight: bold;">"class Needle"</pre>
+      <pre>
+      search for files with the phrase "class Needle"
+      </pre>
+      <pre style="font-weight: bold;">needle -hay</pre>
+      <pre>
+      search for files with the word "needle" but not the word "hay"
+      </pre>
+      <pre style="font-weight: bold;">path file:java</pre>
+      <pre>
+      search for the word "path" in files whose name contains "java"
+      </pre>
+      <pre style="font-weight: bold;">f:\.c$</pre>
+      <pre>
+      search for files whose name ends with ".c"
+      </pre>
+      <pre style="font-weight: bold;">path -file:java</pre>
+      <pre>
+      search for the word "path" excluding files whose name contains "java"
+      </pre>
+      <pre style="font-weight: bold;">foo.*bar</pre>
+      <pre>
+      search for the regular expression "foo.*bar"
+      </pre>
+      <pre style="font-weight: bold;">-(Path File) Stream</pre>
+      <pre>
+      search "Stream", but exclude files containing both "Path" and "File"
+      </pre>
+
+      <pre style="font-weight: bold;">-Path\ File Stream</pre>
+      <pre>
+      search "Stream", but exclude files containing "Path File"
+      </pre>
+
+      <pre style="font-weight: bold;">repo:droid</pre>
+      <pre>
+      restrict to repositories whose name contains "droid"
+      </pre>
+
+      <pre style="font-weight: bold;">r:droid</pre>
+      <pre>
+      restrict to repositories whose name contains "droid"
+      </pre>
+
+      <pre style="font-weight: bold;">branch:stable</pre>
+      <pre>
+      for Git repos, only look for files in branches whose name contains "stable".
+      </pre>
+    </div>
+
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'page-home'
+
+    });
+
+  </script>
+
+</dom-module>

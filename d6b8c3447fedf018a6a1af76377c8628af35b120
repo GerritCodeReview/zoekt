@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6c1826e_9a976d4b",
+        "filename": "cmd/zoekt-mirror-github/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-06-03T13:47:36Z",
+      "side": 1,
+      "message": "whose?\nI\u0027d say:\nonly clone repos that contain the given substring\nor\nonly clone repos containing the given substring",
+      "revId": "d6b8c3447fedf018a6a1af76377c8628af35b120",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

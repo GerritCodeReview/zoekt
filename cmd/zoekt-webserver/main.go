@@ -516,7 +516,7 @@ func (s *httpServer) servePrintErr(w http.ResponseWriter, r *http.Request) error
 
 func main() {
 	listen := flag.String("listen", ":6070", "address to listen on.")
-	index := flag.String("index", build.DefaultDir, "index file glob to use")
+	index := flag.String("index", build.DefaultDir, "index directory to use")
 	print := flag.Bool("print", false, "local result URLs")
 	flag.Parse()
 

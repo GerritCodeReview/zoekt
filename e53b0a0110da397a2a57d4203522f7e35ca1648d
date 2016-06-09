@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf7a0caa_f497f84d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-06-09T08:33:18Z",
+      "side": 1,
+      "message": "Add some justification for this decision to the commit message?",
+      "revId": "e53b0a0110da397a2a57d4203522f7e35ca1648d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

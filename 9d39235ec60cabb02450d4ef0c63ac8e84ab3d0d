@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8fd2d4e5_728c7846",
+        "filename": "cmd/zoekt-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-06-09T11:29:43Z",
+      "side": 1,
+      "message": "you\u0027re it\u0027s a bit of a hack. I\u0027ll come up with something better.",
+      "parentUuid": "8f3654dd_f2360848",
+      "revId": "9d39235ec60cabb02450d4ef0c63ac8e84ab3d0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f3654dd_7223380b",
         "filename": "cmd/zoekt-server/main.go",
         "patchSetId": 1
@@ -89,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "8fd2d4e5_12916c5d",
+        "filename": "cmd/zoekt-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-06-09T11:29:43Z",
+      "side": 1,
+      "message": "we could do that, but it\u0027d only work for github. Gerrit doesn\u0027t have webhook support, AFAIK.",
+      "parentUuid": "8f3654dd_522834e5",
+      "revId": "9d39235ec60cabb02450d4ef0c63ac8e84ab3d0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f3654dd_1232ac55",
         "filename": "cmd/zoekt-server/main.go",
         "patchSetId": 1
@@ -100,6 +136,24 @@
       "writtenOn": "2016-06-09T07:09:34Z",
       "side": 1,
       "message": "Are we running this only on restart? Reading the flag\u0027s name made me think the logs are continuously pruned.",
+      "revId": "9d39235ec60cabb02450d4ef0c63ac8e84ab3d0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf7a0caa_94e9e4b6",
+        "filename": "cmd/zoekt-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-06-09T11:29:43Z",
+      "side": 1,
+      "message": "deleteLogs sits in a loop deleting old files.",
+      "parentUuid": "8f3654dd_1232ac55",
       "revId": "9d39235ec60cabb02450d4ef0c63ac8e84ab3d0d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false

@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf7a0caa_f4613825",
+        "filename": "api.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-06-09T13:53:16Z",
+      "side": 1,
+      "message": "I think this is a good move as having multiple matches for a single line and showing them in separately was very confusing for me at first.\n\nIn the future, I would even go one step further and cluster all matches within a file and return their ranges along with some smart snippet selection. This would be a good thing to do before implementing a search-as-you-type system and expose and API.",
+      "revId": "2cb9361c6bdaaf8b18771eb0c740dd5b46f23616",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6fd5a0ce_d1c8c458",
+        "filename": "cmd/zoekt-webserver/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-06-09T13:53:16Z",
+      "side": 1,
+      "message": "I think it would be cleaner to return the full line as string and an int interval for the range (possibly enriched by the individual match score). The webserver (or API client in the future) can then decide what to to with it.",
+      "revId": "2cb9361c6bdaaf8b18771eb0c740dd5b46f23616",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

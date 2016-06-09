@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cf7a0caa_745d2863",
+        "filename": "api.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-06-09T13:57:49Z",
+      "side": 1,
+      "message": "yeah, perhaps. Right now, it\u0027s not obvious how fancy to make the snippet display. In the end, people will probably want to click on the result, which takes them to github/gitiles anyway.",
+      "parentUuid": "cf7a0caa_f4613825",
+      "revId": "2cb9361c6bdaaf8b18771eb0c740dd5b46f23616",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6fd5a0ce_d1c8c458",
         "filename": "cmd/zoekt-webserver/main.go",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2016-06-09T13:53:16Z",
       "side": 1,
       "message": "I think it would be cleaner to return the full line as string and an int interval for the range (possibly enriched by the individual match score). The webserver (or API client in the future) can then decide what to to with it.",
+      "revId": "2cb9361c6bdaaf8b18771eb0c740dd5b46f23616",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf7a0caa_54582c74",
+        "filename": "cmd/zoekt-webserver/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-06-09T13:57:49Z",
+      "side": 1,
+      "message": "this structure here is so we can build the HTML output using templates. If we send ints, the client has to run JS to make sense of it, which makes things more complicated.\n\nFor a JS API, that may make sense, but we don\u0027t have that yet.",
+      "parentUuid": "6fd5a0ce_d1c8c458",
       "revId": "2cb9361c6bdaaf8b18771eb0c740dd5b46f23616",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false

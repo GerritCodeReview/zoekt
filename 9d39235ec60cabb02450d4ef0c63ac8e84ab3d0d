@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f3654dd_f2360848",
+        "filename": "cmd/zoekt-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-06-09T07:09:34Z",
+      "side": 1,
+      "message": "Hm, this seems like a harsh thing to do for the sole purpose of pruning the logs. A webserver should be able to run for a long period of time without a restart if nothing unexpected happens.",
+      "revId": "9d39235ec60cabb02450d4ef0c63ac8e84ab3d0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f3654dd_7223380b",
+        "filename": "cmd/zoekt-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-06-09T07:09:34Z",
+      "side": 1,
+      "message": "why would we want to restart the webserver on a schedule?",
+      "revId": "9d39235ec60cabb02450d4ef0c63ac8e84ab3d0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f3654dd_522834e5",
+        "filename": "cmd/zoekt-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-06-09T07:09:34Z",
+      "side": 1,
+      "message": "on a site note, this would be a great application for web hooks, switching out the pull for a push approach. I was thinking about implementing that at the september hackathon, depending on what the general interest in this is.",
+      "revId": "9d39235ec60cabb02450d4ef0c63ac8e84ab3d0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f3654dd_1232ac55",
+        "filename": "cmd/zoekt-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-06-09T07:09:34Z",
+      "side": 1,
+      "message": "Are we running this only on restart? Reading the flag\u0027s name made me think the logs are continuously pruned.",
+      "revId": "9d39235ec60cabb02450d4ef0c63ac8e84ab3d0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

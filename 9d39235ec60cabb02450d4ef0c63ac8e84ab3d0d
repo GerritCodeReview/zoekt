@@ -125,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "6fd5a0ce_5187f422",
+        "filename": "cmd/zoekt-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-06-09T11:32:17Z",
+      "side": 1,
+      "message": "yes, that was my side note: one thing we could add to gerrit at the hackathon.",
+      "parentUuid": "8fd2d4e5_12916c5d",
+      "revId": "9d39235ec60cabb02450d4ef0c63ac8e84ab3d0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f3654dd_1232ac55",
         "filename": "cmd/zoekt-server/main.go",
         "patchSetId": 1
@@ -154,6 +172,24 @@
       "side": 1,
       "message": "deleteLogs sits in a loop deleting old files.",
       "parentUuid": "8f3654dd_1232ac55",
+      "revId": "9d39235ec60cabb02450d4ef0c63ac8e84ab3d0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf7a0caa_34325056",
+        "filename": "cmd/zoekt-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-06-09T11:32:17Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "cf7a0caa_94e9e4b6",
       "revId": "9d39235ec60cabb02450d4ef0c63ac8e84ab3d0d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false

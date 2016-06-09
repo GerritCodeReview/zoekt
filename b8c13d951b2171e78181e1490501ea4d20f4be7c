@@ -16,6 +16,24 @@
       "revId": "b8c13d951b2171e78181e1490501ea4d20f4be7c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4fdc5cfd_3096e856",
+        "filename": "cmd/zoekt-webserver/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-06-09T14:31:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fd5a0ce_11f64c9b",
+      "revId": "b8c13d951b2171e78181e1490501ea4d20f4be7c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

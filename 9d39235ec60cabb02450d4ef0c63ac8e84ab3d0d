@@ -53,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "8f3654dd_b2176096",
+        "filename": "cmd/zoekt-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-06-09T08:32:09Z",
+      "side": 1,
+      "message": "I think that the code search topic is a good candidate for the september hackathon :-)",
+      "parentUuid": "8f3654dd_522834e5",
+      "revId": "9d39235ec60cabb02450d4ef0c63ac8e84ab3d0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f3654dd_1232ac55",
         "filename": "cmd/zoekt-server/main.go",
         "patchSetId": 1

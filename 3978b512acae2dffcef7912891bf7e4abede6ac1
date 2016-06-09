@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f3654dd_f21de8b9",
+        "filename": "git/git.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-06-09T08:32:18Z",
+      "side": 1,
+      "message": "missing license header",
+      "revId": "3978b512acae2dffcef7912891bf7e4abede6ac1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

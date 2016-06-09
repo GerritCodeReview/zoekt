@@ -69,6 +69,24 @@
       "revId": "2cb9361c6bdaaf8b18771eb0c740dd5b46f23616",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4fdc5cfd_10df2415",
+        "filename": "cmd/zoekt-webserver/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-06-09T16:05:28Z",
+      "side": 1,
+      "message": "Ok, we can refactor it if we want a REST API",
+      "parentUuid": "cf7a0caa_54582c74",
+      "revId": "2cb9361c6bdaaf8b18771eb0c740dd5b46f23616",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

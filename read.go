@@ -152,7 +152,9 @@ func (r *reader) readIndexData(toc *indexTOC) (*indexData, error) {
 	if err := json.Unmarshal(blob, &d.unaryData); err != nil {
 		return nil, err
 	}
-
+	if d.unaryData.IndexFormatVersion != IndexFormatVersion {
+		return nil, fmt.Errorf("file is v%d, want v%d", d.unaryData.IndexFormatVersion, IndexFormatVersion)
+	}
 	nameNgramText, err := d.readSectionBlob(toc.nameNgramText)
 	if err != nil {
 		return nil, err

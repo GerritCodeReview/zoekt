@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c9584ce8_e40c9a91",
+        "filename": "shards.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-06-21T07:00:38Z",
+      "side": 1,
+      "message": "enough",
+      "range": {
+        "startLine": 272,
+        "startChar": 16,
+        "endLine": 272,
+        "endChar": 22
+      },
+      "revId": "5c71a82ac431854ae2f017135bf6c0c05c309e91",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

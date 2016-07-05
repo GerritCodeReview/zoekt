@@ -22,6 +22,30 @@
       "revId": "d6e69e3f74026a05b25ee05a17da46ee21569d2e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ddfd6ec1_a54c3e63",
+        "filename": "cmd/zoekt-index/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-07-05T14:55:17Z",
+      "side": 1,
+      "message": "good point. .gitignore seems overkill, but a flag seems like a good middle ground.",
+      "parentUuid": "3d092ab0_c82aaf84",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 29
+      },
+      "revId": "d6e69e3f74026a05b25ee05a17da46ee21569d2e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d092ab0_c82aaf84",
+        "filename": "cmd/zoekt-index/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-07-05T14:51:24Z",
+      "side": 1,
+      "message": "Should we make this configurable in a similar manner as .gitignore? (maybe in addition to these three this here)",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 29
+      },
+      "revId": "d6e69e3f74026a05b25ee05a17da46ee21569d2e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

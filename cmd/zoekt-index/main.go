@@ -32,6 +32,14 @@ type fileAggregator struct {
 }
 
 func (a *fileAggregator) add(path string, info os.FileInfo, err error) error {
+	if info.IsDir() {
+		base := filepath.Base(path)
+		switch base {
+		case ".git", ".svn", ".hg":
+			return filepath.SkipDir
+		}
+	}
+
 	sz := info.Size()
 	if sz > a.sizeMax || !info.Mode().IsRegular() {
 		return nil

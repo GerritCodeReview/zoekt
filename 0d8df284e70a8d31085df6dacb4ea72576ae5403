@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d092ab0_2814ab42",
+        "filename": "cmd/zoekt-index/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-07-05T15:34:02Z",
+      "side": 1,
+      "message": "Is this tolerant to leading/trailing whitespace in the option value:\n\n  --ignore_dirs\u003d\".git, .hg\"\n\nor will this actually ignore \" .hg\" and index the \".hg\" folder?\n\nIn some Gerrit\u0027s SSH commands we use a different approach for options which support multiple values:\n\n  --ignore_dir\u003d.git --ignore_dir\u003d.hg ...\n\nThe args4j collects all values into a single list.",
+      "revId": "0d8df284e70a8d31085df6dacb4ea72576ae5403",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

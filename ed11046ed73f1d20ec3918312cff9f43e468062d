@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ddfd6ec1_e5aeb6b0",
+        "filename": "cmd/zoekt-index/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-07-06T12:34:39Z",
+      "side": 1,
+      "message": "can this be inlined?",
+      "range": {
+        "startLine": 82,
+        "startChar": 20,
+        "endLine": 82,
+        "endChar": 24
+      },
+      "revId": "ed11046ed73f1d20ec3918312cff9f43e468062d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

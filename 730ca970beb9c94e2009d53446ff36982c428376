@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd47da3d_ec8f6b3c",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-07-07T06:34:10Z",
+      "side": 1,
+      "message": "Just call this \u0027webserver\u0027?\n\nStarting an interface (opening ports and listening to incoming connections) would not do much on it\u0027s own I think. The term webserver is more broad and also includes serving content over the open port.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 19
+      },
+      "revId": "730ca970beb9c94e2009d53446ff36982c428376",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd47da3d_8c80a711",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-07-07T06:34:10Z",
+      "side": 1,
+      "message": "Maybe add a note/link on how to install those?",
+      "range": {
+        "startLine": 64,
+        "startChar": 10,
+        "endLine": 64,
+        "endChar": 66
+      },
+      "revId": "730ca970beb9c94e2009d53446ff36982c428376",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

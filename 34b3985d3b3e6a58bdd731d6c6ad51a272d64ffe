@@ -83,6 +83,30 @@
     },
     {
       "key": {
+        "uuid": "9d6db6b6_73e500d4",
+        "filename": "git/git.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-07-07T10:19:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd47da3d_0cc7574d",
+      "range": {
+        "startLine": 115,
+        "startChar": 4,
+        "endLine": 115,
+        "endChar": 20
+      },
+      "revId": "34b3985d3b3e6a58bdd731d6c6ad51a272d64ffe",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd47da3d_ece12bd6",
         "filename": "git/git.go",
         "patchSetId": 1
@@ -94,6 +118,30 @@
       "writtenOn": "2016-07-07T09:41:08Z",
       "side": 1,
       "message": "This example does not work for me. Also buck might go away, so I would use something more generic: https://gerrit.googlesource.com/gitiles/+/master/tools/run_dev.sh#20",
+      "range": {
+        "startLine": 116,
+        "startChar": 10,
+        "endLine": 116,
+        "endChar": 73
+      },
+      "revId": "34b3985d3b3e6a58bdd731d6c6ad51a272d64ffe",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd47da3d_ecf84b82",
+        "filename": "git/git.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-07-07T10:19:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd47da3d_ece12bd6",
       "range": {
         "startLine": 116,
         "startChar": 10,
@@ -129,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "bd47da3d_0cee77bd",
+        "filename": "git/git.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-07-07T10:19:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd47da3d_2cc41346",
+      "range": {
+        "startLine": 118,
+        "startChar": 11,
+        "endLine": 118,
+        "endChar": 27
+      },
+      "revId": "34b3985d3b3e6a58bdd731d6c6ad51a272d64ffe",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd47da3d_ccdc6f23",
         "filename": "git/git.go",
         "patchSetId": 1
@@ -140,6 +212,30 @@
       "writtenOn": "2016-07-07T09:41:08Z",
       "side": 1,
       "message": "This demo file only has 11 LOC, so choose this in [1,11]",
+      "range": {
+        "startLine": 127,
+        "startChar": 67,
+        "endLine": 127,
+        "endChar": 72
+      },
+      "revId": "34b3985d3b3e6a58bdd731d6c6ad51a272d64ffe",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d6db6b6_93245c11",
+        "filename": "git/git.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-07-07T10:19:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd47da3d_ccdc6f23",
       "range": {
         "startLine": 127,
         "startChar": 67,

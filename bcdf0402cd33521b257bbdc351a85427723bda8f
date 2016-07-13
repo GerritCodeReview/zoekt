@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fad95870_8ea27b11",
+        "filename": "web/server.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-07-13T13:27:32Z",
+      "side": 1,
+      "message": "the default signature for serving functions in net/http is to write an error status into w and then return (see serveSearch above.)\n\nby having error return, we can continue to use the standard error return pattern of Go.",
+      "parentUuid": "dad49439_cdeac913",
+      "range": {
+        "startLine": 88,
+        "startChar": 28,
+        "endLine": 88,
+        "endChar": 31
+      },
+      "revId": "bcdf0402cd33521b257bbdc351a85427723bda8f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fad95870_0e568be4",
         "filename": "web/server.go",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2016-07-13T13:12:55Z",
       "side": 1,
       "message": "I would suggest having these templates in a /template/default folder as text files and just loading them here.\n\nTemplates should be configurable without changing any code. Best practice would be to have a folder structure like this\n\n/templates/default\n/templates/blue\n/templates/fancy\n\nWhere blue/fancy etc are theme/template set names. This way users can easily adapt the zoekt frontend to their needs without knowing Go.\n\nTake the template set name as a flag then and use the default template if a specific template (e.g. print) is not available in the provided folder.",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "bcdf0402cd33521b257bbdc351a85427723bda8f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fad95870_ae9d37d5",
+        "filename": "web/templates.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-07-13T13:27:32Z",
+      "side": 1,
+      "message": "People can do what you suggest by building their own main function that watches a directory and (re)loads template files as necessary; that is precisely one objective of this change.\n\nIt seems a little overengineered right now to cater for this non-existent community of developers that want Zoekt but don\u0027t know Go.",
+      "parentUuid": "dad49439_adef7d21",
       "range": {
         "startLine": 19,
         "startChar": 4,

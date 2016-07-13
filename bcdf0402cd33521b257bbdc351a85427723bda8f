@@ -140,6 +140,30 @@
       "revId": "bcdf0402cd33521b257bbdc351a85427723bda8f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dad49439_adc89db6",
+        "filename": "web/templates.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-07-13T15:26:22Z",
+      "side": 1,
+      "message": "Yes, for iterative development you would write out the files to disk and work on the templates, and then apply the final changes to these files.\n\nWe could explode the templates so there is less manipulation here, but then you would have to duplicate the searchBox definition, for example, which also isn\u0027t ideal.\n\nI don\u0027t want to put the default templates into separate files because that makes deployment harder.",
+      "parentUuid": "dad49439_cdd3e969",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "bcdf0402cd33521b257bbdc351a85427723bda8f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

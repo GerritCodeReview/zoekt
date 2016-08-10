@@ -56,16 +56,12 @@ type regexpMatchTree struct {
 	query  *query.Regexp
 	regexp *regexp.Regexp
 
-	// If non-nil, must evaluate this on the final content too.
-	caseRegexp *regexp.Regexp
-
 	child    matchTree
 	fileName bool
 
 	// mutable
-	reEvaluated   bool
-	caseEvaluated bool
-	found         []*candidateMatch
+	reEvaluated bool
+	found       []*candidateMatch
 }
 
 type substrMatchTree struct {
@@ -76,7 +72,6 @@ type substrMatchTree struct {
 
 	// mutable
 	current       []*candidateMatch
-	caseEvaluated bool
 	contEvaluated bool
 }
 
@@ -98,7 +93,6 @@ func (t *andMatchTree) prepare(doc uint32) {
 func (t *regexpMatchTree) prepare(doc uint32) {
 	t.found = t.found[:0]
 	t.reEvaluated = false
-	t.caseEvaluated = t.caseRegexp == nil
 	t.child.prepare(doc)
 }
 
@@ -123,7 +117,6 @@ func (t *substrMatchTree) prepare(nextDoc uint32) {
 	t.current = t.cands[:i]
 	t.cands = t.cands[i:]
 	t.contEvaluated = false
-	t.caseEvaluated = false
 }
 
 func (t *branchQueryMatchTree) prepare(doc uint32) {
@@ -273,23 +266,6 @@ func (p *contentProvider) evalRegexpMatches(s *regexpMatchTree) {
 	s.reEvaluated = true
 }
 
-func (p *contentProvider) evalRegexpMatchesCase(s *regexpMatchTree) {
-	if s.caseEvaluated {
-		return
-	}
-
-	trimmed := s.found[:0]
-
-	for _, c := range s.found {
-		orig := p.data(s.fileName)
-		if s.caseRegexp.Match(orig) {
-			trimmed = append(trimmed, c)
-		}
-	}
-	s.found = trimmed
-	s.caseEvaluated = true
-}
-
 func (t *andMatchTree) matches(known map[matchTree]bool) (bool, bool) {
 	sure := true
 
@@ -332,7 +308,7 @@ func (t *regexpMatchTree) matches(known map[matchTree]bool) (bool, bool) {
 		return false, true
 	}
 
-	if !t.reEvaluated || !t.caseEvaluated {
+	if !t.reEvaluated {
 		return false, false
 	}
 
@@ -362,7 +338,7 @@ func (t *substrMatchTree) matches(known map[matchTree]bool) (bool, bool) {
 		return false, true
 	}
 
-	sure := (!t.caseSensitive || t.caseEvaluated) && (t.coversContent || t.contEvaluated)
+	sure := (t.coversContent || t.contEvaluated)
 	return true, sure
 }
 
@@ -390,9 +366,6 @@ func (d *indexData) newMatchTree(q query.Q, sq map[*substrMatchTree]struct{}) (m
 			regexp:   regexp.MustCompile(query.LowerRegexp(s.Regexp).String()),
 			child:    subMT,
 			fileName: s.FileName,
-		}
-		if s.CaseSensitive {
-			tr.caseRegexp = regexp.MustCompile(s.Regexp.String())
 		}
 		return tr, nil
 	case *query.And:
@@ -576,7 +549,9 @@ nextFileMatch:
 
 		// Files are cheap to match. Do them first.
 		if len(fileAtoms) > 0 {
+			log.Println("FA")
 			for _, st := range fileAtoms {
+				log.Println("there")
 				cp.evalContentMatches(st)
 			}
 			if v, ok := evalMatchTree(known, mt); ok && !v {
@@ -596,14 +571,6 @@ nextFileMatch:
 
 			for _, re := range regexpAtoms {
 				cp.evalRegexpMatches(re)
-			}
-
-			if v, ok := evalMatchTree(known, mt); ok && !v {
-				continue nextFileMatch
-			}
-
-			for _, re := range regexpAtoms {
-				cp.evalRegexpMatchesCase(re)
 			}
 		}
 

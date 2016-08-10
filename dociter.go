@@ -52,7 +52,12 @@ func (m *candidateMatch) matchContentCaseFolding(content []byte) bool {
 }
 
 func (m *candidateMatch) matchContent(content []byte) bool {
-	return bytes.Compare(content[m.offset:m.offset+uint32(m.matchSz)], m.substrLowered) == 0
+	if m.caseSensitive {
+		comp := bytes.Compare(content[m.offset:m.offset+uint32(m.matchSz)], m.substrBytes) == 0
+		return comp
+	} else {
+		return m.matchContentCaseFolding(content)
+	}
 }
 
 func (m *candidateMatch) line(newlines []uint32, fileSize uint32) (lineNum, lineStart, lineEnd int) {

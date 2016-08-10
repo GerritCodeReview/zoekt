@@ -362,8 +362,14 @@ func (d *indexData) newMatchTree(q query.Q, sq map[*substrMatchTree]struct{}) (m
 		if err != nil {
 			return nil, err
 		}
+
+		prefix := ""
+		if !s.CaseSensitive {
+			prefix = "(?i)"
+		}
+
 		tr := &regexpMatchTree{
-			regexp:   regexp.MustCompile(query.LowerRegexp(s.Regexp).String()),
+			regexp:   regexp.MustCompile(prefix + s.Regexp.String()),
 			child:    subMT,
 			fileName: s.FileName,
 		}
@@ -549,9 +555,7 @@ nextFileMatch:
 
 		// Files are cheap to match. Do them first.
 		if len(fileAtoms) > 0 {
-			log.Println("FA")
 			for _, st := range fileAtoms {
-				log.Println("there")
 				cp.evalContentMatches(st)
 			}
 			if v, ok := evalMatchTree(known, mt); ok && !v {

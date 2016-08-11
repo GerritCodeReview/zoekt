@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99beaf35_43e2e6cb",
+        "filename": "dociter.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1027267
+      },
+      "writtenOn": "2016-08-11T16:29:49Z",
+      "side": 1,
+      "message": "Does this produce a lot of new allocs?",
+      "revId": "cffedf7ca337c43dd689a6d29d05b0fe4807f1d6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

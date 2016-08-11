@@ -42,21 +42,13 @@ func (m *candidateMatch) String() string {
 	return fmt.Sprintf("%d:%d", m.file, m.offset)
 }
 
-func (m *candidateMatch) matchContentCaseFolding(content []byte) bool {
-	if !m.caseSensitive {
-		return true
-	}
-
-	l := toLower(content[m.offset : m.offset+uint32(m.matchSz)])
-	return bytes.Compare(l, m.substrLowered) == 0
-}
-
 func (m *candidateMatch) matchContent(content []byte) bool {
 	if m.caseSensitive {
 		comp := bytes.Compare(content[m.offset:m.offset+uint32(m.matchSz)], m.substrBytes) == 0
 		return comp
 	} else {
-		return m.matchContentCaseFolding(content)
+		l := toLower(content[m.offset : m.offset+uint32(m.matchSz)])
+		return bytes.Compare(l, m.substrLowered) == 0
 	}
 }
 

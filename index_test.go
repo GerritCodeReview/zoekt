@@ -926,3 +926,18 @@ func TestImportantCutoff(t *testing.T) {
 		t.Errorf("got %v, wanted 1 match 'f1'", sres.Files)
 	}
 }
+
+func TestFrequency(t *testing.T) {
+	b := NewIndexBuilder()
+	content := []byte("sla _Py_HashDouble(double v sla las las shd dot dot")
+	// ----------------012345678901234
+	b.Add(Document{
+		Name:    "f1",
+		Content: content,
+	})
+
+	sres := searchForTest(t, b, &query.Substring{Pattern: "slashdot"})
+	if len(sres.Files) != 0 {
+		t.Errorf("got %v, wanted 0 matches", sres.Files)
+	}
+}

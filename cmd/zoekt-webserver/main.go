@@ -26,6 +26,8 @@ import (
 	"github.com/google/zoekt"
 	"github.com/google/zoekt/build"
 	"github.com/google/zoekt/web"
+
+	_ "net/http/pprof"
 )
 
 const logFormat = "2006-01-02T15-04-05.999999999Z07"
@@ -53,6 +55,10 @@ func divertLogs(dir string, interval time.Duration) {
 	}
 }
 
+func pprofDisabled(w http.ResponseWriter, r *http.Request) {
+	http.Error(w, "pprof disabled.", 403)
+}
+
 func main() {
 	logDir := flag.String("log_dir", "", "log to this directory rather than stderr.")
 	logRefresh := flag.Duration("log_refresh", 24*time.Hour, "if using --log_dir, start writing a new file this often.")
@@ -60,7 +66,7 @@ func main() {
 	listen := flag.String("listen", ":6070", "listen on this address.")
 	index := flag.String("index", build.DefaultDir, "set index directory to use")
 	print := flag.Bool("print", false, "enable local result URLs")
-
+	pprof := flag.Bool("pprof", false, "set to enable remote profiling.")
 	sslCert := flag.String("ssl_cert", "", "set path to SSL .pem holding certificate.")
 	sslKey := flag.String("ssl_key", "", "set path to SSL .pem holding key.")
 	flag.Parse()
@@ -91,6 +97,10 @@ func main() {
 	handler, err := web.NewMux(s)
 	if err != nil {
 		log.Fatal(err)
+	}
+
+	if !*pprof {
+		handler.HandleFunc("/debug/", pprofDisabled)
 	}
 
 	if *sslCert != "" || *sslKey != "" {

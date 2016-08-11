@@ -16,6 +16,24 @@
       "revId": "cffedf7ca337c43dd689a6d29d05b0fe4807f1d6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9eff7522_3b9c575a",
+        "filename": "dociter.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-08-11T16:52:35Z",
+      "side": 1,
+      "message": "yes. This code is also completely wrong now, since for case folding searches, it will exit in l.47 :-)",
+      "parentUuid": "99beaf35_43e2e6cb",
+      "revId": "cffedf7ca337c43dd689a6d29d05b0fe4807f1d6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

@@ -60,6 +60,24 @@
     },
     {
       "key": {
+        "uuid": "9eff7522_bbdd070d",
+        "filename": "index.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-08-11T17:18:24Z",
+      "side": 1,
+      "message": "yes hopefully. Fortunately 3 unicode codepoints just fit into an uint64, so it won\u0027t be too inefficient.",
+      "parentUuid": "39830389_80c95653",
+      "revId": "13db8a92c7452327c5baf916f8befc2dd47567c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39830389_c0fb5e78",
         "filename": "index.go",
         "patchSetId": 2
@@ -71,6 +89,30 @@
       "writtenOn": "2016-08-11T16:43:35Z",
       "side": 1,
       "message": "Name this constant, and derive 8 from it.",
+      "range": {
+        "startLine": 213,
+        "startChar": 15,
+        "endLine": 213,
+        "endChar": 16
+      },
+      "revId": "13db8a92c7452327c5baf916f8befc2dd47567c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9eff7522_9bda4b11",
+        "filename": "index.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-08-11T17:18:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39830389_c0fb5e78",
       "range": {
         "startLine": 213,
         "startChar": 15,

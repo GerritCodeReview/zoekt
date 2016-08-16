@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1bb717b7_e71742a3",
+        "filename": "cmd/zoekt-mirror-gitiles/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1027267
+      },
+      "writtenOn": "2016-08-16T16:07:13Z",
+      "side": 1,
+      "message": "Is this intentional or for debugging?",
+      "revId": "f7c32bb78ec33bdb01e343123120732b0f571be1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

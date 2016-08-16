@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7b5ad369_1a239d0f",
+        "filename": "build-deploy.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-08-16T16:58:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bc18f1c_a9383d35",
+      "revId": "1d6762c8d87bf0d4a0717b2e40dc41039783f8c6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1bb717b7_c71a3ecc",
         "filename": "build-deploy.sh",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "7b5ad369_7a28d9e7",
+        "filename": "build-deploy.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-08-16T16:58:30Z",
+      "side": 1,
+      "message": "no, it\u0027s should be set before running the server, so you it can find the other binaries.",
+      "parentUuid": "1bb717b7_c71a3ecc",
+      "revId": "1d6762c8d87bf0d4a0717b2e40dc41039783f8c6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bc18f1c_49074178",
         "filename": "build-deploy.sh",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2016-08-16T16:03:38Z",
       "side": 1,
       "message": "Are you guaranteed that VERSION will have a sensible value?",
+      "revId": "1d6762c8d87bf0d4a0717b2e40dc41039783f8c6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b5fcf58_7928e7e7",
+        "filename": "build-deploy.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-08-16T16:58:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bc18f1c_49074178",
       "revId": "1d6762c8d87bf0d4a0717b2e40dc41039783f8c6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false

@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "5b5fcf58_992e9bf0",
+        "filename": "build-deploy.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-08-16T17:08:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1bb717b7_07bcd67c",
+      "revId": "1d6762c8d87bf0d4a0717b2e40dc41039783f8c6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bc18f1c_49074178",
         "filename": "build-deploy.sh",
         "patchSetId": 1

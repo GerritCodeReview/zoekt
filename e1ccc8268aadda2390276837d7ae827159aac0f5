@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fbf243a6_8e991b19",
+        "filename": "cmd/zoekt-server/config.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1027267
+      },
+      "writtenOn": "2016-08-17T16:31:05Z",
+      "side": 1,
+      "message": "You should update last if err \u003d\u003d nil.",
+      "revId": "e1ccc8268aadda2390276837d7ae827159aac0f5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

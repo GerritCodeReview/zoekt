@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c80213f7_1cc075fb",
+        "filename": "index_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1027267
+      },
+      "writtenOn": "2016-08-22T17:19:33Z",
+      "side": 1,
+      "message": "0",
+      "range": {
+        "startLine": 78,
+        "startChar": 25,
+        "endLine": 78,
+        "endChar": 26
+      },
+      "revId": "ed51fe3a6e9fa7be1a13ad07710fbfc770f1b97f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

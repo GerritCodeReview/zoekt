@@ -120,8 +120,27 @@ type SearchResult struct {
 	LineFragments map[string]string
 }
 
+type RepositoryBranch struct {
+	Name    string
+	Version string
+}
+
+type Repository struct {
+	Name string
+	URL  string
+
+	// Name => verson
+	Branches []RepositoryBranch
+
+	// Timestamp of indexing
+	IndexTime time.Time
+
+	// URL template to link to the commit of a branch
+	CommitURLTemplate string
+}
+
 type RepoList struct {
-	Repos []string
+	Repos []*Repository
 }
 
 type Searcher interface {

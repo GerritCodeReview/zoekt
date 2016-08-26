@@ -71,7 +71,22 @@ type SearchBoxInput struct {
 type RepoListInput struct {
 	Last      LastInput
 	RepoCount int
-	Repo      []string
+	Repos     []Repository
+}
+
+// Data on a single branch.
+type Branch struct {
+	Name    string
+	Version string
+	URL     string
+}
+
+// Data on a single repository
+type Repository struct {
+	Name      string
+	URL       string
+	IndexTime time.Time
+	Branches  []Branch
 }
 
 // PrintInput is provided to the server.Print template.

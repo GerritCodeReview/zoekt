@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "2bec8e3b_5f03cb69",
+        "filename": "api.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-14T11:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "457a8ef7_48261f21",
+      "range": {
+        "startLine": 132,
+        "startChar": 4,
+        "endLine": 132,
+        "endChar": 18
+      },
+      "revId": "a4ee4b36205afe2f10086328798b840159c7df0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "457a8ef7_882f37f0",
         "filename": "git/git.go",
         "patchSetId": 1
@@ -53,6 +77,30 @@
       "writtenOn": "2016-08-29T18:57:35Z",
       "side": 1,
       "message": "getCommit",
+      "range": {
+        "startLine": 148,
+        "startChar": 3,
+        "endLine": 148,
+        "endChar": 10
+      },
+      "revId": "a4ee4b36205afe2f10086328798b840159c7df0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bec8e3b_bf62d73e",
+        "filename": "git/git.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-14T11:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "457a8ef7_882f37f0",
       "range": {
         "startLine": 148,
         "startChar": 3,
@@ -82,6 +130,24 @@
     },
     {
       "key": {
+        "uuid": "4be70257_8038562a",
+        "filename": "git/git.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-14T11:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85848625_2a739f17",
+      "revId": "a4ee4b36205afe2f10086328798b840159c7df0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85848625_4a78d3ef",
         "filename": "indexbuilder.go",
         "patchSetId": 1
@@ -93,6 +159,30 @@
       "writtenOn": "2016-08-29T18:57:35Z",
       "side": 1,
       "message": "Capitalize for consistency.",
+      "range": {
+        "startLine": 81,
+        "startChar": 4,
+        "endLine": 81,
+        "endChar": 5
+      },
+      "revId": "a4ee4b36205afe2f10086328798b840159c7df0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bec8e3b_df719b08",
+        "filename": "indexbuilder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-14T11:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85848625_4a78d3ef",
       "range": {
         "startLine": 81,
         "startChar": 4,
@@ -122,6 +212,24 @@
     },
     {
       "key": {
+        "uuid": "2bec8e3b_ff6c5f34",
+        "filename": "indexbuilder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-14T11:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "457a8ef7_a82cfbfb",
+      "revId": "a4ee4b36205afe2f10086328798b840159c7df0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85848625_6a7d97de",
         "filename": "indexbuilder.go",
         "patchSetId": 1
@@ -133,6 +241,24 @@
       "writtenOn": "2016-08-29T18:57:35Z",
       "side": 1,
       "message": "Add period.",
+      "revId": "a4ee4b36205afe2f10086328798b840159c7df0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bec8e3b_9f67134f",
+        "filename": "indexbuilder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-14T11:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85848625_6a7d97de",
       "revId": "a4ee4b36205afe2f10086328798b840159c7df0d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -156,6 +282,24 @@
     },
     {
       "key": {
+        "uuid": "2bec8e3b_3f57e757",
+        "filename": "indexbuilder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-14T11:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "457a8ef7_c8392f39",
+      "revId": "a4ee4b36205afe2f10086328798b840159c7df0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "457a8ef7_e836f347",
         "filename": "indexbuilder.go",
         "patchSetId": 1
@@ -167,6 +311,24 @@
       "writtenOn": "2016-08-29T18:57:35Z",
       "side": 1,
       "message": "I\u0027m not very familiar with the context. What happens if there are more than 32 branches?",
+      "revId": "a4ee4b36205afe2f10086328798b840159c7df0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bec8e3b_1f54a34f",
+        "filename": "indexbuilder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-14T11:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "457a8ef7_e836f347",
       "revId": "a4ee4b36205afe2f10086328798b840159c7df0d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -190,6 +352,24 @@
     },
     {
       "key": {
+        "uuid": "2bec8e3b_7f616f35",
+        "filename": "web/api.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-14T11:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85848625_aa5eaf7b",
+      "revId": "a4ee4b36205afe2f10086328798b840159c7df0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "457a8ef7_08050771",
         "filename": "web/api.go",
         "patchSetId": 1
@@ -201,6 +381,24 @@
       "writtenOn": "2016-08-29T18:57:35Z",
       "side": 1,
       "message": "Repository describes a repository, its branches, and when it was indexed.",
+      "revId": "a4ee4b36205afe2f10086328798b840159c7df0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4be70257_6035522e",
+        "filename": "web/api.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-14T11:39:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "457a8ef7_08050771",
       "revId": "a4ee4b36205afe2f10086328798b840159c7df0d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false

@@ -371,6 +371,24 @@
     },
     {
       "key": {
+        "uuid": "ab795e40_abcbc915",
+        "filename": "indexbuilder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1027267
+      },
+      "writtenOn": "2016-09-14T16:39:38Z",
+      "side": 1,
+      "message": "Ah, somehow I missed that, I must\u0027ve been looking at the wrong PS or something. Should you then be calling the public AddBranch and checking the err here?",
+      "parentUuid": "4be70257_60ef127b",
+      "revId": "a4ee4b36205afe2f10086328798b840159c7df0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85848625_aa5eaf7b",
         "filename": "web/api.go",
         "patchSetId": 1

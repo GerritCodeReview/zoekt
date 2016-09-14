@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "2bec8e3b_ffdd7fd1",
+        "filename": "shards.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-14T16:33:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab795e40_cbbc158d",
+      "revId": "49ce5a124a6c16f7fb45e0f70753cb32f88e3001",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb73565a_2d35ad2e",
         "filename": "shards.go",
         "patchSetId": 3
@@ -48,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "2bec8e3b_9fe8b379",
+        "filename": "shards.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-14T16:33:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb73565a_2d35ad2e",
+      "revId": "49ce5a124a6c16f7fb45e0f70753cb32f88e3001",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb73565a_cdbc298d",
         "filename": "shards.go",
         "patchSetId": 3
@@ -59,6 +95,24 @@
       "writtenOn": "2016-09-14T16:27:42Z",
       "side": 1,
       "message": "for i :\u003d range shards {",
+      "revId": "49ce5a124a6c16f7fb45e0f70753cb32f88e3001",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bec8e3b_bfe3f79b",
+        "filename": "shards.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-14T16:33:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb73565a_cdbc298d",
       "revId": "49ce5a124a6c16f7fb45e0f70753cb32f88e3001",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false

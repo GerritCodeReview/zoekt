@@ -389,6 +389,24 @@
     },
     {
       "key": {
+        "uuid": "2bec8e3b_1ff5c348",
+        "filename": "indexbuilder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-14T16:42:09Z",
+      "side": 1,
+      "message": "yeah, maybe. Normally, you set the branches up in advance, though, since the ordering (should) matter for ranking.",
+      "parentUuid": "ab795e40_abcbc915",
+      "revId": "a4ee4b36205afe2f10086328798b840159c7df0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85848625_aa5eaf7b",
         "filename": "web/api.go",
         "patchSetId": 1

@@ -335,6 +335,24 @@
     },
     {
       "key": {
+        "uuid": "eb73565a_6d3bb527",
+        "filename": "indexbuilder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1027267
+      },
+      "writtenOn": "2016-09-14T16:15:03Z",
+      "side": 1,
+      "message": "This didn\u0027t answer my question, but I can defer to your familiarity with the technical design. :)",
+      "parentUuid": "2bec8e3b_1f54a34f",
+      "revId": "a4ee4b36205afe2f10086328798b840159c7df0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85848625_aa5eaf7b",
         "filename": "web/api.go",
         "patchSetId": 1

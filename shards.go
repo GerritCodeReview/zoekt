@@ -34,7 +34,7 @@ type searchShard struct {
 	mtime time.Time
 }
 
-type shardedSearcher struct {
+type shardWatcher struct {
 	dir string
 
 	// Limit the number of parallel queries. Since searching is
@@ -72,7 +72,11 @@ func loadShard(fn string) (*searchShard, error) {
 	}, nil
 }
 
-func (s *shardedSearcher) scan() error {
+func (s *shardWatcher) String() string {
+	return fmt.Sprintf("shardedSearcher(%s)", s.dir)
+}
+
+func (s *shardWatcher) scan() error {
 	fs, err := filepath.Glob(filepath.Join(s.dir, "*.zoekt"))
 	if err != nil {
 		return err
@@ -127,7 +131,25 @@ func (s *shardedSearcher) scan() error {
 	return nil
 }
 
-func (s *shardedSearcher) lock() {
+func (s *shardWatcher) rlock() {
+	s.throttle <- struct{}{}
+}
+
+// getShards returns the currently loaded shards. The shards must be
+// accessed under a rlock call.
+func (s *shardWatcher) getShards() []Searcher {
+	var res []Searcher
+	for _, sh := range s.shards {
+		res = append(res, sh)
+	}
+	return res
+}
+
+func (s *shardWatcher) runlock() {
+	<-s.throttle
+}
+
+func (s *shardWatcher) lock() {
 	n := cap(s.throttle)
 	for n > 0 {
 		s.throttle <- struct{}{}
@@ -135,7 +157,7 @@ func (s *shardedSearcher) lock() {
 	}
 }
 
-func (s *shardedSearcher) unlock() {
+func (s *shardWatcher) unlock() {
 	n := cap(s.throttle)
 	for n > 0 {
 		<-s.throttle
@@ -143,7 +165,7 @@ func (s *shardedSearcher) unlock() {
 	}
 }
 
-func (s *shardedSearcher) replace(key string, shard *searchShard) {
+func (s *shardWatcher) replace(key string, shard *searchShard) {
 	s.lock()
 	defer s.unlock()
 	old := s.shards[key]
@@ -157,7 +179,7 @@ func (s *shardedSearcher) replace(key string, shard *searchShard) {
 	}
 }
 
-func (s *shardedSearcher) watch() error {
+func (s *shardWatcher) watch() error {
 	watcher, err := fsnotify.NewWatcher()
 	if err != nil {
 		return err
@@ -187,7 +209,7 @@ func (s *shardedSearcher) watch() error {
 // NewShardedSearcher returns a searcher instance that loads all
 // shards corresponding to a glob into memory.
 func NewShardedSearcher(dir string) (Searcher, error) {
-	ss := shardedSearcher{
+	ss := shardWatcher{
 		dir:      dir,
 		shards:   make(map[string]*searchShard),
 		quit:     make(chan struct{}, 1),
@@ -202,11 +224,11 @@ func NewShardedSearcher(dir string) (Searcher, error) {
 		return nil, err
 	}
 
-	return &ss, nil
+	return &shardedSearcher{&ss}, nil
 }
 
 // Close closes references to open files. It may be called only once.
-func (ss *shardedSearcher) Close() {
+func (ss *shardWatcher) Close() {
 	close(ss.quit)
 	ss.lock()
 	defer ss.unlock()
@@ -215,9 +237,23 @@ func (ss *shardedSearcher) Close() {
 	}
 }
 
+type shardLoader interface {
+	Close()
+	getShards() []Searcher
+	rlock()
+	runlock()
+	String() string
+}
+
+type shardedSearcher struct {
+	shardLoader
+}
+
 func (ss *shardedSearcher) Stats() (*RepoStats, error) {
 	var r RepoStats
-	for _, s := range ss.shards {
+	ss.rlock()
+	defer ss.runlock()
+	for _, s := range ss.shardLoader.getShards() {
 		s, err := s.Stats()
 		if err != nil {
 			return nil, err
@@ -241,13 +277,13 @@ func (ss *shardedSearcher) Search(ctx context.Context, pat query.Q, opts *Search
 
 	// This critical section is large, but we don't want to deal with
 	// searches on a shards that have just been closed.
-	ss.throttle <- struct{}{}
+	ss.shardLoader.rlock()
 	aggregate.Wait = time.Now().Sub(start)
 	start = time.Now()
 
 	// TODO - allow for canceling the query.
-	shardCount := len(ss.shards)
-	all := make(chan res, shardCount)
+	shards := ss.getShards()
+	all := make(chan res, len(shards))
 
 	var childCtx context.Context
 	var cancel context.CancelFunc
@@ -259,15 +295,23 @@ func (ss *shardedSearcher) Search(ctx context.Context, pat query.Q, opts *Search
 
 	defer cancel()
 
-	for _, s := range ss.shards {
+	for _, s := range shards {
 		go func(s Searcher) {
+			defer func() {
+				if r := recover(); r != nil {
+					log.Printf("crashed shard: %s: %s", s.String(), r)
+
+					var r SearchResult
+					r.Stats.Crashes = 1
+					all <- res{&r, nil}
+				}
+			}()
 			ms, err := s.Search(childCtx, pat, opts)
 			all <- res{ms, err}
 		}(s)
 	}
-	<-ss.throttle
 
-	for i := 0; i < shardCount; i++ {
+	for i := 0; i < len(shards); i++ {
 		r := <-all
 		if r.err != nil {
 			return nil, r.err
@@ -289,6 +333,7 @@ func (ss *shardedSearcher) Search(ctx context.Context, pat query.Q, opts *Search
 			cancel = nil
 		}
 	}
+	ss.runlock()
 
 	sortFilesByScore(aggregate.Files)
 	aggregate.Duration = time.Now().Sub(start)
@@ -301,16 +346,21 @@ func (ss *shardedSearcher) List(ctx context.Context, r query.Q) (*RepoList, erro
 		err error
 	}
 
-	ss.throttle <- struct{}{}
-	shardCount := len(ss.shards)
+	ss.rlock()
+	shards := ss.getShards()
+	shardCount := len(shards)
 	all := make(chan res, shardCount)
-	for _, s := range ss.shards {
+	for _, s := range shards {
 		go func(s Searcher) {
+			defer func() {
+				if r := recover(); r != nil {
+					all <- res{nil, fmt.Errorf("list crash %s: %s", s, r)}
+				}
+			}()
 			ms, err := s.List(ctx, r)
 			all <- res{ms, err}
 		}(s)
 	}
-	<-ss.throttle
 
 	uniq := map[string]struct{}{}
 	for i := 0; i < shardCount; i++ {
@@ -322,11 +372,15 @@ func (ss *shardedSearcher) List(ctx context.Context, r query.Q) (*RepoList, erro
 			uniq[r] = struct{}{}
 		}
 	}
+	ss.runlock()
+
 	var aggregate []string
 	for k := range uniq {
 		aggregate = append(aggregate, k)
 	}
 
 	sort.Strings(aggregate)
-	return &RepoList{aggregate}, nil
+	return &RepoList{
+		Repos: aggregate,
+	}, nil
 }

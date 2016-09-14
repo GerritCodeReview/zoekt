@@ -353,6 +353,24 @@
     },
     {
       "key": {
+        "uuid": "4be70257_60ef127b",
+        "filename": "indexbuilder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-14T16:20:02Z",
+      "side": 1,
+      "message": "I made it an error to have 32 branches or more (see AddBranch return.)",
+      "parentUuid": "eb73565a_6d3bb527",
+      "revId": "a4ee4b36205afe2f10086328798b840159c7df0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85848625_aa5eaf7b",
         "filename": "web/api.go",
         "patchSetId": 1

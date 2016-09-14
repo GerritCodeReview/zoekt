@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab795e40_cbbc158d",
+        "filename": "shards.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1027267
+      },
+      "writtenOn": "2016-09-14T16:27:42Z",
+      "side": 1,
+      "message": "shardWatcher",
+      "range": {
+        "startLine": 76,
+        "startChar": 21,
+        "endLine": 76,
+        "endChar": 36
+      },
+      "revId": "49ce5a124a6c16f7fb45e0f70753cb32f88e3001",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb73565a_2d35ad2e",
+        "filename": "shards.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1027267
+      },
+      "writtenOn": "2016-09-14T16:27:42Z",
+      "side": 1,
+      "message": "shards",
+      "range": {
+        "startLine": 279,
+        "startChar": 16,
+        "endLine": 279,
+        "endChar": 24
+      },
+      "revId": "49ce5a124a6c16f7fb45e0f70753cb32f88e3001",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb73565a_cdbc298d",
+        "filename": "shards.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1027267
+      },
+      "writtenOn": "2016-09-14T16:27:42Z",
+      "side": 1,
+      "message": "for i :\u003d range shards {",
+      "revId": "49ce5a124a6c16f7fb45e0f70753cb32f88e3001",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

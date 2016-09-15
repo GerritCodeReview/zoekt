@@ -7,9 +7,15 @@ set -eux
 mkdir -p bin
 
 
+VERSION=$(date --iso-8601=minutes | tr -d ':' )
+if [[ -d .git ]]; then
+  VERSION=$(git show --pretty=format:%h -q)-${VERSION}
+fi
+
+
 for d in cmd/*
 do
-    go build github.com/google/zoekt/$d
+    go build -ldflags "-X main.Version=$VERSION" github.com/google/zoekt/$d
     cp $(basename $d) bin/
 done
 
@@ -33,10 +39,5 @@ sudo sh -c 'echo 1 >/proc/sys/vm/overcommit_memory'
 sudo setcap 'cap_net_bind_service=+ep' bin/zoekt-webserver
 
 EOF
-
-VERSION=$(date --iso-8601=minutes | tr -d ':' )
-if [[ -d .git ]]; then
-  VERSION=$(git show --pretty=format:%h -q)-${VERSION}
-fi
 
 zip zoekt-deploy.${VERSION}.zip bin/*

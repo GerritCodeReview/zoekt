@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4be70257_233d14ca",
+        "filename": "index.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-09-19T14:40:49Z",
+      "side": 1,
+      "message": "if len(s.Pattern) \u003c ngramSize {\n  if s.FileName { \n  } else if {\n    ..\n  }\n}",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 3
+      },
+      "revId": "b3141a0a4105113a99c4333fd4f9b504422323b1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bec8e3b_42b5b438",
+        "filename": "index.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-09-19T14:40:49Z",
+      "side": 1,
+      "message": "Unrelated",
+      "revId": "b3141a0a4105113a99c4333fd4f9b504422323b1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

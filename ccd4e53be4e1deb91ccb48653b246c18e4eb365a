@@ -1,0 +1,141 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb73565a_10f24a61",
+        "filename": "cmd/zoekt-repo-index/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1027267
+      },
+      "writtenOn": "2016-09-19T21:51:28Z",
+      "side": 1,
+      "message": "This is quite a long function, it could benefit from breaking down.",
+      "revId": "ccd4e53be4e1deb91ccb48653b246c18e4eb365a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb73565a_90dddad2",
+        "filename": "cmd/zoekt-repo-index/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1027267
+      },
+      "writtenOn": "2016-09-19T21:51:28Z",
+      "side": 1,
+      "message": "consistency nit: 128\u003c\u003c10, or 100*1024*1024 on the following line",
+      "range": {
+        "startLine": 52,
+        "startChar": 38,
+        "endLine": 52,
+        "endChar": 46
+      },
+      "revId": "ccd4e53be4e1deb91ccb48653b246c18e4eb365a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab795e40_eec1dff7",
+        "filename": "cmd/zoekt-repo-index/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1027267
+      },
+      "writtenOn": "2016-09-19T21:51:28Z",
+      "side": 1,
+      "message": "trailing punctuation",
+      "range": {
+        "startLine": 54,
+        "startChar": 92,
+        "endLine": 54,
+        "endChar": 93
+      },
+      "revId": "ccd4e53be4e1deb91ccb48653b246c18e4eb365a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb73565a_50f8d242",
+        "filename": "cmd/zoekt-repo-index/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1027267
+      },
+      "writtenOn": "2016-09-19T21:51:28Z",
+      "side": 1,
+      "message": "It took me a while to understand this flag. It would be clearer to me if it were like \"path to manifest repo; args should then be in the form BRANCH:FILES\"",
+      "range": {
+        "startLine": 60,
+        "startChar": 51,
+        "endLine": 60,
+        "endChar": 131
+      },
+      "revId": "ccd4e53be4e1deb91ccb48653b246c18e4eb365a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb73565a_70f5ce47",
+        "filename": "cmd/zoekt-repo-index/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1027267
+      },
+      "writtenOn": "2016-09-19T21:51:28Z",
+      "side": 1,
+      "message": "Your imports don\u0027t seem to match the code. You\u0027re importing \"github.com/google/zoekt/git\" and you\u0027re not aliasing git2go to git.",
+      "revId": "ccd4e53be4e1deb91ccb48653b246c18e4eb365a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb73565a_b09d7611",
+        "filename": "cmd/zoekt-repo-index/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1027267
+      },
+      "writtenOn": "2016-09-19T21:51:28Z",
+      "side": 1,
+      "message": "You\u0027re already doing this in the defer on L277.",
+      "revId": "ccd4e53be4e1deb91ccb48653b246c18e4eb365a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab795e40_aee2f793",
+        "filename": "cmd/zoekt-repo-index/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1027267
+      },
+      "writtenOn": "2016-09-19T21:51:28Z",
+      "side": 1,
+      "message": "Also redundant.",
+      "revId": "ccd4e53be4e1deb91ccb48653b246c18e4eb365a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

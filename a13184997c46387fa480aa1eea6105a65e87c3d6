@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4be70257_831d001f",
+        "filename": "cmd/zoekt-repo-index/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-19T16:03:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4be70257_637f1c39",
+      "revId": "a13184997c46387fa480aa1eea6105a65e87c3d6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4be70257_83822035",
         "filename": "git/tree.go",
         "patchSetId": 3
@@ -36,6 +54,24 @@
         "endLine": 41,
         "endChar": 4
       },
+      "revId": "a13184997c46387fa480aa1eea6105a65e87c3d6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bec8e3b_628d5835",
+        "filename": "git/tree.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-19T16:03:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4be70257_83822035",
       "revId": "a13184997c46387fa480aa1eea6105a65e87c3d6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false

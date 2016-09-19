@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4be70257_4372d8a3",
+        "filename": "build/builder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-09-19T15:05:12Z",
+      "side": 1,
+      "message": "you are checking for this in l.217 and aren\u0027t mutating it after that",
+      "range": {
+        "startLine": 245,
+        "startChar": 53,
+        "endLine": 245,
+        "endChar": 72
+      },
+      "revId": "add8fa44cb7e667ac2135112095a8f7c35bcffa9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

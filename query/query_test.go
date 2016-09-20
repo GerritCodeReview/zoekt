@@ -29,7 +29,7 @@ func TestQueryString(t *testing.T) {
 			&Not{&Substring{Pattern: "hai"}},
 		}}}}
 	got := q.String()
-	want := `(or (and substr:"hoi" (not substr:"hai")))`
+	want := `(gor (and substr:"hoi" (not substr:"hai")))`
 
 	if got != want {
 		t.Errorf("got %s, want %s", got, want)

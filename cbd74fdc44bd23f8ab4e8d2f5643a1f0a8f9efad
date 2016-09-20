@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "2bec8e3b_65ee0218",
+        "filename": "cmd/zoekt-webserver/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-09-20T11:47:50Z",
+      "side": 1,
+      "message": "The common name is REST api, so I think we should name it\n\nrest :\u003d flag.Bool(\"rest\", false, \"enable REST API\")",
+      "range": {
+        "startLine": 67,
+        "startChar": 1,
+        "endLine": 67,
+        "endChar": 5
+      },
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4be70257_46194682",
         "filename": "query/query_test.go",
         "patchSetId": 1
@@ -18,6 +41,259 @@
         "startChar": 9,
         "endLine": 56,
         "endChar": 13
+      },
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bec8e3b_c54c2e43",
+        "filename": "web/e2e_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-09-20T11:47:50Z",
+      "side": 1,
+      "message": "Check the encoding and content type first",
+      "range": {
+        "startLine": 97,
+        "startChar": 36,
+        "endLine": 97,
+        "endChar": 44
+      },
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4be70257_a63012f6",
+        "filename": "web/e2e_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-09-20T11:47:50Z",
+      "side": 1,
+      "message": "Can you parse the result and check that all fields are there and that you don\u0027t have fields you don\u0027t expect? Ordering does not matter OC",
+      "range": {
+        "startLine": 104,
+        "startChar": 1,
+        "endLine": 104,
+        "endChar": 12
+      },
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bec8e3b_a5de4a5c",
+        "filename": "web/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-09-20T11:47:50Z",
+      "side": 1,
+      "message": "remove ,\nIt\u0027s a POST, but I\u0027d call it Request (in-line with Response)",
+      "range": {
+        "startLine": 27,
+        "startChar": 12,
+        "endLine": 27,
+        "endChar": 16
+      },
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bec8e3b_05d4563a",
+        "filename": "web/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-09-20T11:47:50Z",
+      "side": 1,
+      "message": "Response",
+      "range": {
+        "startLine": 38,
+        "startChar": 12,
+        "endLine": 38,
+        "endChar": 18
+      },
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4be70257_06261ec2",
+        "filename": "web/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-09-20T11:47:50Z",
+      "side": 1,
+      "message": "Matches?",
+      "range": {
+        "startLine": 53,
+        "startChar": 1,
+        "endLine": 53,
+        "endChar": 10
+      },
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4be70257_e62a1a86",
+        "filename": "web/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-09-20T11:47:50Z",
+      "side": 1,
+      "message": "Matches?",
+      "range": {
+        "startLine": 56,
+        "startChar": 19,
+        "endLine": 56,
+        "endChar": 27
+      },
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bec8e3b_45ce5eae",
+        "filename": "web/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-09-20T11:47:50Z",
+      "side": 1,
+      "message": "cType? contentType?",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 7
+      },
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4be70257_46402638",
+        "filename": "web/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-09-20T11:47:50Z",
+      "side": 1,
+      "message": "missing spaces",
+      "range": {
+        "startLine": 70,
+        "startChar": 26,
+        "endLine": 70,
+        "endChar": 29
+      },
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bec8e3b_25cb5a9e",
+        "filename": "web/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-09-20T11:47:50Z",
+      "side": 1,
+      "message": "Should we expose options to the REST API? So that people can customize their search? Not sure if that is needed though.",
+      "range": {
+        "startLine": 109,
+        "startChar": 48,
+        "endLine": 109,
+        "endChar": 55
+      },
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4be70257_c656f6fd",
+        "filename": "web/server.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-09-20T11:47:50Z",
+      "side": 1,
+      "message": "REST",
+      "range": {
+        "startLine": 58,
+        "startChar": 10,
+        "endLine": 58,
+        "endChar": 14
+      },
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bec8e3b_85c866a0",
+        "filename": "web/server.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-09-20T11:47:50Z",
+      "side": 1,
+      "message": "REST",
+      "range": {
+        "startLine": 131,
+        "startChar": 6,
+        "endLine": 131,
+        "endChar": 10
       },
       "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",

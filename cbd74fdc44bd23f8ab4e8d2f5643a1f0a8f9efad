@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4be70257_46194682",
+        "filename": "query/query_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1025452
+      },
+      "writtenOn": "2016-09-20T11:25:18Z",
+      "side": 1,
+      "message": "nit: how about applying NewOr/NewAnd to this block too?",
+      "range": {
+        "startLine": 55,
+        "startChar": 9,
+        "endLine": 56,
+        "endChar": 13
+      },
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

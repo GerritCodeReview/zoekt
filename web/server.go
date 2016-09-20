@@ -52,6 +52,12 @@ var Funcmap = template.FuncMap{
 type Server struct {
 	Searcher zoekt.Searcher
 
+	// Serve HTML interface
+	HTML bool
+
+	// Serve JSON api.
+	JSON bool
+
 	// If set, show files from the index.
 	Print bool
 
@@ -117,8 +123,14 @@ func NewMux(s *Server) (*http.ServeMux, error) {
 	s.startTime = time.Now()
 
 	mux := http.NewServeMux()
-	mux.HandleFunc("/search", s.serveSearch)
-	mux.HandleFunc("/", s.serveSearchBox)
+
+	if s.HTML {
+		mux.HandleFunc("/search", s.serveSearch)
+		mux.HandleFunc("/", s.serveSearchBox)
+	}
+	if s.JSON {
+		mux.HandleFunc("/api/search", s.serveSearchAPI)
+	}
 	if s.Print {
 		mux.HandleFunc("/print", s.servePrint)
 	}

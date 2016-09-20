@@ -59,6 +59,55 @@ func searcherForTest(t *testing.T, b *zoekt.IndexBuilder) zoekt.Searcher {
 	return searcher
 }
 
+func TestJSON(t *testing.T) {
+	b := zoekt.NewIndexBuilder()
+	b.SetName("name")
+	b.SetURLTemplates("repo-url", "{{.Version}}", "url", "line")
+	b.AddBranch("master", "1234")
+
+	line := "abc apple orange"
+	b.Add(zoekt.Document{
+		Name:    "f2",
+		Content: []byte(line),
+		// ------------- 0123456789012345678901234567890123456789
+		Branches: []string{"master"},
+	})
+
+	s := searcherForTest(t, b)
+	srv := Server{
+		Searcher: s,
+		Top:      Top,
+		JSON:     true,
+	}
+
+	mux, err := NewMux(&srv)
+	if err != nil {
+		t.Fatalf("NewMux: %v", err)
+	}
+
+	ts := httptest.NewServer(mux)
+	defer ts.Close()
+
+	req := `{"Query": "apple", "Restrict":[{"Repo": "name", "Branches": ["master"]}]}`
+	res, err := http.Post(ts.URL+"/api/search", jsonType, bytes.NewBufferString(req))
+
+	if err != nil {
+		t.Fatal(err)
+	}
+	resultBytes, err := ioutil.ReadAll(res.Body)
+	res.Body.Close()
+	if err != nil {
+		t.Fatalf("ReadAll: %v", err)
+	}
+
+	result := string(resultBytes)
+	for _, want := range []string{`"LineNumber":1`, `"Line":"` + line + `"`} {
+		if !strings.Contains(result, want) {
+			t.Errorf("got %s, missing %s", result, want)
+		}
+	}
+}
+
 func TestBasic(t *testing.T) {
 	b := zoekt.NewIndexBuilder()
 	b.SetName("name")
@@ -75,6 +124,7 @@ func TestBasic(t *testing.T) {
 	srv := Server{
 		Searcher: s,
 		Top:      Top,
+		HTML:     true,
 	}
 
 	mux, err := NewMux(&srv)
@@ -142,6 +192,7 @@ func TestCrash(t *testing.T) {
 	srv := Server{
 		Searcher: &crashSearcher{},
 		Top:      Top,
+		HTML:     true,
 	}
 
 	mux, err := NewMux(&srv)

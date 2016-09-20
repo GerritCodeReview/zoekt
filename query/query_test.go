@@ -44,17 +44,14 @@ func TestSimplify(t *testing.T) {
 
 	cases := []testcase{
 		{
-			in: &Or{[]Q{
-				&Or{[]Q{
-					&And{[]Q{
-						&Substring{Pattern: "hoi"},
-						&Not{&Substring{Pattern: "hai"}},
-					}},
-					&Or{[]Q{
+			in: NewOr(
+				NewOr(
+					NewAnd(&Substring{Pattern: "hoi"},
+						&Not{&Substring{Pattern: "hai"}}),
+					NewOr(
 						&Substring{Pattern: "zip"},
 						&Substring{Pattern: "zap"},
-					}},
-				}}}},
+					))),
 			want: &Or{[]Q{
 				&And{[]Q{
 					&Substring{Pattern: "hoi"},

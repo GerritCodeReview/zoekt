@@ -37,6 +37,7 @@ type FileMatch struct {
 }
 
 // Match holds the matches within a single line in a file.
+// TODO - LineMatch is a better name.
 type Match struct {
 	// The line in which a match was found.
 	Line      []byte

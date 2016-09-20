@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "4be70257_a68c9290",
+        "filename": "cmd/zoekt-webserver/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-20T12:21:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bec8e3b_65ee0218",
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4be70257_46194682",
         "filename": "query/query_test.go",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 56,
         "endChar": 13
       },
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bec8e3b_85dea627",
+        "filename": "query/query_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-20T12:21:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4be70257_46194682",
       "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "4be70257_06829e5a",
+        "filename": "web/e2e_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-20T12:21:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bec8e3b_c54c2e43",
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4be70257_a63012f6",
         "filename": "web/e2e_test.go",
         "patchSetId": 1
@@ -88,6 +142,24 @@
         "endLine": 104,
         "endChar": 12
       },
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bec8e3b_05c57651",
+        "filename": "web/e2e_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-20T12:21:44Z",
+      "side": 1,
+      "message": "why, though? the parsing would use the same the routines as the serialization, so that wouldn\u0027t add any coverage.",
+      "parentUuid": "4be70257_a63012f6",
       "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -117,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "4be70257_469ca6ba",
+        "filename": "web/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-20T12:21:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bec8e3b_a5de4a5c",
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bec8e3b_05d4563a",
         "filename": "web/json.go",
         "patchSetId": 1
@@ -140,6 +230,24 @@
     },
     {
       "key": {
+        "uuid": "2bec8e3b_e5a052a7",
+        "filename": "web/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-20T12:21:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bec8e3b_05d4563a",
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4be70257_06261ec2",
         "filename": "web/json.go",
         "patchSetId": 1
@@ -157,6 +265,24 @@
         "endLine": 53,
         "endChar": 10
       },
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bec8e3b_65b602f5",
+        "filename": "web/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-20T12:21:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4be70257_06261ec2",
       "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -209,6 +335,24 @@
     },
     {
       "key": {
+        "uuid": "4be70257_6693aaa8",
+        "filename": "web/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-20T12:21:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bec8e3b_45ce5eae",
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4be70257_46402638",
         "filename": "web/json.go",
         "patchSetId": 1
@@ -226,6 +370,24 @@
         "endLine": 70,
         "endChar": 29
       },
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bec8e3b_059c566b",
+        "filename": "web/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-20T12:21:44Z",
+      "side": 1,
+      "message": "gofmt.",
+      "parentUuid": "4be70257_46402638",
       "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -255,6 +417,24 @@
     },
     {
       "key": {
+        "uuid": "4be70257_e6869a6c",
+        "filename": "web/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-20T12:21:44Z",
+      "side": 1,
+      "message": "yes, but punting for now.",
+      "parentUuid": "2bec8e3b_25cb5a9e",
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4be70257_c656f6fd",
         "filename": "web/server.go",
         "patchSetId": 1
@@ -278,6 +458,24 @@
     },
     {
       "key": {
+        "uuid": "2bec8e3b_e5c9726f",
+        "filename": "web/server.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-20T12:21:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4be70257_c656f6fd",
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bec8e3b_85c866a0",
         "filename": "web/server.go",
         "patchSetId": 1
@@ -295,6 +493,24 @@
         "endLine": 131,
         "endChar": 10
       },
+      "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bec8e3b_45af7e9d",
+        "filename": "web/server.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-09-20T12:21:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bec8e3b_85c866a0",
       "revId": "cbd74fdc44bd23f8ab4e8d2f5643a1f0a8f9efad",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false

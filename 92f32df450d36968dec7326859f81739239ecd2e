@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2bec8e3b_a830dff5",
+        "filename": "web/json.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-09-20T15:33:49Z",
+      "side": 1,
+      "message": "looks like an unrelated reformatting?\n\nAlso the type (string) neither aligns vertically nor is only one space from the variable.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 15
+      },
+      "revId": "92f32df450d36968dec7326859f81739239ecd2e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

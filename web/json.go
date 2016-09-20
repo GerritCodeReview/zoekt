@@ -51,13 +51,17 @@ type SearchResponseFile struct {
 
 type SearchResponseLine struct {
 	LineNumber int
-	Line       string
-	Matches    []*SearchResponseMatch
+
+	Line    string
+	Matches []*SearchResponseMatch
 }
 
 type SearchResponseMatch struct {
-	Start int
-	End   int
+	// Index of the start of the match.
+	StartByte int
+
+	// Index of the end of the match.
+	EndByte int
 }
 
 const jsonContentType = "application/json; charset=utf-8"
@@ -134,8 +138,8 @@ func (s *Server) serveSearchAPI(w http.ResponseWriter, r *http.Request) {
 			}
 			for _, fr := range m.Fragments {
 				srfr := SearchResponseMatch{
-					Start: fr.LineOff,
-					End:   fr.LineOff + fr.MatchLength,
+					StartByte: fr.LineOff,
+					EndByte:   fr.LineOff + fr.MatchLength,
 				}
 				srl.Matches = append(srl.Matches, &srfr)
 			}

@@ -40,6 +40,24 @@
       "revId": "1f4f6fd0d3791c3cfba739a849889e0f1e4377a6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bec8e3b_4806732d",
+        "filename": "web/json.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-09-20T15:16:18Z",
+      "side": 1,
+      "message": "Wait, but the content-type is \"application/json encoding:utf-8\"\n\nSo there can\u0027t be any other encoding and that means that the match position should be returned as a char offset instead of a byte offset.\n\nJSON is per definition a string-based interface, you really don\u0027t want to deal with bytes here, but specify a char offset instead.\n\n{\nLine: \"abcdefg\"\n{\n  Start: 1\n  End: 3\n}\n}\n\nMeans, the result is aBCdefg.",
+      "parentUuid": "4be70257_8961a138",
+      "revId": "1f4f6fd0d3791c3cfba739a849889e0f1e4377a6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

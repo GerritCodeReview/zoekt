@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2bec8e3b_a8161f5b",
+        "filename": "web/json.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-09-20T15:03:24Z",
+      "side": 1,
+      "message": "Operating on byte level is really uncommon in JSON. What is the background here?",
+      "range": {
+        "startLine": 59,
+        "startChar": 1,
+        "endLine": 59,
+        "endChar": 10
+      },
+      "revId": "1f4f6fd0d3791c3cfba739a849889e0f1e4377a6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

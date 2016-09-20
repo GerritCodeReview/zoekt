@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4be70257_c911e967",
+        "filename": "web/json.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-09-20T21:30:00Z",
+      "side": 1,
+      "message": "I\u0027d use:\n\nStart: utf8.RuneCount(m.Line[:fr.LineOffset])\nEnd: utf8.RuneCount(m.Line[:fr.LineOffset + fr.MatchLength])",
+      "range": {
+        "startLine": 167,
+        "startChar": 3,
+        "endLine": 171,
+        "endChar": 4
+      },
+      "revId": "9403aba4a6547ba037109bc3f62e1e75459955fc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4be70257_4906792d",
+        "filename": "web/json.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-09-20T21:30:00Z",
+      "side": 1,
+      "message": "Missing blank",
+      "range": {
+        "startLine": 177,
+        "startChar": 36,
+        "endLine": 177,
+        "endChar": 39
+      },
+      "revId": "9403aba4a6547ba037109bc3f62e1e75459955fc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

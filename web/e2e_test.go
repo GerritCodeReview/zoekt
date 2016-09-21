@@ -28,6 +28,8 @@ import (
 	"golang.org/x/net/context"
 )
 
+const jsonContentType = "application/json; charset=utf-8"
+
 // TODO(hanwen): cut & paste from ../ . Should create internal test
 // util package.
 type memSeeker struct {

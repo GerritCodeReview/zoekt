@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "bf47e08e_1b01db6a",
+        "filename": "api.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-06T15:13:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df4ad497_5cfb5d5c",
+      "revId": "ed153239da3eec5a16609240a543e45a13e32f7f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df4ad497_bc0f0195",
         "filename": "build/builder.go",
         "patchSetId": 1
@@ -48,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "bf47e08e_7bf61f76",
+        "filename": "build/builder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-06T15:13:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df4ad497_bc0f0195",
+      "revId": "ed153239da3eec5a16609240a543e45a13e32f7f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf47e08e_fb322f5b",
         "filename": "rest/api.go",
         "patchSetId": 1
@@ -65,6 +101,24 @@
         "endLine": 30,
         "endChar": 8
       },
+      "revId": "ed153239da3eec5a16609240a543e45a13e32f7f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf47e08e_5bfb635c",
+        "filename": "rest/api.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-06T15:13:08Z",
+      "side": 1,
+      "message": "reverted; often, todos with an owner stay todos forever too :)",
+      "parentUuid": "bf47e08e_fb322f5b",
       "revId": "ed153239da3eec5a16609240a543e45a13e32f7f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false

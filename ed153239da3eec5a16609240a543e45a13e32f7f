@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df4ad497_5cfb5d5c",
+        "filename": "api.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-10-06T14:50:55Z",
+      "side": 1,
+      "message": "getting",
+      "range": {
+        "startLine": 150,
+        "startChar": 27,
+        "endLine": 150,
+        "endChar": 33
+      },
+      "revId": "ed153239da3eec5a16609240a543e45a13e32f7f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df4ad497_bc0f0195",
+        "filename": "build/builder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-10-06T14:50:55Z",
+      "side": 1,
+      "message": "be consistent: RepositoryDescription contains names and URLs ...",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 8
+      },
+      "revId": "ed153239da3eec5a16609240a543e45a13e32f7f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf47e08e_fb322f5b",
+        "filename": "rest/api.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-10-06T14:50:55Z",
+      "side": 1,
+      "message": "if possible, be clear on whose TODO this is\nmaybe TODO(hanwen)?\n\nTODOs without an owner might stay TODOs forever :)",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 8
+      },
+      "revId": "ed153239da3eec5a16609240a543e45a13e32f7f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf47e08e_db2f73f5",
+        "filename": "rest/api.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-10-06T14:50:55Z",
+      "side": 1,
+      "message": "TODO(person)",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 8
+      },
+      "revId": "ed153239da3eec5a16609240a543e45a13e32f7f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

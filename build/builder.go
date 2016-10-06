@@ -55,23 +55,11 @@ type Options struct {
 	// ShardMax sets the maximum corpus size for a single shard
 	ShardMax int
 
-	// RepoName is name of the repository.
-	RepoName string
+	// names and URLs for the repository.
+	RepositoryDescription zoekt.Repository
 
 	// RepoDir is the path to the repository on the indexing machine.
 	RepoDir string
-
-	// RepoURL is an URL to the repository.
-	RepoURL string
-
-	// CommitURLTemplate is the URL template for the commit.
-	CommitURLTemplate string
-
-	// FileURLTemplate is the URL template for the repository.
-	FileURLTemplate string
-
-	// LineFragmentTemplate is the URL fragment template for the line number.
-	LineFragmentTemplate string
 
 	// Path to exuberant ctags binary to run
 	CTags string
@@ -282,10 +270,8 @@ func (b *Builder) buildShard(todo []*zoekt.Document, nextShardNum int) error {
 	}
 
 	shardBuilder := zoekt.NewIndexBuilder()
-	shardBuilder.SetName(b.opts.RepoName)
-	shardBuilder.SetURLTemplates(
-		b.opts.RepoURL,
-		b.opts.CommitURLTemplate, b.opts.FileURLTemplate, b.opts.LineFragmentTemplate)
+	shardBuilder.AddRepository(&b.opts.RepositoryDescription)
+
 	for _, b := range b.opts.Branches {
 		if err := shardBuilder.AddBranch(b.Name, b.Version); err != nil {
 			return err

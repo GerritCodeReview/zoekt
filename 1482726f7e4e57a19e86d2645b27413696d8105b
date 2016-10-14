@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc10ce06_73d9a013",
+        "filename": "git/git.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-10-14T15:39:41Z",
+      "side": 1,
+      "message": "Is this the correct message?\n\n\u0027err\u0027 was set from getCommit.  The \u0027err\u0027 from parsing the ref is checked in the block at line 196.\n\nAlso, would it be useful to print the name of the failed ref in the log message?",
+      "revId": "1482726f7e4e57a19e86d2645b27413696d8105b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

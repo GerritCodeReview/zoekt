@@ -202,7 +202,8 @@ func IndexGitRepo(opts build.Options, branchPrefix string, branches []string, su
 		}
 		commit, err := getCommit(repo, fullName)
 		if err != nil {
-			return err
+			log.Printf("%s: could not parse ref: %s", opts.RepoDir, err)
+			continue
 		}
 		defer commit.Free()
 		opts.Branches = append(opts.Branches, build.Branch{

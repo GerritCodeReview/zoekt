@@ -16,6 +16,24 @@
       "revId": "1482726f7e4e57a19e86d2645b27413696d8105b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bce9af6b_826f7a6f",
+        "filename": "git/git.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1010362
+      },
+      "writtenOn": "2016-10-14T19:16:17Z",
+      "side": 1,
+      "message": "The parsing at #196 is only if HEAD is used for git indexing.\n\n#203 is the parsing that fails if you send a list of branches to zoekt-index-git. \n\nThe error message from getCommit() contains the ref-name.",
+      "parentUuid": "bc10ce06_73d9a013",
+      "revId": "1482726f7e4e57a19e86d2645b27413696d8105b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

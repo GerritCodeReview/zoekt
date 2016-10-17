@@ -105,7 +105,7 @@ func (o *Options) SetDefaults() {
 		}
 	}
 	if o.NamespaceSandbox == "" {
-		ns, err := exec.LookPath("namespace-sandbox")
+		ns, err := exec.LookPath("zoekt-sandbox")
 		if err == nil {
 			o.NamespaceSandbox = ns
 		}

@@ -34,6 +34,24 @@
       "revId": "1482726f7e4e57a19e86d2645b27413696d8105b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc31af18_e2d8c6d7",
+        "filename": "git/git.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-17T17:19:32Z",
+      "side": 1,
+      "message": "I understand why you want this, but I think this function should just bail out on error. Can you change the caller so it doesn\u0027t pass in non-existing branches? Maybe you can pass in \n\n  branchNames []string\n\n  // name \u003d\u003e commit\n  branchCommits map[string]*git.Commit\n\ninto the function?",
+      "parentUuid": "bce9af6b_826f7a6f",
+      "revId": "1482726f7e4e57a19e86d2645b27413696d8105b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

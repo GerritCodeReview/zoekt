@@ -45,6 +45,30 @@
       "revId": "86ab4a13969001e9552c82a0fa2d27ffed99abf4",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dca2e37b_e3de52c4",
+        "filename": "web/templates.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-17T15:18:41Z",
+      "side": 1,
+      "message": "because I couldn\u0027t get it to work; you can help me if you want :-)",
+      "parentUuid": "bc31af18_62b67693",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 49
+      },
+      "revId": "86ab4a13969001e9552c82a0fa2d27ffed99abf4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

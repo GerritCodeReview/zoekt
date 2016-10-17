@@ -69,6 +69,30 @@
       "revId": "86ab4a13969001e9552c82a0fa2d27ffed99abf4",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dca2e37b_83dbded2",
+        "filename": "web/templates.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-10-17T15:25:59Z",
+      "side": 1,
+      "message": "Sure, just add:\nonfocus\u003d\"this.value \u003d this.value;\"\nto the input :)",
+      "parentUuid": "dca2e37b_e3de52c4",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 49
+      },
+      "revId": "86ab4a13969001e9552c82a0fa2d27ffed99abf4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

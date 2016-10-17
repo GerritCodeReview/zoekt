@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc31af18_82157ab4",
+        "filename": "git/git.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-10-17T07:15:02Z",
+      "side": 1,
+      "message": "This looks more like it is parsing the git config rather than guessing. Is it really guessing (i.e. can it be incorrect?). Would rename it if not.",
+      "range": {
+        "startLine": 105,
+        "startChar": 5,
+        "endLine": 105,
+        "endChar": 10
+      },
+      "revId": "c3167754ec502774d3039c22f70cc4cd52948517",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc31af18_621af6e3",
+        "filename": "web/snippets.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-10-17T07:15:02Z",
+      "side": 1,
+      "message": "nit: unneeded new line",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 0
+      },
+      "revId": "c3167754ec502774d3039c22f70cc4cd52948517",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

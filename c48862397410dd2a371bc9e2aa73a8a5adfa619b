@@ -22,6 +22,24 @@
       "revId": "c48862397410dd2a371bc9e2aa73a8a5adfa619b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc31af18_a2499ed3",
+        "filename": "indexbuilder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-17T09:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc31af18_a21b5ee3",
+      "revId": "c48862397410dd2a371bc9e2aa73a8a5adfa619b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

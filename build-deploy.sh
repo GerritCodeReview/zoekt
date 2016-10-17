@@ -14,8 +14,14 @@ fi
 
 for d in cmd/*
 do
+  if echo $d | grep sandbox ; then
+    make -C $d ; cp $d/zoekt-sandbox bin/$d
+  else
     go build -ldflags "-X main.Version=$VERSION"  -o bin/$d github.com/google/zoekt/$d
+  fi
 done
+
+
 
 cat <<EOF > bin/deploy.sh
 #!/bin/bash

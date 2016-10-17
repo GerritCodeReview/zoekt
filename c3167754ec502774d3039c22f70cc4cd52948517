@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "bc31af18_424092a1",
+        "filename": "git/git.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-17T10:00:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc31af18_82157ab4",
+      "revId": "c3167754ec502774d3039c22f70cc4cd52948517",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc31af18_621af6e3",
         "filename": "web/snippets.go",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 85,
         "endChar": 0
       },
+      "revId": "c3167754ec502774d3039c22f70cc4cd52948517",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc31af18_e253a67f",
+        "filename": "web/snippets.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-17T10:00:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc31af18_621af6e3",
       "revId": "c3167754ec502774d3039c22f70cc4cd52948517",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false

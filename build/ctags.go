@@ -22,6 +22,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"time"
 
 	"github.com/google/zoekt"
 	"github.com/google/zoekt/ctags"
@@ -73,10 +74,9 @@ func runCTags(bin string, sandboxBin string, inputs map[string][]byte) ([]*ctags
 
 		sandboxArgs := []string{
 			sandboxBin,
-			"-t30", "-T30",
-			"-D", "-S", sandboxDir, "-M", dir, "-m", "/input", "-W", "/input",
+			"-s", sandboxDir, "-M", dir, "-b", "/input=input", "-d", "/input",
 			// Make sure the binary is available in the sandbox.
-			"-M", bin, "-m", "/ctags",
+			"-b", bin + "=" + "/ctags",
 		}
 		args[0] = "/ctags"
 		for _, d := range []string{"/bin", "/lib", "/usr/bin", "/lib64"} {
@@ -94,15 +94,30 @@ func runCTags(bin string, sandboxBin string, inputs map[string][]byte) ([]*ctags
 	cmd := exec.Command(args[0], args[1:]...)
 	cmd.Dir = dir
 
-	var errBuf bytes.Buffer
+	var errBuf, outBuf bytes.Buffer
 	cmd.Stderr = &errBuf
-	out, err := cmd.Output()
-	if err != nil {
+	cmd.Stdout = &outBuf
+
+	if err := cmd.Start(); err != nil {
+		return nil, err
+	}
+
+	errChan := make(chan error, 1)
+	go func() {
+		err := cmd.Wait()
+		errChan <- err
+	}()
+	timeout := time.After(30 * time.Second)
+	select {
+	case <-timeout:
+		cmd.Process.Kill()
+		return nil, fmt.Errorf("timeout executing ctags.")
+	case err := <-errChan:
 		return nil, fmt.Errorf("exec(%s): %v, stderr: %s", cmd.Args, err, errBuf.String())
 	}
 
 	var entries []*ctags.Entry
-	for _, l := range bytes.Split(out, []byte{'\n'}) {
+	for _, l := range bytes.Split(outBuf.Bytes(), []byte{'\n'}) {
 		if len(l) == 0 {
 			continue
 		}

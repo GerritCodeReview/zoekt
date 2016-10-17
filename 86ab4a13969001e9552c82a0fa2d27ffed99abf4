@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc31af18_c2bae274",
+        "filename": "web/server.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-10-17T14:57:22Z",
+      "side": 1,
+      "message": "Why not make this happen in the background?\n\nIt seems that your goal is to have one Zoekt instance serve  go.zoekt.io and gerrit.zoekt.io right?\n\nThe current implementation is that if a users goes to go.zoekt.io you add r:go before the query in the UI. But as a user I would find that strange since I am on go.zoekt.io I just want to search this repo.\n\nI\u0027d take another approach: Make this happen in the background after you get the request from the UI:\nIf you get it from:\nzoekt.io, search all repos or the one the user has specified explicitly\ngo.zoekt.io // gerrit.zoekt.io -\u003e search only the repo in question, but don\u0027t add the filter to the UI.",
+      "range": {
+        "startLine": 280,
+        "startChar": 1,
+        "endLine": 284,
+        "endChar": 2
+      },
+      "revId": "86ab4a13969001e9552c82a0fa2d27ffed99abf4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc31af18_62b67693",
+        "filename": "web/templates.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-10-17T14:57:22Z",
+      "side": 1,
+      "message": "So? Why not just add it?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 49
+      },
+      "revId": "86ab4a13969001e9552c82a0fa2d27ffed99abf4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

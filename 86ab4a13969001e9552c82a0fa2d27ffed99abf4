@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "dca2e37b_4375e6ee",
+        "filename": "web/server.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-10-17T15:32:55Z",
+      "side": 1,
+      "message": "following up on an offline conversation, this is better for the intended launch as we don\u0027t plan to have multiple domains pointing to the same instance in the first place, but want to provide a good default and indicate to users that they can change the project they search",
+      "parentUuid": "bc31af18_c2bae274",
+      "range": {
+        "startLine": 280,
+        "startChar": 1,
+        "endLine": 284,
+        "endChar": 2
+      },
+      "revId": "86ab4a13969001e9552c82a0fa2d27ffed99abf4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc31af18_62b67693",
         "filename": "web/templates.go",
         "patchSetId": 2

@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bc31af18_42ced218",
+        "filename": "web/server.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-17T15:32:35Z",
+      "side": 1,
+      "message": "as discussed, - this would disallow searching in all repos from (say) go.zoekt.io.",
+      "parentUuid": "bc31af18_c2bae274",
+      "range": {
+        "startLine": 280,
+        "startChar": 1,
+        "endLine": 284,
+        "endChar": 2
+      },
+      "revId": "86ab4a13969001e9552c82a0fa2d27ffed99abf4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc31af18_62b67693",
         "filename": "web/templates.go",
         "patchSetId": 2

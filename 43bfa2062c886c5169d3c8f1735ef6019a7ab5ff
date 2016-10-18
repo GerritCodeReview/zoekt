@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ca06ba7_31c23022",
+        "filename": "cmd/zoekt-test/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-10-18T09:04:39Z",
+      "side": 1,
+      "message": "seems unrelated, but I guess it did not compile otherwise",
+      "range": {
+        "startLine": 133,
+        "startChar": 12,
+        "endLine": 133,
+        "endChar": 20
+      },
+      "revId": "43bfa2062c886c5169d3c8f1735ef6019a7ab5ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

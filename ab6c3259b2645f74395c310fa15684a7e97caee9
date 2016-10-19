@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c04df97_06d9dad9",
+        "filename": "cmd/zoekt-git-index/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-10-19T15:05:57Z",
+      "side": 1,
+      "message": "not quite sure what this means? where will it find the submodules? on the path provided as repo_cache\u003dxxx?\n\nmaybe rephrase",
+      "range": {
+        "startLine": 40,
+        "startChar": 56,
+        "endLine": 40,
+        "endChar": 76
+      },
+      "revId": "ab6c3259b2645f74395c310fa15684a7e97caee9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c04df97_26dcd6c9",
+        "filename": "cmd/zoekt-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-10-19T15:05:57Z",
+      "side": 1,
+      "message": "Errorf?",
+      "range": {
+        "startLine": 81,
+        "startChar": 6,
+        "endLine": 81,
+        "endChar": 13
+      },
+      "revId": "ab6c3259b2645f74395c310fa15684a7e97caee9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

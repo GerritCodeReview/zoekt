@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "1c01db89_45546a3a",
+        "filename": "cmd/zoekt-git-index/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-19T16:02:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c04df97_06d9dad9",
+      "revId": "ab6c3259b2645f74395c310fa15684a7e97caee9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c04df97_26dcd6c9",
         "filename": "cmd/zoekt-server/main.go",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 81,
         "endChar": 13
       },
+      "revId": "ab6c3259b2645f74395c310fa15684a7e97caee9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c01db89_a54c3eb5",
+        "filename": "cmd/zoekt-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-19T16:02:32Z",
+      "side": 1,
+      "message": "the open source log package doesn\u0027t have errorf. \n\nwe\u0027re in a server here, so there isn\u0027t much to do besides hope it will resolve itself.",
+      "parentUuid": "3c04df97_26dcd6c9",
       "revId": "ab6c3259b2645f74395c310fa15684a7e97caee9",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false

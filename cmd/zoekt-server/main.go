@@ -24,6 +24,7 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"net/url"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -49,9 +50,9 @@ func loggedRun(cmd *exec.Cmd) {
 	}
 }
 
-func refresh(repoDir, indexDir string, fetchInterval time.Duration) {
+func refresh(repoDir, indexDir, indexConfigFile string, fetchInterval time.Duration) {
 	// Start with indexing something, so we can start the webserver.
-	runIndexCommand(indexDir, repoDir)
+	runIndexCommand(indexDir, repoDir, indexConfigFile)
 
 	t := time.NewTicker(fetchInterval)
 	for {
@@ -70,19 +71,42 @@ func refresh(repoDir, indexDir string, fetchInterval time.Duration) {
 			loggedRun(cmd)
 		}
 
-		runIndexCommand(indexDir, repoDir)
+		runIndexCommand(indexDir, repoDir, indexConfigFile)
 		<-t.C
 	}
 }
 
-func runIndexCommand(indexDir, repoDir string) {
+func runIndexCommand(indexDir, repoDir, indexConfigFile string) {
+	var indexConfig *IndexConfig
+	if indexConfig != nil {
+		var err error
+		indexConfig, err = readIndexConfig(indexConfigFile)
+		if err != nil {
+			log.Printf("index config: %v", err)
+		}
+	}
+
 	repos, err := gitindex.FindGitRepos(repoDir)
 	if err != nil {
 		log.Println("FindGitRepos", err)
 		return
 	}
 
+nextRepo:
 	for _, dir := range repos {
+		if indexConfig != nil {
+			for _, rh := range indexConfig.RepoHosts {
+				u, err := url.Parse(rh.BaseURL)
+				if err != nil {
+					// config read should validate this.
+					continue
+				}
+				if strings.HasPrefix(dir, filepath.Join(repoDir, u.Host)) {
+					continue nextRepo
+				}
+			}
+		}
+
 		cmd := exec.Command("zoekt-git-index",
 			"-parallelism=1",
 			"-repo_cache_dir", repoDir,
@@ -155,6 +179,8 @@ func main() {
 		filepath.Join(os.Getenv("HOME"), "zoekt-serving"), "directory holding all data.")
 	mirrorConfig := flag.String("mirror_config",
 		"", "JSON file holding mirror configuration.")
+	indexConfig := flag.String("index_config",
+		"", "JSON file holding index configuration.")
 	mirrorInterval := flag.Duration("mirror_duration", 24*time.Hour, "clone new repos at this frequency.")
 	flag.Parse()
 
@@ -181,7 +207,7 @@ func main() {
 	} else {
 		go periodicMirror(repoDir, *mirrorConfig, *mirrorInterval)
 	}
-	go refresh(repoDir, indexDir, *fetchInterval)
+	go refresh(repoDir, indexDir, *indexConfig, *fetchInterval)
 	go deleteLogs(logDir, *maxLogAge)
 	runServer(logDir, indexDir, *maxLogAge/10, flag.Args())
 }

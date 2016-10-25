@@ -1,0 +1,347 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01f9748d_8cd5a7d2",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1030339
+      },
+      "writtenOn": "2016-10-25T09:51:10Z",
+      "side": 1,
+      "message": "It\u0027s not guaranteed that pivot_root is provided by the glibc, the manpage itself says:\n\n\"Glibc does not provide a wrapper for this system call; call it using syscall(2).\"",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01f9748d_ecd26be6",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1030339
+      },
+      "writtenOn": "2016-10-25T09:51:10Z",
+      "side": 1,
+      "message": "These can be included via #include \u003csys/capability.h\u003e",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 1
+      },
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "218cb849_4d91d92d",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1030339
+      },
+      "writtenOn": "2016-10-25T09:51:10Z",
+      "side": 1,
+      "message": "ok(this, macro, continues, to, amaze, me);",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "218cb849_0dbc31a3",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1030339
+      },
+      "writtenOn": "2016-10-25T09:51:10Z",
+      "side": 1,
+      "message": "If you never call sethostname / setdomainname in your sandbox, I think you don\u0027t need a separate UTS namespace.",
+      "range": {
+        "startLine": 65,
+        "startChar": 40,
+        "endLine": 65,
+        "endChar": 52
+      },
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "218cb849_2d9c8d46",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1030339
+      },
+      "writtenOn": "2016-10-25T09:51:10Z",
+      "side": 1,
+      "message": "Be aware that CLONE_NEWNET kills performance if you invoke the sandbox often enough for short running processes (see https://lkml.org/lkml/2014/8/28/656).",
+      "range": {
+        "startLine": 66,
+        "startChar": 43,
+        "endLine": 66,
+        "endChar": 55
+      },
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01f9748d_eca42b8f",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1030339
+      },
+      "writtenOn": "2016-10-25T09:51:10Z",
+      "side": 1,
+      "message": "add CLONE_NEWPID",
+      "range": {
+        "startLine": 65,
+        "startChar": 28,
+        "endLine": 66,
+        "endChar": 55
+      },
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01f9748d_cca16f7d",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1030339
+      },
+      "writtenOn": "2016-10-25T09:51:10Z",
+      "side": 1,
+      "message": "If you want the sandboxed process to be killed when the parent dies, add this before the call to unshare:\n\n// Ask the kernel to kill us with SIGKILL if our parent dies.\nok(prctl, PR_SET_PDEATHSIG, SIGKILL);\n\nI confirmed with a little example program that this carries over to the process launched via execv().",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 35
+      },
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01f9748d_6cc67b37",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1030339
+      },
+      "writtenOn": "2016-10-25T09:51:10Z",
+      "side": 1,
+      "message": "I guess it\u0027s by design that you have to explicitly create parent directories of mounts via -D first?",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "218cb849_6d969528",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1030339
+      },
+      "writtenOn": "2016-10-25T09:51:10Z",
+      "side": 1,
+      "message": "would personally also add O_EXCL to ensure that the open call actually creates the file",
+      "range": {
+        "startLine": 126,
+        "startChar": 65,
+        "endLine": 126,
+        "endChar": 72
+      },
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "218cb849_ada79d91",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1030339
+      },
+      "writtenOn": "2016-10-25T09:51:10Z",
+      "side": 1,
+      "message": "Note that this will fail due to a security check in the kernel if a sub-mount exists beneath \"src\" on the host - e.g. if you try to mount /usr, but the user also has a mount at /usr/local (like on certain workstations *cough*), this will fail.\n\nIf you think this is an issue, then the \"fix\" is to add MS_REC here, too. However, then your remount read-only flag \"-r\" below will only affect the single mount specified, because MS_REC silently doesn\u0027t work for MS_REMOUNT, e.g. /usr/local will still be read-write.\n\nThe \"fix\" for that is to parse /proc/mounts and MS_REMOUNT all submounts individually.\n\nThe correct reaction upon realizing this mess in Linux is to \"lie down, try not to cry, cry a lot\". :|",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "218cb849_0de511c7",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1030339
+      },
+      "writtenOn": "2016-10-25T09:51:10Z",
+      "side": 1,
+      "message": "s/dev/tmp/",
+      "range": {
+        "startLine": 140,
+        "startChar": 43,
+        "endLine": 140,
+        "endChar": 46
+      },
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "218cb849_edb605be",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1030339
+      },
+      "writtenOn": "2016-10-25T09:51:10Z",
+      "side": 1,
+      "message": "The size and inodes seem pretty low. I think in the original mkbox this was only used for the tmpfs that holds /dev, but for general purpose tmpfs\u0027s this should probably be higher.",
+      "range": {
+        "startLine": 142,
+        "startChar": 33,
+        "endLine": 142,
+        "endChar": 36
+      },
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "218cb849_eda1a57c",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1030339
+      },
+      "writtenOn": "2016-10-25T09:51:10Z",
+      "side": 1,
+      "message": "Note that this will fail if the filesystem already has different mount flags like MS_NOEXEC or MS_NODEV, as you can\u0027t remove them once set, but MS_REMOUNT would try to do so.\n\nIf you care about this, then the fix is to parse /proc/mounts and fetch the current set of mount flags for the mount point from there and add them one by one. Also, this requires hard-coding the list of possible mount flags as strings and check for them via hasmntopt, because AFAIK there is no API to get the current set as a bitmask. *facepalm*",
+      "range": {
+        "startLine": 148,
+        "startChar": 27,
+        "endLine": 148,
+        "endChar": 76
+      },
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01f9748d_0cea5795",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1030339
+      },
+      "writtenOn": "2016-10-25T09:51:10Z",
+      "side": 1,
+      "message": "If I understand https://lwn.net/Articles/626665/ correctly, you have to write \"deny\" to /proc/self/setgroups in order for your unprivileged process to be able to write arbitrary group IDs to gid_map.\n\nBut note that this proc file doesn\u0027t exist in older Linux kernels, in which case the correct fallback is to just ignore it (because that signals that the additional security check that /proc/self/setgroups relates to doesn\u0027t exist it).",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01f9748d_2ce593c7",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1030339
+      },
+      "writtenOn": "2016-10-25T09:51:10Z",
+      "side": 1,
+      "message": "I think this comment referring to gid 3333 may be out of date considering that it\u0027s configurable now?",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01f9748d_6cdf9bf3",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1030339
+      },
+      "writtenOn": "2016-10-25T09:51:10Z",
+      "side": 1,
+      "message": "Just curious, what is this for?",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "218cb849_8daf4162",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1030339
+      },
+      "writtenOn": "2016-10-25T09:51:10Z",
+      "side": 1,
+      "message": "From pivot_root(2):\n\n\"pivot_root() may or may not affect its current working directory.  It is therefore recommended to call chdir(\"/\") immediately after pivot_root().\"\n\npivot_root(8) contains a \"canonical example\" that should work in all cases:\n\n\"The following is a sequence for invoking pivot_root that works in either case, assuming that pivot_root and chroot are in the current PATH:\n\n       cd new_root\n       pivot_root . put_old\n       exec chroot . command\n\"\n\nSo, I\u0027d add a ok(chroot, \".\") after the pivot_root for good measure. (The implementation in the Linux kernel currently doesn\u0027t require this, but they reserve the right to change this in the future.)",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

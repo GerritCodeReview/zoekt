@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "01f9748d_ace22389",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-25T12:46:44Z",
+      "side": 1,
+      "message": "yeah, that\u0027s what the current comment alludes to",
+      "parentUuid": "01f9748d_8cd5a7d2",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01f9748d_ecd26be6",
         "filename": "cmd/zoekt-sandbox/mkbox.c",
         "patchSetId": 5
@@ -42,6 +60,42 @@
     },
     {
       "key": {
+        "uuid": "01f9748d_6cb03b97",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-25T12:46:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01f9748d_ecd26be6",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01f9748d_0cd417a7",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-25T12:46:44Z",
+      "side": 1,
+      "message": "you sure? \n\nmkbox.c:27:28: fatal error: sys/capability.h: No such file or directory\n #include \u003csys/capability.h\u003e",
+      "parentUuid": "01f9748d_ecd26be6",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "218cb849_4d91d92d",
         "filename": "cmd/zoekt-sandbox/mkbox.c",
         "patchSetId": 5
@@ -53,6 +107,24 @@
       "writtenOn": "2016-10-25T09:51:10Z",
       "side": 1,
       "message": "ok(this, macro, continues, to, amaze, me);",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "218cb849_6d4055a0",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-25T12:46:44Z",
+      "side": 1,
+      "message": "ack.",
+      "parentUuid": "218cb849_4d91d92d",
       "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -76,6 +148,24 @@
         "endLine": 65,
         "endChar": 52
       },
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "218cb849_6d677565",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-25T12:46:44Z",
+      "side": 1,
+      "message": "I\u0027m setting the domain / host now to avoid further info leaks to the untrusted process.",
+      "parentUuid": "218cb849_0dbc31a3",
       "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -128,6 +218,42 @@
     },
     {
       "key": {
+        "uuid": "218cb849_8d34a142",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-25T12:46:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01f9748d_eca42b8f",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "218cb849_ad315d51",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-25T12:46:44Z",
+      "side": 1,
+      "message": "added comment.",
+      "parentUuid": "218cb849_2d9c8d46",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01f9748d_cca16f7d",
         "filename": "cmd/zoekt-sandbox/mkbox.c",
         "patchSetId": 5
@@ -151,6 +277,24 @@
     },
     {
       "key": {
+        "uuid": "01f9748d_4cb57f85",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-25T12:46:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01f9748d_cca16f7d",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01f9748d_6cc67b37",
         "filename": "cmd/zoekt-sandbox/mkbox.c",
         "patchSetId": 5
@@ -162,6 +306,24 @@
       "writtenOn": "2016-10-25T09:51:10Z",
       "side": 1,
       "message": "I guess it\u0027s by design that you have to explicitly create parent directories of mounts via -D first?",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01f9748d_acb98381",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-25T12:46:44Z",
+      "side": 1,
+      "message": "well, kind-of. I want to avoid implementing mkdir -p, but maybe that\u0027s just stupid. Done. (probably a nice short interview question).",
+      "parentUuid": "01f9748d_6cc67b37",
       "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -191,6 +353,24 @@
     },
     {
       "key": {
+        "uuid": "01f9748d_8cb6478f",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-25T12:46:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "218cb849_6d969528",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "218cb849_ada79d91",
         "filename": "cmd/zoekt-sandbox/mkbox.c",
         "patchSetId": 5
@@ -202,6 +382,24 @@
       "writtenOn": "2016-10-25T09:51:10Z",
       "side": 1,
       "message": "Note that this will fail due to a security check in the kernel if a sub-mount exists beneath \"src\" on the host - e.g. if you try to mount /usr, but the user also has a mount at /usr/local (like on certain workstations *cough*), this will fail.\n\nIf you think this is an issue, then the \"fix\" is to add MS_REC here, too. However, then your remount read-only flag \"-r\" below will only affect the single mount specified, because MS_REC silently doesn\u0027t work for MS_REMOUNT, e.g. /usr/local will still be read-write.\n\nThe \"fix\" for that is to parse /proc/mounts and MS_REMOUNT all submounts individually.\n\nThe correct reaction upon realizing this mess in Linux is to \"lie down, try not to cry, cry a lot\". :|",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01f9748d_ecc38bef",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-25T12:46:44Z",
+      "side": 1,
+      "message": "MS_REC is in l.123 too. I didn\u0027t understand why it was there, but now I do :)",
+      "parentUuid": "218cb849_ada79d91",
       "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -231,6 +429,24 @@
     },
     {
       "key": {
+        "uuid": "01f9748d_ccc04fe6",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-25T12:46:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "218cb849_0de511c7",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "218cb849_edb605be",
         "filename": "cmd/zoekt-sandbox/mkbox.c",
         "patchSetId": 5
@@ -248,6 +464,24 @@
         "endLine": 142,
         "endChar": 36
       },
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "218cb849_cd55c968",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-25T12:46:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "218cb849_edb605be",
       "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -277,6 +511,24 @@
     },
     {
       "key": {
+        "uuid": "218cb849_ed52857d",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-25T12:46:44Z",
+      "side": 1,
+      "message": "I just removed this :-)",
+      "parentUuid": "218cb849_eda1a57c",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01f9748d_0cea5795",
         "filename": "cmd/zoekt-sandbox/mkbox.c",
         "patchSetId": 5
@@ -288,6 +540,24 @@
       "writtenOn": "2016-10-25T09:51:10Z",
       "side": 1,
       "message": "If I understand https://lwn.net/Articles/626665/ correctly, you have to write \"deny\" to /proc/self/setgroups in order for your unprivileged process to be able to write arbitrary group IDs to gid_map.\n\nBut note that this proc file doesn\u0027t exist in older Linux kernels, in which case the correct fallback is to just ignore it (because that signals that the additional security check that /proc/self/setgroups relates to doesn\u0027t exist it).",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "218cb849_ed2b65d9",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-25T12:46:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01f9748d_0cea5795",
       "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -311,6 +581,24 @@
     },
     {
       "key": {
+        "uuid": "218cb849_cd2ea9ec",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-25T12:46:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01f9748d_2ce593c7",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01f9748d_6cdf9bf3",
         "filename": "cmd/zoekt-sandbox/mkbox.c",
         "patchSetId": 5
@@ -328,6 +616,24 @@
     },
     {
       "key": {
+        "uuid": "218cb849_0d4191a6",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-25T12:46:44Z",
+      "side": 1,
+      "message": "I think it was some sort of debugging. Removed.",
+      "parentUuid": "01f9748d_6cdf9bf3",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "218cb849_8daf4162",
         "filename": "cmd/zoekt-sandbox/mkbox.c",
         "patchSetId": 5
@@ -339,6 +645,24 @@
       "writtenOn": "2016-10-25T09:51:10Z",
       "side": 1,
       "message": "From pivot_root(2):\n\n\"pivot_root() may or may not affect its current working directory.  It is therefore recommended to call chdir(\"/\") immediately after pivot_root().\"\n\npivot_root(8) contains a \"canonical example\" that should work in all cases:\n\n\"The following is a sequence for invoking pivot_root that works in either case, assuming that pivot_root and chroot are in the current PATH:\n\n       cd new_root\n       pivot_root . put_old\n       exec chroot . command\n\"\n\nSo, I\u0027d add a ok(chroot, \".\") after the pivot_root for good measure. (The implementation in the Linux kernel currently doesn\u0027t require this, but they reserve the right to change this in the future.)",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01f9748d_2ccf5314",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-25T12:46:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "218cb849_8daf4162",
       "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false

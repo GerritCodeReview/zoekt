@@ -22,6 +22,24 @@
       "revId": "90597de2bfd23452598d45dd6da75ed29b4362e3",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01fb34f7_1c583546",
+        "filename": "web/e2e_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-10-27T17:05:08Z",
+      "side": 1,
+      "message": "kind of a corner case. Who would want to index just one repo?",
+      "parentUuid": "26fa0e32_5d183b99",
+      "revId": "90597de2bfd23452598d45dd6da75ed29b4362e3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

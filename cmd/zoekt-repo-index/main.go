@@ -20,7 +20,7 @@ git repositories should already have been downloaded to the
 
     zoekt-repo-index -base_url https://android.googlesource.com/ \
       -name Android \
-      -manifest_repo ~/android-orig/.repo/manifests.git/ \
+      -manifest_repo_url https://android.googlesource.com/platform/manifests \
       -manifest_rev_prefix=refs/remotes/origin/ \
       -rev_prefix="refs/remotes/aosp/" \
       --repo_cache ~/android-repo-cache/ \
@@ -53,19 +53,23 @@ type branchFile struct {
 	manifestPath string
 }
 
-func parseBranches(manifestRepo, revPrefix string, args []string) ([]branchFile, error) {
+func parseBranches(manifestRepoURL, revPrefix string, cache *gitindex.RepoCache, args []string) ([]branchFile, error) {
 	var branches []branchFile
-	if manifestRepo != "" {
-		repo, err := git.OpenRepository(manifestRepo)
+	if manifestRepoURL != "" {
+		u, err := url.Parse(manifestRepoURL)
 		if err != nil {
-			log.Fatalf("OpenRepository(%s): %v", manifestRepo, err)
+			return nil, err
+		}
+
+		repo, err := cache.Open(u)
+		if err != nil {
+			return nil, err
 		}
 		for _, f := range args {
 			fs := strings.SplitN(f, ":", 2)
 			if len(fs) != 2 {
 				return nil, fmt.Errorf("cannot parse %q as BRANCH:FILE", f)
 			}
-
 			mf, err := getManifest(repo, revPrefix+fs[0], fs[1])
 			if err != nil {
 				return nil, fmt.Errorf("manifest %s:%s: %v", fs[0], fs[1], err)
@@ -75,10 +79,9 @@ func parseBranches(manifestRepo, revPrefix string, args []string) ([]branchFile,
 				branch:       fs[0],
 				file:         fs[1],
 				mf:           mf,
-				manifestPath: manifestRepo,
+				manifestPath: repo.Path(),
 			})
 		}
-		repo.Free()
 	} else {
 		if len(args) == 0 {
 			return nil, fmt.Errorf("must give XML file argument")
@@ -109,7 +112,7 @@ func main() {
 	baseURLStr := flag.String("base_url", "", "base url to interpret repository names")
 	repoCacheDir := flag.String("repo_cache", "", "root for repository cache")
 	indexDir := flag.String("index", build.DefaultDir, "index directory for *.zoekt files")
-	manifestRepo := flag.String("manifest_repo", "", "set path a git repository holding manifest XML file. Provide the BRANCH:XML-FILE as further command-line arguments")
+	manifestRepoURL := flag.String("manifest_repo_url", "", "set a URL for a git repository holding manifest XML file. Provide the BRANCH:XML-FILE as further command-line arguments")
 	manifestRevPrefix := flag.String("manifest_rev_prefix", "refs/remotes/origin/", "prefixes for branches in manifest repository")
 	repoName := flag.String("name", "", "set repository name")
 	repoURL := flag.String("url", "", "set repository URL")
@@ -119,6 +122,12 @@ func main() {
 		log.Fatal("must set --repo_cache")
 	}
 	repoCache := gitindex.NewRepoCache(*repoCacheDir)
+
+	if u, err := url.Parse(*baseURLStr); err != nil {
+		log.Fatalf("Parse(%q): %v", u, err)
+	} else if *repoName == "" {
+		*repoName = filepath.Join(u.Host, u.Path)
+	}
 
 	opts := build.Options{
 		Parallelism: *parallelism,
@@ -136,9 +145,9 @@ func main() {
 		log.Fatal("Parse baseURL %q: %v", baseURLStr, err)
 	}
 
-	branches, err := parseBranches(*manifestRepo, *manifestRevPrefix, flag.Args())
+	branches, err := parseBranches(*manifestRepoURL, *manifestRevPrefix, repoCache, flag.Args())
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("parseBranches(%s, %s): %v", *manifestRepoURL, *manifestRevPrefix, err)
 	}
 	if len(branches) == 0 {
 		log.Fatal("must specify at least one branch")
@@ -216,8 +225,9 @@ func main() {
 		for _, br := range branches {
 			doc.Branches = append(doc.Branches, br)
 		}
-
-		builder.Add(doc)
+		if err := builder.Add(doc); err != nil {
+			log.Fatalf("Add(%s): %v", doc.Name, err)
+		}
 	}
 	if err := builder.Finish(); err != nil {
 		log.Fatalf("Finish: %v", err)

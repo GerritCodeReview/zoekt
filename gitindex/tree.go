@@ -38,6 +38,9 @@ type repoWalker struct {
 	subRepoVersions map[string]git.Oid
 	err             error
 	repoCache       *RepoCache
+
+	// If set, don't gasp on missing submodules.
+	ignoreMissing bool
 }
 
 // subURL returns the URL for a submodule.
@@ -63,6 +66,7 @@ func newRepoWalker(r *git.Repository, repoURL string, repoCache *RepoCache) *rep
 		tree:            map[FileKey]BlobLocation{},
 		repoCache:       repoCache,
 		subRepoVersions: map[string]git.Oid{},
+		ignoreMissing:   true,
 	}
 }
 
@@ -111,7 +115,10 @@ func (r *repoWalker) cb(n string, e *git.TreeEntry) error {
 	if e.Type == git.ObjectCommit && r.repoCache != nil {
 		submod := r.submodules[p]
 		if submod == nil {
-			return fmt.Errorf("no entry for submodule path %q", p)
+			if r.ignoreMissing {
+				return nil
+			}
+			return fmt.Errorf("in repo %s: no entry for submodule path %q", r.repoURL, p)
 		}
 
 		subURL, err := r.subURL(submod.URL)

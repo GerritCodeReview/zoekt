@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b82abce_96e80c3b",
+        "filename": "build/builder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-11-07T10:21:49Z",
+      "side": 1,
+      "message": "unrelated",
+      "range": {
+        "startLine": 290,
+        "startChar": 0,
+        "endLine": 290,
+        "endChar": 2
+      },
+      "revId": "c011cfb721d14d0436a83c8567f4608990b4c808",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

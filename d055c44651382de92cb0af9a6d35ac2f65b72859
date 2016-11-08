@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "cb9bfb7a_324870ca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-11-08T15:04:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aba087a6_b1a5408e",
+      "revId": "d055c44651382de92cb0af9a6d35ac2f65b72859",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aba087a6_51aed43b",
         "filename": "gitindex/tree.go",
         "patchSetId": 1
@@ -42,6 +60,24 @@
         "endLine": 43,
         "endChar": 14
       },
+      "revId": "d055c44651382de92cb0af9a6d35ac2f65b72859",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb9bfb7a_12436cb2",
+        "filename": "gitindex/tree.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-11-08T15:04:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aba087a6_51aed43b",
       "revId": "d055c44651382de92cb0af9a6d35ac2f65b72859",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false

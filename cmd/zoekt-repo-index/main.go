@@ -30,12 +30,15 @@ git repositories should already have been downloaded to the
 package main
 
 import (
+	"crypto/sha1"
 	"flag"
 	"fmt"
 	"log"
 	"net/url"
 	"path"
 	"path/filepath"
+	"reflect"
+	"sort"
 	"strings"
 
 	"github.com/google/slothfs/manifest"
@@ -117,6 +120,7 @@ func main() {
 	repoName := flag.String("name", "", "set repository name")
 	repoURL := flag.String("url", "", "set repository URL")
 	maxSubProjects := flag.Int("max_sub_projects", 0, "trim number of projects in manifest, for debugging.")
+	incremental := flag.Bool("incremental", true, "only index if the repository has changed.")
 	flag.Parse()
 
 	if *repoCacheDir == "" {
@@ -197,20 +201,37 @@ func main() {
 
 	for _, br := range branches {
 		var zero git.Oid
-		opts.RepositoryDescription.Branches = append(opts.RepositoryDescription.Branches, zoekt.RepositoryBranch{
-			Name:    br.branch,
-			Version: zero.String(),
-		})
-		for p, repo := range opts.SubRepositories {
+		var paths []string
+		for p := range opts.SubRepositories {
+			paths = append(paths, p)
+		}
+		sort.Strings(paths)
+
+		// Compute a version of the aggregate. This version
+		// has nothing to do with git, but will let us do
+		// incrementality correctly.
+		hasher := sha1.New()
+		for _, p := range paths {
+			repo := opts.SubRepositories[p]
 			id := versionMap[br.branch][p]
+
+			hasher.Write([]byte(p))
+			hasher.Write([]byte(id.String()))
+
 			if id.String() == zero.String() {
-				panic("zero")
+				log.Panicf("sub project path %q has zero ID.")
 			}
 			repo.Branches = append(repo.Branches, zoekt.RepositoryBranch{
 				Name:    br.branch,
 				Version: id.String(),
 			})
 		}
+
+		opts.RepositoryDescription.Branches = append(opts.RepositoryDescription.Branches, zoekt.RepositoryBranch{
+			Name:    br.branch,
+			Version: fmt.Sprintf("%x", hasher.Sum(nil)),
+		})
+
 	}
 
 	// key => branch
@@ -218,6 +239,13 @@ func main() {
 	for br, files := range perBranch {
 		for k := range files {
 			all[k] = append(all[k], br)
+		}
+	}
+
+	if *incremental {
+		versions := opts.IndexVersions()
+		if reflect.DeepEqual(versions, opts.RepositoryDescription.Branches) {
+			return
 		}
 	}
 

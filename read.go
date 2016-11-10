@@ -192,7 +192,35 @@ func (r *reader) readIndexData(toc *indexTOC) (*indexData, error) {
 	sort.Strings(keys)
 	d.subRepoPaths = keys
 
+	if err := d.verify(); err != nil {
+		return nil, err
+	}
+
 	return &d, nil
+}
+
+func (d *indexData) verify() error {
+	// This is not an exhaustive check: the postings can easily
+	// generate OOB acccesses, and are expensive to check, but this lets us rule out
+	// other sources of OOB access.
+	n := len(d.fileNameIndex)
+	if n == 0 {
+		return nil
+	}
+
+	n--
+	for what, got := range map[string]int{
+		"file ends":         len(d.fileEnds),
+		"boundaries":        len(d.boundaries) - 1,
+		"branch masks":      len(d.fileBranchMasks),
+		"doc section index": len(d.docSectionsIndex) - 1,
+		"newlines index":    len(d.newlinesIndex) - 1,
+	} {
+		if got != n {
+			return fmt.Errorf("got %s %d, want %d", what, got, n)
+		}
+	}
+	return nil
 }
 
 func (d *indexData) readContents(i uint32) ([]byte, error) {

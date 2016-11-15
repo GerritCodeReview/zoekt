@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0a51083_c42ebea3",
+        "filename": "cmd/zoekt-git-index/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-11-15T00:06:33Z",
+      "side": 1,
+      "message": "require-ctags ?",
+      "range": {
+        "startLine": 43,
+        "startChar": 21,
+        "endLine": 43,
+        "endChar": 26
+      },
+      "revId": "e61e23df9ed8b2d95cdf193c72ea541683011630",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

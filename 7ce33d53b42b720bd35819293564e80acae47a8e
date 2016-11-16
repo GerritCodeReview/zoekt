@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "905f7458_59f52360",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1030339
+      },
+      "writtenOn": "2016-11-16T13:07:51Z",
+      "side": 1,
+      "message": "Ah, no, what I meant to say was that you can\u0027t rely on this being present at all in glibc (not just the header definition missing, but the entire function in the library, so this would result in a link error). I think the recommended way to call this is like this:\n\nsyscall(SYS_pivot_root, \".\", old_root)\n\nbecause of this NOTE in the man page:\n\n\"Glibc does not provide a wrapper for this system call; call it using syscall(2).\"\n\nThat said, it seems to work, so maybe this is only relevant for really old versions of glibc.",
+      "parentUuid": "01f9748d_ace22389",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01f9748d_ecd26be6",
         "filename": "cmd/zoekt-sandbox/mkbox.c",
         "patchSetId": 5
@@ -90,6 +108,24 @@
       "side": 1,
       "message": "you sure? \n\nmkbox.c:27:28: fatal error: sys/capability.h: No such file or directory\n #include \u003csys/capability.h\u003e",
       "parentUuid": "01f9748d_ecd26be6",
+      "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "905f7458_b909df98",
+        "filename": "cmd/zoekt-sandbox/mkbox.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1030339
+      },
+      "writtenOn": "2016-11-16T13:07:51Z",
+      "side": 1,
+      "message": "Seems that on Ubuntu this header is provided only by libcap-dev:\nhttp://packages.ubuntu.com/xenial/amd64/libcap-dev/filelist",
+      "parentUuid": "01f9748d_0cd417a7",
       "revId": "7ce33d53b42b720bd35819293564e80acae47a8e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false

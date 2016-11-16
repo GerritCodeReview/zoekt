@@ -29,8 +29,6 @@ import (
 	"sync"
 
 	"github.com/google/zoekt"
-	"github.com/google/zoekt/query"
-	"golang.org/x/net/context"
 )
 
 var DefaultDir = filepath.Join(os.Getenv("HOME"), ".zoekt")
@@ -152,27 +150,17 @@ func (o *Options) IndexVersions() []zoekt.RepositoryBranch {
 	if err != nil {
 		return nil
 	}
-	s, err := zoekt.NewSearcher(iFile)
+	md, err := zoekt.ReadMetadata(iFile)
 	if err != nil {
 		return nil
 	}
-	defer s.Close()
+	defer iFile.Close()
 
-	st, err := s.Stats()
-	if err != nil {
+	if md.IndexFeatureVersion != zoekt.FeatureVersion {
 		return nil
 	}
 
-	if st.FeatureVersion != zoekt.FeatureVersion {
-		return nil
-	}
-
-	l, err := s.List(context.Background(), &query.Repo{})
-	if err != nil {
-		return nil
-	}
-
-	return l.Repos[0].Branches
+	return md.Repository.Branches
 }
 
 // NewBuilder creates a new Builder instance.

@@ -150,17 +150,18 @@ func (o *Options) IndexVersions() []zoekt.RepositoryBranch {
 	if err != nil {
 		return nil
 	}
-	md, err := zoekt.ReadMetadata(iFile)
+
+	repo, index, err := zoekt.ReadMetadata(iFile)
 	if err != nil {
 		return nil
 	}
 	defer iFile.Close()
 
-	if md.IndexFeatureVersion != zoekt.FeatureVersion {
+	if index.IndexFeatureVersion != zoekt.FeatureVersion {
 		return nil
 	}
 
-	return md.Repository.Branches
+	return repo.Branches
 }
 
 // NewBuilder creates a new Builder instance.

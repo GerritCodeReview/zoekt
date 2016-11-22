@@ -19,6 +19,8 @@ import (
 	"fmt"
 	"log"
 	"sort"
+	"unicode"
+	"unicode/utf8"
 
 	"github.com/google/zoekt/query"
 )
@@ -32,6 +34,10 @@ type candidateMatch struct {
 
 	substrBytes   []byte
 	substrLowered []byte
+
+	// if set, the pattern if full ASCII, and we can avoid unicode
+	// operations.
+	plainASCII bool
 
 	file uint32
 
@@ -49,7 +55,11 @@ func (m *candidateMatch) matchContent(content []byte) bool {
 		comp := bytes.Compare(content[m.offset:m.offset+uint32(m.matchSz)], m.substrBytes) == 0
 		return comp
 	} else {
-		return caseFoldingEquals(m.substrLowered, content[m.offset:m.offset+uint32(m.matchSz)])
+		if m.plainASCII {
+			return caseFoldingEqualsBytes(m.substrLowered, content[m.offset:m.offset+uint32(m.matchSz)])
+		} else {
+			return caseFoldingEqualsRunes(m.substrLowered, content[m.offset:m.offset+uint32(m.matchSz)])
+		}
 	}
 }
 
@@ -106,7 +116,22 @@ func (s *ngramDocIterator) coversContent() bool {
 
 func (s *ngramDocIterator) next() []*candidateMatch {
 	patBytes := []byte(s.query.Pattern)
-	lowerPatBytes := toLower(patBytes)
+
+	plainASCII := true
+	lowerPatBytes := make([]byte, 0, len(patBytes))
+	var buf [4]byte
+	for _, r := range s.query.Pattern {
+		if r < 128 {
+			if r >= 'A' && r <= 'Z' {
+				r = r - 'A' + 'a'
+			}
+			lowerPatBytes = append(lowerPatBytes, byte(r))
+		} else {
+			plainASCII = false
+			sz := utf8.EncodeRune(buf[:], unicode.ToLower(r))
+			lowerPatBytes = append(lowerPatBytes, buf[:sz]...)
+		}
+	}
 
 	var candidates []*candidateMatch
 	for {
@@ -142,6 +167,7 @@ func (s *ngramDocIterator) next() []*candidateMatch {
 					fileName:      s.query.FileName,
 					substrBytes:   patBytes,
 					substrLowered: lowerPatBytes,
+					plainASCII:    plainASCII,
 					matchSz:       uint32(len(lowerPatBytes)),
 					file:          uint32(s.fileIdx),
 					offset:        p1 - fileStart - s.leftPad,

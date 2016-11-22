@@ -20,6 +20,7 @@ import (
 	"log"
 	"reflect"
 	"regexp/syntax"
+	"strings"
 	"testing"
 
 	"golang.org/x/net/context"
@@ -1166,5 +1167,41 @@ func TestSearchEither(t *testing.T) {
 
 	if got, want := sres.Files[0].FileName, "f1"; got != want {
 		t.Errorf("got %q, want %q", got, want)
+	}
+}
+
+func TestUnicodeCoverContent(t *testing.T) {
+	needle := "néédlÉ"
+	content := []byte("blá blá " + needle + " blâ")
+	b := testIndexBuilder(t, nil,
+		Document{Name: "f1", Content: content})
+
+	if res := searchForTest(t, b, &query.Substring{Pattern: "NÉÉDLÉ", CaseSensitive: true}); len(res.Files) != 0 {
+		t.Fatalf("got %v, wanted 0 match", res.Files)
+	}
+
+	res := searchForTest(t, b, &query.Substring{Pattern: "NÉÉDLÉ"})
+	if len(res.Files) != 1 {
+		t.Fatalf("got %v, wanted 1 match", res.Files)
+	}
+
+	if got, want := res.Files[0].LineMatches[0].LineFragments[0].Offset, uint32(strings.Index(string(content), needle)); got != want {
+		t.Errorf("got %d want %d", got, want)
+	}
+}
+
+func TestUnicodeNonCoverContent(t *testing.T) {
+	needle := "nééáádlÉ"
+	content := []byte("blá blá " + needle + " blâ")
+	b := testIndexBuilder(t, nil,
+		Document{Name: "f1", Content: content})
+
+	res := searchForTest(t, b, &query.Substring{Pattern: "NÉÉÁÁDLÉ"})
+	if len(res.Files) != 1 {
+		t.Fatalf("got %v, wanted 1 match", res.Files)
+	}
+
+	if got, want := res.Files[0].LineMatches[0].LineFragments[0].Offset, uint32(strings.Index(string(content), needle)); got != want {
+		t.Errorf("got %d want %d", got, want)
 	}
 }

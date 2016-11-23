@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d091ec62_0b425d5e",
+        "filename": "cmd/zoekt-webserver/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-11-23T13:07:33Z",
+      "side": 1,
+      "message": "I would suggest to use a suffix that indicates that this is a template. e.g. \"demofile.html.tpl\"",
+      "range": {
+        "startLine": 64,
+        "startChar": 36,
+        "endLine": 64,
+        "endChar": 40
+      },
+      "revId": "f8308a7778f3d76942dc9da1c2580a31640f55ac",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

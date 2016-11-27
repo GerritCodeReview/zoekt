@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50ec1c3c_622f18e5",
+        "filename": "read.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2016-11-27T12:43:00Z",
+      "side": 1,
+      "message": "can you also add %d !\u003d %d here and below?",
+      "range": {
+        "startLine": 216,
+        "startChar": 34,
+        "endLine": 216,
+        "endChar": 35
+      },
+      "revId": "2afcc1a7c875fd1a96b7e91efadef810d79ef9f0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

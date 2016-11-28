@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90e69458_a1191ea6",
+        "filename": "api.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1027267
+      },
+      "writtenOn": "2016-11-28T18:53:32Z",
+      "side": 1,
+      "message": "\"Nil if this is not the super project\" might be easier to parse.",
+      "revId": "e9caae2b76f8a6ff46f1ba0b032cb53df7407f6d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0e1d842_823cdaf3",
+        "filename": "indexbuilder.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1027267
+      },
+      "writtenOn": "2016-11-28T18:53:32Z",
+      "side": 1,
+      "message": "Could use a description of the optional Repository parameter.",
+      "revId": "e9caae2b76f8a6ff46f1ba0b032cb53df7407f6d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

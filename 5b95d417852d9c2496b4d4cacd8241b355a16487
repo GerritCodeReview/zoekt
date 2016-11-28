@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90e69458_6110b671",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1027267
+      },
+      "writtenOn": "2016-11-28T19:03:53Z",
+      "side": 1,
+      "message": "Trailing whitespace",
+      "revId": "5b95d417852d9c2496b4d4cacd8241b355a16487",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e69458_c1fb8208",
+        "filename": "cmd/zoekt-indexserver/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1027267
+      },
+      "writtenOn": "2016-11-28T19:03:53Z",
+      "side": 1,
+      "message": "If you want to return this err when os.IsNotExist returns false, you need to lose the colon. This would be a good situation to separate the assignment and conditional for clarity:\n\n _, err \u003d os.Stat(dir)\n if os.IsNotExist(err) {\n   return os.Remove(fn)\n }\n return err",
+      "revId": "5b95d417852d9c2496b4d4cacd8241b355a16487",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

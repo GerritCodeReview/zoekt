@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90e69458_01f60a1e",
+        "filename": "api.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1027267
+      },
+      "writtenOn": "2016-11-28T19:10:55Z",
+      "side": 1,
+      "message": "Why isn\u0027t s.Repos incremented?",
+      "revId": "1bb460e490ff3dea8b6716c08f517c3a906f4a78",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

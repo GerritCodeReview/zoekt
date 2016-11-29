@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "70e76057_631c3c2e",
+        "filename": "api.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-11-29T10:46:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90e69458_a1191ea6",
+      "revId": "e9caae2b76f8a6ff46f1ba0b032cb53df7407f6d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0e1d842_823cdaf3",
         "filename": "indexbuilder.go",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2016-11-28T18:53:32Z",
       "side": 1,
       "message": "Could use a description of the optional Repository parameter.",
+      "revId": "e9caae2b76f8a6ff46f1ba0b032cb53df7407f6d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50ec1c3c_45a65e93",
+        "filename": "indexbuilder.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2016-11-29T10:46:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0e1d842_823cdaf3",
       "revId": "e9caae2b76f8a6ff46f1ba0b032cb53df7407f6d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false

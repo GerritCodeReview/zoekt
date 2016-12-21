@@ -45,11 +45,10 @@ func generateCaseNgrams(g ngram) []ngram {
 
 func toLower(in []byte) []byte {
 	out := make([]byte, len(in))
-	for i, c := range in {
-		if c >= 'A' && c <= 'Z' {
-			c = c - 'A' + 'a'
-		}
-		out[i] = c
+	var buf [4]byte
+	for _, c := range string(in) {
+		i := utf8.EncodeRune(buf[:], c)
+		out = append(out, buf[:i]...)
 	}
 	return out
 }
@@ -118,13 +117,14 @@ func (n ngram) String() string {
 }
 
 type runeNgramOff struct {
-	off      uint32
 	ngram    ngram
-	byteSize uint32
+	byteSize uint32 // size of ngram
+	byteOff  uint32
+	runeOff  uint32
 }
 
-func (r runeNgramOff) end() uint32 {
-	return r.off + r.byteSize
+func (r runeNgramOff) byteEnd() uint32 {
+	return r.byteOff + r.byteSize
 }
 
 func splitNGrams(str []byte) []runeNgramOff {
@@ -134,7 +134,10 @@ func splitNGrams(str []byte) []runeNgramOff {
 
 	result := make([]runeNgramOff, 0, len(str))
 	var i uint32
+
+	chars := -1
 	for len(str) > 0 {
+		chars++
 		r, sz := utf8.DecodeRune(str)
 		str = str[sz:]
 		runeGram[0] = runeGram[1]
@@ -150,7 +153,12 @@ func splitNGrams(str []byte) []runeNgramOff {
 		}
 
 		ng := runesToNGram(runeGram)
-		result = append(result, runeNgramOff{off[0], ng, i - off[0]})
+		result = append(result, runeNgramOff{
+			ngram:    ng,
+			byteSize: i - off[0],
+			byteOff:  off[0],
+			runeOff:  uint32(chars),
+		})
 	}
 	return result
 }

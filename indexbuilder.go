@@ -62,30 +62,26 @@ func (s *postingsBuilder) newSearchableString(data []byte) *searchableString {
 	}
 	var buf [8]byte
 	var runeGram [3]rune
-	var off [3]uint32 // byte offsets relative to start of data.
 
-	rune := 0
+	runeIndex := -1
 	for i, c := range string(dest.data) {
 		runeGram[0] = runeGram[1]
-		off[0] = off[1]
 		runeGram[1] = runeGram[2]
-		off[1] = off[2]
 		runeGram[2] = c
-		off[2] = uint32(i)
-		rune++
+		runeIndex++
 
 		s.runeCount++
 		if idx := s.runeCount - 1; idx%runeOffsetFrequency == 0 {
 			s.runeOffsets = append(s.runeOffsets, s.end+uint32(i))
 		}
 
-		if rune < ngramSize {
+		if runeIndex < 2 {
 			continue
 		}
 
 		ng := runesToNGram(runeGram)
 		lastOff := s.lastOffsets[ng]
-		newOff := s.end + off[0]
+		newOff := s.end + uint32(runeIndex) - 2
 		m := binary.PutUvarint(buf[:], uint64(newOff-lastOff))
 		s.postings[ng] = append(s.postings[ng], buf[:m]...)
 		s.lastOffsets[ng] = newOff

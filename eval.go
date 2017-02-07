@@ -552,7 +552,6 @@ nextFileMatch:
 				nextDoc = st.cands[0].file
 			}
 		}
-
 		if nextDoc == maxUInt32 {
 			break
 		}
@@ -563,7 +562,6 @@ nextFileMatch:
 			res.Stats.FilesSkipped++
 			continue
 		}
-
 		cp.setDocument(nextDoc)
 
 		known := make(map[matchTree]bool)

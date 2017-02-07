@@ -253,6 +253,7 @@ func (data *indexData) getNgramDocIterator(query *query.Substring) (docIterator,
 
 	firstNG := ngramOffs[firstI].ngram
 	lastNG := ngramOffs[lastI].ngram
+
 	input.distance = lastI - firstI
 	input.leftPad = firstI
 	input.rightPad = uint32(len(str)-ngramSize) - lastI

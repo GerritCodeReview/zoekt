@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "efd18069_176dc51e",
+        "filename": "index.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2017-02-13T17:26:52Z",
+      "side": 1,
+      "message": "unrelated",
+      "revId": "fa111f6ed179238e169695402103c8286d7693c1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

@@ -1275,3 +1275,23 @@ func TestShortUnicode(t *testing.T) {
 		t.Error("search should have failed")
 	}
 }
+
+func TestUnicodeFileStartOffsets(t *testing.T) {
+	unicode := "世界"
+	wat := "waaaaaat"
+	b := testIndexBuilder(t, nil,
+		Document{
+			Name:    "f1",
+			Content: []byte(unicode),
+		},
+		Document{
+			Name:    "f2",
+			Content: []byte(wat),
+		},
+	)
+	q := &query.Substring{Pattern: wat, Content: true}
+	res := searchForTest(t, b, q)
+	if len(res.Files) != 1 {
+		t.Fatalf("got %v, wanted 1 match", res.Files)
+	}
+}

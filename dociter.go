@@ -144,7 +144,6 @@ func (s *ngramDocIterator) next() []*candidateMatch {
 			if p1 < s.leftPad+fileStart || p1+s.distance+ngramSize+s.rightPad > s.ends[s.fileIdx] {
 				continue
 			}
-
 			cand := &candidateMatch{
 				caseSensitive: s.query.CaseSensitive,
 				fileName:      s.query.FileName,

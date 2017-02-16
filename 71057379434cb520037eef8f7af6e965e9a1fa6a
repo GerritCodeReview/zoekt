@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ba4a90f8_c289b7af",
+        "filename": "dociter.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2017-02-16T17:23:01Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "5b8afc73_e3101b48",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 1
+      },
+      "revId": "71057379434cb520037eef8f7af6e965e9a1fa6a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3740d86_cb3de3b2",
         "filename": "index.go",
         "patchSetId": 2

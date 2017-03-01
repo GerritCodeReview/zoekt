@@ -103,11 +103,15 @@ func (p *contentProvider) findOffset(filename bool, r uint32) uint32 {
 	left := absR % runeOffsetFrequency
 
 	var data []byte
-	data, p.err = p.id.readContentSlice(byteOff, 3*runeOffsetFrequency)
-	if p.err != nil {
-		return 0
-	}
 
+	if filename {
+		data = p.id.fileNameContent[byteOff:]
+	} else {
+		data, p.err = p.id.readContentSlice(byteOff, 3*runeOffsetFrequency)
+		if p.err != nil {
+			return 0
+		}
+	}
 	for left > 0 {
 		_, sz := utf8.DecodeRune(data)
 		byteOff += uint32(sz)

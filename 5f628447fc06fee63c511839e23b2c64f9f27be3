@@ -22,6 +22,30 @@
       "revId": "5f628447fc06fee63c511839e23b2c64f9f27be3",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17b037db_a6f0bbff",
+        "filename": "index_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 1351,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2017-03-02T11:01:58Z",
+      "side": 1,
+      "message": "I added some more comments to the function with the fix.\n\nSearching in filenames works just as searching in file contents, but you have to swap out the data you\u0027re running the code on, which didn\u0027t happen for the actual corpus data. However, the buggy function would do nothing if everything is pure ASCII, so here I add some UTF8. Before the fix, this test would crash with OOB access, because the offsets were based on corpus (UTF8), but the filename is very small",
+      "parentUuid": "628fc449_6a894d7e",
+      "range": {
+        "startLine": 1351,
+        "startChar": 5,
+        "endLine": 1351,
+        "endChar": 30
+      },
+      "revId": "5f628447fc06fee63c511839e23b2c64f9f27be3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

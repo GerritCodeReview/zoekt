@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "628fc449_6a894d7e",
+        "filename": "index_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 1351,
+      "author": {
+        "id": 1030339
+      },
+      "writtenOn": "2017-03-02T09:54:32Z",
+      "side": 1,
+      "message": "I don\u0027t understand what this tests (which may be, because I don\u0027t understand what your fix fixes ;)).\n\nThe only place where UTF-8 appears here is in the Content of a document, right? The needle and the Name attributes only contain ASCII characters, so why is this test called \"UTF8FilenameConfusion\"?",
+      "range": {
+        "startLine": 1351,
+        "startChar": 5,
+        "endLine": 1351,
+        "endChar": 30
+      },
+      "revId": "5f628447fc06fee63c511839e23b2c64f9f27be3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

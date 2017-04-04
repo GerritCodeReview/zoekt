@@ -142,6 +142,7 @@ func (data *indexData) matchAllDocIterator() docIterator {
 		return &bruteForceIter{cands}
 	}
 
+	cands = make([]*candidateMatch, 0, len(data.fileNameIndex[1:]))
 	var last uint32
 	for i, off := range data.fileNameIndex[1:] {
 		name := data.fileNameContent[last:off]
@@ -174,8 +175,9 @@ func (data *indexData) getBruteForceFileNameDocIterator(query *query.Substring) 
 	startName := data.fileNameIndex[fileID]
 	endName := data.fileNameIndex[fileID+1]
 
-	var cands []*candidateMatch
-	for _, match := range re.FindAllIndex(data.fileNameContent, -1) {
+	matches := re.FindAllIndex(data.fileNameContent, -1)
+	cands := make([]*candidateMatch, 0, len(matches))
+	for _, match := range matches {
 		start := uint32(match[0])
 		end := uint32(match[1])
 
@@ -242,7 +244,7 @@ func (data *indexData) getNgramDocIterator(query *query.Substring) (docIterator,
 
 	// Find the 2 least common ngrams from the string.
 	ngramOffs := splitNGrams([]byte(query.Pattern))
-	var frequencies []uint32
+	frequencies := make([]uint32, 0, len(ngramOffs))
 	for _, o := range ngramOffs {
 		var freq uint32
 		if query.CaseSensitive {

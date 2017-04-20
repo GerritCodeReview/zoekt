@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8c421c0_194a780b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2017-04-20T11:18:29Z",
+      "side": 1,
+      "message": "nit: upper case",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 1
+      },
+      "revId": "a3c77dedf93fdbf1b136df795be395bfb482030a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f13b502b_3bede00b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2017-04-20T11:18:29Z",
+      "side": 1,
+      "message": "should this be a link to some issue?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 10
+      },
+      "revId": "a3c77dedf93fdbf1b136df795be395bfb482030a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83fc8df5_ca40ca27",
+        "filename": "build/builder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2017-04-20T11:18:29Z",
+      "side": 1,
+      "message": "nit: singular",
+      "range": {
+        "startLine": 93,
+        "startChar": 31,
+        "endLine": 93,
+        "endChar": 32
+      },
+      "revId": "a3c77dedf93fdbf1b136df795be395bfb482030a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

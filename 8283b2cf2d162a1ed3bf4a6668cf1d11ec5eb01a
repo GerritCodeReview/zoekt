@@ -22,6 +22,30 @@
       "revId": "8283b2cf2d162a1ed3bf4a6668cf1d11ec5eb01a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9631e883_f167d67a",
+        "filename": "cmd/zoekt-mirror-github/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2017-04-26T10:58:27Z",
+      "side": 1,
+      "message": "it limits the scope of trimmed. I do note I forget to read the var :)",
+      "parentUuid": "fff33ff1_217fd4de",
+      "range": {
+        "startLine": 99,
+        "startChar": 1,
+        "endLine": 99,
+        "endChar": 2
+      },
+      "revId": "8283b2cf2d162a1ed3bf4a6668cf1d11ec5eb01a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

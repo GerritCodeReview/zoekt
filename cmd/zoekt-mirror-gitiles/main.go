@@ -80,10 +80,12 @@ func main() {
 	}
 
 	for nm, target := range repos {
+		repoURL := *rootURL
+		repoURL.Path = filepath.Join(target.webURL, nm)
 		config := map[string]string{
 			"zoekt.web-url":      target.webURL,
 			"zoekt.web-url-type": target.webURLType,
-			"zoekt.name":         nm,
+			"zoekt.name":         filepath.Join(repoURL.Host, repoURL.Path),
 		}
 
 		if err := gitindex.CloneRepo(destDir, nm, target.cloneURL, config); err != nil {

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "76a4d564_5cc63da3",
+        "filename": "cmd/zoekt-indexserver/config.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2017-05-02T06:18:53Z",
+      "side": 1,
+      "message": "change this command to be more generic?\n\nmaybe:\nzoekt-mirror-hosted-git\nzoekt-mirror-git\nzoekt-mirror-remote-git",
+      "range": {
+        "startLine": 145,
+        "startChar": 38,
+        "endLine": 145,
+        "endChar": 45
+      },
+      "revId": "c6cfd439ca61a6a32c5a1da813c8b903b688fc02",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

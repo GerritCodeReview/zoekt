@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fcc0ad99_4db3e5bf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2017-05-03T14:57:43Z",
+      "side": 1,
+      "message": "nit: remote trailing space",
+      "range": {
+        "startLine": 7,
+        "startChar": 18,
+        "endLine": 7,
+        "endChar": 19
+      },
+      "revId": "c4330a6daa6bdbf30b29c1a8b8130d0c78612f0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9877e773_4d3f0e11",
+        "filename": "doc/faq.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2017-05-03T14:57:43Z",
+      "side": 1,
+      "message": "remove leading new line (or is this a markdown convention that I don\u0027t know about?)",
+      "revId": "c4330a6daa6bdbf30b29c1a8b8130d0c78612f0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83ceeb0d_18436bcc",
+        "filename": "doc/faq.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2017-05-03T14:57:43Z",
+      "side": 1,
+      "message": "remove extra new line",
+      "revId": "c4330a6daa6bdbf30b29c1a8b8130d0c78612f0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbcdd6d3_81ae84b0",
+        "filename": "doc/faq.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2017-05-03T14:57:43Z",
+      "side": 1,
+      "message": "missing \u0027files\u0027",
+      "range": {
+        "startLine": 22,
+        "startChar": 121,
+        "endLine": 22,
+        "endChar": 122
+      },
+      "revId": "c4330a6daa6bdbf30b29c1a8b8130d0c78612f0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f71255f2_cfd7eb8c",
+        "filename": "doc/faq.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2017-05-03T14:57:43Z",
+      "side": 1,
+      "message": "either you need an extra newline here to separate the new heading from the list or you can spare the extra new line right before the previous heading",
+      "revId": "c4330a6daa6bdbf30b29c1a8b8130d0c78612f0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

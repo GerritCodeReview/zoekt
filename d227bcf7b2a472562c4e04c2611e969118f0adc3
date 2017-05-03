@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ca5dcd1_bb13ba61",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2017-05-03T14:46:56Z",
+      "side": 1,
+      "message": "Is this referring to an issue in an issue tracker somewhere?\n\nIf so, it would be great to use a standard annotation so that Gerrit creates the link automatically.\n\nFor Gerrit, that is: Issue 123",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 9
+      },
+      "revId": "d227bcf7b2a472562c4e04c2611e969118f0adc3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

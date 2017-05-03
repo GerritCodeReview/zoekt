@@ -22,6 +22,30 @@
       "revId": "d227bcf7b2a472562c4e04c2611e969118f0adc3",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9204c76_c082f3f3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2017-05-03T18:15:05Z",
+      "side": 1,
+      "message": "Github does something with this, I believe. The Gerrit issue tracker is unfortunately the wrong one.",
+      "parentUuid": "0ca5dcd1_bb13ba61",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 9
+      },
+      "revId": "d227bcf7b2a472562c4e04c2611e969118f0adc3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

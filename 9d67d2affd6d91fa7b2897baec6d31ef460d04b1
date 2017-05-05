@@ -16,6 +16,24 @@
       "revId": "9d67d2affd6d91fa7b2897baec6d31ef460d04b1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab7ddddd_320d1070",
+        "filename": "gitindex/tree.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2017-05-05T16:35:20Z",
+      "side": 1,
+      "message": "oops. fixed.",
+      "parentUuid": "69ceaed4_ba7e9fc2",
+      "revId": "9d67d2affd6d91fa7b2897baec6d31ef460d04b1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

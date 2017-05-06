@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7ae3a78_a6e9ddb9",
+        "filename": "gitindex/git.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1019939
+      },
+      "writtenOn": "2017-05-06T05:03:34Z",
+      "side": 1,
+      "message": "the code below would be unreachable statements?",
+      "revId": "1569469dc77787e3252389203a386d4510788d23",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

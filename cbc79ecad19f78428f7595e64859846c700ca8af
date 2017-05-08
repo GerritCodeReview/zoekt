@@ -22,6 +22,30 @@
       "revId": "cbc79ecad19f78428f7595e64859846c700ca8af",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c66289cd_482b3f2c",
+        "filename": "toc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2017-05-08T08:52:47Z",
+      "side": 1,
+      "message": "https://gerrit-review.googlesource.com/c/106050/",
+      "parentUuid": "70a27641_06df5290",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "cbc79ecad19f78428f7595e64859846c700ca8af",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

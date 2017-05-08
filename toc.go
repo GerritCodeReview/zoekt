@@ -23,7 +23,8 @@ package zoekt
 // 9: use bigendian uint64 for trigrams.
 // 10: sections for rune offsets.
 // 11: file ends in rune offsets.
-const IndexFormatVersion = 11
+// 13: content checksums
+const IndexFormatVersion = 13
 
 // FeatureVersion is increased if a feature is added that requires reindexing data.
 const FeatureVersion = 1
@@ -41,12 +42,13 @@ type indexTOC struct {
 	branchMasks simpleSection
 	subRepos    simpleSection
 
-	nameNgramText   simpleSection
-	namePostings    compoundSection
-	nameRuneOffsets simpleSection
-	metaData        simpleSection
-	repoMetaData    simpleSection
-	nameEndRunes    simpleSection
+	nameNgramText    simpleSection
+	namePostings     compoundSection
+	nameRuneOffsets  simpleSection
+	metaData         simpleSection
+	repoMetaData     simpleSection
+	nameEndRunes     simpleSection
+	contentChecksums simpleSection
 }
 
 func (t *indexTOC) sections() []section {
@@ -69,5 +71,6 @@ func (t *indexTOC) sections() []section {
 		&t.nameRuneOffsets,
 		&t.fileEndRunes,
 		&t.nameEndRunes,
+		&t.contentChecksums,
 	}
 }

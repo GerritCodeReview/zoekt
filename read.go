@@ -181,6 +181,11 @@ func (r *reader) readIndexData(toc *indexTOC) (*indexData, error) {
 		return nil, err
 	}
 
+	d.languages, err = d.readSectionBlob(toc.languages)
+	if err != nil {
+		return nil, err
+	}
+
 	textContent, err := d.readSectionBlob(toc.ngramText)
 	if err != nil {
 		return nil, err

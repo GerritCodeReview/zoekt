@@ -187,6 +187,7 @@ type IndexMetadata struct {
 	IndexFeatureVersion int
 	IndexTime           time.Time
 	PlainASCII          bool
+	LanguageMap         map[string]byte
 }
 
 // Statistics of a (collection of) repositories.

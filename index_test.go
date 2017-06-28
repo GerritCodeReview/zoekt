@@ -1504,3 +1504,20 @@ func printLineMatches(ms []LineMatch) string {
 
 	return strings.Join(ss, ", ")
 }
+
+func TestLang(t *testing.T) {
+	content := []byte("bla needle bla")
+	b := testIndexBuilder(t, &Repository{Name: "reponame"},
+		Document{Name: "f1", Content: content},
+		Document{Name: "f2", Language: "java", Content: content},
+		Document{Name: "f3", Language: "cpp", Content: content},
+	)
+
+	q := query.NewAnd(&query.Substring{Pattern: "needle"},
+		&query.Language{"cpp"})
+
+	res := searchForTest(t, b, q)
+	if len(res.Files) != 1 || res.Files[0].FileName != "f3" {
+		t.Errorf("got %v, want 1 result in f3", res.Files)
+	}
+}

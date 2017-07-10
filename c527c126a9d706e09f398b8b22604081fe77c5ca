@@ -22,6 +22,30 @@
       "revId": "c527c126a9d706e09f398b8b22604081fe77c5ca",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c53e2b0_8e74dcff",
+        "filename": "cmd/zoekt/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1048778
+      },
+      "writtenOn": "2017-07-10T15:21:50Z",
+      "side": 1,
+      "message": "Thanks, fixed.",
+      "parentUuid": "5dcb1916_3228c68e",
+      "range": {
+        "startLine": 51,
+        "startChar": 51,
+        "endLine": 51,
+        "endChar": 54
+      },
+      "revId": "c527c126a9d706e09f398b8b22604081fe77c5ca",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

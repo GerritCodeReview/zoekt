@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "70c77669_9fd3c3b6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2017-07-10T15:27:18Z",
+      "side": 1,
+      "message": "but why?",
+      "range": {
+        "startLine": 7,
+        "startChar": 47,
+        "endLine": 7,
+        "endChar": 56
+      },
+      "revId": "c527c126a9d706e09f398b8b22604081fe77c5ca",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5dcb1916_3228c68e",
         "filename": "cmd/zoekt/main.go",
         "patchSetId": 1

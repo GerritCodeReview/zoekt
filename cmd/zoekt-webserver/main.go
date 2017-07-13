@@ -15,6 +15,8 @@
 package main
 
 import (
+	"context"
+	"crypto/tls"
 	"flag"
 	"fmt"
 	"html/template"
@@ -186,10 +188,51 @@ func main() {
 
 	if *sslCert != "" || *sslKey != "" {
 		log.Printf("serving HTTPS on %s", *listen)
+		go watchdog(10*time.Second, "https://"+*listen)
 		err = http.ListenAndServeTLS(*listen, *sslCert, *sslKey, handler)
 	} else {
 		log.Printf("serving HTTP on %s", *listen)
+		go watchdog(10*time.Second, "http://"+*listen)
 		err = http.ListenAndServe(*listen, handler)
 	}
 	log.Printf("ListenAndServe: %v", err)
+}
+
+func watchdogOnce(ctx context.Context, client *http.Client, addr string) error {
+	ctx, cancel := context.WithDeadline(context.Background(), time.Now().Add(time.Second))
+	defer cancel()
+
+	req, err := http.NewRequest("GET", addr, nil)
+	if err != nil {
+		return err
+	}
+
+	req = req.WithContext(ctx)
+
+	resp, err := client.Do(req)
+	if err != nil {
+		return err
+	}
+
+	if resp.StatusCode != http.StatusOK {
+		return fmt.Errorf("watchdog: status %v", resp.StatusCode)
+	}
+	return nil
+}
+
+func watchdog(dt time.Duration, addr string) {
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	client := &http.Client{
+		Transport: tr,
+	}
+	tick := time.NewTicker(dt)
+
+	for _ = range tick.C {
+		err := watchdogOnce(context.Background(), client, addr)
+		if err != nil {
+			log.Fatalf("watchdog: %v", err)
+		}
+	}
 }

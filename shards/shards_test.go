@@ -20,6 +20,7 @@ import (
 	"log"
 	"os"
 	"testing"
+	"time"
 
 	"github.com/google/zoekt"
 	"github.com/google/zoekt/query"
@@ -60,8 +61,15 @@ func TestCrashResilience(t *testing.T) {
 	out := &bytes.Buffer{}
 	log.SetOutput(out)
 	defer log.SetOutput(os.Stderr)
-	ss := &shardedSearcher{&testLoader{[]zoekt.Searcher{&crashSearcher{}}}}
-
+	evs := make(chan ShardLoadEvent, 1)
+	evs <- ShardLoadEvent{
+		Name:     "name",
+		Searcher: &crashSearcher{},
+	}
+	close(evs)
+	ss := newShardedSearcher(evs)
+	defer ss.Close()
+	time.Sleep(10 * time.Millisecond) // TODO
 	q := &query.Substring{Pattern: "hoi"}
 	opts := &zoekt.SearchOptions{}
 	if res, err := ss.Search(context.Background(), q, opts); err != nil {

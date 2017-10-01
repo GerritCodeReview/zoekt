@@ -26,50 +26,67 @@ import (
 	"github.com/google/zoekt/query"
 )
 
-// NewShardedSearcher returns a searcher instance that loads all
-// shards corresponding to a glob into memory.
-func NewShardedSearcher(dir string) (zoekt.Searcher, error) {
-	ss := shardWatcher{
-		dir:      dir,
-		shards:   make(map[string]*searchShard),
-		quit:     make(chan struct{}, 1),
+// newShardedSearcher returns a searcher that (un)loads based on the
+// channel events.
+func newShardedSearcher(evs <-chan ShardLoadEvent) zoekt.Searcher {
+	loader := &shardLoader{
+		shards:   make(map[string]zoekt.Searcher),
 		throttle: make(chan struct{}, runtime.NumCPU()),
 	}
-
-	if err := ss.scan(); err != nil {
-		return nil, err
-	}
-
-	if err := ss.watch(); err != nil {
-		return nil, err
-	}
-
-	return &shardedSearcher{&ss}, nil
+	go loader.loop(evs)
+	return loader
 }
 
-// Close closes references to open files. It may be called only once.
-func (ss *shardWatcher) Close() {
-	close(ss.quit)
-	ss.lock()
-	defer ss.unlock()
-	for _, s := range ss.shards {
+type dirSearcher struct {
+	zoekt.Searcher
+	w *ShardWatcher
+}
+
+func (s *dirSearcher) Close() {
+	s.w.Close()
+	s.Searcher.Close()
+}
+
+func NewDirectorySearcher(dir string) (zoekt.Searcher, error) {
+	evs := make(chan ShardLoadEvent, 1)
+	w, err := NewShardWatcher(dir, evs)
+	if err != nil {
+		return nil, err
+	}
+
+	// TODO: wait for existing shards to load.
+	s := newShardedSearcher(evs)
+	time.Sleep(10 * time.Millisecond)
+	return &dirSearcher{
+		w:        w,
+		Searcher: s,
+	}, nil
+}
+
+func (s *shardLoader) Close() {
+	s.lock()
+	defer s.unlock()
+	for _, s := range s.shards {
 		s.Close()
 	}
+	s.shards = nil
 }
 
-type shardLoader interface {
-	Close()
-	getShards() []zoekt.Searcher
-	rlock()
-	runlock()
-	String() string
+func (s *shardLoader) String() string {
+	return "shardLoader"
 }
 
-type shardedSearcher struct {
-	shardLoader
+type shardLoader struct {
+	shards map[string]zoekt.Searcher
+
+	// Limit the number of parallel queries. Since searching is
+	// CPU bound, we can't do better than #CPU queries in
+	// parallel.  If we do so, we just create more memory
+	// pressure.
+	throttle chan struct{}
 }
 
-func (ss *shardedSearcher) Search(ctx context.Context, pat query.Q, opts *zoekt.SearchOptions) (*zoekt.SearchResult, error) {
+func (ss *shardLoader) Search(ctx context.Context, pat query.Q, opts *zoekt.SearchOptions) (*zoekt.SearchResult, error) {
 	start := time.Now()
 	type res struct {
 		sr  *zoekt.SearchResult
@@ -83,8 +100,8 @@ func (ss *shardedSearcher) Search(ctx context.Context, pat query.Q, opts *zoekt.
 
 	// This critical section is large, but we don't want to deal with
 	// searches on shards that have just been closed.
-	ss.shardLoader.rlock()
-	defer ss.shardLoader.runlock()
+	ss.rlock()
+	defer ss.runlock()
 	aggregate.Wait = time.Now().Sub(start)
 	start = time.Now()
 
@@ -155,7 +172,7 @@ func (ss *shardedSearcher) Search(ctx context.Context, pat query.Q, opts *zoekt.
 	return &aggregate, nil
 }
 
-func (ss *shardedSearcher) List(ctx context.Context, r query.Q) (*zoekt.RepoList, error) {
+func (ss *shardLoader) List(ctx context.Context, r query.Q) (*zoekt.RepoList, error) {
 	type res struct {
 		rl  *zoekt.RepoList
 		err error
@@ -213,4 +230,65 @@ func (ss *shardedSearcher) List(ctx context.Context, r query.Q) (*zoekt.RepoList
 		Repos:   aggregate,
 		Crashes: crashes,
 	}, nil
+}
+
+func (s *shardLoader) rlock() {
+	s.throttle <- struct{}{}
+}
+
+// getShards returns the currently loaded shards. The shards must be
+// accessed under a rlock call.
+func (s *shardLoader) getShards() []zoekt.Searcher {
+	var res []zoekt.Searcher
+	for _, sh := range s.shards {
+		res = append(res, sh)
+	}
+	return res
+}
+
+func (s *shardLoader) runlock() {
+	<-s.throttle
+}
+
+func (s *shardLoader) lock() {
+	n := cap(s.throttle)
+	for n > 0 {
+		s.throttle <- struct{}{}
+		n--
+	}
+}
+
+func (s *shardLoader) unlock() {
+	n := cap(s.throttle)
+	for n > 0 {
+		<-s.throttle
+		n--
+	}
+}
+
+func (s *shardLoader) replace(key string, shard zoekt.Searcher) {
+	s.lock()
+	defer s.unlock()
+	if s.shards == nil {
+		if shard != nil {
+			shard.Close()
+		}
+		return
+	}
+
+	old := s.shards[key]
+	if old != nil {
+		old.Close()
+	}
+	if shard != nil {
+		s.shards[key] = shard
+	} else {
+		delete(s.shards, key)
+	}
+}
+
+func (s *shardLoader) loop(evs <-chan ShardLoadEvent) {
+	for ev := range evs {
+		s.replace(ev.Name, ev.Searcher)
+	}
 }

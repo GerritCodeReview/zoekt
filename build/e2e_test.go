@@ -65,11 +65,11 @@ func TestBasic(t *testing.T) {
 		t.Fatalf("want multiple shards, got %v", fs)
 	}
 
-	ss, err := shards.NewShardedSearcher(dir)
+	ss, err := shards.NewDirectorySearcher(dir)
 	if err != nil {
 		t.Fatalf("NewShardedSearcher(%s): %v", dir, err)
 	}
-
+	defer ss.Close()
 	q, err := query.Parse("111")
 	if err != nil {
 		t.Fatalf("Parse(111): %v", err)
@@ -85,7 +85,6 @@ func TestBasic(t *testing.T) {
 	if len(result.Files) != 1 || result.Files[0].FileName != "F1" {
 		t.Errorf("got %v, want 1 file.", result.Files)
 	}
-	defer ss.Close()
 }
 
 func TestUpdate(t *testing.T) {
@@ -113,7 +112,7 @@ func TestUpdate(t *testing.T) {
 		b.AddFile("F", []byte("hoi"))
 		b.Finish()
 	}
-	ss, err := shards.NewShardedSearcher(dir)
+	ss, err := shards.NewDirectorySearcher(dir)
 	if err != nil {
 		t.Fatalf("NewShardedSearcher(%s): %v", dir, err)
 	}

@@ -18,6 +18,7 @@ package main
 import (
 	"bufio"
 	"bytes"
+	"context"
 	"flag"
 	"fmt"
 	"io/ioutil"
@@ -27,8 +28,6 @@ import (
 	"reflect"
 	"sort"
 	"strings"
-
-	"golang.org/x/net/context"
 
 	"github.com/google/zoekt"
 	"github.com/google/zoekt/build"
@@ -104,7 +103,7 @@ func compare(dir, patfile string, caseSensitive bool) error {
 	if err != nil {
 		return err
 	}
-	searcher, err := shards.NewShardedSearcher(indexDir)
+	searcher, err := shards.NewDirectorySearcher(indexDir)
 	if err != nil {
 		return err
 	}

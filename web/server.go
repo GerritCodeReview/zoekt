@@ -214,8 +214,7 @@ func (s *Server) serveSearchErr(w http.ResponseWriter, r *http.Request) error {
 
 	sOpts.SetDefaults()
 
-	ctx := context.Background()
-	if result, err := s.Searcher.Search(ctx, q, &zoekt.SearchOptions{EstimateDocCount: true}); err != nil {
+	if result, err := s.Searcher.Search(r.Context(), q, &zoekt.SearchOptions{EstimateDocCount: true}); err != nil {
 		return err
 	} else if numdocs := result.ShardFilesConsidered; numdocs > 10000 {
 		// If the search touches many shards and many files, we
@@ -240,7 +239,7 @@ func (s *Server) serveSearchErr(w http.ResponseWriter, r *http.Request) error {
 		sOpts.TotalMaxImportantMatch = n
 	}
 
-	result, err := s.Searcher.Search(ctx, q, &sOpts)
+	result, err := s.Searcher.Search(r.Context(), q, &sOpts)
 	if err != nil {
 		return err
 	}
@@ -387,8 +386,7 @@ func (s *Server) serveAbout(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Server) serveListReposErr(q query.Q, qStr string, w http.ResponseWriter, r *http.Request) error {
-	ctx := context.Background()
-	repos, err := s.Searcher.List(ctx, q)
+	repos, err := s.Searcher.List(r.Context(), q)
 	if err != nil {
 		return err
 	}
@@ -471,8 +469,7 @@ func (s *Server) servePrintErr(w http.ResponseWriter, r *http.Request) error {
 		Whole: true,
 	}
 
-	ctx := context.Background()
-	result, err := s.Searcher.Search(ctx, q, &sOpts)
+	result, err := s.Searcher.Search(r.Context(), q, &sOpts)
 	if err != nil {
 		return err
 	}

@@ -19,18 +19,20 @@ import (
 type gerritChecker struct {
 	adminUser     string
 	adminPassword string
-	gerritURL     string
+	gerritURL     *url.URL
 }
 
 type checkAccessInput struct {
-	Ref     string
-	Account string
+	Ref     string `json:"ref"`
+	Account string `json:"account"`
 }
 
 type checkAccessInfo struct {
-	Message string
-	Status  int
+	Message string `json:"message"`
+	Status  int    `json:"status"`
 }
+
+var gerritJSONHeader = []byte(`)]}'`)
 
 // check issues a REST call.
 func (c *gerritChecker) check(repo string, refs []string, uid int) ([]string, error) {
@@ -43,20 +45,29 @@ func (c *gerritChecker) check(repo string, refs []string, uid int) ([]string, er
 		if err != nil {
 			return nil, err
 		}
-		req, err := http.NewRequest(
-			fmt.Sprintf("%s/a/project/%s/check.access", c.gerritURL, url.PathEscape(repo)), "POST", bytes.NewBuffer(body))
+
+		u := *c.gerritURL
+		u.Path = fmt.Sprintf("/a/projects/%s/check.access", url.PathEscape(repo))
+
+		req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(body))
 		if err != nil {
 			return nil, err
 		}
+		req.SetBasicAuth(c.adminUser, c.adminPassword)
+		req.Header.Set("Content-Type", "application/json; charset=utf-8")
+
 		resp, err := http.DefaultClient.Do(req)
 		if err != nil {
 			return nil, err
+		}
+		if resp.StatusCode != 200 {
+			return nil, fmt.Errorf("http status %d", resp.StatusCode)
 		}
 		cont, err := ioutil.ReadAll(resp.Body)
 		if err != nil {
 			return nil, err
 		}
-
+		cont = bytes.TrimPrefix(cont, gerritJSONHeader)
 		result := &checkAccessInfo{}
 		if err := json.Unmarshal(cont, result); err != nil {
 			return nil, err
@@ -97,18 +108,24 @@ func newWrapperFromShard(checker *gerritChecker, s zoekt.Searcher) (*gerritPermi
 	}
 
 	r := res.Repos[0].Repository
+
+	var branches []string
+	for _, b := range r.Branches {
+		branches = append(branches, b.Name)
+	}
 	proj := r.RawConfig["gerrit-project"]
 	host := r.RawConfig["gerrit-host"]
 
-	if host != checker.gerritURL {
-		return nil, fmt.Errorf("got host %s, want %s", host, checker.gerritURL)
+	if host != checker.gerritURL.String() {
+		return nil, fmt.Errorf("got host %q, want %q", host, checker.gerritURL)
 	}
 
 	return &gerritPermissionWrapper{
-		checker:     checker,
-		Searcher:    s,
-		repoName:    proj,
-		permissions: make(map[int]*repoUserPermission),
+		checker:      checker,
+		Searcher:     s,
+		repoName:     proj,
+		repoBranches: branches,
+		permissions:  make(map[int]*repoUserPermission),
 	}, nil
 }
 

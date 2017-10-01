@@ -1,18 +1,24 @@
 package gerrit
 
 import (
-	"log"
+	"net/url"
 	"sync"
 
 	"github.com/google/zoekt"
 	"github.com/google/zoekt/shards"
 )
 
+type closer interface {
+	Close()
+}
+
 type gerritFilterLoader struct {
+	zoekt.Searcher
+
 	checker *gerritChecker
 	mu      sync.Mutex
+	watcher closer
 
-	shardedSearcher     zoekt.Searcher
 	shardedSearcherChan chan shards.ShardLoadEvent
 
 	// key => searcher. TODO - this doesn't work well for
@@ -20,25 +26,40 @@ type gerritFilterLoader struct {
 	filtersByShard map[string]*gerritPermissionWrapper
 }
 
-func NewGerritFilterLoader(url, user, passwd string, evs chan shards.ShardLoadEvent) {
+func (l *gerritFilterLoader) Close() {
+	l.watcher.Close()
+	l.Searcher.Close()
+}
+
+func NewGerritSearcher(dir, gerritURL, user, passwd string) (zoekt.Searcher, error) {
+	evs := make(chan shards.ShardLoadEvent, 1)
+	w, err := shards.NewShardWatcher(dir, evs)
+	if err != nil {
+		return nil, err
+	}
+
+	u, err := url.Parse(gerritURL)
+	if err != nil {
+		return nil, err
+	}
+
 	checker := &gerritChecker{
 		adminUser:     user,
 		adminPassword: passwd,
-		gerritURL:     url,
+		gerritURL:     u,
 	}
 
 	next := make(chan shards.ShardLoadEvent, 1)
 	sharded := shards.NewShardedSearcher(next)
 	loader := &gerritFilterLoader{
 		checker:             checker,
-		shardedSearcher:     sharded,
+		watcher:             w,
+		Searcher:            sharded,
 		shardedSearcherChan: next,
 		filtersByShard:      make(map[string]*gerritPermissionWrapper),
 	}
-
 	go loader.loop(evs)
-	return
-
+	return loader, nil
 }
 
 func (l *gerritFilterLoader) loop(evs chan shards.ShardLoadEvent) {
@@ -66,7 +87,6 @@ func (l *gerritFilterLoader) replace(key string, s zoekt.Searcher) {
 		}
 
 		if err != nil {
-			log.Println("ignoring update for %s: %v", key, err)
 			s.Close()
 			return
 		}

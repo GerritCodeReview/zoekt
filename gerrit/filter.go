@@ -7,8 +7,11 @@ import (
 	"net/http"
 	"net/url"
 	"strconv"
+	"strings"
 	"sync"
 	"time"
+
+	"github.com/google/zoekt/web"
 )
 
 type User struct {
@@ -37,40 +40,57 @@ type loginFilter struct {
 
 	mux       *http.ServeMux
 	gerritURL string
+	myURL     *url.URL
 
 	mu        sync.Mutex
 	cookieMap map[string]*User
 }
 
-func NewGerritLoginFilter(h http.Handler, gerritURL string) http.Handler {
+func NewGerritLoginFilter(h http.Handler, gerritURL, myURL string) (http.Handler, error) {
+	my, err := url.Parse(myURL)
+	if err != nil {
+		return nil, err
+	}
+
 	filter := &loginFilter{
 		handler:   h,
 		gerritURL: gerritURL,
+		myURL:     my,
 		cookieMap: map[string]*User{},
 	}
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("/login", filter.login)
-	mux.HandleFunc("/logout", filter.login)
+	mux.HandleFunc("/logout", filter.logout)
 	mux.HandleFunc("/", filter.incoming)
-	return mux
+	return mux, nil
 }
 
 const cookieName = "gerritID"
 
 func (s *loginFilter) requestID(rw http.ResponseWriter, req *http.Request) {
 	vals := make(url.Values)
+	req.URL.Host = s.myURL.Host
+	req.URL.Scheme = s.myURL.Scheme
 
-	u := *req.URL
-	u.Path = "/login"
-	vals["login"] = []string{u.String()}
+	loginURL := *req.URL
+	loginURL.Path = "/login"
+	loginURL.RawQuery = ""
+	vals["login"] = []string{loginURL.String()}
 	vals["cont"] = []string{req.URL.String()}
-	http.Redirect(rw, req, s.gerritURL+"/a/config/server/assertid?"+vals.Encode(), http.StatusFound)
+
+	dest := s.gerritURL
+	if !strings.HasSuffix(dest, "/") {
+		dest += "/"
+	}
+	dest += "a/config/server/assertid?" + vals.Encode()
+
+	http.Redirect(rw, req, dest, http.StatusFound)
 }
 
 func (s *loginFilter) incoming(rw http.ResponseWriter, req *http.Request) {
 	ck, err := req.Cookie(cookieName)
-	if err == http.ErrNoCookie {
+	if err != nil {
 		s.requestID(rw, req)
 		return
 	}
@@ -79,12 +99,14 @@ func (s *loginFilter) incoming(rw http.ResponseWriter, req *http.Request) {
 	u := s.cookieMap[ck.Value]
 	s.mu.Unlock()
 
-	if err != nil || u == nil {
-		http.Error(rw, "bad gerrit cookie", http.StatusInternalServerError)
+	if u == nil {
+		s.requestID(rw, req)
 		return
 	}
 
-	req = req.WithContext(newContext(req.Context(), u))
+	req = req.WithContext(
+		web.ContextWithUser(
+			newContext(req.Context(), u), u.Name))
 	s.handler.ServeHTTP(rw, req)
 }
 
@@ -94,13 +116,17 @@ func (s *loginFilter) logout(rw http.ResponseWriter, req *http.Request) {
 		MaxAge: -1,
 	}
 	http.SetCookie(rw, ck)
+	rw.Write([]byte("logged out"))
 }
 
 func (s *loginFilter) login(rw http.ResponseWriter, req *http.Request) {
 	qvals := req.URL.Query()
-
-	if qvals.Get("sig") != "signature-todo" || qvals.Get("alg") != "hmac-todo" {
-		http.Error(rw, "invalid mac", http.StatusUnauthorized)
+	if alg := qvals.Get("alg"); alg != "hmac-todo" {
+		http.Error(rw, fmt.Sprintf("invalid mac algorithm %q", alg), http.StatusUnauthorized)
+		return
+	}
+	if qvals.Get("sig") != "signature-todo" {
+		http.Error(rw, "invalid signature algorithm", http.StatusUnauthorized)
 		return
 	}
 

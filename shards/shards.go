@@ -28,7 +28,7 @@ import (
 
 // newShardedSearcher returns a searcher that (un)loads based on the
 // channel events.
-func newShardedSearcher(evs <-chan ShardLoadEvent) zoekt.Searcher {
+func NewShardedSearcher(evs <-chan ShardLoadEvent) zoekt.Searcher {
 	loader := &shardLoader{
 		shards:   make(map[string]zoekt.Searcher),
 		throttle: make(chan struct{}, runtime.NumCPU()),
@@ -55,7 +55,7 @@ func NewDirectorySearcher(dir string) (zoekt.Searcher, error) {
 	}
 
 	// TODO: wait for existing shards to load.
-	s := newShardedSearcher(evs)
+	s := NewShardedSearcher(evs)
 	time.Sleep(10 * time.Millisecond)
 	return &dirSearcher{
 		w:        w,

@@ -29,7 +29,9 @@ import (
 	"strings"
 	"time"
 
+	"github.com/google/zoekt"
 	"github.com/google/zoekt/build"
+	"github.com/google/zoekt/gerrit"
 	"github.com/google/zoekt/shards"
 	"github.com/google/zoekt/web"
 )
@@ -114,7 +116,10 @@ func main() {
 	hostCustomization := flag.String(
 		"host_customization", "",
 		"specify host customization, as HOST1=QUERY,HOST2=QUERY")
-
+	gerritAdmin := flag.String("gerrit_admin", "", "gerrit admin user. Requires --gerrit_url")
+	gerritPasswd := flag.String("gerrit_passwd", "", "gerrit admin password. Requires --gerrit_url")
+	gerritURL := flag.String("gerrit_url", "", "gerrit URL")
+	myURL := flag.String("my_url", "", "search engine URL. Must be set for --gerrit_url.")
 	templateDir := flag.String("template_dir", "", "set directory from which to load custom .html.tpl template files")
 	dumpTemplates := flag.Bool("dump_templates", false, "dump templates into --template_dir and exit.")
 
@@ -137,7 +142,21 @@ func main() {
 		go divertLogs(*logDir, *logRefresh)
 	}
 
-	searcher, err := shards.NewShardedSearcher(*index)
+	var searcher zoekt.Searcher
+	var err error
+
+	if *gerritURL == "" {
+		searcher, err = shards.NewShardedSearcher(*index)
+	} else {
+		if *gerritPasswd == "" {
+			log.Fatal("requires --gerrit_passwd")
+		}
+		if *gerritAdmin == "" {
+			log.Fatal("requires --gerrit_admin")
+		}
+		searcher, err = gerrit.NewGerritSearcher(*index,
+			*gerritURL, *gerritAdmin, *gerritPasswd)
+	}
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -173,24 +192,35 @@ func main() {
 		}
 	}
 
-	handler, err := web.NewMux(s)
+	mux, err := web.NewMux(s)
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	if *enablePprof {
-		handler.HandleFunc("/debug/pprof/", pprof.Index)
-		handler.HandleFunc("/debug/pprof/cmdline", pprof.Cmdline)
-		handler.HandleFunc("/debug/pprof/profile", pprof.Profile)
-		handler.HandleFunc("/debug/pprof/symbol", pprof.Symbol)
-		handler.HandleFunc("/debug/pprof/trace", pprof.Trace)
+		mux.HandleFunc("/debug/pprof/", pprof.Index)
+		mux.HandleFunc("/debug/pprof/cmdline", pprof.Cmdline)
+		mux.HandleFunc("/debug/pprof/profile", pprof.Profile)
+		mux.HandleFunc("/debug/pprof/symbol", pprof.Symbol)
+		mux.HandleFunc("/debug/pprof/trace", pprof.Trace)
+	}
+
+	var handler http.Handler
+	handler = mux
+	if *gerritURL != "" {
+		handler, err = gerrit.NewGerritLoginFilter(handler, *gerritURL, *myURL)
+		if err != nil {
+			log.Fatalf("NewGerritLoginFilter: %v", err)
+		}
 	}
 
 	watchdogAddr := "http://" + *listen
 	if *sslCert != "" || *sslKey != "" {
 		watchdogAddr = "https://" + *listen
 	}
-	go watchdog(30*time.Second, watchdogAddr)
+	if *gerritURL == "" {
+		// TODO:
+		go watchdog(30*time.Second, watchdogAddr)
+	}
 
 	if *sslCert != "" || *sslKey != "" {
 		log.Printf("serving HTTPS on %s", *listen)
@@ -219,7 +249,7 @@ func watchdogOnce(ctx context.Context, client *http.Client, addr string) error {
 	}
 
 	if resp.StatusCode != http.StatusOK {
-		return fmt.Errorf("watchdog: status %v", resp.StatusCode)
+		return fmt.Errorf("watchdog(%s): status %v", addr, resp.StatusCode)
 	}
 	return nil
 }
@@ -236,7 +266,7 @@ func watchdog(dt time.Duration, addr string) {
 	for _ = range tick.C {
 		err := watchdogOnce(context.Background(), client, addr)
 		if err != nil {
-			log.Fatalf("watchdog: %v", err)
+			log.Fatal(err)
 		}
 	}
 }

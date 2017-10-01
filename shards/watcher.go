@@ -25,32 +25,57 @@ import (
 	"github.com/google/zoekt"
 )
 
-type searchShard struct {
-	zoekt.Searcher
-	mtime time.Time
+// ShardLoadEvent signals a newly loaded or deleted index shard.
+type ShardLoadEvent struct {
+	// The unique identifier of the index shard, typically a filename
+	Name string
+
+	// If nil, remove the shard with given name from the index
+	Searcher zoekt.Searcher
 }
 
-type shardWatcher struct {
-	dir string
-
-	// Limit the number of parallel queries. Since searching is
-	// CPU bound, we can't do better than #CPU queries in
-	// parallel.  If we do so, we just create more memory
-	// pressure.
-	throttle chan struct{}
-
-	shards map[string]*searchShard
+// ShardWatcher watches a directory for file system events, and
+// produces ShardLoadEvents in response.
+type ShardWatcher struct {
+	dir    string
+	shards map[string]time.Time
 	quit   chan struct{}
+
+	sink chan<- ShardLoadEvent
 }
 
-func loadShard(fn string) (*searchShard, error) {
-	f, err := os.Open(fn)
+// NewShardWatcher creates a watcher for the given
+// directory. Resulting events are posted on the channel.
+// The
+func NewShardWatcher(dir string, sink chan<- ShardLoadEvent) (*ShardWatcher, error) {
+	w := &ShardWatcher{
+		dir:    dir,
+		quit:   make(chan struct{}),
+		shards: make(map[string]time.Time),
+		sink:   sink,
+	}
+
+	_, err := w.scan()
 	if err != nil {
 		return nil, err
 	}
-	fi, err := f.Stat()
+
+	if err := w.watch(); err != nil {
+		return nil, err
+	}
+	return w, nil
+}
+
+func (sw *ShardWatcher) Close() {
+	if sw.quit != nil {
+		close(sw.quit)
+		sw.quit = nil
+	}
+}
+
+func loadShard(fn string) (zoekt.Searcher, error) {
+	f, err := os.Open(fn)
 	if err != nil {
-		f.Close()
 		return nil, err
 	}
 
@@ -64,27 +89,21 @@ func loadShard(fn string) (*searchShard, error) {
 		return nil, fmt.Errorf("NewSearcher(%s): %v", fn, err)
 	}
 
-	return &searchShard{
-		mtime:    fi.ModTime(),
-		Searcher: s,
-	}, nil
+	return s, nil
 }
 
-func (s *shardWatcher) String() string {
-	return fmt.Sprintf("shardWatcher(%s)", s.dir)
-}
-
-func (s *shardWatcher) scan() error {
+// scan returns timestamps for the files in our directory.
+func (s *ShardWatcher) scan() (map[string]time.Time, error) {
 	fs, err := filepath.Glob(filepath.Join(s.dir, "*.zoekt"))
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	if len(fs) == 0 {
-		return fmt.Errorf("directory %s is empty", s.dir)
+		return nil, fmt.Errorf("directory %s is empty", s.dir)
 	}
 
-	ts := map[string]time.Time{}
+	diskTS := map[string]time.Time{}
 	for _, fn := range fs {
 		key := filepath.Base(fn)
 		fi, err := os.Lstat(fn)
@@ -92,92 +111,53 @@ func (s *shardWatcher) scan() error {
 			continue
 		}
 
-		ts[key] = fi.ModTime()
+		diskTS[key] = fi.ModTime()
+	}
+	return diskTS, nil
+}
+
+func (s *ShardWatcher) update() error {
+	ts, err := s.scan()
+	if err != nil {
+		return err
 	}
 
-	s.lock()
-	var toLoad []string
-	for k, mtime := range ts {
-		if s.shards[k] == nil || s.shards[k].mtime != mtime {
-			toLoad = append(toLoad, k)
-		}
-	}
+	s.postEvents(ts)
+	return nil
+}
 
-	var toDrop []string
+func (s *ShardWatcher) postEvents(diskTS map[string]time.Time) error {
 	// Unload deleted shards.
 	for k := range s.shards {
-		if _, ok := ts[k]; !ok {
-			toDrop = append(toDrop, k)
+		if _, ok := diskTS[k]; !ok {
+			s.sink <- ShardLoadEvent{
+				Name: k,
+			}
+			delete(s.shards, k)
 		}
 	}
-	s.unlock()
 
-	for _, t := range toDrop {
-		log.Printf("unloading: %s", t)
-		s.replace(t, nil)
-	}
+	for k, mtime := range diskTS {
+		loadedTS, ok := s.shards[k]
+		if !ok || loadedTS != mtime {
+			shard, err := loadShard(filepath.Join(s.dir, k))
+			log.Printf("reloading: %s, err %v ", k, err)
+			if err != nil {
+				continue
+			}
 
-	for _, t := range toLoad {
-		shard, err := loadShard(filepath.Join(s.dir, t))
-		log.Printf("reloading: %s, err %v ", t, err)
-		if err != nil {
-			continue
+			s.shards[k] = mtime
+			s.sink <- ShardLoadEvent{
+				Name:     k,
+				Searcher: shard,
+			}
 		}
-		s.replace(t, shard)
 	}
 
 	return nil
 }
 
-func (s *shardWatcher) rlock() {
-	s.throttle <- struct{}{}
-}
-
-// getShards returns the currently loaded shards. The shards must be
-// accessed under a rlock call.
-func (s *shardWatcher) getShards() []zoekt.Searcher {
-	var res []zoekt.Searcher
-	for _, sh := range s.shards {
-		res = append(res, sh)
-	}
-	return res
-}
-
-func (s *shardWatcher) runlock() {
-	<-s.throttle
-}
-
-func (s *shardWatcher) lock() {
-	n := cap(s.throttle)
-	for n > 0 {
-		s.throttle <- struct{}{}
-		n--
-	}
-}
-
-func (s *shardWatcher) unlock() {
-	n := cap(s.throttle)
-	for n > 0 {
-		<-s.throttle
-		n--
-	}
-}
-
-func (s *shardWatcher) replace(key string, shard *searchShard) {
-	s.lock()
-	defer s.unlock()
-	old := s.shards[key]
-	if old != nil {
-		old.Close()
-	}
-	if shard != nil {
-		s.shards[key] = shard
-	} else {
-		delete(s.shards, key)
-	}
-}
-
-func (s *shardWatcher) watch() error {
+func (s *ShardWatcher) watch() error {
 	watcher, err := fsnotify.NewWatcher()
 	if err != nil {
 		return err
@@ -187,16 +167,23 @@ func (s *shardWatcher) watch() error {
 	}
 
 	go func() {
+		if err := s.update(); err != nil {
+			log.Println("update:", err)
+		}
+
+		defer watcher.Close()
+		defer close(s.sink)
 		for {
 			select {
 			case <-watcher.Events:
-				s.scan()
+				if err := s.update(); err != nil {
+					log.Println("update:", err)
+				}
 			case err := <-watcher.Errors:
 				if err != nil {
 					log.Println("watcher error:", err)
 				}
 			case <-s.quit:
-				watcher.Close()
 				return
 			}
 		}

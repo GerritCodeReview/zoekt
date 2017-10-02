@@ -46,6 +46,9 @@ var TemplateText = map[string]string{
       {{if .Query}}value={{.Query}}
       {{end}}type="text" name="q"> Max results:  <input style="width: 5em;" type="text" name="num" value="{{.Num}}"> <input type="submit" value="Search">
   </form>
+  {{if .UserName}}
+  <div align='right'><em>{{.UserName}}</em></div>
+  {{end}}
 `,
 
 	// search box for the entry page.

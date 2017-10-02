@@ -26,6 +26,8 @@ type LastInput struct {
 
 	// If set, focus on the search box.
 	AutoFocus bool
+
+	UserName string
 }
 
 // Result holds the data provided to the search results template.

@@ -10,6 +10,8 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/google/zoekt/web"
 )
 
 type User struct {
@@ -59,7 +61,7 @@ func NewGerritLoginFilter(h http.Handler, gerritURL, myURL string) (http.Handler
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("/login", filter.login)
-	mux.HandleFunc("/logout", filter.login)
+	mux.HandleFunc("/logout", filter.logout)
 	mux.HandleFunc("/", filter.incoming)
 	return mux, nil
 }
@@ -88,17 +90,23 @@ func (s *loginFilter) requestID(rw http.ResponseWriter, req *http.Request) {
 
 func (s *loginFilter) incoming(rw http.ResponseWriter, req *http.Request) {
 	ck, err := req.Cookie(cookieName)
+	if err != nil {
+		s.requestID(rw, req)
+		return
+	}
 
 	s.mu.Lock()
 	u := s.cookieMap[ck.Value]
 	s.mu.Unlock()
 
-	if err != nil || u == nil {
+	if u == nil {
 		s.requestID(rw, req)
 		return
 	}
 
-	req = req.WithContext(newContext(req.Context(), u))
+	req = req.WithContext(
+		web.ContextWithUser(
+			newContext(req.Context(), u), u.Name))
 	s.handler.ServeHTTP(rw, req)
 }
 
@@ -108,6 +116,7 @@ func (s *loginFilter) logout(rw http.ResponseWriter, req *http.Request) {
 		MaxAge: -1,
 	}
 	http.SetCookie(rw, ck)
+	rw.Write([]byte("logged out"))
 }
 
 func (s *loginFilter) login(rw http.ResponseWriter, req *http.Request) {

@@ -253,11 +253,13 @@ func (s *Server) serveSearchErr(w http.ResponseWriter, r *http.Request) error {
 		return err
 	}
 
+	u, _ := UserFromContext(r.Context())
 	res := ResultInput{
 		Last: LastInput{
 			Query:     queryStr,
 			Num:       num,
 			AutoFocus: true,
+			UserName:  u,
 		},
 		Stats:         result.Stats,
 		Query:         q.String(),
@@ -322,10 +324,12 @@ func (s *Server) serveSearchBoxErr(w http.ResponseWriter, r *http.Request) error
 	if err != nil {
 		return err
 	}
+	u, _ := UserFromContext(r.Context())
 	d := SearchBoxInput{
 		Last: LastInput{
 			Num:       defaultNumResults,
 			AutoFocus: true,
+			UserName:  u,
 		},
 		Stats:   stats,
 		Version: s.Version,
@@ -397,10 +401,13 @@ func (s *Server) serveListReposErr(q query.Q, qStr string, w http.ResponseWriter
 	for _, s := range repos.Repos {
 		aggregate.Add(&s.Stats)
 	}
+
+	u, _ := UserFromContext(r.Context())
 	res := RepoListInput{
 		Last: LastInput{
 			Query:     qStr,
 			AutoFocus: true,
+			UserName:  u,
 		},
 		Stats: aggregate,
 	}
@@ -486,6 +493,7 @@ func (s *Server) servePrintErr(w http.ResponseWriter, r *http.Request) error {
 		strLines = append(strLines, string(l))
 	}
 
+	u, _ := UserFromContext(r.Context())
 	d := PrintInput{
 		Name:  f.FileName,
 		Repo:  f.Repository,
@@ -494,6 +502,7 @@ func (s *Server) servePrintErr(w http.ResponseWriter, r *http.Request) error {
 			Query:     queryStr,
 			Num:       num,
 			AutoFocus: false,
+			UserName:  u,
 		},
 	}
 

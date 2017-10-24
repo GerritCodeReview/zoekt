@@ -52,6 +52,24 @@
       "revId": "8d69504454eed62c0b1066481ff125781f146559",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3babcfbc_2a0ac9a1",
+        "filename": "CONTRIBUTING",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1055641
+      },
+      "writtenOn": "2017-10-24T21:32:56Z",
+      "side": 1,
+      "message": "\u003e Maybe \"commit changes to a branch\"\n\nThank you! Will remove this, as it\u0027s clear that one need to commit the changes. \n\nThe intention was to highlight the fact that local branch name is irrelevant, which might be not obvious for people new to the gerrit workflow but potentially familiar with GH feature branch strategy.",
+      "parentUuid": "3d13cd39_e00ae543",
+      "revId": "8d69504454eed62c0b1066481ff125781f146559",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

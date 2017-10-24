@@ -34,6 +34,24 @@
       "revId": "8d69504454eed62c0b1066481ff125781f146559",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d13cd39_e00ae543",
+        "filename": "CONTRIBUTING",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1045122
+      },
+      "writtenOn": "2017-10-24T13:42:08Z",
+      "side": 1,
+      "message": "Apologies. I didn\u0027t notice the project when browsing through some changes.",
+      "parentUuid": "6c1f30cf_c5f41b98",
+      "revId": "8d69504454eed62c0b1066481ff125781f146559",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

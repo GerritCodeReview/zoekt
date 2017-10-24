@@ -22,6 +22,30 @@
       "revId": "5850d089c12be6162232f9faab48da0001222dfe",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22edb714_1a46e839",
+        "filename": "build/builder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1021592
+      },
+      "writtenOn": "2017-10-24T12:24:27Z",
+      "side": 1,
+      "message": "Can we revert this change? I think the RepoDir was a really good base for the index name. I guess we can solve this issue by using filepath.Join(parsed.Host, parsed.Path, parsed.RawQuery). But this feels like an unnecessary long filename:\n\n  gittools.se.axis.com%2Fgerrit%2Fgitweb%2Fp%3Dsystem%2Fgerrit%2Fgerrit.git_v14.00000.zoekt",
+      "parentUuid": "da0ee438_895347cd",
+      "range": {
+        "startLine": 144,
+        "startChar": 52,
+        "endLine": 144,
+        "endChar": 63
+      },
+      "revId": "5850d089c12be6162232f9faab48da0001222dfe",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

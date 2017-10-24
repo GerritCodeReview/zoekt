@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ee15936_3739dbdc",
+        "filename": "CONTRIBUTING",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1045122
+      },
+      "writtenOn": "2017-10-24T13:31:16Z",
+      "side": 1,
+      "message": "Not to master unconditionally. {documentation,bug} fixes that apply to stable versions should go to stable branches. I\u0027d say new features should go to master.\n\nSee e.g. https://gerrit-review.googlesource.com/c/gerrit/+/135730#message-93d930c7df4167666806d08da4778777d28044e1",
+      "revId": "8d69504454eed62c0b1066481ff125781f146559",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

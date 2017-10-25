@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56cfaae2_aed5ad48",
+        "filename": "web/templates.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2017-10-25T11:19:17Z",
+      "side": 1,
+      "message": "Would be great if you could add a comment about the license of Bootstrap (MIT). We aren\u0027t really redistributing it but mentioning the license to readers would still be great.\n\n\u003c!-- Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE) --\u003e",
+      "range": {
+        "startLine": 44,
+        "startChar": 81,
+        "endLine": 44,
+        "endChar": 90
+      },
+      "revId": "615349f72b3f863af44dfacbdc7d55284ac8ed0c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

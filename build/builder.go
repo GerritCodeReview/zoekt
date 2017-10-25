@@ -17,7 +17,9 @@
 package build
 
 import (
+	"crypto/sha1"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"log"
 	"net/url"
@@ -126,7 +128,13 @@ func (o *Options) SetDefaults() {
 	}
 }
 
-// ShardName returns the name the given index shard.
+func hashString(s string) string {
+	h := sha1.New()
+	io.WriteString(h, s)
+	return fmt.Sprintf("%x", h.Sum(nil))
+}
+
+// shardName returns the full filename of the given index shard.
 func (o *Options) shardName(n int) (string, error) {
 	abs, err := filepath.Abs(o.RepoDir)
 	if err != nil {
@@ -136,11 +144,20 @@ func (o *Options) shardName(n int) (string, error) {
 	if u := o.RepositoryDescription.URL; u != "" {
 		parsed, _ := url.Parse(u)
 		if parsed != nil {
-			abs = url.QueryEscape(filepath.Join(parsed.Host, parsed.Path))
+			abs = filepath.Join(parsed.Host, parsed.Path)
 		}
 	}
+
+	// Prefer to use "~" as it is shorter than "%2F.". This is not
+	// 100% robust, as '~' can occur in URLs too.
+	abs = url.QueryEscape(strings.Replace(abs, "/", "~", -1))
+	if len(abs) > 200 {
+		// The disambiguating part will be in the end, so
+		// avoid overwriting that.
+		abs = hashString(abs)[:8] + abs[len(abs)-200:]
+	}
 	return filepath.Join(o.IndexDir,
-		fmt.Sprintf("%s_v%d.%05d.zoekt", strings.Replace(abs, "/", "_", -1), zoekt.IndexFormatVersion, n)), nil
+		fmt.Sprintf("%s_v%d.%05d.zoekt", abs, zoekt.IndexFormatVersion, n)), nil
 }
 
 // IndexVersions returns the versions as present in the index, for

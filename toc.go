@@ -26,7 +26,8 @@ package zoekt
 // 12: 64-bit branchmasks.
 // 13: content checksums
 // 14: languages
-const IndexFormatVersion = 14
+// 15: rename shard name; not a format change per se.
+const IndexFormatVersion = 15
 
 // FeatureVersion is increased if a feature is added that requires reindexing data.
 const FeatureVersion = 1

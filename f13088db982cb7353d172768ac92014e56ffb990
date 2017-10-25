@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "053f5e84_6ae096f8",
+        "filename": "web/templates.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2017-10-25T14:14:06Z",
+      "side": 1,
+      "message": "is there a way to pin this to a checksum too?",
+      "range": {
+        "startLine": 57,
+        "startChar": 72,
+        "endLine": 57,
+        "endChar": 75
+      },
+      "revId": "f13088db982cb7353d172768ac92014e56ffb990",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

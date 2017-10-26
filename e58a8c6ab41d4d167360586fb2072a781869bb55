@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c7288b33_e1b42174",
+        "filename": "build/builder.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2017-10-26T11:42:00Z",
+      "side": 1,
+      "message": "Given the example URL: our-server.something.something-else.com/some/path/which/hopefully/contain/git/name and a cutoff at 50\nthis would give:\n\n    d0640b6ase.com~some~path~which~hopefully~contain~git~name\n\nMy point was to have the RepositoryDescription.URL host last and the path first at line 147. Which would give:\n\n    some~path~which~hopefully~contain~git~name~our-sed0640b6a\n\nWhich is easier to sort, search for and to find the corresponding git repo manually if the need arises.",
+      "range": {
+        "startLine": 157,
+        "startChar": 8,
+        "endLine": 157,
+        "endChar": 47
+      },
+      "revId": "e58a8c6ab41d4d167360586fb2072a781869bb55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

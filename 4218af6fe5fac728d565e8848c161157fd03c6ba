@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "999291ae_73d70e73",
+        "filename": "build/builder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2017-10-26T07:41:58Z",
+      "side": 1,
+      "message": "I find this a bit backwards. The URL was added to avoid collision in index name in the case where you had two gits with the same name from two different sources. But this sort of takes it in the other direction where we keep the least unique part and crop the most unique part. Arguably it would be an edge case but we have gits that would hit this limit and in a one-git-per-product scenario that we have you could easily end up with the identifier in the last 2-3 chars.\nWould it be possible to have the host last?\n\nSome additional suggestions of improvement.\n\nSuggestion 1.\nDont use url.QueryEscape on the raw path, first replace \u0027/\u0027 with \u0027~\u0027. This would save 2 characters for every \u0027/\u0027. \n\nSuggestion 2.\nWith the host, it is unlikely that the host name would be non-unique so we probably don\u0027t need the FQDN in the filename.\n\nWith both these suggestions implemented the example URL, that Gustaf gave in the other thread:\n\n    /this/is/where/we/store/gits/gittools.se.axis.com%2Fgerrit%2Fgitweb%2Fp%3Dpackages%2Fparam%2Fnetwork%2Finterface%2Fanother_namespace_parameter%2Fthis-is-a-really-long-git-name-since-it-comes-frome-a-product-name_v14.00000.zoekt\n\nWould go from 228 chars to 200:\n\n    /this/is/where/we/store/gits/gittools~gerrit~gitweb~p%3Dpackages~param~network~interface~another_namespace_parameter~this-is-a-really-long-git-name-since-it-comes-frome-a-product-name_v14.00000.zoekt",
+      "range": {
+        "startLine": 152,
+        "startChar": 8,
+        "endLine": 152,
+        "endChar": 39
+      },
+      "revId": "4218af6fe5fac728d565e8848c161157fd03c6ba",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

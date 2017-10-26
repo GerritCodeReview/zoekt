@@ -180,16 +180,15 @@ var TemplateText = map[string]string{
       <thead>
         <tr>
           <th>
+            {{if .DuplicateID}}
+            <a class="btn btn-default btn-xs" href="#{{.DuplicateID}}">Duplicate result</a>
+            {{end}}
             {{if .URL}}<a name="{{.ResultID}}" href="{{.URL}}" >{{else}}<a name="{{.ResultID}}">{{end}}
             <small>
               {{.Repo}}:{{.FileName}}</a>:
               [{{if .Branches}}
-              {{range .Branches}}<span class="label label-default">{{.}}</span>,
-              {{end}}]
+              {{range .Branches}}<span class="label label-default">{{.}}</span>,{{end}}]
               {{if .Language}}<i>lang:{{.Language}}</i>{{end}}{{end}}
-              {{if .DuplicateID}}
-              <a href="#{{.DuplicateID}}"><pre>duplicate result</pre></a></div>
-              {{end}}
             </small>
           </th>
         </tr>

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8174e65e_ab85c414",
+        "filename": "gitindex/tree_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2017-10-27T09:30:38Z",
+      "side": 1,
+      "message": "Name would contain only \"adir\" wouldn\u0027t it?\n\n    filepath.base(\"gerrit.googlesource.com/adir\")\n\nhttps://gerrit-review.googlesource.com/c/zoekt/+/136570/2/cmd/zoekt-git-index/main.go#76",
+      "range": {
+        "startLine": 357,
+        "startChar": 9,
+        "endLine": 357,
+        "endChar": 38
+      },
+      "revId": "37cc50599cdf90deef9f27d2fdb325618ca9d46c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

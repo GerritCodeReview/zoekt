@@ -44,7 +44,15 @@ var TemplateText = map[string]string{
       onfocus="this.value = this.value;"
       {{end}}
       {{if .Query}}value={{.Query}}
-      {{end}}type="text" name="q"> Max results:  <input style="width: 5em;" type="text" name="num" value="{{.Num}}"> <input type="submit" value="Search">
+      {{end}}type="text" name="q">
+    Max results: <select style="width: 7em;" name="num" value="{{.Num}}">
+      <option value="50" {{if eq .Num 50}}selected{{end}}>50</option>
+      <option value="500" {{if eq .Num 500}}selected{{end}}>500</option>
+      <option value="5000" {{if eq .Num 5000}}selected{{end}}>5,000</option>
+      <option value="50000" {{if eq .Num 50000}}selected{{end}}>50,000</option>
+      <option value="500000" {{if eq .Num 500000}}selected{{end}}>500,000</option>
+    </select>
+    <input type="submit" value="Search">
   </form>
 `,
 

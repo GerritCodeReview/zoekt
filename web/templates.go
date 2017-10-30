@@ -50,8 +50,13 @@ var TemplateText = map[string]string{
   .label-dup {
     border-width: 1px !important;
     border-style: solid !important;
-    border-color: #777 !important;
+    border-color: #aaa !important;
+    font-weight: normal;
     color: black;
+  }
+  a.label-dup:hover {
+    color: black;
+    background: #ddd;
   }
   .result {
     display: block;
@@ -199,7 +204,7 @@ var TemplateText = map[string]string{
             {{if .URL}}<a name="{{.ResultID}}" class="result"></a><a href="{{.URL}}" >{{else}}<a name="{{.ResultID}}">{{end}}
             <small>
               {{.Repo}}:{{.FileName}}</a>:
-              [{{if .Branches}}{{range .Branches}}<span class="label label-default">{{.}}</span>,{{end}}{{end}}]
+              <span style="font-weight: normal">[ {{if .Branches}}{{range .Branches}}<span class="label label-default">{{.}}</span>,{{end}}{{end}} ]</span>
               {{if .Language}}<span class="label label-primary">{{.Language}}</span>{{end}}
               {{if .DuplicateID}}<a class="label label-dup" href="#{{.DuplicateID}}">Duplicate result</a>{{end}}
             </small>

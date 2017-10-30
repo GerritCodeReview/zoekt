@@ -346,7 +346,12 @@ func IndexGitRepo(opts Options) error {
 		return err
 	}
 	for _, b := range branches {
-		fullName := filepath.Join(opts.BranchPrefix, b)
+		var fullName string
+		if strings.HasPrefix(b, "refs/") {
+			fullName = b
+		} else {
+			fullName = filepath.Join(opts.BranchPrefix, b)
+		}
 
 		commit, err := getCommit(repo, fullName)
 		if opts.AllowMissingBranch && isMissingBranchError(err) {

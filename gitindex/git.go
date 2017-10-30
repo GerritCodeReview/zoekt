@@ -136,12 +136,15 @@ func setTemplates(repo *zoekt.Repository, u *url.URL, typ string) error {
 }
 
 // getCommit returns a tree object for the given reference.
-func getCommit(repo *git.Repository, ref string) (*object.Commit, error) {
+func getCommit(repo *git.Repository, ref string, prefix string) (*object.Commit, error) {
 	sha1, err := repo.ResolveRevision(plumbing.Revision(ref))
+	// ref might be a branch name (f.i. "master") try add branch prefix and try again.
+	if err != nil {
+		sha1, err = repo.ResolveRevision(plumbing.Revision(filepath.Join(prefix, ref)))
+	}
 	if err != nil {
 		return nil, err
 	}
-
 	commitObj, err := repo.CommitObject(*sha1)
 	if err != nil {
 		return nil, err
@@ -346,9 +349,7 @@ func IndexGitRepo(opts Options) error {
 		return err
 	}
 	for _, b := range branches {
-		fullName := filepath.Join(opts.BranchPrefix, b)
-
-		commit, err := getCommit(repo, fullName)
+		commit, err := getCommit(repo, b, opts.BranchPrefix)
 		if opts.AllowMissingBranch && isMissingBranchError(err) {
 			continue
 		}

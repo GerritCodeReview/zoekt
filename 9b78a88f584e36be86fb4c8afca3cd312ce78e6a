@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7652fb41_3aa4726f",
+        "filename": "gitindex/git.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2017-11-06T13:50:47Z",
+      "side": 1,
+      "message": "Studder",
+      "range": {
+        "startLine": 141,
+        "startChar": 47,
+        "endLine": 141,
+        "endChar": 76
+      },
+      "revId": "9b78a88f584e36be86fb4c8afca3cd312ce78e6a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

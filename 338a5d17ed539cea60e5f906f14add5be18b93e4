@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b40337f_eeef47e5",
+        "filename": "gitindex/git.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2017-11-06T13:54:35Z",
+      "side": 1,
+      "message": "ref, prefix string\n\nalso, invert order to (prefix, ref) to match the usage of both.",
+      "range": {
+        "startLine": 139,
+        "startChar": 36,
+        "endLine": 139,
+        "endChar": 62
+      },
+      "revId": "338a5d17ed539cea60e5f906f14add5be18b93e4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "616989d6_a1c2876b",
+        "filename": "gitindex/git.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2017-11-06T13:54:35Z",
+      "side": 1,
+      "message": "e.g.",
+      "range": {
+        "startLine": 141,
+        "startChar": 32,
+        "endLine": 141,
+        "endChar": 35
+      },
+      "revId": "338a5d17ed539cea60e5f906f14add5be18b93e4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

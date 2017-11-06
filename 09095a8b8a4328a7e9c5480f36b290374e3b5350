@@ -22,6 +22,30 @@
       "revId": "09095a8b8a4328a7e9c5480f36b290374e3b5350",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ef6f229_086220c9",
+        "filename": "gitindex/git.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2017-11-06T07:35:37Z",
+      "side": 1,
+      "message": "But if you use:\n\n    --prefix\u003drefs/heads/ --branches\u003dmaster,refs/meta/config\n\n\"refs/meta/config\" will not be indexed since you will not find a ref in the repository that matches prefix + ref (\"refs/heads/refs/meta/config\") and the loop will shortcut itself at line 358 below.\n\nOne suggestion to make this absolutely clear would be to just allow both branch names and full branch refs by default and only the full ref name for any other ref. Set the BranchPrefix to \"refs/heads\" statically and remove the parameter --prefix (I personally do not know of any branch prefix other than \"refs/heads/\"). If a ref does not start with \"refs/\" we assume that its a branch name and try to find \"refs/heads/\" + ref in the repository. Naming the refs \"branches\" in this case could be misleading if we want to enable the indexing of other references it should possibly be renamed \"refs\".\nThere\u0027s also the possibility to separate the refs into three parameters \"--branches, --tags, --refs\" and add the prefixes for branches and tags if they\u0027re missing.",
+      "parentUuid": "d128d515_6e833a35",
+      "range": {
+        "startLine": 354,
+        "startChar": 3,
+        "endLine": 354,
+        "endChar": 0
+      },
+      "revId": "09095a8b8a4328a7e9c5480f36b290374e3b5350",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

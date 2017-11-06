@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ecbf01d5_ee968a15",
+        "filename": "gitindex/git.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2017-11-06T15:38:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b40337f_eeef47e5",
+      "range": {
+        "startLine": 139,
+        "startChar": 36,
+        "endLine": 139,
+        "endChar": 62
+      },
+      "revId": "338a5d17ed539cea60e5f906f14add5be18b93e4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "616989d6_a1c2876b",
         "filename": "gitindex/git.go",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "338a5d17ed539cea60e5f906f14add5be18b93e4",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2c96dd6_69f16a93",
+        "filename": "gitindex/git.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2017-11-06T15:38:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "616989d6_a1c2876b",
+      "range": {
+        "startLine": 141,
+        "startChar": 32,
+        "endLine": 141,
+        "endChar": 35
+      },
+      "revId": "338a5d17ed539cea60e5f906f14add5be18b93e4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

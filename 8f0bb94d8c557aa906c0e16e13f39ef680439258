@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9917607b_6e554263",
+        "filename": "build/builder.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1021592
+      },
+      "writtenOn": "2017-11-07T14:00:51Z",
+      "side": 1,
+      "message": "Is this patch still really needed?\n\nSince RepositoryDescription.Name is now used as the default shard name, the longest shard name we are seeing is around 120 chars. The chance of us reaching the FS limit is now pretty low (this is probably true for most Zoekt instances).\n\nAlso, using QueryEscape would make the strings.Replace() unnecessary, since all \"/\" would already be transformed into \"%2F\".",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 1
+      },
+      "revId": "8f0bb94d8c557aa906c0e16e13f39ef680439258",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

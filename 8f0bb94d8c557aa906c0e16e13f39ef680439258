@@ -22,6 +22,30 @@
       "revId": "8f0bb94d8c557aa906c0e16e13f39ef680439258",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "689808ee_3194a559",
+        "filename": "build/builder.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2017-11-07T14:06:59Z",
+      "side": 1,
+      "message": "One of the previous changes actually did change the names for cs.bazel.build, which I\u0027d rather leave alone. \n\nThere is no urgent problem with users on NFS right now, but no need to wait until they come :-)",
+      "parentUuid": "9917607b_6e554263",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 1
+      },
+      "revId": "8f0bb94d8c557aa906c0e16e13f39ef680439258",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

@@ -15,7 +15,9 @@
 package gitindex
 
 import (
+	"log"
 	"net/url"
+	"os"
 	"path/filepath"
 	"strings"
 	"sync"
@@ -80,4 +82,34 @@ func (rc *RepoCache) Open(u *url.URL) (*git.Repository, error) {
 		rc.repos[key] = repo
 	}
 	return repo, err
+}
+
+// ListRepos returns repos on disk start with the given URL prefix.
+// Returns paths of bare git repositories relative to baseDir.
+func ListRepos(baseDir string, u *url.URL) ([]string, error) {
+	key := filepath.Join(u.Host, u.Path)
+
+	var paths []string
+	walk := func(path string, info os.FileInfo, err error) error {
+		log.Println(path, info, err)
+		if !info.IsDir() {
+			return nil
+		}
+		if strings.HasSuffix(path, ".git") && !strings.HasSuffix(path, "/.git") {
+			_, err := git.PlainOpen(path)
+			if err == nil {
+				p, err := filepath.Rel(baseDir, path)
+				if err == nil {
+					paths = append(paths, p)
+				}
+			}
+			return filepath.SkipDir
+		}
+		return nil
+	}
+
+	if err := filepath.Walk(filepath.Join(baseDir, key), walk); err != nil {
+		return nil, err
+	}
+	return paths, nil
 }

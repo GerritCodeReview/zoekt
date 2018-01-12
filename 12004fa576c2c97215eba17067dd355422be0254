@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a652282d_7dccd54b",
+        "filename": "doc/faq.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2018-01-12T10:57:26Z",
+      "side": 1,
+      "message": "Remove this since it\u0027s duplicated below.",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 50
+      },
+      "revId": "12004fa576c2c97215eba17067dd355422be0254",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

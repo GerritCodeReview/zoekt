@@ -16,7 +16,9 @@ package shards
 
 import (
 	"context"
+	"fmt"
 	"log"
+	"os"
 	"runtime"
 	"runtime/debug"
 	"sort"
@@ -26,6 +28,30 @@ import (
 	"github.com/google/zoekt/query"
 )
 
+// asyncLoader tries to load up to throttle shards in parallel.
+type asyncLoader struct {
+	ss       *shardedSearcher
+	throttle chan struct{}
+}
+
+func (al *asyncLoader) load(key string) {
+	go func() {
+		al.throttle <- struct{}{}
+		shard, err := loadShard(key)
+		<-al.throttle
+		log.Printf("reloading: %s, err %v ", key, err)
+		if err != nil {
+			return
+		}
+
+		al.ss.replace(key, shard)
+	}()
+}
+
+func (al *asyncLoader) drop(key string) {
+	al.ss.replace(key, nil)
+}
+
 // NewDirectorySearcher returns a searcher instance that loads all
 // shards corresponding to a glob into memory.
 func NewDirectorySearcher(dir string) (zoekt.Searcher, error) {
@@ -33,7 +59,12 @@ func NewDirectorySearcher(dir string) (zoekt.Searcher, error) {
 		shards:   make(map[string]zoekt.Searcher),
 		throttle: make(chan struct{}, runtime.NumCPU()),
 	}
-	_, err := NewDirectoryWatcher(dir, ss)
+
+	al := &asyncLoader{
+		ss:       ss,
+		throttle: make(chan struct{}, runtime.NumCPU()),
+	}
+	_, err := NewDirectoryWatcher(dir, al)
 	if err != nil {
 		return nil, err
 	}
@@ -244,20 +275,6 @@ func (s *shardedSearcher) unlock() {
 	}
 }
 
-func (s *shardedSearcher) load(key string) {
-	shard, err := loadShard(key)
-	log.Printf("reloading: %s, err %v ", key, err)
-	if err != nil {
-		return
-	}
-
-	s.replace(key, shard)
-}
-
-func (s *shardedSearcher) drop(key string) {
-	s.replace(key, nil)
-}
-
 func (s *shardedSearcher) replace(key string, shard zoekt.Searcher) {
 	s.lock()
 	defer s.unlock()
@@ -271,4 +288,23 @@ func (s *shardedSearcher) replace(key string, shard zoekt.Searcher) {
 	} else {
 		s.shards[key] = shard
 	}
+}
+
+func loadShard(fn string) (zoekt.Searcher, error) {
+	f, err := os.Open(fn)
+	if err != nil {
+		return nil, err
+	}
+
+	iFile, err := zoekt.NewIndexFile(f)
+	if err != nil {
+		return nil, err
+	}
+	s, err := zoekt.NewSearcher(iFile)
+	if err != nil {
+		iFile.Close()
+		return nil, fmt.Errorf("NewSearcher(%s): %v", fn, err)
+	}
+
+	return s, nil
 }

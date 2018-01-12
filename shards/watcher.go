@@ -23,7 +23,6 @@ import (
 	"time"
 
 	"github.com/fsnotify/fsnotify"
-	"github.com/google/zoekt"
 )
 
 type shardLoader interface {
@@ -63,25 +62,6 @@ func NewDirectoryWatcher(dir string, loader shardLoader) (io.Closer, error) {
 	}
 
 	return sw, nil
-}
-
-func loadShard(fn string) (zoekt.Searcher, error) {
-	f, err := os.Open(fn)
-	if err != nil {
-		return nil, err
-	}
-
-	iFile, err := zoekt.NewIndexFile(f)
-	if err != nil {
-		return nil, err
-	}
-	s, err := zoekt.NewSearcher(iFile)
-	if err != nil {
-		iFile.Close()
-		return nil, fmt.Errorf("NewSearcher(%s): %v", fn, err)
-	}
-
-	return s, nil
 }
 
 func (s *shardWatcher) String() string {

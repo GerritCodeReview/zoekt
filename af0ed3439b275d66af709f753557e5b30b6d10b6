@@ -16,6 +16,24 @@
       "revId": "af0ed3439b275d66af709f753557e5b30b6d10b6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0432ce0b_a757097d",
+        "filename": "query/query.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-01-22T07:42:51Z",
+      "side": 1,
+      "message": "oh sorry, we are in Simplify here.",
+      "parentUuid": "3e0e079c_6b70ee88",
+      "revId": "af0ed3439b275d66af709f753557e5b30b6d10b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

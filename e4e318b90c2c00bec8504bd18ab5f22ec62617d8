@@ -22,6 +22,30 @@
       "revId": "e4e318b90c2c00bec8504bd18ab5f22ec62617d8",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04d5204f_f97bf304",
+        "filename": "build/builder_unix.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1060348
+      },
+      "writtenOn": "2018-01-25T23:58:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "270e10cf_56955f5a",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "e4e318b90c2c00bec8504bd18ab5f22ec62617d8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

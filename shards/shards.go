@@ -31,6 +31,11 @@ import (
 	"github.com/google/zoekt/query"
 )
 
+type rankedShard struct {
+	zoekt.Searcher
+	rank uint16
+}
+
 type shardedSearcher struct {
 	// Limit the number of parallel queries. Since searching is
 	// CPU bound, we can't do better than #CPU queries in
@@ -39,12 +44,12 @@ type shardedSearcher struct {
 	throttle *semaphore.Weighted
 	capacity int64
 
-	shards map[string]zoekt.Searcher
+	shards map[string]rankedShard
 }
 
 func newShardedSearcher(n int64) *shardedSearcher {
 	ss := &shardedSearcher{
-		shards:   make(map[string]zoekt.Searcher),
+		shards:   make(map[string]rankedShard),
 		throttle: semaphore.NewWeighted(n),
 		capacity: n,
 	}
@@ -248,7 +253,7 @@ func (ss *shardedSearcher) List(ctx context.Context, r query.Q) (rl *zoekt.RepoL
 			}()
 			ms, err := s.List(ctx, r)
 			all <- res{ms, err}
-		}(s)
+		}(s.Searcher)
 	}
 
 	crashes := 0
@@ -289,12 +294,17 @@ func (s *shardedSearcher) rlock(ctx context.Context) error {
 }
 
 // getShards returns the currently loaded shards. The shards must be
-// accessed under a rlock call.
-func (s *shardedSearcher) getShards() []zoekt.Searcher {
-	var res []zoekt.Searcher
+// accessed under a rlock call. The shards are sorted by decreasing
+// rank.
+func (s *shardedSearcher) getShards() []rankedShard {
+	var res []rankedShard
 	for _, sh := range s.shards {
 		res = append(res, sh)
 	}
+	// TODO: precompute this.
+	sort.Slice(res, func(i, j int) bool {
+		return res[i].rank > res[j].rank
+	})
 	return res
 }
 
@@ -310,18 +320,34 @@ func (s *shardedSearcher) unlock() {
 	s.throttle.Release(s.capacity)
 }
 
+func shardRank(s zoekt.Searcher) uint16 {
+	q := query.Repo{}
+	result, err := s.List(context.Background(), &q)
+	if err != nil {
+		return 0
+	}
+	if len(result.Repos) == 0 {
+		return 0
+	}
+	return result.Repos[0].Repository.Rank
+}
+
 func (s *shardedSearcher) replace(key string, shard zoekt.Searcher) {
 	s.lock(context.Background())
 	defer s.unlock()
 	old := s.shards[key]
-	if old != nil {
+	if old.Searcher != nil {
 		old.Close()
 	}
 
 	if shard == nil {
 		delete(s.shards, key)
 	} else {
-		s.shards[key] = shard
+
+		s.shards[key] = rankedShard{
+			rank:     shardRank(shard),
+			Searcher: shard,
+		}
 	}
 }
 

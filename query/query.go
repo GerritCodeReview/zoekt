@@ -174,6 +174,12 @@ func (q *Not) String() string {
 	return fmt.Sprintf("(not %s)", q.Child)
 }
 
+func (q *Not) setCase(k string) {
+	if sc, ok := q.Child.(setCaser); ok {
+		sc.setCase(k)
+	}
+}
+
 // And is matched when all its children are.
 type And struct {
 	Children []Q

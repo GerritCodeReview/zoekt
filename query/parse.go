@@ -325,10 +325,13 @@ func parseExprList(in []byte) ([]Q, int, error) {
 		}
 	}
 	qs = newQS
-	for _, q := range qs {
-		if sc, ok := q.(setCaser); ok {
-			sc.setCase(setCase)
-		}
+	for i := range qs {
+		qs[i] = Map(qs[i], func(q Q) Q {
+			if sc, ok := q.(setCaser); ok {
+				sc.setCase(setCase)
+			}
+			return q
+		})
 	}
 	return qs, len(in) - len(b), nil
 }

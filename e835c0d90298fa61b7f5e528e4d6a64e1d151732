@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0ee20b6_84901bea",
+        "filename": "query/query.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-02-08T13:32:29Z",
+      "side": 1,
+      "message": "I think this is easier done with Map() . Otherwise this will still not go into AND and OR.",
+      "range": {
+        "startLine": 177,
+        "startChar": 9,
+        "endLine": 177,
+        "endChar": 12
+      },
+      "revId": "e835c0d90298fa61b7f5e528e4d6a64e1d151732",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

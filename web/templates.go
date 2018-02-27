@@ -53,6 +53,9 @@ var TemplateText = map[string]string{
     border-color: #aaa !important;
     color: black;
   }
+  .noselect {
+    user-select: none;
+  }
   a.label-dup:hover {
     color: black;
     background: #ddd;
@@ -220,7 +223,7 @@ var TemplateText = map[string]string{
         {{range .Matches}}
         <tr>
           <td style="background-color: rgba(238, 238, 255, 0.6);">
-            <pre class="inline-pre">{{if .URL}}<a href="{{.URL}}">{{end}}<u>{{.LineNum}}</u>{{if .URL}}</a>{{end}}: {{range .Fragments}}{{.Pre}}<b>{{.Match}}</b>{{.Post}}{{end}}</pre>
+            <pre class="inline-pre">{{if .URL}}<span class="noselect"><a href="{{.URL}}">{{end}}<u>{{.LineNum}}</u>{{if .URL}}</a>{{end}}: </span>{{range .Fragments}}{{.Pre}}<b>{{.Match}}</b>{{.Post}}{{end}}</pre>
           </td>
         </tr>
         {{end}}
@@ -289,7 +292,7 @@ var TemplateText = map[string]string{
   <div class="container-fluid">
      <div class="table table-hover table-condensed" style="background: #eef;">
        {{ range $index, $ln := .Lines}}
-	 <pre class="inline-pre"><a name="l{{Inc $index}}" href="#l{{Inc $index}}">{{Inc $index}}</a>: {{$ln}}</pre>
+	 <pre class="inline-pre"><span class="noselect"><a name="l{{Inc $index}}" href="#l{{Inc $index}}">{{Inc $index}}</a>: </span>{{$ln}}</pre>
        {{end}}
      </div>
   </div>

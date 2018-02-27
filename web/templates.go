@@ -65,6 +65,7 @@ var TemplateText = map[string]string{
     visibility: hidden;
   }
   .inline-pre { border: unset; background-color: unset; margin: unset; padding: unset; }
+  :target { background-color: #ccf; }
   table tbody tr td { border: none !important; padding: 2px !important; }
 </style>
 </head>
@@ -282,23 +283,23 @@ var TemplateText = map[string]string{
 
 	"print": `
 <html>
-  <head>
-    <title>{{.Repo}}:{{.Name}}</title>
-  </head>
-<body>{{template "searchbox" .Last}}
-<hr>
-<p>
-  <tt>{{.Repo}} : {{.Name}}</tt>
-</p>
-
-
-<div style="background: #eef;">
-{{ range $index, $ln := .Lines}}
-  <pre><a name="l{{Inc $index}}" href="#l{{Inc $index}}">{{Inc $index}}</a>: {{$ln}}</pre>
-{{end}}
-<pre>
-</pre>
-</div>
+  {{template "head"}}
+  <title>{{.Repo}}:{{.Name}}</title>
+<body id="results">
+  {{template "navbar" .Last}}
+  <div class="container-fluid">
+     <div class="table table-hover table-condensed" style="background: #eef;">
+       {{ range $index, $ln := .Lines}}
+	 <pre id="l{{Inc $index}}" class="inline-pre"><a href="#l{{Inc $index}}">{{Inc $index}}</a>: {{$ln}}</pre>
+       {{end}}
+     </div>
+  </div>
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+     <h5><b>{{.Repo}} : {{.Name}}</b></h5>
+    </div>
+  </nav>
+  {{ template "jsdep"}}
 </body>
 </html>
 `,

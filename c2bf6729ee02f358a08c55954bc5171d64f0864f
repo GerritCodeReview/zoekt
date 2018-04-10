@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d71261a3_f847e8d4",
+        "filename": "web/server.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-04-10T15:45:57Z",
+      "side": 1,
+      "message": "nice.\n \ncan you write a test?\n\nI\u0027d suggest: index a giant line (say, 100kb), get the result and verifies that the result is less than 10kb, and has \"bytes skipped\" in the HTML.",
+      "range": {
+        "startLine": 68,
+        "startChar": 3,
+        "endLine": 68,
+        "endChar": 0
+      },
+      "revId": "c2bf6729ee02f358a08c55954bc5171d64f0864f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ff21426_0dd23bce",
+        "filename": "indexbuilder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-04-10T16:41:11Z",
+      "side": 0,
+      "message": "can you bump the IndexFeatureVersion to trigger rebuild of indices?",
+      "range": {
+        "startLine": 265,
+        "startChar": 24,
+        "endLine": 265,
+        "endChar": 0
+      },
+      "revId": "41ea8a34c5d6c17cfee2ddf53a51fd381e96b938",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

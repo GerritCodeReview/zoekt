@@ -1790,3 +1790,28 @@ func TestUnicodeQuery(t *testing.T) {
 		t.Fatalf("got MatchLength %d want %d", fr.MatchLength, len(content))
 	}
 }
+
+func TestIsText(t *testing.T) {
+	if !IsText([]byte("")) {
+		t.Errorf("empty file is not text")
+	}
+	if !IsText([]byte("abcdefgh")) {
+		t.Errorf("simple ascii text is not text")
+	}
+	if !IsText([]byte("aböcdäefügh")) {
+		t.Errorf("simple unicode text is not text")
+	}
+	tooLongLines := strings.Repeat(string("a"), 1001) + "\n"
+	if IsText([]byte(tooLongLines)) {
+		t.Errorf("file with long lines is text")
+	}
+	if IsText([]byte("with\x00byte")) {
+		t.Errorf("file with null bytes is text")
+	}
+	if !IsText([]byte("\uFEFFwith-stupid-bom")) {
+		t.Errorf("file with bom is not text")
+	}
+	if !IsText([]byte("with-invalid\uFFFDunicode-mark")) {
+		t.Errorf("file with unicode replacement char is not text")
+	}
+}

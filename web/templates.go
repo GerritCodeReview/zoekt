@@ -46,7 +46,6 @@ var TemplateText = map[string]string{
 <style>
   #navsearchbox { width: 350px !important; }
   #maxhits { width: 100px !important; }
-  #results { padding-top: 60px; }
   .label-dup {
     border-width: 1px !important;
     border-style: solid !important;
@@ -60,8 +59,6 @@ var TemplateText = map[string]string{
   .result {
     display: block;
     content: " ";
-    margin-top: -60px;
-    height: 60px;
     visibility: hidden;
   }
   .inline-pre { border: unset; background-color: unset; margin: unset; padding: unset; }
@@ -95,7 +92,7 @@ var TemplateText = map[string]string{
 `,
 
 	"navbar": `
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="/">Zoekt</a>
@@ -192,7 +189,7 @@ var TemplateText = map[string]string{
 <title>Results for {{.QueryStr}}</title>
 <body id="results">
   {{template "navbar" .Last}}
-  <div class="container-fluid">
+  <div class="container-fluid" style="overflow: auto; max-height: calc(100% - 72px);">
     <h5>
       {{if .Stats.Crashes}}<br><b>{{.Stats.Crashes}} shards crashed</b><br>{{end}}
       {{ $fileCount := len .FileMatches }}
@@ -287,18 +284,13 @@ var TemplateText = map[string]string{
   <title>{{.Repo}}:{{.Name}}</title>
 <body id="results">
   {{template "navbar" .Last}}
-  <div class="container-fluid">
-     <div class="table table-hover table-condensed" style="background: #eef;">
+  <div class="container-fluid" style="overflow: auto; max-height: calc(100% - 72px);">
+     <div class="table table-hover table-condensed" style="overflow:auto; background: #eef;">
        {{ range $index, $ln := .Lines}}
-	 <pre id="l{{Inc $index}}" class="inline-pre"><a href="#l{{Inc $index}}">{{Inc $index}}</a>: {{$ln}}</pre>
+	 <pre style="overflow: unset;" id="l{{Inc $index}}" class="inline-pre"><a href="#l{{Inc $index}}">{{Inc $index}}</a>: {{$ln}}</pre>
        {{end}}
      </div>
   </div>
-  <nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-     <h5><b>{{.Repo}} : {{.Name}}</b></h5>
-    </div>
-  </nav>
   {{ template "jsdep"}}
 </body>
 </html>

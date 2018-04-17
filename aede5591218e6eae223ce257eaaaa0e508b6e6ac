@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a98f082_590fbc0c",
+        "filename": "index_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 1806,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-04-17T21:31:36Z",
+      "side": 1,
+      "message": "can you rebase? this looks out of date.",
+      "range": {
+        "startLine": 1806,
+        "startChar": 21,
+        "endLine": 1806,
+        "endChar": 22
+      },
+      "revId": "aede5591218e6eae223ce257eaaaa0e508b6e6ac",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b09e09c0_b0006989",
+        "filename": "index_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 1815,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-04-17T21:31:36Z",
+      "side": 1,
+      "message": "this is a bit repetitive.\n\ni\u0027d suggest a loop,\n\nfor _, t :\u003d range []string{\"simple ascii\", ...  } { \n  if !IsText(t) { .. }\n}",
+      "range": {
+        "startLine": 1815,
+        "startChar": 22,
+        "endLine": 1815,
+        "endChar": 29
+      },
+      "revId": "aede5591218e6eae223ce257eaaaa0e508b6e6ac",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

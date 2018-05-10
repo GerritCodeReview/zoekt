@@ -119,6 +119,10 @@ func (b *IndexBuilder) Write(out io.Writer) error {
 	w.Write(marshalDocSections(b.runeDocSections))
 	toc.runeDocSections.end(w)
 
+	toc.skipped.start(w)
+	w.Write(b.skipped)
+	toc.skipped.end(w)
+
 	if err := b.writeJSON(&IndexMetadata{
 		IndexFormatVersion:  IndexFormatVersion,
 		IndexTime:           time.Now(),

@@ -164,6 +164,9 @@ type IndexBuilder struct {
 
 	// languages codes
 	languages []byte
+
+	// attributes bitmaks
+	attributes []uint32
 }
 
 func (d *Repository) verify() error {
@@ -245,6 +248,7 @@ type Document struct {
 	Branches          []string
 	SubRepositoryPath string
 	Language          string
+	Attribute         Attribute
 
 	// Document sections for symbols. Offsets should use bytes.
 	Symbols []DocumentSection
@@ -382,6 +386,8 @@ func (b *IndexBuilder) Add(doc Document) error {
 		b.languageMap[doc.Language] = langCode
 	}
 	b.languages = append(b.languages, langCode)
+
+	b.attributes = append(b.attributes, uint32(doc.Attribute))
 
 	return nil
 }

@@ -119,6 +119,10 @@ func (b *IndexBuilder) Write(out io.Writer) error {
 	w.Write(marshalDocSections(b.runeDocSections))
 	toc.runeDocSections.end(w)
 
+	toc.attributes.start(w)
+	w.Write(toSizedDeltas(b.attributes))
+	toc.attributes.end(w)
+
 	if err := b.writeJSON(&IndexMetadata{
 		IndexFormatVersion:  IndexFormatVersion,
 		IndexTime:           time.Now(),

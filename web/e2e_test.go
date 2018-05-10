@@ -416,3 +416,52 @@ func TestTruncateLine(t *testing.T) {
 		t.Fatalf("got %s, want substring %q", result, want)
 	}
 }
+
+func TestBinaryFile(t *testing.T) {
+	b, err := zoekt.NewIndexBuilder(&zoekt.Repository{
+		Name: "name",
+	})
+	if err != nil {
+		t.Fatalf("NewIndexBuilder: %v", err)
+	}
+	if err := b.Add(zoekt.Document{
+		Name:      fmt.Sprintf("empty"),
+		Content:   []byte("zero\x00byte"),
+		Attribute: zoekt.Binary,
+	}); err != nil {
+		t.Fatalf("Add: %v", err)
+	}
+	mux, err := NewMux(&Server{
+		Searcher: searcherForTest(t, b),
+		Top:      Top,
+		HTML:     true,
+	})
+	if err != nil {
+		t.Fatalf("NewMux: %v", err)
+	}
+
+	ts := httptest.NewServer(mux)
+	defer ts.Close()
+
+	req, err := http.NewRequest("GET", ts.URL+"/search?q=empty", &bytes.Buffer{})
+	if err != nil {
+		t.Fatalf("NewRequest: %v", err)
+	}
+	res, err := (&http.Client{}).Do(req)
+	if err != nil {
+		t.Fatalf("Do(%v): %v", req, err)
+	}
+
+	resultBytes, err := ioutil.ReadAll(res.Body)
+	res.Body.Close()
+	if err != nil {
+		t.Fatalf("ReadAll: %v", err)
+	}
+	result := string(resultBytes)
+	if want := "Found 1 results in 1 files"; !strings.Contains(result, want) {
+		t.Fatalf("got %s, want substring %q", result, want)
+	}
+	if want := `<span class="label label-primary">binary</span>`; !strings.Contains(result, want) {
+		t.Fatalf("got %s, want substring %q", result, want)
+	}
+}

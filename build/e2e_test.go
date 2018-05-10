@@ -69,6 +69,7 @@ func TestBasic(t *testing.T) {
 	if err != nil {
 		t.Fatalf("NewDirectorySearcher(%s): %v", dir, err)
 	}
+	defer ss.Close()
 
 	q, err := query.Parse("111")
 	if err != nil {
@@ -85,7 +86,6 @@ func TestBasic(t *testing.T) {
 	if len(result.Files) != 1 || result.Files[0].FileName != "F1" {
 		t.Errorf("got %v, want 1 file.", result.Files)
 	}
-	defer ss.Close()
 }
 
 func TestUpdate(t *testing.T) {
@@ -412,5 +412,109 @@ func TestEmptyContent(t *testing.T) {
 
 	if len(result.Repos) != 1 || result.Repos[0].Repository.Name != "repo" {
 		t.Errorf("got %+v, want 1 repo.", result.Repos)
+	}
+}
+
+func TestSizeLimit(t *testing.T) {
+	dir, err := ioutil.TempDir("", "")
+	if err != nil {
+		t.Fatalf("TempDir: %v", err)
+	}
+
+	opts := Options{
+		IndexDir: dir,
+		RepositoryDescription: zoekt.Repository{
+			Name: "repo",
+		},
+		SizeMax: 1,
+	}
+	opts.SetDefaults()
+
+	b, err := NewBuilder(opts)
+	if err != nil {
+		t.Fatalf("NewBuilder: %v", err)
+	}
+
+	b.AddFile("F1", []byte("foobar"))
+	b.Finish()
+
+	fs, _ := filepath.Glob(dir + "/*")
+	if len(fs) != 1 {
+		t.Fatalf("want a shard, got %v", fs)
+	}
+
+	ss, err := shards.NewDirectorySearcher(dir)
+	if err != nil {
+		t.Fatalf("NewDirectorySearcher(%s): %v", dir, err)
+	}
+	defer ss.Close()
+
+	q, err := query.Parse("NOT-INDEXED")
+	if err != nil {
+		t.Fatalf("Parse(NOT-INDEXED): %v", err)
+	}
+
+	var sOpts zoekt.SearchOptions
+	ctx := context.Background()
+	result, err := ss.Search(ctx, q, &sOpts)
+	if err != nil {
+		t.Fatalf("Search(%v): %v", q, err)
+	} else if len(result.Files) != 1 {
+		t.Fatalf("got %v, want 1 file", result.Files)
+	}
+}
+
+func TestBinaryFile(t *testing.T) {
+	dir, err := ioutil.TempDir("", "")
+	if err != nil {
+		t.Fatalf("TempDir: %v", err)
+	}
+
+	opts := Options{
+		IndexDir: dir,
+		RepositoryDescription: zoekt.Repository{
+			Name: "repo",
+		},
+	}
+	opts.SetDefaults()
+
+	b, err := NewBuilder(opts)
+	if err != nil {
+		t.Fatalf("NewBuilder: %v", err)
+	}
+	if err := b.AddFile("F1", []byte("zero\x00byte")); err != nil {
+		t.Fatal(err)
+	}
+	if err := b.Finish(); err != nil {
+		t.Fatal(err)
+	}
+
+	fs, _ := filepath.Glob(dir + "/*")
+	if len(fs) != 1 {
+		t.Fatalf("want a shard, got %v", fs)
+	}
+
+	ss, err := shards.NewDirectorySearcher(dir)
+	if err != nil {
+		t.Fatalf("NewDirectorySearcher(%s): %v", dir, err)
+	}
+	defer ss.Close()
+
+	q, err := query.Parse("NOT-INDEXED")
+	if err != nil {
+		t.Fatalf("Parse(NOT-INDEXED): %v", err)
+	}
+
+	var sOpts zoekt.SearchOptions
+	ctx := context.Background()
+	result, err := ss.Search(ctx, q, &sOpts)
+	if err != nil {
+		t.Fatalf("Search(%v): %v", q, err)
+	} else if len(result.Files) != 1 {
+		t.Fatalf("got %v, want 1 file", result.Files)
+	}
+
+	if result.Files[0].Language != "binary" {
+		t.Errorf("got %v, want binary", result.Files[0].Language)
 	}
 }

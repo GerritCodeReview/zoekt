@@ -170,6 +170,8 @@ type IndexBuilder struct {
 
 	// languages codes
 	languages []byte
+
+	skipped []byte
 }
 
 func (d *Repository) verify() error {
@@ -251,6 +253,7 @@ type Document struct {
 	Branches          []string
 	SubRepositoryPath string
 	Language          string
+	Skipped           bool
 
 	// Document sections for symbols. Offsets should use bytes.
 	Symbols []DocumentSection
@@ -388,6 +391,12 @@ func (b *IndexBuilder) Add(doc Document) error {
 		b.languageMap[doc.Language] = langCode
 	}
 	b.languages = append(b.languages, langCode)
+
+	var skipped byte
+	if doc.Skipped {
+		skipped = 1
+	}
+	b.skipped = append(b.skipped, skipped)
 
 	return nil
 }

@@ -246,6 +246,11 @@ func (r *reader) readIndexData(toc *indexTOC) (*indexData, error) {
 	}
 	d.runeDocSections = unmarshalDocSections(blob, nil)
 
+	d.skipped, err = d.readSectionBlob(toc.skipped)
+	if err != nil {
+		return nil, err
+	}
+
 	for sect, dest := range map[simpleSection]*[]uint32{
 		toc.subRepos:        &d.subRepos,
 		toc.runeOffsets:     &d.runeOffsets,

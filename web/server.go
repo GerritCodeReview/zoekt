@@ -70,6 +70,9 @@ var Funcmap = template.FuncMap{
 		}
 		return fmt.Sprintf("%s...(%d bytes skipped)...", post[:limit], len(post)-limit)
 	},
+	"IsNotBinary": func(language string) bool {
+		return language != zoekt.NotTextLanguage
+	},
 }
 
 const defaultNumResults = 50

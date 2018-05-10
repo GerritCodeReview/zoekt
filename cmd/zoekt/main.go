@@ -34,7 +34,11 @@ const CONTEXT = 20
 func displayMatches(files []zoekt.FileMatch, pat string) {
 	for _, f := range files {
 		for _, m := range f.LineMatches {
-			fmt.Printf("%s:%d:%s\n", f.FileName, m.LineNumber, m.Line)
+			if !f.IsText() {
+				fmt.Printf("%s:%d:<probably not text>\n", f.FileName, m.LineNumber)
+			} else {
+				fmt.Printf("%s:%d:%s\n", f.FileName, m.LineNumber, m.Line)
+			}
 		}
 	}
 }

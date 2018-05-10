@@ -226,7 +226,7 @@ var TemplateText = map[string]string{
           </th>
         </tr>
       </thead>
-      {{if not .DuplicateID}}
+	  {{if (and (not .DuplicateID) (IsNotBinary .Language))}}
       <tbody>
         {{range .Matches}}
         <tr>

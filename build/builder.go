@@ -221,7 +221,7 @@ func (b *Builder) Add(doc zoekt.Document) error {
 	}
 
 	if !zoekt.IsText(doc.Content) {
-		return nil
+		doc.Language = zoekt.NotTextLanguage
 	}
 
 	b.todo = append(b.todo, &doc)

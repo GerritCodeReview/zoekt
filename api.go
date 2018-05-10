@@ -58,6 +58,9 @@ type FileMatch struct {
 
 	// Commit SHA1 (hex) of the (sub)repo holding the file.
 	Version string
+
+	// Indicates if file is currently indexed.
+	Indexed bool
 }
 
 // LineMatch holds the matches within a single line in a file.

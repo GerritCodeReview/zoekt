@@ -167,6 +167,8 @@ type IndexBuilder struct {
 
 	// languages codes
 	languages []byte
+
+	indexed []byte
 }
 
 func (d *Repository) verify() error {
@@ -248,6 +250,7 @@ type Document struct {
 	Branches          []string
 	SubRepositoryPath string
 	Language          string
+	Indexed           bool
 
 	// Document sections for symbols. Offsets should use bytes.
 	Symbols []DocumentSection
@@ -385,6 +388,12 @@ func (b *IndexBuilder) Add(doc Document) error {
 		b.languageMap[doc.Language] = langCode
 	}
 	b.languages = append(b.languages, langCode)
+
+	var indexed byte
+	if doc.Indexed {
+		indexed = 1
+	}
+	b.indexed = append(b.indexed, indexed)
 
 	return nil
 }

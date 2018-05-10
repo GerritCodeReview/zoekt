@@ -82,6 +82,8 @@ type indexData struct {
 	languageMap map[byte]string
 
 	repoListEntry RepoListEntry
+
+	indexed []byte
 }
 
 func (d *indexData) getChecksum(idx uint32) []byte {

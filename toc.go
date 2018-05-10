@@ -27,7 +27,8 @@ package zoekt
 // 13: content checksums
 // 14: languages
 // 15: rune based symbol sections
-const IndexFormatVersion = 15
+// 16: indexed boolean.
+const IndexFormatVersion = 16
 
 // FeatureVersion is increased if a feature is added that requires reindexing data
 // without changing the format version
@@ -59,6 +60,7 @@ type indexTOC struct {
 	nameEndRunes     simpleSection
 	contentChecksums simpleSection
 	runeDocSections  simpleSection
+	indexed          simpleSection
 }
 
 func (t *indexTOC) sections() []section {
@@ -84,5 +86,6 @@ func (t *indexTOC) sections() []section {
 		&t.contentChecksums,
 		&t.languages,
 		&t.runeDocSections,
+		&t.indexed,
 	}
 }

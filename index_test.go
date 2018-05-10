@@ -1833,3 +1833,31 @@ func TestIsText(t *testing.T) {
 		}
 	}
 }
+
+func TestIndexed(t *testing.T) {
+	b := testIndexBuilder(t, nil,
+		Document{Name: "f1", Content: []byte("foobar"), Indexed: true},
+		Document{Name: "f3", Content: []byte("NOT-INDEXED: document larger than limit")},
+		Document{Name: "f2", Content: []byte("NOT-INDEXED: probably not text"), Language: "Binary"})
+
+	res := searchForTest(t, b, &query.Substring{Pattern: "foobar"})
+	matches := res.Files
+	if len(res.Files) != 1 || matches[0].FileName != "f1" {
+		t.Fatalf("got %v, want 1 match", res.Files)
+	}
+	if !matches[0].Indexed {
+		t.Errorf("got %v, want indexed true", matches)
+	}
+
+	res = searchForTest(t, b, &query.Substring{Pattern: "NOT-INDEXED"})
+	matches = res.Files
+	if len(res.Files) != 2 {
+		t.Fatalf("got %v, want 2 matches", res.Files)
+	}
+	if matches[0].FileName != "f3" || matches[1].FileName != "f2" {
+		t.Fatalf("got %v, want matches {f3,f2}", matches)
+	}
+	if matches[0].Indexed || matches[1].Indexed {
+		t.Errorf("got %v, want indexed false", matches)
+	}
+}

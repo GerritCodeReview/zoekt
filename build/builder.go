@@ -217,11 +217,13 @@ func (b *Builder) AddFile(name string, content []byte) error {
 
 func (b *Builder) Add(doc zoekt.Document) error {
 	if len(doc.Content) > b.opts.SizeMax {
-		return nil
-	}
-
-	if !zoekt.IsText(doc.Content) {
-		return nil
+		reason := fmt.Sprintf("NOT-INDEXED: document larger than limit %d", len(doc.Content))
+		doc.Content = []byte(reason)
+	} else if !zoekt.IsText(doc.Content) {
+		doc.Content = []byte("NOT-INDEXED: probably not text")
+		doc.Attribute |= zoekt.Binary
+	} else {
+		doc.Attribute |= zoekt.Indexed
 	}
 
 	b.todo = append(b.todo, &doc)

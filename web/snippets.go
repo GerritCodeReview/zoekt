@@ -97,6 +97,11 @@ func (s *Server) formatResults(result *zoekt.SearchResult, query string, localPr
 			Language: f.Language,
 		}
 
+		// overwrite the language as binary, only for a better visualization.
+		if f.Attribute&zoekt.Binary != 0 {
+			fMatch.Language = "binary"
+		}
+
 		if dup, ok := seenFiles[string(f.Checksum)]; ok {
 			fMatch.DuplicateID = dup
 		} else {

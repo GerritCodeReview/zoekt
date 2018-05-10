@@ -82,6 +82,9 @@ type indexData struct {
 	languageMap map[byte]string
 
 	repoListEntry RepoListEntry
+
+	// attributes for all the files.
+	attributes []uint32
 }
 
 func (d *indexData) getChecksum(idx uint32) []byte {
@@ -133,6 +136,13 @@ func (d *indexData) memoryUse() int {
 		sz += 4*len(v) + 4
 	}
 	return sz
+}
+
+func (d *indexData) getAttribute(idx uint32) Attribute {
+	if len(d.attributes) == 0 {
+		return Indexed
+	}
+	return Attribute(d.attributes[idx])
 }
 
 const maxUInt32 = 0xffffffff

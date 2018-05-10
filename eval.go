@@ -182,6 +182,7 @@ nextFileMatch:
 			FileName:   string(d.fileName(nextDoc)),
 			Checksum:   d.getChecksum(nextDoc),
 			Language:   d.languageMap[d.languages[nextDoc]],
+			Attribute:  d.getAttribute(nextDoc),
 		}
 
 		if s := d.subRepos[nextDoc]; s > 0 {

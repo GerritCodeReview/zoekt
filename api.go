@@ -22,6 +22,17 @@ import (
 	"github.com/google/zoekt/query"
 )
 
+// Attribute represents attribute of file.
+type Attribute uint32
+
+const (
+	// Indexed means file is included on index.
+	Indexed Attribute = 1 << iota
+
+	// Binary means not a binary file.
+	Binary
+)
+
 // FileMatch contains all the matches within a file.
 type FileMatch struct {
 	// Ranking; the higher, the better.
@@ -58,6 +69,9 @@ type FileMatch struct {
 
 	// Commit SHA1 (hex) of the (sub)repo holding the file.
 	Version string
+
+	// Bitmask attribute of the file.
+	Attribute Attribute
 }
 
 // LineMatch holds the matches within a single line in a file.

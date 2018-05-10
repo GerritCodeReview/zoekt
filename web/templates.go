@@ -226,7 +226,7 @@ var TemplateText = map[string]string{
           </th>
         </tr>
       </thead>
-      {{if not .DuplicateID}}
+	  {{if not .DuplicateID}}
       <tbody>
         {{range .Matches}}
         <tr>

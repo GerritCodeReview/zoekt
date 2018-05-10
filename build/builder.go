@@ -217,11 +217,10 @@ func (b *Builder) AddFile(name string, content []byte) error {
 
 func (b *Builder) Add(doc zoekt.Document) error {
 	if len(doc.Content) > b.opts.SizeMax {
-		return nil
-	}
-
-	if !zoekt.IsText(doc.Content) {
-		return nil
+		doc.SkipReason := fmt.Sprintf("document size %d larger than limit %d", len(doc.Content), b.opts.SizeMax)
+	} else if !zoekt.IsText(doc.Content) {
+		doc.SkipReason = "probably not text"
+		doc.Language = "binary"
 	}
 
 	b.todo = append(b.todo, &doc)

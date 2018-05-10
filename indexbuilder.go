@@ -120,6 +120,7 @@ func (s *postingsBuilder) newSearchableString(data []byte, byteSections []Docume
 	s.runeCount += runeIndex
 
 	for len(byteSectionBoundaries) > 0 && byteSectionBoundaries[0] < uint32(byteCount) {
+		// TODO - this should not set SkipReason.
 		return nil, nil, fmt.Errorf("no rune for section boundary at byte %d", byteSectionBoundaries[0])
 	}
 
@@ -252,6 +253,10 @@ type Document struct {
 	SubRepositoryPath string
 	Language          string
 
+	// If set, something is wrong with the file contents, and this
+	// is the reason it wasn't indexed.
+	SkipReason string
+
 	// Document sections for symbols. Offsets should use bytes.
 	Symbols []DocumentSection
 }
@@ -319,10 +324,17 @@ func (b *IndexBuilder) populateSubRepoIndices() {
 	}
 }
 
+const notIndexedMarker = "NOT-INDEXED: "
+
 // Add a file which only occurs in certain branches. The document
 // should be checked for sanity with IsText first.
 func (b *IndexBuilder) Add(doc Document) error {
 	hasher := crc64.New(crc64.MakeTable(crc64.ISO))
+
+	if doc.SkipReason != "" {
+		doc.Content = []byte(doc.SkipReason)
+		doc.Symbols = nil
+	}
 
 	sort.Sort(docSectionSlice(doc.Symbols))
 	var last DocumentSection
@@ -346,7 +358,12 @@ func (b *IndexBuilder) Add(doc Document) error {
 	}
 	docStr, runeSecs, err := b.contentPostings.newSearchableString(doc.Content, doc.Symbols)
 	if err != nil {
-		return err
+		doc.SkipReason = notIndexedMarker + err.Error()
+		doc.Content = []byte(doc.SkipReason)
+		doc.Symbols = nil
+		doc.Language = "binary"
+
+		docStr, runeSecs, _ = b.contentPostings.newSearchableString(doc.Content, doc.Symbols)
 	}
 	nameStr, _, err := b.namePostings.newSearchableString([]byte(doc.Name), nil)
 	if err != nil {

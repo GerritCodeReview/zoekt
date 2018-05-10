@@ -45,6 +45,7 @@ type FileMatch struct {
 	Repo     string
 	ResultID string
 	Language string
+	Reason   string
 	// If this was a duplicate result, this will contain the file
 	// of the first match.
 	DuplicateID string

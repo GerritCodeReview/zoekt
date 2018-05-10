@@ -22,6 +22,11 @@ import (
 	"github.com/google/zoekt/query"
 )
 
+const (
+	// NotTextLanguage sets the language of matches file without text.
+	NotTextLanguage string = "binary"
+)
+
 // FileMatch contains all the matches within a file.
 type FileMatch struct {
 	// Ranking; the higher, the better.
@@ -58,6 +63,15 @@ type FileMatch struct {
 
 	// Commit SHA1 (hex) of the (sub)repo holding the file.
 	Version string
+
+	// Reason why a file was excluded from index, normally it's a binary file.
+	Reason string
+}
+
+// IsText returns false if the match is a file without probably is not
+// source texts, being binary or PDF files for example.
+func (f FileMatch) IsText() bool {
+	return f.Language != NotTextLanguage
 }
 
 // LineMatch holds the matches within a single line in a file.
@@ -205,6 +219,7 @@ type IndexMetadata struct {
 	IndexTime           time.Time
 	PlainASCII          bool
 	LanguageMap         map[string]byte
+	ReasonMap           map[uint32]string
 }
 
 // Statistics of a (collection of) repositories.

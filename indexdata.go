@@ -82,6 +82,10 @@ type indexData struct {
 	languageMap map[byte]string
 
 	repoListEntry RepoListEntry
+
+	reasons []uint32
+
+	reasonMap map[uint32]string
 }
 
 func (d *indexData) getChecksum(idx uint32) []byte {
@@ -133,6 +137,14 @@ func (d *indexData) memoryUse() int {
 		sz += 4*len(v) + 4
 	}
 	return sz
+}
+
+func (d *indexData) getReason(idx uint32) string {
+	var reason string
+	if len(d.reasons) > 0 {
+		reason = d.reasonMap[d.reasons[idx]]
+	}
+	return reason
 }
 
 const maxUInt32 = 0xffffffff

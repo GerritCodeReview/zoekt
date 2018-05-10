@@ -119,12 +119,17 @@ func (b *IndexBuilder) Write(out io.Writer) error {
 	w.Write(marshalDocSections(b.runeDocSections))
 	toc.runeDocSections.end(w)
 
+	toc.reasons.start(w)
+	w.Write(toSizedDeltas(b.reasons))
+	toc.reasons.end(w)
+
 	if err := b.writeJSON(&IndexMetadata{
 		IndexFormatVersion:  IndexFormatVersion,
 		IndexTime:           time.Now(),
 		IndexFeatureVersion: FeatureVersion,
 		PlainASCII:          b.contentPostings.isPlainASCII && b.namePostings.isPlainASCII,
 		LanguageMap:         b.languageMap,
+		ReasonMap:           b.reasonMap,
 	}, &toc.metaData, w); err != nil {
 		return err
 	}

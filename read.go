@@ -252,6 +252,7 @@ func (r *reader) readIndexData(toc *indexTOC) (*indexData, error) {
 		toc.nameRuneOffsets: &d.fileNameRuneOffsets,
 		toc.nameEndRunes:    &d.fileNameEndRunes,
 		toc.fileEndRunes:    &d.fileEndRunes,
+		toc.reasons:         &d.reasons,
 	} {
 		if blob, err := d.readSectionBlob(sect); err != nil {
 			return nil, err
@@ -270,6 +271,11 @@ func (r *reader) readIndexData(toc *indexTOC) (*indexData, error) {
 	d.languageMap = map[byte]string{}
 	for k, v := range d.metaData.LanguageMap {
 		d.languageMap[v] = k
+	}
+
+	d.reasonMap = map[uint32]string{}
+	for k, v := range d.metaData.ReasonMap {
+		d.reasonMap[k] = v
 	}
 
 	if err := d.verify(); err != nil {

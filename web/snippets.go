@@ -95,6 +95,7 @@ func (s *Server) formatResults(result *zoekt.SearchResult, query string, localPr
 			ResultID: f.Repository + ":" + f.FileName,
 			Branches: f.Branches,
 			Language: f.Language,
+			Reason:   f.Reason,
 		}
 
 		if dup, ok := seenFiles[string(f.Checksum)]; ok {

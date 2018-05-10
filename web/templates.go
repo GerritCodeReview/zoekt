@@ -222,11 +222,12 @@ var TemplateText = map[string]string{
               <span style="font-weight: normal">[ {{if .Branches}}{{range .Branches}}<span class="label label-default">{{.}}</span>,{{end}}{{end}} ]</span>
               {{if .Language}}<span class="label label-primary">{{.Language}}</span>{{end}}
               {{if .DuplicateID}}<a class="label label-dup" href="#{{.DuplicateID}}">Duplicate result</a>{{end}}
+			  {{if .Reason}}<span class="label label-warning">{{.Reason}}</span>{{end}}
             </small>
           </th>
         </tr>
       </thead>
-      {{if not .DuplicateID}}
+	  {{if (and (not .DuplicateID) (IsNotBinary .Language))}}
       <tbody>
         {{range .Matches}}
         <tr>

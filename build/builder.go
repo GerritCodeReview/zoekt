@@ -217,13 +217,13 @@ func (b *Builder) AddFile(name string, content []byte) error {
 
 func (b *Builder) Add(doc zoekt.Document) error {
 	if len(doc.Content) > b.opts.SizeMax {
-		return nil
+		doc.Content = []byte("")
+		doc.Reason = fmt.Sprintf("content size (%d) greater than maximum file size", len(doc.Content))
+	} else if !zoekt.IsText(doc.Content) {
+		doc.Content = []byte("")
+		doc.Language = zoekt.NotTextLanguage
+		doc.Reason = "probably no text"
 	}
-
-	if !zoekt.IsText(doc.Content) {
-		return nil
-	}
-
 	b.todo = append(b.todo, &doc)
 	b.size += len(doc.Name) + len(doc.Content)
 	if b.size > b.opts.ShardMax {

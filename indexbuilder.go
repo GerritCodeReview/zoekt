@@ -17,6 +17,7 @@ package zoekt
 import (
 	"encoding/binary"
 	"fmt"
+	"hash/crc32"
 	"hash/crc64"
 	"html/template"
 	"log"
@@ -164,6 +165,12 @@ type IndexBuilder struct {
 
 	// languages codes
 	languages []byte
+
+	// reasons index, the crc32 of filename.
+	reasons []uint32
+
+	// reasons strings mapped through the crc32 of filename.
+	reasonMap map[uint32]string
 }
 
 func (d *Repository) verify() error {
@@ -189,6 +196,7 @@ func NewIndexBuilder(r *Repository) (*IndexBuilder, error) {
 		contentPostings: newPostingsBuilder(),
 		namePostings:    newPostingsBuilder(),
 		languageMap:     map[string]byte{},
+		reasonMap:       map[uint32]string{},
 	}
 
 	if r == nil {
@@ -245,6 +253,7 @@ type Document struct {
 	Branches          []string
 	SubRepositoryPath string
 	Language          string
+	Reason            string
 
 	// Document sections for symbols. Offsets should use bytes.
 	Symbols []DocumentSection
@@ -383,6 +392,11 @@ func (b *IndexBuilder) Add(doc Document) error {
 	}
 	b.languages = append(b.languages, langCode)
 
+	idx := crc32.ChecksumIEEE(nameStr.data)
+	b.reasons = append(b.reasons, idx)
+	if doc.Reason != "" {
+		b.reasonMap[idx] = doc.Reason
+	}
 	return nil
 }
 

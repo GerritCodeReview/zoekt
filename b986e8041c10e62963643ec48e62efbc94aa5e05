@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0513b395_8a05f216",
+        "filename": "cmd/zoekt-archive-index/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-14T11:48:27Z",
+      "side": 1,
+      "message": "should probably pass this through filepath.Clean",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 1
+      },
+      "revId": "b986e8041c10e62963643ec48e62efbc94aa5e05",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40da7adf_dd0aeef4",
+        "filename": "cmd/zoekt-archive-index/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-14T11:48:27Z",
+      "side": 1,
+      "message": "this should be factored out in a library, because all indexers have these flags. But if you\u0027re too busy, I can do it later.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 0
+      },
+      "revId": "b986e8041c10e62963643ec48e62efbc94aa5e05",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff23d3e2_dd75260e",
+        "filename": "cmd/zoekt-archive-index/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-14T11:48:27Z",
+      "side": 1,
+      "message": "that\u0027s a very light way of checking SHA1 :)\n\nI think there is no intrinsic reason why this has to be a SHA1. Of course, if it\u0027s not, all of the hyperlinks will be dead.",
+      "range": {
+        "startLine": 72,
+        "startChar": 9,
+        "endLine": 72,
+        "endChar": 15
+      },
+      "revId": "b986e8041c10e62963643ec48e62efbc94aa5e05",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8b71155_e193cc2e",
+        "filename": "cmd/zoekt-archive-index/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-14T11:48:27Z",
+      "side": 1,
+      "message": "can you setup the templates as well so this does the right thing for at least github.com URLs?",
+      "revId": "b986e8041c10e62963643ec48e62efbc94aa5e05",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4890ea44_cdf5ac18",
+        "filename": "cmd/zoekt-archive-index/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-14T11:48:27Z",
+      "side": 1,
+      "message": "can you put this and the rest into a function? I think we\u0027d want support for zip at some point too.",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 1
+      },
+      "revId": "b986e8041c10e62963643ec48e62efbc94aa5e05",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

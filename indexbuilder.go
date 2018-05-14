@@ -84,6 +84,9 @@ func (s *postingsBuilder) newSearchableString(data []byte, byteSections []Docume
 		if sz > 1 {
 			s.isPlainASCII = false
 		}
+		if c == 0 {
+			return nil, nil, fmt.Errorf("zoekt: binary content at byte offset %d", byteCount)
+		}
 		data = data[sz:]
 
 		runeGram[0], runeGram[1], runeGram[2] = runeGram[1], runeGram[2], c

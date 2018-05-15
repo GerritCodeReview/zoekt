@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77a02804_2cd3eed9",
+        "filename": "build/e2e_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-15T10:59:49Z",
+      "side": 1,
+      "message": "this can go to l. 404; I\u0027ve fixed it up.",
+      "range": {
+        "startLine": 415,
+        "startChar": 10,
+        "endLine": 415,
+        "endChar": 15
+      },
+      "revId": "558b20cf391fd4a6ef0807390299c55fc0dd6f3b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

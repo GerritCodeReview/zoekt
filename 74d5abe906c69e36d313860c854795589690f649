@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88f670e0_dd27e88c",
+        "filename": "api.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-15T08:32:01Z",
+      "side": 1,
+      "message": "this is overloading the meaning of language, which I think is not a good idea.\n\nlet me check with codesearch friends at google if there is a better way.",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 16
+      },
+      "revId": "74d5abe906c69e36d313860c854795589690f649",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "690f129b_2defa4d4",
+        "filename": "indexbuilder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-15T08:32:01Z",
+      "side": 1,
+      "message": "this looks overly complicated. If you want to use indices, you should use a fixed string so you can get space savings. If you have variable strings, use 1 reason per document without a map in the middle.\n\nHere is a concrete suggestion: put the reason as document content, eg. \n\n  \"NOT-INDEXED: document larger than limit %d\"\n\nThis will obviate all the extra work you have to do to wire up the data into the APIs and templating.\n\nIn a follow-up, we can add a indexed boolean per document. If you store that as delta encoded delta, you can do it with minimal space, and make a very efficient docIter. Use that to build a  indexed:yes / indexed:no query.  \n\nThen (optionally), we could consider rewriting some of the queries so that \n\n   abc\n\nis rewritten to \n\n   (file:abc OR (indexed:yes AND content:abc))",
+      "range": {
+        "startLine": 395,
+        "startChar": 14,
+        "endLine": 395,
+        "endChar": 26
+      },
+      "revId": "74d5abe906c69e36d313860c854795589690f649",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

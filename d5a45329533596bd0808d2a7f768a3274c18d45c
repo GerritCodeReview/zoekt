@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "3f38ed98_d37086ec",
+        "filename": "cmd/zoekt-archive-index/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2018-05-15T15:08:14Z",
+      "side": 1,
+      "message": "if commit is not specified the links don\u0027t work for the github project I just tried. I think the templates might need to be updated to fallback to the branch name if commit is empty? Or should I just keep commit as required?",
+      "parentUuid": "30b7dc09_9c178736",
+      "range": {
+        "startLine": 71,
+        "startChar": 6,
+        "endLine": 71,
+        "endChar": 11
+      },
+      "revId": "d5a45329533596bd0808d2a7f768a3274c18d45c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2038523e_0b6c08e8",
         "filename": "cmd/zoekt-archive-index/main.go",
         "patchSetId": 3
@@ -117,6 +141,30 @@
       "revId": "d5a45329533596bd0808d2a7f768a3274c18d45c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be6bf5d4_ea555627",
+        "filename": "cmd/zoekt-archive-index/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2018-05-15T15:08:14Z",
+      "side": 1,
+      "message": "line 90 calls `opts.SetDefaults()`. That will set the name based on the URL.",
+      "parentUuid": "47d6a39b_c185773a",
+      "range": {
+        "startLine": 86,
+        "startChar": 21,
+        "endLine": 86,
+        "endChar": 43
+      },
+      "revId": "d5a45329533596bd0808d2a7f768a3274c18d45c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {

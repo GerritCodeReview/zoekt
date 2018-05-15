@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "30b7dc09_9c178736",
+        "filename": "cmd/zoekt-archive-index/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2018-05-15T14:58:33Z",
+      "side": 1,
+      "message": "Ok will make it optional. Are you suggesting I should parse the codeload URLs of github to extract this sort of information?\n\nAlso out of interest git tarballs (including githubs) usually have the very first entry being a pax_global_header with the commit. So we could use that, but the useful part of having it set here is we can avoid starting to fetch the archive if we already indexed the commit.",
+      "parentUuid": "a44bc000_1e63f3a7",
+      "range": {
+        "startLine": 71,
+        "startChar": 6,
+        "endLine": 71,
+        "endChar": 11
+      },
+      "revId": "d5a45329533596bd0808d2a7f768a3274c18d45c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2038523e_0b6c08e8",
         "filename": "cmd/zoekt-archive-index/main.go",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "47d6a39b_c185773a",
+        "filename": "cmd/zoekt-archive-index/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2018-05-15T14:58:33Z",
+      "side": 1,
+      "message": "will do",
+      "parentUuid": "2038523e_0b6c08e8",
+      "range": {
+        "startLine": 86,
+        "startChar": 21,
+        "endLine": 86,
+        "endChar": 43
+      },
+      "revId": "d5a45329533596bd0808d2a7f768a3274c18d45c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ff650196_b3269abe",
         "filename": "cmd/zoekt-archive-index/main.go",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2018-05-15T13:18:49Z",
       "side": 1,
       "message": "I think this should still be in a function too, so you have log.Fatal only in one place.",
+      "range": {
+        "startLine": 109,
+        "startChar": 6,
+        "endLine": 109,
+        "endChar": 11
+      },
+      "revId": "d5a45329533596bd0808d2a7f768a3274c18d45c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d996937_93697a7e",
+        "filename": "cmd/zoekt-archive-index/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2018-05-15T14:58:33Z",
+      "side": 1,
+      "message": "aah good point. I\u0027ll do what I normally do and wrap `main` in a function which returns an error.",
+      "parentUuid": "ff650196_b3269abe",
       "range": {
         "startLine": 109,
         "startChar": 6,

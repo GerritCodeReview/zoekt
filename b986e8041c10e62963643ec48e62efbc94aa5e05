@@ -222,6 +222,30 @@
       "revId": "b986e8041c10e62963643ec48e62efbc94aa5e05",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad6b2915_f3c75ee5",
+        "filename": "cmd/zoekt-archive-index/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2018-05-15T11:34:01Z",
+      "side": 1,
+      "message": "ended up making a generic interface. Adding zip should be easy now.",
+      "parentUuid": "bc436481_f76b6ab5",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 1
+      },
+      "revId": "b986e8041c10e62963643ec48e62efbc94aa5e05",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

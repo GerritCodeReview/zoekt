@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "de648666_bb25dcfb",
+        "filename": "cmd/zoekt-archive-index/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-15T13:18:49Z",
+      "side": 1,
+      "message": "fair enough. Maybe I\u0027m too paranoid and tar will usually generate well-formed paths.",
+      "parentUuid": "2f92c3ae_2cd80fc1",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 1
+      },
+      "revId": "b986e8041c10e62963643ec48e62efbc94aa5e05",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "40da7adf_dd0aeef4",
         "filename": "cmd/zoekt-archive-index/main.go",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "I\u0027m happy to do that as a follow-up CR.",
       "parentUuid": "40da7adf_dd0aeef4",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 0
+      },
+      "revId": "b986e8041c10e62963643ec48e62efbc94aa5e05",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f99646eb_f46cefb1",
+        "filename": "cmd/zoekt-archive-index/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-15T13:18:49Z",
+      "side": 1,
+      "message": "great, thanks!",
+      "parentUuid": "90392b92_c85d7de8",
       "range": {
         "startLine": 39,
         "startChar": 0,

@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a44bc000_1e63f3a7",
+        "filename": "cmd/zoekt-archive-index/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-15T13:18:49Z",
+      "side": 1,
+      "message": "can you make this optional? For github, you should be able to get the version from the URL anyway.",
+      "range": {
+        "startLine": 71,
+        "startChar": 6,
+        "endLine": 71,
+        "endChar": 11
+      },
+      "revId": "d5a45329533596bd0808d2a7f768a3274c18d45c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2038523e_0b6c08e8",
+        "filename": "cmd/zoekt-archive-index/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-15T13:18:49Z",
+      "side": 1,
+      "message": "this sets up the templates, but not the name. you should be able to get at the name for a github URL.",
+      "range": {
+        "startLine": 86,
+        "startChar": 21,
+        "endLine": 86,
+        "endChar": 43
+      },
+      "revId": "d5a45329533596bd0808d2a7f768a3274c18d45c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff650196_b3269abe",
+        "filename": "cmd/zoekt-archive-index/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-15T13:18:49Z",
+      "side": 1,
+      "message": "I think this should still be in a function too, so you have log.Fatal only in one place.",
+      "range": {
+        "startLine": 109,
+        "startChar": 6,
+        "endLine": 109,
+        "endChar": 11
+      },
+      "revId": "d5a45329533596bd0808d2a7f768a3274c18d45c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

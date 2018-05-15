@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d27ea8f7_dcb4dc10",
+        "filename": "indexbuilder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2018-05-15T10:00:07Z",
+      "side": 1,
+      "message": "We should probably should also check for `c \u003d\u003d utf8.RuneError` and add a test containing invalid UTF8 data.",
+      "revId": "d633c4fda0b0babfff97d321f5f7730baee7a0e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

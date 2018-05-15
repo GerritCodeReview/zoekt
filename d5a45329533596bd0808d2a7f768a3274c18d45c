@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ab7b2542_afe3150c",
+        "filename": "cmd/zoekt-archive-index/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-15T15:04:16Z",
+      "side": 1,
+      "message": "yeah, if the version is in the URL, best to extract it from there.\n\nIf you call this automatically from within sourcegraph (or whereever you use this), this may make little difference, but my interest is to make this work well if people run this from the command-line too.",
+      "parentUuid": "30b7dc09_9c178736",
+      "range": {
+        "startLine": 71,
+        "startChar": 6,
+        "endLine": 71,
+        "endChar": 11
+      },
+      "revId": "d5a45329533596bd0808d2a7f768a3274c18d45c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2038523e_0b6c08e8",
         "filename": "cmd/zoekt-archive-index/main.go",
         "patchSetId": 3

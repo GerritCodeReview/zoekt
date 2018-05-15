@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2f92c3ae_2cd80fc1",
+        "filename": "cmd/zoekt-archive-index/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2018-05-15T10:57:49Z",
+      "side": 1,
+      "message": "I thought about doing that, but I wanted to match what `tar --strip-components` does. This isn\u0027t actually an exact match, since tar will also strip out `c:` prefix on windows. By using clean I\u0027d have to update the description of what the `-stripComponents` flag does. Should I do that?",
+      "parentUuid": "0513b395_8a05f216",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 1
+      },
+      "revId": "b986e8041c10e62963643ec48e62efbc94aa5e05",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "40da7adf_dd0aeef4",
         "filename": "cmd/zoekt-archive-index/main.go",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-05-14T11:48:27Z",
       "side": 1,
       "message": "this should be factored out in a library, because all indexers have these flags. But if you\u0027re too busy, I can do it later.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 0
+      },
+      "revId": "b986e8041c10e62963643ec48e62efbc94aa5e05",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90392b92_c85d7de8",
+        "filename": "cmd/zoekt-archive-index/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2018-05-15T10:57:49Z",
+      "side": 1,
+      "message": "I\u0027m happy to do that as a follow-up CR.",
+      "parentUuid": "40da7adf_dd0aeef4",
       "range": {
         "startLine": 39,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "59c9d7a0_a53dfbcc",
+        "filename": "cmd/zoekt-archive-index/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2018-05-15T10:57:49Z",
+      "side": 1,
+      "message": "Just a sanity check :) I could ensure it is a sha1 hash. Would you suggest I just make this check `\u003e 0`?",
+      "parentUuid": "ff23d3e2_dd75260e",
+      "range": {
+        "startLine": 72,
+        "startChar": 9,
+        "endLine": 72,
+        "endChar": 15
+      },
+      "revId": "b986e8041c10e62963643ec48e62efbc94aa5e05",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f8b71155_e193cc2e",
         "filename": "cmd/zoekt-archive-index/main.go",
         "patchSetId": 1
@@ -88,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "d7406a1f_92de3223",
+        "filename": "cmd/zoekt-archive-index/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2018-05-15T10:57:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f8b71155_e193cc2e",
+      "revId": "b986e8041c10e62963643ec48e62efbc94aa5e05",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4890ea44_cdf5ac18",
         "filename": "cmd/zoekt-archive-index/main.go",
         "patchSetId": 1
@@ -99,6 +189,30 @@
       "writtenOn": "2018-05-14T11:48:27Z",
       "side": 1,
       "message": "can you put this and the rest into a function? I think we\u0027d want support for zip at some point too.",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 1
+      },
+      "revId": "b986e8041c10e62963643ec48e62efbc94aa5e05",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc436481_f76b6ab5",
+        "filename": "cmd/zoekt-archive-index/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2018-05-15T10:57:49Z",
+      "side": 1,
+      "message": "one issue is the interface exposed by zip and tar are different, so we would need to create our own wrappers to a general interface. I won\u0027t make that general right now. We can do when we support zip.",
+      "parentUuid": "4890ea44_cdf5ac18",
       "range": {
         "startLine": 121,
         "startChar": 0,

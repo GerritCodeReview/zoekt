@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "25a3d243_37495e02",
+        "filename": "build/builder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-17T08:30:15Z",
+      "side": 1,
+      "message": "good question. We\u0027ll discover :).\n\nI think the symbol offset will be OOB, but we should be resilient to that anyway.",
+      "parentUuid": "355f684f_44964298",
+      "revId": "e46e00828f4d6dfe5a5ce34c47c147373b2c02c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d48bc49a_326d3b5d",
         "filename": "indexdata.go",
         "patchSetId": 2

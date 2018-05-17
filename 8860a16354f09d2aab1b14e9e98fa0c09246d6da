@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9018c3ed_f378cace",
+        "filename": "api.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-17T13:20:17Z",
+      "side": 1,
+      "message": "since we\u0027re already using lang:binary for visualization, let\u0027s make that an official policy, and drop it from here.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 1
+      },
+      "revId": "8860a16354f09d2aab1b14e9e98fa0c09246d6da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d15929d5_a2ca8506",
+        "filename": "web/api.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-17T13:20:17Z",
+      "side": 1,
+      "message": "revert this file.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 0
+      },
+      "revId": "8860a16354f09d2aab1b14e9e98fa0c09246d6da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b061867_566f2dea",
+        "filename": "web/templates.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-17T13:20:17Z",
+      "side": 1,
+      "message": "revert",
+      "range": {
+        "startLine": 229,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 1
+      },
+      "revId": "8860a16354f09d2aab1b14e9e98fa0c09246d6da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "d9482161_a6c035f6",
+        "filename": "api.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1066388
+      },
+      "writtenOn": "2018-05-17T22:05:49Z",
+      "side": 1,
+      "message": "I thought that some attributes could be set here using bitmask, instead using two boolean values (Binary, Indexed, because with this, it\u0027s possible have a non-indexed file, when the document is larger than limit, but it\u0027s not a binary file (Indexed false, Binary false).",
+      "parentUuid": "a433ba02_6b98e6f1",
+      "range": {
+        "startLine": 74,
+        "startChar": 11,
+        "endLine": 74,
+        "endChar": 20
+      },
+      "revId": "e46e00828f4d6dfe5a5ce34c47c147373b2c02c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "355f684f_44964298",
         "filename": "build/builder.go",
         "patchSetId": 2
@@ -88,6 +112,30 @@
       "writtenOn": "2018-05-17T09:07:20Z",
       "side": 1,
       "message": "why uint32 ? uint8 is big enough, no?",
+      "range": {
+        "startLine": 169,
+        "startChar": 14,
+        "endLine": 169,
+        "endChar": 20
+      },
+      "revId": "e46e00828f4d6dfe5a5ce34c47c147373b2c02c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "839727a6_0f662f0d",
+        "filename": "indexbuilder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1066388
+      },
+      "writtenOn": "2018-05-17T22:05:49Z",
+      "side": 1,
+      "message": "you\u0027re right, I will change it.",
+      "parentUuid": "37468c4a_88f0e4e8",
       "range": {
         "startLine": 169,
         "startChar": 14,

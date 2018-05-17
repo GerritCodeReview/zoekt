@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41bc0152_16b83327",
+        "filename": "api.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2018-05-17T08:06:48Z",
+      "side": 1,
+      "message": "comment says \"not a binary file\". I assume you mean \"a binary file\".",
+      "revId": "e46e00828f4d6dfe5a5ce34c47c147373b2c02c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "355f684f_44964298",
+        "filename": "build/builder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2018-05-17T08:06:48Z",
+      "side": 1,
+      "message": "Han-Wen: Will doing this have any unintended consequences? I\u0027m thinking around ctags indexing content / ranking, etc.",
+      "revId": "e46e00828f4d6dfe5a5ce34c47c147373b2c02c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d48bc49a_326d3b5d",
+        "filename": "indexdata.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2018-05-17T08:06:48Z",
+      "side": 1,
+      "message": "why would this happen?",
+      "revId": "e46e00828f4d6dfe5a5ce34c47c147373b2c02c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14b6468a_116453ac",
+        "filename": "web/e2e_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2018-05-17T08:06:48Z",
+      "side": 1,
+      "message": "can you also test that a normal search won\u0027t match the reason inside a binary file and a file that is too large?",
+      "revId": "e46e00828f4d6dfe5a5ce34c47c147373b2c02c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f81cf57_35fa75c8",
+        "filename": "write.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2018-05-17T08:06:48Z",
+      "side": 1,
+      "message": "FYI we can probably store this far more efficiently in the future. In practice this will encode a byte per attribute, but given there are only 4 possible values for it right now that is overkill.",
+      "revId": "e46e00828f4d6dfe5a5ce34c47c147373b2c02c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bcde7c47_333e1600",
+        "filename": "api.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-18T13:19:52Z",
+      "side": 1,
+      "message": "s/currently//\n\nactually, nothing is consuming this data in your change (except for tests). \n\nCan you remove \"Skipped\" machinery here and from the index and for now? I think this change should just touch build/",
+      "range": {
+        "startLine": 62,
+        "startChar": 37,
+        "endLine": 62,
+        "endChar": 46
+      },
+      "revId": "c77442b2061cdef73d772d5fc6eb90b1af01fd3b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

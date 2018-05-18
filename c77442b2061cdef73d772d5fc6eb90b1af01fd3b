@@ -22,6 +22,30 @@
       "revId": "c77442b2061cdef73d772d5fc6eb90b1af01fd3b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "975ba9c8_4c9df44b",
+        "filename": "api.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1066388
+      },
+      "writtenOn": "2018-05-18T14:14:30Z",
+      "side": 1,
+      "message": "Sure, I can remove it, but it would be not necessary keep it for a next implementation on queries, as you told me before  ?",
+      "parentUuid": "bcde7c47_333e1600",
+      "range": {
+        "startLine": 62,
+        "startChar": 37,
+        "endLine": 62,
+        "endChar": 46
+      },
+      "revId": "c77442b2061cdef73d772d5fc6eb90b1af01fd3b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

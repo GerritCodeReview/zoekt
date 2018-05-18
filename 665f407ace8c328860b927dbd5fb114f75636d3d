@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d227c2b6_82f0d36c",
+        "filename": "api.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-18T09:55:59Z",
+      "side": 1,
+      "message": "file content",
+      "range": {
+        "startLine": 62,
+        "startChar": 17,
+        "endLine": 62,
+        "endChar": 21
+      },
+      "revId": "665f407ace8c328860b927dbd5fb114f75636d3d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb633d60_58c092ea",
+        "filename": "api.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-18T09:55:59Z",
+      "side": 1,
+      "message": "this will default to indexed \u003d\u003d false, which is a change from existing code. Can you make this \"Skipped\" for backward compat throughout?",
+      "range": {
+        "startLine": 63,
+        "startChar": 1,
+        "endLine": 63,
+        "endChar": 8
+      },
+      "revId": "665f407ace8c328860b927dbd5fb114f75636d3d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f95c7998_4503a7d8",
+        "filename": "indexbuilder.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-18T09:55:59Z",
+      "side": 1,
+      "message": "this defaults to false, so all docs in tests are now \"indexed\u003d\u003dfalse\".",
+      "range": {
+        "startLine": 253,
+        "startChar": 1,
+        "endLine": 253,
+        "endChar": 8
+      },
+      "revId": "665f407ace8c328860b927dbd5fb114f75636d3d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f08d2fb6_8a6de662",
+        "filename": "toc.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-18T09:55:59Z",
+      "side": 1,
+      "message": "Please rebase.\n\nIf you increase FormatVersion, reset FeatureVersion to 0.",
+      "range": {
+        "startLine": 39,
+        "startChar": 6,
+        "endLine": 40,
+        "endChar": 0
+      },
+      "revId": "665f407ace8c328860b927dbd5fb114f75636d3d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d6cb537_131ef153",
+        "filename": "web/e2e_test.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-18T09:55:59Z",
+      "side": 1,
+      "message": "you haven\u0027t changed anything under web/ , so you can drop this test too.",
+      "range": {
+        "startLine": 429,
+        "startChar": 2,
+        "endLine": 429,
+        "endChar": 10
+      },
+      "revId": "665f407ace8c328860b927dbd5fb114f75636d3d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

@@ -46,6 +46,30 @@
       "revId": "c77442b2061cdef73d772d5fc6eb90b1af01fd3b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d74b1dca_b72afa8a",
+        "filename": "api.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-19T12:35:40Z",
+      "side": 1,
+      "message": "it will be necessary in the next change, so please put it in the change that introduces the query.",
+      "parentUuid": "975ba9c8_4c9df44b",
+      "range": {
+        "startLine": 62,
+        "startChar": 37,
+        "endLine": 62,
+        "endChar": 46
+      },
+      "revId": "c77442b2061cdef73d772d5fc6eb90b1af01fd3b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

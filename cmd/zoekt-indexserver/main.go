@@ -167,9 +167,7 @@ func deleteLogs(logDir string, maxAge time.Duration) {
 
 		threshold := time.Now().Add(-maxAge)
 		for _, fn := range fs {
-
 			if fi, err := os.Lstat(fn); err == nil && fi.ModTime().Before(threshold) {
-
 				os.Remove(fn)
 			}
 		}
@@ -196,12 +194,7 @@ func deleteIfStale(repoDir string, fn string) error {
 		return nil
 	}
 
-	u, err := url.Parse(repo.URL)
-	if err != nil {
-		return err
-	}
-
-	_, err = os.Stat(gitindex.Path(repoDir, u))
+	_, err = os.Stat(gitindex.Path(repoDir, repo.Name))
 	if os.IsNotExist(err) {
 		log.Printf("deleting stale shard %s for %q", fn, u)
 		return os.Remove(fn)

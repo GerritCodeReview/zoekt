@@ -70,6 +70,30 @@
       "revId": "c77442b2061cdef73d772d5fc6eb90b1af01fd3b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35e962d7_ea7fcb7f",
+        "filename": "api.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1066388
+      },
+      "writtenOn": "2018-05-20T18:28:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d74b1dca_b72afa8a",
+      "range": {
+        "startLine": 62,
+        "startChar": 37,
+        "endLine": 62,
+        "endChar": 46
+      },
+      "revId": "c77442b2061cdef73d772d5fc6eb90b1af01fd3b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

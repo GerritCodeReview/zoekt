@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e14ef9a3_5ce503e1",
+        "filename": "cmd/zoekt/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1021592
+      },
+      "writtenOn": "2018-05-22T11:54:14Z",
+      "side": 1,
+      "message": "Sure, but can I default to true?",
+      "parentUuid": "e9a5226d_b1c171b2",
+      "range": {
+        "startLine": 66,
+        "startChar": 23,
+        "endLine": 66,
+        "endChar": 28
+      },
+      "revId": "5d75c340026f4c03919b834f7dedd5b09d925c83",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "db4286f9_59b37f59",
         "filename": "cmd/zoekt/main.go",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-05-22T11:16:21Z",
       "side": 1,
       "message": "this is recommended in the doc, but it\u0027s setting a global var. Can you do it without changing the state in the color package?",
+      "range": {
+        "startLine": 140,
+        "startChar": 8,
+        "endLine": 140,
+        "endChar": 15
+      },
+      "revId": "5d75c340026f4c03919b834f7dedd5b09d925c83",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca3b015d_b1a0b47f",
+        "filename": "cmd/zoekt/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1021592
+      },
+      "writtenOn": "2018-05-22T11:54:14Z",
+      "side": 1,
+      "message": "Not without disabling color per color instance. Which I felt was not a nice way todo it. If there are future stuff to colorize, I actually like that we can disable coloring for the whole package. Also, the color package globally turns off color depending on term settings, so I think this kinda matches the expected behaviour.",
+      "parentUuid": "db4286f9_59b37f59",
       "range": {
         "startLine": 140,
         "startChar": 8,

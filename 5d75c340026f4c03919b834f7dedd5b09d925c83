@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "289ae94d_8f6b8864",
+        "filename": "cmd/zoekt/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1021592
+      },
+      "writtenOn": "2018-05-22T13:11:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fee55086_2e4b7a60",
+      "range": {
+        "startLine": 66,
+        "startChar": 23,
+        "endLine": 66,
+        "endChar": 28
+      },
+      "revId": "5d75c340026f4c03919b834f7dedd5b09d925c83",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db4286f9_59b37f59",
         "filename": "cmd/zoekt/main.go",
         "patchSetId": 1

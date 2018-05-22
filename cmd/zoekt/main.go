@@ -24,6 +24,7 @@ import (
 	"runtime/pprof"
 	"time"
 
+	"github.com/fatih/color"
 	"github.com/google/zoekt"
 	"github.com/google/zoekt/query"
 	"github.com/google/zoekt/shards"
@@ -32,9 +33,12 @@ import (
 const CONTEXT = 20
 
 func displayMatches(files []zoekt.FileMatch, pat string) {
+	green := color.New(color.FgGreen).SprintfFunc()
+	blue := color.New(color.FgHiBlue).SprintfFunc()
+	white := color.New(color.FgWhite).SprintfFunc()
 	for _, f := range files {
 		for _, m := range f.LineMatches {
-			fmt.Printf("%s:%d:%s\n", f.FileName, m.LineNumber, m.Line)
+			fmt.Printf("%s:%s\n%s\n\n", green(f.FileName), blue("%d", m.LineNumber), white("%s", m.Line))
 		}
 	}
 }
@@ -59,6 +63,7 @@ func loadShard(fn string) (zoekt.Searcher, error) {
 }
 
 func main() {
+	nocolor := flag.Bool("no-color", false, "do not print results with color")
 	shard := flag.String("shard", "", "search in a specific shard")
 	index := flag.String("index_dir",
 		filepath.Join(os.Getenv("HOME"), ".zoekt"), "search for index files in `directory`")
@@ -131,6 +136,9 @@ func main() {
 		log.Fatal(err)
 	}
 
+	if *nocolor {
+		color.NoColor = true
+	}
 	displayMatches(sres.Files, pat)
 	if *verbose {
 		log.Printf("stats: %#v", sres.Stats)

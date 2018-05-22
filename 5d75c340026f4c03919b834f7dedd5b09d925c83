@@ -117,6 +117,30 @@
       "revId": "5d75c340026f4c03919b834f7dedd5b09d925c83",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94d14525_8fc844ce",
+        "filename": "cmd/zoekt/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-22T12:42:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ca3b015d_b1a0b47f",
+      "range": {
+        "startLine": 140,
+        "startChar": 8,
+        "endLine": 140,
+        "endChar": 15
+      },
+      "revId": "5d75c340026f4c03919b834f7dedd5b09d925c83",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

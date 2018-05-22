@@ -22,6 +22,30 @@
       "revId": "12ab12940d78ba8cf15a2c54a2660c3d5aa6e945",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a31b3ced_5918592b",
+        "filename": "cmd/zoekt/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1021592
+      },
+      "writtenOn": "2018-05-22T13:58:16Z",
+      "side": 1,
+      "message": "Yeah. I agree. Ok. I\u0027ll rework it. Perhaps I\u0027ll add a --one-line for the original format too.",
+      "parentUuid": "847de429_e4c1cc54",
+      "range": {
+        "startLine": 41,
+        "startChar": 21,
+        "endLine": 41,
+        "endChar": 22
+      },
+      "revId": "12ab12940d78ba8cf15a2c54a2660c3d5aa6e945",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

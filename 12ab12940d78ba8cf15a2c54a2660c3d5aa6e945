@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "847de429_e4c1cc54",
+        "filename": "cmd/zoekt/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-05-22T13:23:48Z",
+      "side": 1,
+      "message": "Sorry, I noticed this newline only now. The original format matches grep -n and is the standard format for error messages from GNU \n\nhttps://www.gnu.org/prep/standards/html_node/Errors.html\n\nI\u0027m OK with this having a different format, but then why repeat the filename all the time? You could follow the format of the web UI, eg.\n\n  filename\n   1:bla bla MATCH bla \n   7:bla bla MATCH bla \n   \n  filename2\n   8:bla bla MATCH bla \n   15:bla bla MATCH bla \n\nAlso, if you\u0027re using colors, I think it would be nice to highlight the matches like grep --color does?",
+      "range": {
+        "startLine": 41,
+        "startChar": 21,
+        "endLine": 41,
+        "endChar": 22
+      },
+      "revId": "12ab12940d78ba8cf15a2c54a2660c3d5aa6e945",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

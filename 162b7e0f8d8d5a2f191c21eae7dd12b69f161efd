@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4202a6a7_97e94cf1",
+        "filename": "build/builder.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1066388
+      },
+      "writtenOn": "2018-05-23T14:17:37Z",
+      "side": 1,
+      "message": "should be `doc.SkipReason \u003d fmt.Sprintf(...`, just remove the `:`.",
+      "revId": "162b7e0f8d8d5a2f191c21eae7dd12b69f161efd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "648ac706_8e4e18bc",
+        "filename": "index_test.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1066388
+      },
+      "writtenOn": "2018-05-23T14:17:37Z",
+      "side": 1,
+      "message": "this is not the expected return. It\u0027s necessary test the `doc.SkipReason` instead.",
+      "revId": "162b7e0f8d8d5a2f191c21eae7dd12b69f161efd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

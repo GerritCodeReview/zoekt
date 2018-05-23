@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "b4c98920_05516530",
+        "filename": "api.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1066388
+      },
+      "writtenOn": "2018-05-23T10:21:39Z",
+      "side": 1,
+      "message": "considering this minor change, I don\u0027t think this is necessary, because the IndexFormatVersion was updated, correct ?",
+      "parentUuid": "b63c91c9_850b62a0",
+      "range": {
+        "startLine": 63,
+        "startChar": 1,
+        "endLine": 63,
+        "endChar": 8
+      },
+      "revId": "665f407ace8c328860b927dbd5fb114f75636d3d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f95c7998_4503a7d8",
         "filename": "indexbuilder.go",
         "patchSetId": 4

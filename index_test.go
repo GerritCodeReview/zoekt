@@ -1804,7 +1804,6 @@ func TestSkipInvalidContent(t *testing.T) {
 		// Binary
 		"abc def \x00 abc",
 	} {
-
 		b, err := NewIndexBuilder(nil)
 		if err != nil {
 			t.Fatalf("NewIndexBuilder: %v", err)
@@ -1842,4 +1841,5 @@ func TestCheckText(t *testing.T) {
 			t.Errorf("CheckText(%q) succeeded", text)
 		}
 	}
+
 }

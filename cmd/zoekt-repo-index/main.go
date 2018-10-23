@@ -146,18 +146,6 @@ func main() {
 	} else if *repoName == "" {
 		*repoName = filepath.Join(u.Host, u.Path)
 	}
-
-	opts := build.Options{
-		Parallelism: *parallelism,
-		SizeMax:     *sizeMax,
-		ShardMax:    *shardLimit,
-		IndexDir:    *indexDir,
-		RepositoryDescription: zoekt.Repository{
-			Name: *repoName,
-			URL:  *repoURL,
-		},
-	}
-	opts.SetDefaults()
 	baseURL, err := url.Parse(*baseURLStr)
 	if err != nil {
 		log.Fatalf("Parse baseURL %q: %v", *baseURLStr, err)
@@ -177,15 +165,32 @@ func main() {
 			}
 		}
 	}
+	opts := build.Options{
+		Parallelism: *parallelism,
+		SizeMax:     *sizeMax,
+		ShardMax:    *shardLimit,
+		IndexDir:    *indexDir,
+		RepositoryDescription: zoekt.Repository{
+			Name: *repoName,
+			URL:  *repoURL,
+		},
+	}
+	opts.SetDefaults()
+	opts.SubRepositories = map[string]*zoekt.Repository{}
+
+	index(*baseURL, *revPrefix, *incremental, opts, branches, repoCache)
+}
+
+func index(baseURL url.URL, revPrefix string, incremental bool, opts build.Options,
+	branches []branchFile, repoCache *gitindex.RepoCache) error {
 
 	perBranch := map[string]map[fileKey]gitindex.BlobLocation{}
-	opts.SubRepositories = map[string]*zoekt.Repository{}
 
 	// branch => repo => version
 	versionMap := map[string]map[string]plumbing.Hash{}
 	for _, br := range branches {
 		br.mf.Filter()
-		files, versions, err := iterateManifest(br.mf, *baseURL, *revPrefix, repoCache)
+		files, versions, err := iterateManifest(br.mf, baseURL, revPrefix, repoCache)
 		if err != nil {
 			log.Fatalf("iterateManifest: %v", err)
 		}
@@ -251,10 +256,10 @@ func main() {
 		}
 	}
 
-	if *incremental {
+	if incremental {
 		versions := opts.IndexVersions()
 		if reflect.DeepEqual(versions, opts.RepositoryDescription.Branches) {
-			return
+			return nil
 		}
 	}
 
@@ -266,7 +271,7 @@ func main() {
 		loc := perBranch[branches[0]][k]
 		data, err := loc.Blob(&k.ID)
 		if err != nil {
-			log.Fatal(err)
+			return err
 		}
 
 		doc := zoekt.Document{
@@ -279,12 +284,13 @@ func main() {
 			doc.Branches = append(doc.Branches, br)
 		}
 		if err := builder.Add(doc); err != nil {
-			log.Fatalf("Add(%s): %v", doc.Name, err)
+			return fmt.Errorf("Add(%s): %v", doc.Name, err)
 		}
 	}
 	if err := builder.Finish(); err != nil {
-		log.Fatalf("Finish: %v", err)
+		return err
 	}
+	return nil
 }
 
 // getManifest parses the manifest XML at the given branch/path inside a Git repository.

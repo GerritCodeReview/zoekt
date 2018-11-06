@@ -32,11 +32,14 @@ import (
 )
 
 type configEntry struct {
-	GithubUser string
-	GitilesURL string
-	CGitURL    string
-	Name       string
-	Exclude    string
+	GithubUser             string
+	BitBucketServerProject string
+	GitilesURL             string
+	CGitURL                string
+	BitBucketServerUrl     string
+	ProjectType            string
+	Name                   string
+	Exclude                string
 }
 
 func randomize(entries []configEntry) []configEntry {
@@ -197,6 +200,22 @@ func executeMirror(cfg []configEntry, repoDir string) {
 				cmd.Args = append(cmd.Args, "-exclude", c.Exclude)
 			}
 			cmd.Args = append(cmd.Args, c.CGitURL)
+			loggedRun(cmd)
+		} else if c.BitBucketServerUrl != "" {
+			cmd := exec.Command("zoekt-mirror-bitbucket-server",
+				"-dest", repoDir, "-url", c.BitBucketServerUrl)
+			if c.BitBucketServerProject != "" {
+				cmd.Args = append(cmd.Args, "-project", c.BitBucketServerProject)
+			}
+			if c.ProjectType != "" {
+				cmd.Args = append(cmd.Args, "-type", c.ProjectType)
+			}
+			if c.Name != "" {
+				cmd.Args = append(cmd.Args, "-name", c.Name)
+			}
+			if c.Exclude != "" {
+				cmd.Args = append(cmd.Args, "-exclude", c.Exclude)
+			}
 			loggedRun(cmd)
 		}
 	}

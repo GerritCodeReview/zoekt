@@ -1,0 +1,251 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47609e80_d70c5b52",
+        "filename": "cmd/zoekt-indexserver/config.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-11-07T12:04:31Z",
+      "side": 1,
+      "message": "github loads a token from ~/.github-token by default. Could you do something similar here? I\u0027d rather not mix \u0027public\u0027 metadata and sensitive data (passwords)",
+      "range": {
+        "startLine": 43,
+        "startChar": 1,
+        "endLine": 43,
+        "endChar": 9
+      },
+      "revId": "043f1cc1f6e62c6b7f5c3229d6a8706b0d47a6b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20284020_9330dd5a",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-11-07T12:04:31Z",
+      "side": 1,
+      "message": "The password will leak through /proc to all users of the system. Read the password from a file instead.",
+      "range": {
+        "startLine": 45,
+        "startChar": 1,
+        "endLine": 45,
+        "endChar": 9
+      },
+      "revId": "043f1cc1f6e62c6b7f5c3229d6a8706b0d47a6b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0d642af_81ceb02b",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-11-07T12:04:31Z",
+      "side": 1,
+      "message": "this looks like a copy \u0026 paste. Can you make this generic and move it into the gitindex package?",
+      "range": {
+        "startLine": 135,
+        "startChar": 5,
+        "endLine": 135,
+        "endChar": 21
+      },
+      "revId": "043f1cc1f6e62c6b7f5c3229d6a8706b0d47a6b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca3e9d21_2c8ce297",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-11-07T12:04:31Z",
+      "side": 1,
+      "message": "handle error",
+      "range": {
+        "startLine": 191,
+        "startChar": 11,
+        "endLine": 191,
+        "endChar": 12
+      },
+      "revId": "043f1cc1f6e62c6b7f5c3229d6a8706b0d47a6b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66769690_40f23d9b",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-11-07T12:04:31Z",
+      "side": 1,
+      "message": "long name for a local variable.\n\ncan you do \n\n  optionals :\u003d map[string]interface{}{}\n\nto avoid repetition?",
+      "range": {
+        "startLine": 216,
+        "startChar": 1,
+        "endLine": 216,
+        "endChar": 18
+      },
+      "revId": "043f1cc1f6e62c6b7f5c3229d6a8706b0d47a6b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8a71f0b_249929a2",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-11-07T12:04:31Z",
+      "side": 1,
+      "message": "handle error",
+      "range": {
+        "startLine": 220,
+        "startChar": 2,
+        "endLine": 220,
+        "endChar": 6
+      },
+      "revId": "043f1cc1f6e62c6b7f5c3229d6a8706b0d47a6b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adee3011_ce6495d3",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-11-07T12:04:31Z",
+      "side": 1,
+      "message": "this url type is not supported yet. You\u0027ll have to add something under gitindex/",
+      "range": {
+        "startLine": 246,
+        "startChar": 36,
+        "endLine": 246,
+        "endChar": 42
+      },
+      "revId": "043f1cc1f6e62c6b7f5c3229d6a8706b0d47a6b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15504684_91f13fca",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-11-07T12:04:31Z",
+      "side": 1,
+      "message": "use :\u003d",
+      "range": {
+        "startLine": 251,
+        "startChar": 6,
+        "endLine": 251,
+        "endChar": 19
+      },
+      "revId": "043f1cc1f6e62c6b7f5c3229d6a8706b0d47a6b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41b8eabc_2dd6561c",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-11-07T12:04:31Z",
+      "side": 1,
+      "message": "you have to return this. Here and below.",
+      "range": {
+        "startLine": 261,
+        "startChar": 4,
+        "endLine": 261,
+        "endChar": 7
+      },
+      "revId": "043f1cc1f6e62c6b7f5c3229d6a8706b0d47a6b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e1d561d_01863f70",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-11-07T12:04:31Z",
+      "side": 1,
+      "message": "I updated this in the github command (forgot to push this to gh earlier, sorry.)",
+      "range": {
+        "startLine": 274,
+        "startChar": 5,
+        "endLine": 274,
+        "endChar": 17
+      },
+      "revId": "043f1cc1f6e62c6b7f5c3229d6a8706b0d47a6b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18de5fd5_9aeeacb7",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-11-07T12:04:31Z",
+      "side": 1,
+      "message": "why are you doing this ? You\u0027re not changign the config at all.",
+      "revId": "043f1cc1f6e62c6b7f5c3229d6a8706b0d47a6b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

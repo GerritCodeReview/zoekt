@@ -42,9 +42,8 @@ func main() {
 	dest := flag.String("dest", "", "destination directory")
 	bitBucketServerUrl := flag.String("url", "", "BitBucket Server url")
 	userName := flag.String("username", "", "BitBucket Server username")
-	password := flag.String("password", "", "BitBucket Server password")
+	passwordFile := flag.String("password", ".bitbucket-password", "file holding BitBucket Server password")
 	project := flag.String("project", "", "project to mirror")
-	deleteRepos := flag.Bool("delete", false, "delete missing repos")
 	namePattern := flag.String("name", "", "only clone repos whose name matches the given regexp.")
 	excludePattern := flag.String("exclude", "", "don't mirror repos whose names match this regexp.")
 	projectType := flag.String("type", "", "only clone repos whose type matches the given string.")
@@ -67,7 +66,19 @@ func main() {
 	if err := os.MkdirAll(destDir, 0755); err != nil {
 		log.Fatal(err)
 	}
-	basicAuth := bitbucketv1.BasicAuth{UserName: *userName, Password: *password}
+
+	password := ""
+	if *passwordFile == "" {
+		log.Fatal("must set --password")
+	} else {
+		content, err := ioutil.ReadFile(*passwordFile)
+		if err != nil {
+			log.Fatal(err)
+		}
+		password = strings.TrimSpace(string(content))
+	}
+
+	basicAuth := bitbucketv1.BasicAuth{UserName: *userName, Password: password}
 	ctx, cancel := context.WithTimeout(context.Background(), 120000*time.Millisecond)
 	ctx = context.WithValue(ctx, bitbucketv1.ContextBasicAuth, basicAuth)
 	defer cancel()
@@ -121,65 +132,11 @@ func main() {
 		repos = trimmed
 	}
 
-	if err := cloneRepos(destDir, rootURL.Host, repos, *password); err != nil {
+	if err := cloneRepos(destDir, rootURL.Host, repos, password); err != nil {
 		log.Fatalf("cloneRepos: %v", err)
 	}
-
-	if *deleteRepos {
-		if err := deleteStaleRepos(*dest, *rootURL, filter, repos, *project); err != nil {
-			log.Fatalf("deleteStaleRepos: %v", err)
-		}
-	}
 }
 
-func deleteStaleRepos(destDir string, rootURL url.URL, filter *gitindex.Filter, repos []bitbucketv1.Repository, project string) error {
-	projectPath, err := url.Parse(project)
-	if err != nil {
-		log.Fatal(err)
-	}
-	u := rootURL.ResolveReference(projectPath)
-
-	if err != nil {
-		return err
-	}
-
-	paths, err := gitindex.ListRepos(destDir, u)
-	if err != nil {
-		return err
-	}
-
-	names := map[string]bool{}
-	for _, r := range repos {
-		u, err := url.Parse(r.Links.Self[0].Href)
-		if err != nil {
-			return err
-		}
-
-		names[filepath.Join(u.Host, u.Path+".git")] = true
-	}
-
-	var toDelete []string
-	for _, p := range paths {
-		if filter.Include(p) && !names[p] {
-			toDelete = append(toDelete, p)
-		}
-	}
-
-	if len(toDelete) > 0 {
-		log.Printf("deleting repos %v", toDelete)
-	}
-
-	var errs []string
-	for _, d := range toDelete {
-		if err := os.RemoveAll(filepath.Join(destDir, d)); err != nil {
-			errs = append(errs, err.Error())
-		}
-	}
-	if len(errs) > 0 {
-		return fmt.Errorf("errors: %v", errs)
-	}
-	return nil
-}
 
 func getAllRepos(client bitbucketv1.APIClient) ([]bitbucketv1.Repository, error) {
 	var allRepos []bitbucketv1.Repository
@@ -189,6 +146,11 @@ func getAllRepos(client bitbucketv1.APIClient) ([]bitbucketv1.Repository, error)
 	localVarOptionals["start"] = 0
 	for {
 		resp, err := client.DefaultApi.GetRepositories_19(localVarOptionals)
+
+		if err != nil {
+			return nil, err
+		}
+
 		repos, err := bitbucketv1.GetRepositoriesResponse(resp)
 
 		if err != nil {
@@ -212,14 +174,16 @@ func getAllRepos(client bitbucketv1.APIClient) ([]bitbucketv1.Repository, error)
 
 func getProjectRepos(client bitbucketv1.APIClient, projectName string) ([]bitbucketv1.Repository, error) {
 	var allRepos []bitbucketv1.Repository
-	var localVarOptionals map[string]interface{}
-	localVarOptionals = make(map[string]interface{})
-	localVarOptionals["limit"] = 1000
-	localVarOptionals["start"] = 0
+	optionals := map[string]interface{}{}
+	optionals["limit"] = 1000
+	optionals["start"] = 0
 	for {
-		resp, err := client.DefaultApi.GetRepositoriesWithOptions(projectName, localVarOptionals)
-		repos, err := bitbucketv1.GetRepositoriesResponse(resp)
+		resp, err := client.DefaultApi.GetRepositoriesWithOptions(projectName, optionals)
+		if err != nil {
+			return nil, err
+		}
 
+		repos, err := bitbucketv1.GetRepositoriesResponse(resp)
 		if err != nil {
 			return nil, err
 		}
@@ -232,7 +196,7 @@ func getProjectRepos(client bitbucketv1.APIClient, projectName string) ([]bitbuc
 			names = append(names, r.Slug)
 		}
 
-		localVarOptionals["start"] = localVarOptionals["start"].(int) + localVarOptionals["limit"].(int)
+		optionals["start"] = optionals["start"].(int) + optionals["limit"].(int)
 
 		allRepos = append(allRepos, repos...)
 	}
@@ -248,7 +212,7 @@ func cloneRepos(destDir string, host string, repos []bitbucketv1.Repository, pas
 			"zoekt.name":         filepath.Join(host, fullName),
 		}
 
-		var httpsCloneUrl = ""
+		httpsCloneUrl := ""
 		for _, cloneUrl := range r.Links.Clone {
 			if cloneUrl.Name == "http" {
 				s := strings.Split(cloneUrl.Href, "@")
@@ -258,13 +222,13 @@ func cloneRepos(destDir string, host string, repos []bitbucketv1.Repository, pas
 
 		if httpsCloneUrl != "" {
 			if err := gitindex.CloneRepo(destDir, fullName, httpsCloneUrl, config); err != nil {
-				fmt.Errorf("cloneRepo: %v", err)
+				return fmt.Errorf("cloneRepo: %v", err)
 			}
 		}
 
 
 		if err := updateConfig(destDir, r); err != nil {
-			fmt.Errorf("updateConfig: %v", err)
+			return fmt.Errorf("updateConfig: %v", err)
 		}
 	}
 

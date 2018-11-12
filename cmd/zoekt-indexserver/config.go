@@ -41,7 +41,6 @@ type configEntry struct {
 	Name                   string
 	Exclude                string
 	Username               string
-	Password               string
 }
 
 func randomize(entries []configEntry) []configEntry {
@@ -208,9 +207,6 @@ func executeMirror(cfg []configEntry, repoDir string) {
 				"-dest", repoDir, "-url", c.BitBucketServerUrl)
 			if c.Username != "" {
 				cmd.Args = append(cmd.Args, "-username", c.Username)
-			}
-			if c.Password != "" {
-				cmd.Args = append(cmd.Args, "-password", c.Password)
 			}
 			if c.BitBucketServerProject != "" {
 				cmd.Args = append(cmd.Args, "-project", c.BitBucketServerProject)

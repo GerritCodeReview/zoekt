@@ -480,6 +480,24 @@
       "revId": "043f1cc1f6e62c6b7f5c3229d6a8706b0d47a6b6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0301264_0f378e47",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-11-12T23:57:14Z",
+      "side": 1,
+      "message": "right. I recently removed this method from the github code, \n\nhttps://gerrit.googlesource.com/zoekt/+/f36e136b2acfcee639e04bc6c34de2b739f76171%5E%21/#F0",
+      "parentUuid": "cc03f6d6_e863fbfb",
+      "revId": "043f1cc1f6e62c6b7f5c3229d6a8706b0d47a6b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

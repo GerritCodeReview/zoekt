@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8077597e_4772b4e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-11-13T16:50:59Z",
+      "side": 1,
+      "message": "you have to remove these bits, so your new version goes into the change marked with I9bd854d2267136fd95a44913dc74a57673a21e97 and the conversation stays together.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 0
+      },
+      "revId": "11d16d064790c522dd0ef6ad268a0fb8ecca8bf8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dfa955bf_4b52f07c",
+        "filename": "cmd/zoekt-indexserver/config.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-11-14T05:39:56Z",
+      "side": 1,
+      "message": "can you move this out too? This will be confusing when it is next to GithubUser.",
+      "range": {
+        "startLine": 43,
+        "startChar": 1,
+        "endLine": 43,
+        "endChar": 9
+      },
+      "revId": "efe29796555e5b012e4737466354fd6e517995d4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70b7936a_7002423c",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-11-14T05:39:56Z",
+      "side": 1,
+      "message": "serverUrl (since flag name is --url rather than --bitBucket_url)",
+      "range": {
+        "startLine": 43,
+        "startChar": 1,
+        "endLine": 43,
+        "endChar": 19
+      },
+      "revId": "efe29796555e5b012e4737466354fd6e517995d4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8eaa145f_fffdd3d5",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-11-14T05:39:56Z",
+      "side": 1,
+      "message": "you could do \n\n  username \u003cTAB\u003e password\n\nto get the equivalent of the github-token file.",
+      "range": {
+        "startLine": 45,
+        "startChar": 1,
+        "endLine": 45,
+        "endChar": 13
+      },
+      "revId": "efe29796555e5b012e4737466354fd6e517995d4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3e682c1_9279469f",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-11-14T05:39:56Z",
+      "side": 1,
+      "message": "run gofmt",
+      "range": {
+        "startLine": 110,
+        "startChar": 13,
+        "endLine": 110,
+        "endChar": 14
+      },
+      "revId": "efe29796555e5b012e4737466354fd6e517995d4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e30e6f1_3469db68",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-11-14T05:39:56Z",
+      "side": 1,
+      "message": "opts :\u003d map[.....]{\n  \"limit\": 1000,\n  \"start\": 0,\n}",
+      "range": {
+        "startLine": 177,
+        "startChar": 25,
+        "endLine": 177,
+        "endChar": 34
+      },
+      "revId": "efe29796555e5b012e4737466354fd6e517995d4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8da81e60_e836ff42",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-11-14T05:39:56Z",
+      "side": 1,
+      "message": "drop this function.",
+      "range": {
+        "startLine": 238,
+        "startChar": 5,
+        "endLine": 238,
+        "endChar": 17
+      },
+      "revId": "efe29796555e5b012e4737466354fd6e517995d4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

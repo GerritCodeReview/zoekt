@@ -72,6 +72,7 @@ func TestSimplify(t *testing.T) {
 				&Substring{Pattern: "byte"},
 				&Not{&Substring{Pattern: "byte"}}),
 		},
+		{in: &Not{&Not{&Substring{Pattern: "byte"}}}, want: &Substring{Pattern: "byte"}},
 	}
 
 	for _, c := range cases {

@@ -312,6 +312,10 @@ func evalConstants(q Q) Q {
 		if _, ok := ch.(*Const); ok {
 			return invertConst(ch)
 		}
+		if not, ok := ch.(*Not); ok {
+			// --x == x
+			return not.Child
+		}
 		return &Not{ch}
 	case *Substring:
 		if len(s.Pattern) == 0 {

@@ -116,8 +116,7 @@ type regexpMatchTree struct {
 	fileName bool
 
 	// mutable
-	reEvaluated bool
-	found       []*candidateMatch
+	found []*candidateMatch
 
 	// nextDoc, prepare.
 	bruteForceMatchTree
@@ -131,8 +130,7 @@ type substrMatchTree struct {
 	fileName      bool
 
 	// mutable
-	current       []*candidateMatch
-	contEvaluated bool
+	current []*candidateMatch
 }
 
 type branchQueryMatchTree struct {
@@ -202,7 +200,6 @@ func (t *andMatchTree) prepare(doc uint32) {
 
 func (t *regexpMatchTree) prepare(doc uint32) {
 	t.found = t.found[:0]
-	t.reEvaluated = false
 	t.bruteForceMatchTree.prepare(doc)
 }
 
@@ -219,7 +216,6 @@ func (t *notMatchTree) prepare(doc uint32) {
 func (t *substrMatchTree) prepare(nextDoc uint32) {
 	t.matchIterator.prepare(nextDoc)
 	t.current = t.matchIterator.candidates()
-	t.contEvaluated = false
 }
 
 func (t *branchQueryMatchTree) prepare(doc uint32) {

@@ -304,6 +304,12 @@ type Options struct {
 
 	// List of branch names to index, e.g. []string{"HEAD", "stable"}
 	Branches []string
+
+	// Continue indexing on errors / ( ignore malformed documents, missing blobs in repo ....)
+	ContinueOnError bool
+
+	// List all documents which are added
+	Debug bool
 }
 
 func expandBranches(repo *git.Repository, bs []string, prefix string) ([]string, error) {
@@ -473,16 +479,26 @@ func IndexGitRepo(opts Options) error {
 			brs := branchMap[key]
 			blob, err := repos[key].Repo.BlobObject(key.ID)
 			if err != nil {
+				if opts.ContinueOnError {
+					log.Printf("%s failed to load blob %s : %s", opts.RepoDir, key.ID, err)
+					continue
+				}
 				return err
 			}
 
 			if blob.Size > int64(opts.BuildOptions.SizeMax) {
-				if err := builder.Add(zoekt.Document{
+				doc := zoekt.Document{
 					SkipReason:        fmt.Sprintf("file size %d exceeds maximum size %d", blob.Size, opts.BuildOptions.SizeMax),
 					Name:              key.FullPath(),
 					Branches:          brs,
 					SubRepositoryPath: key.SubRepoPath,
-				}); err != nil {
+				}
+				err := builder.Add(doc)
+				if err != nil {
+					if opts.ContinueOnError {
+						log.Printf("%s failed to add document %s : %s", opts.RepoDir, doc.Name, err)
+						continue
+					}
 					return err
 				}
 				continue
@@ -490,15 +506,28 @@ func IndexGitRepo(opts Options) error {
 
 			contents, err := blobContents(blob)
 			if err != nil {
+				if opts.ContinueOnError {
+					log.Printf("%s failed to load blob content %s: %s", opts.RepoDir, key.ID, err)
+					continue
+				}
 				return err
 			}
-			if err := builder.Add(zoekt.Document{
+			doc := zoekt.Document{
 				SubRepositoryPath: key.SubRepoPath,
 				Name:              key.FullPath(),
 				Content:           contents,
 				Branches:          brs,
-			}); err != nil {
+			}
+			err = builder.Add(doc)
+			if err != nil {
+				if opts.ContinueOnError {
+					log.Printf("%s failed to add document %s : %s", opts.RepoDir, doc.Name, err)
+					continue
+				}
 				return err
+			}
+			if opts.Debug {
+				log.Printf("added document %s", doc.Name)
 			}
 		}
 	}

@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd965741_7f95edf6",
+        "filename": "cmd/zoekt-indexserver/config.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-12-11T11:59:57Z",
+      "side": 1,
+      "message": "URL",
+      "range": {
+        "startLine": 38,
+        "startChar": 16,
+        "endLine": 38,
+        "endChar": 20
+      },
+      "revId": "189050191a113ae01a9f09b2f64c0783a7b6fc00",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04877469_31610a40",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-12-11T11:59:57Z",
+      "side": 1,
+      "message": "s/match/equals/\n\ncan you give examples?",
+      "range": {
+        "startLine": 46,
+        "startChar": 94,
+        "endLine": 46,
+        "endChar": 95
+      },
+      "revId": "189050191a113ae01a9f09b2f64c0783a7b6fc00",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0362e5f4_021a5ea8",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-12-11T11:59:57Z",
+      "side": 1,
+      "message": "unused. Drop",
+      "range": {
+        "startLine": 161,
+        "startChar": 3,
+        "endLine": 166,
+        "endChar": 0
+      },
+      "revId": "189050191a113ae01a9f09b2f64c0783a7b6fc00",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29617197_b3f9fabe",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-12-11T11:59:57Z",
+      "side": 1,
+      "message": "unused; drop",
+      "range": {
+        "startLine": 194,
+        "startChar": 3,
+        "endLine": 199,
+        "endChar": 0
+      },
+      "revId": "189050191a113ae01a9f09b2f64c0783a7b6fc00",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "598881e3_db60d5e5",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2018-12-11T11:59:57Z",
+      "side": 1,
+      "message": "Is there a separate \"https\" Name ? If yes, use that preferentially. If no, add a comment",
+      "range": {
+        "startLine": 218,
+        "startChar": 24,
+        "endLine": 218,
+        "endChar": 28
+      },
+      "revId": "189050191a113ae01a9f09b2f64c0783a7b6fc00",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

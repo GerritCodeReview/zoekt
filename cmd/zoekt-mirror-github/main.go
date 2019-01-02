@@ -38,6 +38,7 @@ import (
 
 func main() {
 	dest := flag.String("dest", "", "destination directory")
+	enterpriseUrl := flag.String("url", "", "GitHub Enterprise url. If not set github.com will be used as the host.")
 	org := flag.String("org", "", "organization to mirror")
 	user := flag.String("user", "", "user to mirror")
 	token := flag.String("token",
@@ -56,12 +57,34 @@ func main() {
 		log.Fatal("must set either --org or --user")
 	}
 
-	destDir := filepath.Join(*dest, "github.com")
+	var host string
+	var apiBaseURL string
+	var client *github.Client
+	if *enterpriseUrl != "" {
+		rootURL, err := url.Parse(*enterpriseUrl)
+		if err != nil {
+			log.Fatal(err)
+		}
+		host = rootURL.Host
+		apiPath, err := url.Parse("/api/v3/")
+		if err != nil {
+			log.Fatal(err)
+		}
+		apiBaseURL = rootURL.ResolveReference(apiPath).String()
+		client, err = github.NewEnterpriseClient(apiBaseURL, apiBaseURL, nil)
+		if err != nil {
+			log.Fatal(err)
+		}
+	} else {
+		host = "github.com"
+		apiBaseURL = "https://github.com/"
+		client = github.NewClient(nil)
+	}
+	destDir := filepath.Join(*dest, host)
 	if err := os.MkdirAll(destDir, 0755); err != nil {
 		log.Fatal(err)
 	}
 
-	client := github.NewClient(nil)
 	if *token != "" {
 		content, err := ioutil.ReadFile(*token)
 		if err != nil {
@@ -73,7 +96,14 @@ func main() {
 				AccessToken: strings.TrimSpace(string(content)),
 			})
 		tc := oauth2.NewClient(context.Background(), ts)
-		client = github.NewClient(tc)
+		if *enterpriseUrl != "" {
+			client, err = github.NewEnterpriseClient(apiBaseURL, apiBaseURL, tc)
+			if err != nil {
+				log.Fatal(err)
+			}
+		} else {
+			client = github.NewClient(tc)
+		}
 	}
 
 	var repos []*github.Repository
@@ -113,19 +143,19 @@ func main() {
 		repos = trimmed
 	}
 
-	if err := cloneRepos(destDir, repos); err != nil {
+	if err := cloneRepos(destDir, host, repos); err != nil {
 		log.Fatalf("cloneRepos: %v", err)
 	}
 
 	if *deleteRepos {
-		if err := deleteStaleRepos(*dest, filter, repos, *org+*user); err != nil {
+		if err := deleteStaleRepos(*dest, apiBaseURL, filter, repos, *org+*user); err != nil {
 			log.Fatalf("deleteStaleRepos: %v", err)
 		}
 	}
 }
 
-func deleteStaleRepos(destDir string, filter *gitindex.Filter, repos []*github.Repository, user string) error {
-	u, err := url.Parse("https://github.com/" + user)
+func deleteStaleRepos(destDir string, apiBaseURL string, filter *gitindex.Filter, repos []*github.Repository, user string) error {
+	u, err := url.Parse(apiBaseURL + user)
 	if err != nil {
 		return err
 	}
@@ -217,12 +247,12 @@ func itoa(p *int) string {
 	return ""
 }
 
-func cloneRepos(destDir string, repos []*github.Repository) error {
+func cloneRepos(destDir string, host string, repos []*github.Repository) error {
 	for _, r := range repos {
 		config := map[string]string{
 			"zoekt.web-url-type": "github",
 			"zoekt.web-url":      *r.HTMLURL,
-			"zoekt.name":         filepath.Join("github.com", *r.FullName),
+			"zoekt.name":         filepath.Join(host, *r.FullName),
 
 			"zoekt.github-stars":       itoa(r.StargazersCount),
 			"zoekt.github-watchers":    itoa(r.WatchersCount),

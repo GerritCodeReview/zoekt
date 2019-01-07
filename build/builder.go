@@ -439,7 +439,7 @@ func (b *Builder) buildShard(todo []*zoekt.Document, nextShardNum int) (*finishe
 	for _, t := range todo {
 		if err := shardBuilder.Add(*t); err != nil {
 			if b.opts.ContinueOnError {
-				log.Printf("failed to add document %s : %s", t.Name, err)
+				log.Printf("%s failed to add document %s : %s", name, t.Name, err)
 				continue
 			}
 			return nil, err

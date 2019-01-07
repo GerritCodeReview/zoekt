@@ -476,47 +476,18 @@ func IndexGitRepo(opts Options) error {
 		keys := fileKeys[name]
 
 		for _, key := range keys {
-			brs := branchMap[key]
-			blob, err := repos[key].Repo.BlobObject(key.ID)
-			if err != nil {
-				if opts.ContinueOnError {
-					log.Printf("%s failed to load blob %s : %s", opts.RepoDir, key.ID, err)
-					continue
-				}
-				return err
-			}
-
-			if blob.Size > int64(opts.BuildOptions.SizeMax) {
-				doc := zoekt.Document{
-					SkipReason:        fmt.Sprintf("file size %d exceeds maximum size %d", blob.Size, opts.BuildOptions.SizeMax),
-					Name:              key.FullPath(),
-					Branches:          brs,
-					SubRepositoryPath: key.SubRepoPath,
-				}
-				err := builder.Add(doc)
-				if err != nil {
-					if opts.ContinueOnError {
-						log.Printf("%s failed to add document %s : %s", opts.RepoDir, doc.Name, err)
-						continue
-					}
-					return err
-				}
-				continue
-			}
-
-			contents, err := blobContents(blob)
-			if err != nil {
-				if opts.ContinueOnError {
-					log.Printf("%s failed to load blob content %s: %s", opts.RepoDir, key.ID, err)
-					continue
-				}
+			content, skip, err := loadBlobContent(opts, repos[key].Repo, key)
+			if err != nil && !skip {
 				return err
 			}
 			doc := zoekt.Document{
-				SubRepositoryPath: key.SubRepoPath,
 				Name:              key.FullPath(),
-				Content:           contents,
-				Branches:          brs,
+				SubRepositoryPath: key.SubRepoPath,
+				Branches:          branchMap[key],
+				Content:           content,
+			}
+			if err != nil {
+				doc.SkipReason = err.Error()
 			}
 			err = builder.Add(doc)
 			if err != nil {
@@ -532,6 +503,23 @@ func IndexGitRepo(opts Options) error {
 		}
 	}
 	return builder.Finish()
+}
+
+func loadBlobContent(opts Options, repo *git.Repository, key fileKey) (content []byte, skip bool, err error) {
+	blob, err := repo.BlobObject(key.ID)
+	if err != nil {
+		return nil, opts.ContinueOnError, fmt.Errorf("failed to load GIT blob object %s : %s", key.ID, err)
+	}
+
+	if blob.Size > int64(opts.BuildOptions.SizeMax) {
+		return nil, true, fmt.Errorf("file size %d exceeds maximum size %d", blob.Size, opts.BuildOptions.SizeMax)
+	}
+
+	contents, err := blobContents(blob)
+	if err != nil {
+		return nil, opts.ContinueOnError, fmt.Errorf("failed to load GIT blob content %s : %s", key.ID, err)
+	}
+	return contents, false, nil
 }
 
 func blobContents(blob *object.Blob) ([]byte, error) {

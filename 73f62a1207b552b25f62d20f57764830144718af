@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de45e743_085a3c42",
+        "filename": "gitindex/index.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-01-07T15:41:25Z",
+      "side": 1,
+      "message": "there is a mechanism that we use to annotate files skipped (eg. too large). Look for SkipReason.\n\nCan you use that mechanism here too? Error logs are very noisy, so it\u0027s better to surface this in the web UI itself.",
+      "range": {
+        "startLine": 483,
+        "startChar": 9,
+        "endLine": 483,
+        "endChar": 15
+      },
+      "revId": "73f62a1207b552b25f62d20f57764830144718af",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

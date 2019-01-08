@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "acd2da72_2d44d00a",
+        "filename": "gitindex/index.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-01-08T16:37:49Z",
+      "side": 1,
+      "message": "why would we continue here?  I think now this should only happen for I/O errors and such.",
+      "range": {
+        "startLine": 495,
+        "startChar": 9,
+        "endLine": 495,
+        "endChar": 15
+      },
+      "revId": "09565a79c2405e3ca538f7986c31521f9f3c1882",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e617bc1d_5c1782b1",
+        "filename": "gitindex/index.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-01-08T16:37:49Z",
+      "side": 1,
+      "message": "can you factor out the Debug functionality for now? The web UI can tell you all files if you do \n\n  file:.",
+      "range": {
+        "startLine": 500,
+        "startChar": 11,
+        "endLine": 500,
+        "endChar": 16
+      },
+      "revId": "09565a79c2405e3ca538f7986c31521f9f3c1882",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a674149_98433189",
+        "filename": "gitindex/index.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-01-08T16:37:49Z",
+      "side": 1,
+      "message": "drop blank before :",
+      "range": {
+        "startLine": 511,
+        "startChar": 81,
+        "endLine": 511,
+        "endChar": 82
+      },
+      "revId": "09565a79c2405e3ca538f7986c31521f9f3c1882",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b1ca77d_23865f18",
+        "filename": "gitindex/index.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-01-08T16:37:49Z",
+      "side": 1,
+      "message": "drop \"GIT\"",
+      "range": {
+        "startLine": 511,
+        "startChar": 63,
+        "endLine": 511,
+        "endChar": 66
+      },
+      "revId": "09565a79c2405e3ca538f7986c31521f9f3c1882",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9eccf320_18fc685b",
+        "filename": "gitindex/index.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-01-08T16:37:49Z",
+      "side": 1,
+      "message": "here too.",
+      "range": {
+        "startLine": 520,
+        "startChar": 63,
+        "endLine": 520,
+        "endChar": 66
+      },
+      "revId": "09565a79c2405e3ca538f7986c31521f9f3c1882",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

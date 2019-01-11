@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5041ac1f_e8e604c0",
+        "filename": "cmd/zoekt-indexserver/config.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1074294
+      },
+      "writtenOn": "2019-01-11T19:37:28Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "399aedd9_a0e5f827",
+      "range": {
+        "startLine": 36,
+        "startChar": 1,
+        "endLine": 36,
+        "endChar": 20
+      },
+      "revId": "49f7bd2244397bb8004e4615203cf297b25f557f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "13dd9ce2_e4d3966d",
         "filename": "cmd/zoekt-mirror-github/main.go",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e0ad486f_dbca94c0",
+        "filename": "cmd/zoekt-mirror-github/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1074294
+      },
+      "writtenOn": "2019-01-11T19:37:28Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "13dd9ce2_e4d3966d",
+      "range": {
+        "startLine": 41,
+        "startChar": 1,
+        "endLine": 41,
+        "endChar": 14
+      },
+      "revId": "49f7bd2244397bb8004e4615203cf297b25f557f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a570cbf7_6b579f52",
         "filename": "cmd/zoekt-mirror-github/main.go",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2019-01-07T13:24:55Z",
       "side": 1,
       "message": "isn\u0027t this information in some part of github.Repository ?",
+      "range": {
+        "startLine": 158,
+        "startChar": 21,
+        "endLine": 158,
+        "endChar": 31
+      },
+      "revId": "49f7bd2244397bb8004e4615203cf297b25f557f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c6f05b4_fbfe5f00",
+        "filename": "cmd/zoekt-mirror-github/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1074294
+      },
+      "writtenOn": "2019-01-11T19:37:28Z",
+      "side": 1,
+      "message": "Good point.\nThis url is common across all these repos that\u0027s why I initially passed it as an argument. Not sure if I like the way I now implemented this but let me know what you think.",
+      "parentUuid": "a570cbf7_6b579f52",
       "range": {
         "startLine": 158,
         "startChar": 21,

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0a583c1_da54d38f",
+        "filename": "cmd/zoekt-mirror-github/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1074294
+      },
+      "writtenOn": "2019-01-13T16:18:37Z",
+      "side": 1,
+      "message": "Now that I\u0027m double-checking I think I\u0027m missing something here.\nSince Zoekt clones using HTTPS instead of SSH, do you currently pass the token when cloning a GitHub repo?\n\nOr you expect users to modify the gitconfig somehow?\n\nThe only way I\u0027ve found to make this work for our Enterprise instance is by modifying the url so it includes the token:\ns :\u003d strings.Split(*r.CloneURL, \"//\")\nhttpsCloneUrl \u003d s[0] + \"//\" + token + \":x-oauth-basic@\" + s[1]\n\nIs there any solution that doesn\u0027t require this snippet?",
+      "revId": "eff23289c35a2085b3a31a54b94c7ba2a4cc6dbb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

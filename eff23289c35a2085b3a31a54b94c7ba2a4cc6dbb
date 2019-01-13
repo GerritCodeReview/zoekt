@@ -16,6 +16,24 @@
       "revId": "eff23289c35a2085b3a31a54b94c7ba2a4cc6dbb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1babef16_a510643c",
+        "filename": "cmd/zoekt-mirror-github/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1074294
+      },
+      "writtenOn": "2019-01-13T18:45:51Z",
+      "side": 1,
+      "message": "Another option that works and that doesn\u0027t require code changes is by modifying git configs:\ngit config --global url.\"https://\u003cusername\u003e:\u003ctoken\u003e@\u003cgithub-host\u003e/\".insteadOf \"https://\u003cgithub-host\u003e/\".",
+      "parentUuid": "c0a583c1_da54d38f",
+      "revId": "eff23289c35a2085b3a31a54b94c7ba2a4cc6dbb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

@@ -22,6 +22,30 @@
       "revId": "e524b7aaa1892318ba436ad65aacd5fa508e1424",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56a544d2_5ec82223",
+        "filename": "build/builder.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1077575
+      },
+      "writtenOn": "2019-01-15T15:01:13Z",
+      "side": 1,
+      "message": "This is a good idea. I thought about this too, but did not want to change the default behaviour. I\u0027ll try to find some time tomorrow to update the patchset.",
+      "parentUuid": "8d00fe8a_32649149",
+      "range": {
+        "startLine": 78,
+        "startChar": 1,
+        "endLine": 78,
+        "endChar": 16
+      },
+      "revId": "e524b7aaa1892318ba436ad65aacd5fa508e1424",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

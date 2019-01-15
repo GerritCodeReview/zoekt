@@ -52,6 +52,24 @@
       "revId": "eff23289c35a2085b3a31a54b94c7ba2a4cc6dbb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3527bea_67e7affc",
+        "filename": "cmd/zoekt-mirror-github/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1074294
+      },
+      "writtenOn": "2019-01-15T15:35:03Z",
+      "side": 1,
+      "message": "Right, had another look at alternatives and more secure ways to handle this.\n\nUsers can use git credential helpers.\nE.g. I tested using git-credential-store:\ngit config --global credential.helper \u0027store --file \u003cfilepath\u003e\u0027\n\nThis stores permanently but there\u0027s the option to cache encrypted credentials as well.\n\nBy default this stores/pulls credentials from .git-credentials but one can specify the filepath.\n\nThis way we don\u0027t need any code changes and cloning should work.\nOf course we could also have an option for cloning using SSH but wouldn\u0027t implement this as part of this PR.\n\nRegarding gitookies, that could be another option but this should be supported by the server isn\u0027t it?",
+      "parentUuid": "0fe7bbf4_d8b93d17",
+      "revId": "eff23289c35a2085b3a31a54b94c7ba2a4cc6dbb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

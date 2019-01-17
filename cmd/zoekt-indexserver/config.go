@@ -40,6 +40,10 @@ type configEntry struct {
 	ProjectType            string
 	Name                   string
 	Exclude                string
+	Delete                 bool
+	GitLabURL              string
+	Membership             bool
+	Token                  string
 }
 
 func randomize(entries []configEntry) []configEntry {
@@ -198,6 +202,24 @@ func executeMirror(cfg []configEntry, repoDir string, pendingRepos chan<- string
 			}
 			if c.Exclude != "" {
 				cmd.Args = append(cmd.Args, "-exclude", c.Exclude)
+			}
+		} else if c.GitLabURL != "" {
+			cmd = exec.Command("zoekt-mirror-gitlab",
+				"-dest", repoDir, "-url", c.GitLabURL)
+			if c.Token != "" {
+				cmd.Args = append(cmd.Args, "-token", c.Token)
+			}
+			if c.Name != "" {
+				cmd.Args = append(cmd.Args, "-name", c.Name)
+			}
+			if c.Exclude != "" {
+				cmd.Args = append(cmd.Args, "-exclude", c.Exclude)
+			}
+			if c.Delete {
+				cmd.Args = append(cmd.Args, "-delete")
+			}
+			if c.Membership {
+				cmd.Args = append(cmd.Args, "-membership")
 			}
 		}
 

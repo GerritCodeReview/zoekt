@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "452c4b74_8eb7f11c",
+        "filename": "cmd/zoekt-indexserver/config.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-01-21T13:47:16Z",
+      "side": 1,
+      "message": "drop this\n\nalso remove Token and Membership.\n\nI will clean this up to have a more generic option passing mechanism.",
+      "range": {
+        "startLine": 43,
+        "startChar": 1,
+        "endLine": 43,
+        "endChar": 7
+      },
+      "revId": "da959386d1974aaa88557cbf6dc45446f5b836e3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fba8353_64ef6526",
+        "filename": "cmd/zoekt-mirror-gitlab/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-01-21T13:47:16Z",
+      "side": 1,
+      "message": "can you inline this?",
+      "range": {
+        "startLine": 161,
+        "startChar": 1,
+        "endLine": 161,
+        "endChar": 7
+      },
+      "revId": "da959386d1974aaa88557cbf6dc45446f5b836e3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d149e90_d837b1c5",
+        "filename": "cmd/zoekt-mirror-gitlab/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-01-21T13:47:16Z",
+      "side": 1,
+      "message": "you can\u0027t do this.\n\nthe URL goes onto the command line where it\u0027s publicly visible for all users of the system.",
+      "range": {
+        "startLine": 181,
+        "startChar": 32,
+        "endLine": 181,
+        "endChar": 44
+      },
+      "revId": "da959386d1974aaa88557cbf6dc45446f5b836e3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

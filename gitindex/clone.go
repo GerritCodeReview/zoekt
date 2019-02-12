@@ -20,7 +20,9 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"regexp"
 	"sort"
+	"strings"
 )
 
 // CloneRepo clones one repository, adding the given config
@@ -60,7 +62,12 @@ func CloneRepo(destDir, name, cloneURL string, settings map[string]string) (stri
 
 	// Prevent prompting
 	cmd.Stdin = &bytes.Buffer{}
-	log.Println("running:", cmd.Args)
+
+	// Ensure OAuth token isn't displayed in log output
+	var re = regexp.MustCompile(`(?i)oauth:[^@]+@`)
+	logLine := re.ReplaceAllString(strings.Join(cmd.Args, " "), `oauth:XXXXX@`)
+	log.Println("running:", logLine)
+
 	if err := cmd.Run(); err != nil {
 		return "", err
 	}

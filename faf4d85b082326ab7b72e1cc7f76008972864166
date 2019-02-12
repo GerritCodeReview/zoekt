@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba133787_a47f4f19",
+        "filename": "gitindex/clone.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-02-12T16:08:42Z",
+      "side": 1,
+      "message": "This doesn\u0027t fix the problem.\n\nThe problem is that /proc/1234/cmdline is world-readable. Try running top while this code is active.",
+      "range": {
+        "startLine": 67,
+        "startChar": 34,
+        "endLine": 67,
+        "endChar": 39
+      },
+      "revId": "faf4d85b082326ab7b72e1cc7f76008972864166",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

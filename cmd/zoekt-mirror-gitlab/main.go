@@ -13,7 +13,7 @@ import (
 	"strings"
 
 	"github.com/google/zoekt/gitindex"
-	"github.com/xanzy/go-gitlab"
+	gitlab "github.com/xanzy/go-gitlab"
 )
 
 func main() {
@@ -157,10 +157,6 @@ func deleteStaleProjects(destDir string, filter *gitindex.Filter, projects []*gi
 	return nil
 }
 
-func itoa(p int) string {
-	return strconv.Itoa(p)
-}
-
 func fetchProjects(destDir, token string, projects []*gitlab.Project) {
 
 	for _, p := range projects {
@@ -174,8 +170,8 @@ func fetchProjects(destDir, token string, projects []*gitlab.Project) {
 			"zoekt.web-url":      p.WebURL,
 			"zoekt.name":         filepath.Join(u.Hostname(), p.PathWithNamespace),
 
-			"zoekt.gitlab-stars": itoa(p.StarCount),
-			"zoekt.gitlab-forks": itoa(p.ForksCount),
+			"zoekt.gitlab-stars": strconv.Itoa(p.StarCount),
+			"zoekt.gitlab-forks": strconv.Itoa(p.ForksCount),
 		}
 
 		cloneURL := fmt.Sprintf("%s://oauth2:%s@%s%s", u.Scheme, token, u.Host,

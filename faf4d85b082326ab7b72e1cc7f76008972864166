@@ -22,6 +22,30 @@
       "revId": "faf4d85b082326ab7b72e1cc7f76008972864166",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42febf85_1b325dbe",
+        "filename": "gitindex/clone.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1078154
+      },
+      "writtenOn": "2019-02-12T16:23:04Z",
+      "side": 1,
+      "message": "Sure. I\u0027m using zoekt for its web frontend, and the majority of users won\u0027t have shell access to the machine doing the mirroring so it\u0027s less of a problem for me. Even if the token is compromised, it\u0027s set to be readonly, so users aren\u0027t able to do anything (other than read the repos which they\u0027d be able to do anyway on the web frontend). \n\nUltimately, I don\u0027t think there\u0027s a nice way of keeping the access token secret to users who have access to the machine running zoekt (at least not how it\u0027s currently architected) and we\u0027ll have to rely on ssh while cloning.",
+      "parentUuid": "ba133787_a47f4f19",
+      "range": {
+        "startLine": 67,
+        "startChar": 34,
+        "endLine": 67,
+        "endChar": 39
+      },
+      "revId": "faf4d85b082326ab7b72e1cc7f76008972864166",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

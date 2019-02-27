@@ -30,7 +30,7 @@ import (
 	"github.com/fsnotify/fsnotify"
 )
 
-type configEntry struct {
+type ConfigEntry struct {
 	GithubUser             string
 	BitBucketServerProject string
 	GitHubURL              string
@@ -42,10 +42,10 @@ type configEntry struct {
 	Exclude                string
 }
 
-func randomize(entries []configEntry) []configEntry {
+func randomize(entries []ConfigEntry) []ConfigEntry {
 	perm := rand.Perm(len(entries))
 
-	var shuffled []configEntry
+	var shuffled []ConfigEntry
 	for _, i := range perm {
 		shuffled = append(shuffled, entries[i])
 	}
@@ -58,7 +58,7 @@ func isHTTP(u string) bool {
 	return err == nil && (asURL.Scheme == "http" || asURL.Scheme == "https")
 }
 
-func readConfigURL(u string) ([]configEntry, error) {
+func readConfigURL(u string) ([]ConfigEntry, error) {
 	var body []byte
 	var readErr error
 
@@ -78,7 +78,7 @@ func readConfigURL(u string) ([]configEntry, error) {
 		return nil, readErr
 	}
 
-	var result []configEntry
+	var result []ConfigEntry
 	if err := json.Unmarshal(body, &result); err != nil {
 		return nil, err
 	}
@@ -128,7 +128,7 @@ func periodicMirrorFile(repoDir string, opts *Options, pendingRepos chan<- strin
 		}
 	}
 
-	var lastCfg []configEntry
+	var lastCfg []ConfigEntry
 	for {
 		cfg, err := readConfigURL(opts.mirrorConfigFile)
 		if err != nil {
@@ -147,7 +147,7 @@ func periodicMirrorFile(repoDir string, opts *Options, pendingRepos chan<- strin
 	}
 }
 
-func executeMirror(cfg []configEntry, repoDir string, pendingRepos chan<- string) {
+func executeMirror(cfg []ConfigEntry, repoDir string, pendingRepos chan<- string) {
 	// Randomize the ordering in which we query
 	// things. This is to ensure that quota limits don't
 	// always hit the last one in the list.

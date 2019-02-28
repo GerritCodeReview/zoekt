@@ -32,6 +32,7 @@ import (
 
 type ConfigEntry struct {
 	GithubUser             string
+	GithubOrg              string
 	BitBucketServerProject string
 	GitHubURL              string
 	GitilesURL             string
@@ -163,6 +164,21 @@ func executeMirror(cfg []ConfigEntry, repoDir string, pendingRepos chan<- string
 			}
 			if c.GithubUser != "" {
 				cmd.Args = append(cmd.Args, "-user", c.GithubUser)
+			}
+			if c.Name != "" {
+				cmd.Args = append(cmd.Args, "-name", c.Name)
+			}
+			if c.Exclude != "" {
+				cmd.Args = append(cmd.Args, "-exclude", c.Exclude)
+			}
+		} else if c.GithubOrg != "" {
+			cmd = exec.Command("zoekt-mirror-github",
+				"-dest", repoDir)
+			if c.GitHubURL != "" {
+				cmd.Args = append(cmd.Args, "-url", c.GitHubURL)
+			}
+			if c.GithubOrg != "" {
+				cmd.Args = append(cmd.Args, "-org", c.GithubOrg)
 			}
 			if c.Name != "" {
 				cmd.Args = append(cmd.Args, "-name", c.Name)

@@ -167,7 +167,7 @@ func do(opts Options, bopts build.Options) error {
 		}
 
 		// We do not index large files
-		if f.Size > int64(bopts.SizeMax) {
+		if !bopts.IgnoreSizeMax(f.Name) && f.Size > int64(bopts.SizeMax) {
 			continue
 		}
 
@@ -203,11 +203,12 @@ func main() {
 		incremental = flag.Bool("incremental", true, "only index changed repositories")
 		ctags       = flag.Bool("require_ctags", false, "If set, ctags calls must succeed.")
 
-		name   = flag.String("name", "", "The repository name for the archive")
-		urlRaw = flag.String("url", "", "The repository URL for the archive")
-		branch = flag.String("branch", "", "The branch name for the archive")
-		commit = flag.String("commit", "", "The commit sha for the archive. If incremental this will avoid updating shards already at commit")
-		strip  = flag.Int("strip_components", 0, "Remove the specified number of leading path elements. Pathnames with fewer elements will be silently skipped.")
+		name       = flag.String("name", "", "The repository name for the archive")
+		urlRaw     = flag.String("url", "", "The repository URL for the archive")
+		branch     = flag.String("branch", "", "The branch name for the archive")
+		commit     = flag.String("commit", "", "The commit sha for the archive. If incremental this will avoid updating shards already at commit")
+		strip      = flag.Int("strip_components", 0, "Remove the specified number of leading path elements. Pathnames with fewer elements will be silently skipped.")
+		largeFiles = flag.String("large_files", "", "Comma separated list of large files to index regardless of their size.")
 	)
 	flag.Parse()
 
@@ -224,6 +225,7 @@ func main() {
 		ShardMax:         *shardLimit,
 		IndexDir:         *indexDir,
 		CTagsMustSucceed: *ctags,
+		LargeFiles:       *largeFiles,
 	}
 	opts := Options{
 		Incremental: *incremental,

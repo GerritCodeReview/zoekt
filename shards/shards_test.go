@@ -172,7 +172,7 @@ func (s *memSeeker) Size() (uint32, error) {
 }
 
 func TestUnloadIndex(t *testing.T) {
-	b, err := zoekt.NewIndexBuilder(nil)
+	b, err := zoekt.NewIndexBuilder(nil, nil)
 	if err != nil {
 		t.Fatalf("NewIndexBuilder: %v", err)
 	}

@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fc1d5543_b1689703",
+        "filename": "build/builder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1081869
+      },
+      "writtenOn": "2019-04-09T21:59:25Z",
+      "side": 1,
+      "message": "It shouldn\u0027t be a regexp. We\u0027d like patterns like *.ext to match. However, this would be an invalid regexp (missing argument to repitition). I\u0027ve added a link to the path.Match docs where it documents the syntax.",
+      "parentUuid": "f75074f3_9a3200b1",
+      "range": {
+        "startLine": 79,
+        "startChar": 12,
+        "endLine": 79,
+        "endChar": 18
+      },
+      "revId": "ca4004c983870bb5905878f12a6a37352e2d5c26",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab1cd3d9_22b71083",
         "filename": "build/builder.go",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f04db4db_5cfc8e4c",
+        "filename": "build/builder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1081869
+      },
+      "writtenOn": "2019-04-09T21:59:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ab1cd3d9_22b71083",
+      "range": {
+        "startLine": 158,
+        "startChar": 3,
+        "endLine": 158,
+        "endChar": 16
+      },
+      "revId": "ca4004c983870bb5905878f12a6a37352e2d5c26",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "49ca8658_261a66dc",
         "filename": "build/builder.go",
         "patchSetId": 2
@@ -68,6 +116,30 @@
       "revId": "ca4004c983870bb5905878f12a6a37352e2d5c26",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b9fbf16_dd9aa51f",
+        "filename": "build/builder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1081869
+      },
+      "writtenOn": "2019-04-09T21:59:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49ca8658_261a66dc",
+      "range": {
+        "startLine": 165,
+        "startChar": 22,
+        "endLine": 165,
+        "endChar": 27
+      },
+      "revId": "ca4004c983870bb5905878f12a6a37352e2d5c26",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

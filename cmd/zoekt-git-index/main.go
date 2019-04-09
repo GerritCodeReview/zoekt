@@ -45,7 +45,8 @@ func main() {
 		"It also affects name if the indexed repository is under this directory.")
 	ctags := flag.Bool("require_ctags", false, "If set, ctags calls must succeed.")
 	version := flag.Bool("version", false, "Print version number")
-	largeFiles := flag.String("large_files", "", "Comma separated list of large files to index regardless of their size.")
+	largeFiles := build.LargeFilesFlag{}
+	flag.Var(&largeFiles, build.LargeFilesFlagName, "A glob pattern where matching files are to be index regardless of their size.")
 	flag.Parse()
 
 	if *version {
@@ -66,7 +67,7 @@ func main() {
 		ShardMax:         *shardLimit,
 		IndexDir:         *indexDir,
 		CTagsMustSucceed: *ctags,
-		LargeFiles:       *largeFiles,
+		LargeFiles:       largeFiles,
 	}
 	opts.SetDefaults()
 

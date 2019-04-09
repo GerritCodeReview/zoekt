@@ -74,9 +74,39 @@ type Options struct {
 	// Write memory profiles to this file.
 	MemProfile string
 
-	// LargeFiles is a comma separated list of file files that should be
-	// indexed regardless of their size.
-	LargeFiles string
+	// LargeFiles is a slice of glob patterns where matching file
+	// paths should be indexed regardless of their size. The glob pattern syntax
+	// can be found here: https://golang.org/pkg/path/filepath/#Match.
+	LargeFiles LargeFilesFlag
+}
+
+const LargeFilesFlagName = "large_file"
+
+type LargeFilesFlag []string
+
+// String returns the flags as they were passed in through the command line.
+// A slice of a and b will be formated as "--large_file a --large_file b".
+func (f *LargeFilesFlag) String() string {
+	s := append([]string{""}, *f...)
+	return strings.Join(s, "--"+LargeFilesFlagName+" ")
+}
+
+func (f *LargeFilesFlag) Set(value string) error {
+	*f = append(*f, value)
+	return nil
+}
+
+// IgnoreSizeMax determines whether the max size should be ignored. It uses
+// the glob syntax found here: https://golang.org/pkg/path/filepath/#Match.
+func (f *LargeFilesFlag) IgnoreSizeMax(name string) bool {
+	for _, pattern := range *f {
+		pattern = strings.TrimSpace(pattern)
+		if m, _ := filepath.Match(pattern, name); m {
+			return true
+		}
+	}
+
+	return false
 }
 
 // Builder manages (parallel) creation of uniformly sized shards. The
@@ -155,21 +185,6 @@ func (o *Options) shardName(n int) string {
 		fmt.Sprintf("%s_v%d.%05d.zoekt", abs, zoekt.IndexFormatVersion, n))
 }
 
-// IgnoreSizeMax determines whether the max size should be ignored.
-// It accepts full file paths (e.g. including directories), but only
-// operates on the file name.
-func (o *Options) IgnoreSizeMax(name string) bool {
-	for _, pattern := range strings.Split(o.LargeFiles, ",") {
-		pattern = strings.TrimSpace(pattern)
-		base := filepath.Base(name)
-		if m, _ := filepath.Match(pattern, base); m {
-			return true
-		}
-	}
-
-	return false
-}
-
 // IndexVersions returns the versions as present in the index, for
 // implementing incremental indexing.
 func (o *Options) IndexVersions() []zoekt.RepositoryBranch {
@@ -240,7 +255,7 @@ func (b *Builder) Add(doc zoekt.Document) error {
 	// we pass through a part of the source tree with binary/large
 	// files, the corresponding shard would be mostly empty, so
 	// insert a reason here too.
-	if !b.opts.IgnoreSizeMax(doc.Name) && len(doc.Content) > b.opts.SizeMax {
+	if !b.opts.LargeFiles.IgnoreSizeMax(doc.Name) && len(doc.Content) > b.opts.SizeMax {
 		doc.SkipReason = fmt.Sprintf("document size %d larger than limit %d", len(doc.Content), b.opts.SizeMax)
 	} else if err := zoekt.CheckText(doc.Content); err != nil {
 		doc.SkipReason = err.Error()

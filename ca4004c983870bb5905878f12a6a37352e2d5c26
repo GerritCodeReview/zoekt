@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f75074f3_9a3200b1",
+        "filename": "build/builder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-04-09T10:30:04Z",
+      "side": 1,
+      "message": "this should []string so you can index files with \",\" in the file name.\n\nyou made this a glob pattern, but should it be a regex instead? Alternatively, document your format.",
+      "range": {
+        "startLine": 79,
+        "startChar": 12,
+        "endLine": 79,
+        "endChar": 18
+      },
+      "revId": "ca4004c983870bb5905878f12a6a37352e2d5c26",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab1cd3d9_22b71083",
+        "filename": "build/builder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-04-09T10:30:04Z",
+      "side": 1,
+      "message": "this will be expensive if the list is large. Can you build a map[string] in the place where you need this instead?",
+      "range": {
+        "startLine": 158,
+        "startChar": 3,
+        "endLine": 158,
+        "endChar": 16
+      },
+      "revId": "ca4004c983870bb5905878f12a6a37352e2d5c26",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49ca8658_261a66dc",
+        "filename": "build/builder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-04-09T10:30:04Z",
+      "side": 1,
+      "message": "oh, it\u0027s a glob, so we\u0027ll have to enumerate.",
+      "range": {
+        "startLine": 165,
+        "startChar": 22,
+        "endLine": 165,
+        "endChar": 27
+      },
+      "revId": "ca4004c983870bb5905878f12a6a37352e2d5c26",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

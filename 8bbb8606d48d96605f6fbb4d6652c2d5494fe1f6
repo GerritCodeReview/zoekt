@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d24246cc_797ac0c2",
+        "filename": "build/builder.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-04-11T14:34:15Z",
+      "side": 1,
+      "message": "I\u0027d like to keep flags out of this package. Can you make this a []string instead?\n\nopt:  you could make this a pluggable func(string)bool so the regex vs glob choice doesn\u0027t have to be made here.",
+      "range": {
+        "startLine": 80,
+        "startChar": 12,
+        "endLine": 80,
+        "endChar": 26
+      },
+      "revId": "8bbb8606d48d96605f6fbb4d6652c2d5494fe1f6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

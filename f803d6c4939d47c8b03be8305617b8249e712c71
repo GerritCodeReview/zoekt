@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a427eab6_b7b3cff2",
+        "filename": "build/builder.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2019-04-12T16:31:16Z",
+      "side": 1,
+      "message": "I\u0027m unsure, but I would guess `doc.Name` is actually a `path` rather than a `filepath`. Sorry for the lazy comment, since I haven\u0027t double checked this.",
+      "revId": "f803d6c4939d47c8b03be8305617b8249e712c71",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

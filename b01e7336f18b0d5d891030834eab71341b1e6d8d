@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ed3fd18_7d06f2ac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-04-18T17:20:35Z",
+      "side": 1,
+      "message": "build: add ...",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 3
+      },
+      "revId": "b01e7336f18b0d5d891030834eab71341b1e6d8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd28c260_eb52874c",
+        "filename": "build/builder.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-04-18T17:20:35Z",
+      "side": 1,
+      "message": "drop. \"glob\" is well established enough.",
+      "range": {
+        "startLine": 78,
+        "startChar": 54,
+        "endLine": 79,
+        "endChar": 67
+      },
+      "revId": "b01e7336f18b0d5d891030834eab71341b1e6d8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f404d561_d6342d0b",
+        "filename": "build/builder.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-04-18T17:20:35Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 187,
+        "startChar": 67,
+        "endLine": 188,
+        "endChar": 75
+      },
+      "revId": "b01e7336f18b0d5d891030834eab71341b1e6d8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba70a556_459c53d7",
+        "filename": "build/builder_test.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-04-18T17:20:35Z",
+      "side": 1,
+      "message": "looks overkill for a 5 line function. can you drop this test, and write one where you index 2 files over the threshold, but one matching the glob. You should get search matches on the file that wasn\u0027t skipped.",
+      "range": {
+        "startLine": 5,
+        "startChar": 5,
+        "endLine": 5,
+        "endChar": 16
+      },
+      "revId": "b01e7336f18b0d5d891030834eab71341b1e6d8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

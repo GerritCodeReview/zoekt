@@ -204,6 +204,16 @@ type Repository struct {
 
 	// Importance of the repository, bigger is more important
 	Rank uint16
+
+	// IndexOptions are the options used to index the repository.
+	IndexOptions *IndexOptions
+}
+
+// IndexOptions are options that effect how the index is created.
+type IndexOptions struct {
+	CTags            string
+	CTagsMustSucceed bool
+	SizeMax          int
 }
 
 // IndexMetadata holds metadata stored in the index file. It contains

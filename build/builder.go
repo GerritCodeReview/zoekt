@@ -26,6 +26,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"reflect"
 	"regexp"
 	"runtime"
 	"runtime/pprof"
@@ -73,6 +74,14 @@ type Options struct {
 
 	// Write memory profiles to this file.
 	MemProfile string
+}
+
+func (o *Options) ToIndexOptions() *zoekt.IndexOptions {
+	return &zoekt.IndexOptions{
+		CTags:            o.CTags,
+		CTagsMustSucceed: o.CTagsMustSucceed,
+		SizeMax:          o.SizeMax,
+	}
 }
 
 // Builder manages (parallel) creation of uniformly sized shards. The
@@ -173,6 +182,10 @@ func (o *Options) IndexVersions() []zoekt.RepositoryBranch {
 	}
 
 	if index.IndexFeatureVersion != zoekt.FeatureVersion {
+		return nil
+	}
+
+	if !reflect.DeepEqual(repo.IndexOptions, o.ToIndexOptions()) {
 		return nil
 	}
 

@@ -26,6 +26,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"reflect"
 	"regexp"
 	"runtime"
 	"runtime/pprof"
@@ -78,6 +79,17 @@ type Options struct {
 	// paths should be indexed regardless of their size. The pattern syntax
 	// can be found here: https://golang.org/pkg/path/filepath/#Match.
 	LargeFiles []string
+}
+
+func (o *Options) ToIndexOptions() string {
+	hasher := sha1.New()
+
+	hasher.Write([]byte(o.CTags))
+	hasher.Write([]byte(fmt.Sprintf("%t", o.CTagsMustSucceed)))
+	hasher.Write([]byte(fmt.Sprintf("%d", o.SizeMax)))
+	hasher.Write([]byte(fmt.Sprintf("%q", o.LargeFiles)))
+
+	return fmt.Sprintf("%x", hasher.Sum(nil))
 }
 
 // Builder manages (parallel) creation of uniformly sized shards. The
@@ -178,6 +190,10 @@ func (o *Options) IndexVersions() []zoekt.RepositoryBranch {
 	}
 
 	if index.IndexFeatureVersion != zoekt.FeatureVersion {
+		return nil
+	}
+
+	if !reflect.DeepEqual(repo.IndexOptions, o.ToIndexOptions()) {
 		return nil
 	}
 

@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08d530e2_c46630a0",
+        "filename": "build/builder.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-04-23T08:54:58Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 192,
+        "startChar": 6,
+        "endLine": 192,
+        "endChar": 13
+      },
+      "revId": "f1b902a264ee40f644406d4f2a447d871bea2b8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ced377a_f8074aa1",
+        "filename": "cmd/flags.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-04-23T08:54:58Z",
+      "side": 1,
+      "message": "say something about how this can be specified multiple times.",
+      "range": {
+        "startLine": 51,
+        "startChar": 110,
+        "endLine": 51,
+        "endChar": 114
+      },
+      "revId": "f1b902a264ee40f644406d4f2a447d871bea2b8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

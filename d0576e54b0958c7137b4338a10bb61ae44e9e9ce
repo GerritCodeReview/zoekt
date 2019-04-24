@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "1fe03719_a9c373de",
+        "filename": "cmd/zoekt-archive-index/e2e_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-04-24T18:51:40Z",
+      "side": 1,
+      "message": "I\"m confused by the \u0027tests\u0027 var in l.71, which suggests these are two different test cases. CAn you add a comment to highlight that you are overwriting something with incremental\u003dtrue to test the incrementality of LArgeFiles?",
+      "parentUuid": "79eac3d2_30db4852",
+      "range": {
+        "startLine": 1,
+        "startChar": 8,
+        "endLine": 1,
+        "endChar": 12
+      },
+      "revId": "d0576e54b0958c7137b4338a10bb61ae44e9e9ce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "994d7df3_e082a3e8",
         "filename": "cmd/zoekt-archive-index/e2e_test.go",
         "patchSetId": 2

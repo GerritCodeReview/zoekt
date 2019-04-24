@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e6b4d6c_1167add1",
+        "filename": "api.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-04-24T09:48:38Z",
+      "side": 1,
+      "message": "index",
+      "range": {
+        "startLine": 208,
+        "startChar": 61,
+        "endLine": 208,
+        "endChar": 66
+      },
+      "revId": "d0576e54b0958c7137b4338a10bb61ae44e9e9ce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c00aa723_1aa663ed",
+        "filename": "build/builder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-04-24T09:48:38Z",
+      "side": 1,
+      "message": "HashOptions ?\n\nneeds a comment.",
+      "range": {
+        "startLine": 84,
+        "startChar": 18,
+        "endLine": 84,
+        "endChar": 32
+      },
+      "revId": "d0576e54b0958c7137b4338a10bb61ae44e9e9ce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56d0163d_f72b27cd",
+        "filename": "build/builder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-04-24T09:48:38Z",
+      "side": 1,
+      "message": "\u003d\u003d ?",
+      "range": {
+        "startLine": 196,
+        "startChar": 13,
+        "endLine": 196,
+        "endChar": 22
+      },
+      "revId": "d0576e54b0958c7137b4338a10bb61ae44e9e9ce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "994d7df3_e082a3e8",
+        "filename": "cmd/zoekt-archive-index/e2e_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-04-24T09:48:38Z",
+      "side": 1,
+      "message": "use map[string]string ?",
+      "range": {
+        "startLine": 23,
+        "startChar": 38,
+        "endLine": 23,
+        "endChar": 42
+      },
+      "revId": "d0576e54b0958c7137b4338a10bb61ae44e9e9ce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37b9790e_4a9d6faf",
+        "filename": "cmd/zoekt-archive-index/e2e_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-04-24T09:48:38Z",
+      "side": 1,
+      "message": "shouldun\u0027t you close the archive too?",
+      "range": {
+        "startLine": 23,
+        "startChar": 22,
+        "endLine": 23,
+        "endChar": 28
+      },
+      "revId": "d0576e54b0958c7137b4338a10bb61ae44e9e9ce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84e81b09_d5f11c78",
+        "filename": "cmd/zoekt-archive-index/e2e_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-04-24T09:48:38Z",
+      "side": 1,
+      "message": "if you use \u0027aaa\u0027 as your test query, better not use it here too.",
+      "range": {
+        "startLine": 96,
+        "startChar": 17,
+        "endLine": 96,
+        "endChar": 57
+      },
+      "revId": "d0576e54b0958c7137b4338a10bb61ae44e9e9ce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "809ef2f4_9844e47a",
+        "filename": "cmd/zoekt-archive-index/e2e_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-04-24T09:48:38Z",
+      "side": 1,
+      "message": "inline",
+      "range": {
+        "startLine": 115,
+        "startChar": 2,
+        "endLine": 115,
+        "endChar": 5
+      },
+      "revId": "d0576e54b0958c7137b4338a10bb61ae44e9e9ce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de362fe7_bd01f184",
+        "filename": "cmd/zoekt-archive-index/e2e_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-04-24T09:48:38Z",
+      "side": 1,
+      "message": "move to l.107",
+      "range": {
+        "startLine": 124,
+        "startChar": 2,
+        "endLine": 124,
+        "endChar": 7
+      },
+      "revId": "d0576e54b0958c7137b4338a10bb61ae44e9e9ce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

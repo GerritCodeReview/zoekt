@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1602b83d_3aa0e93f",
+        "filename": "api.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1081869
+      },
+      "writtenOn": "2019-04-24T18:20:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e6b4d6c_1167add1",
+      "range": {
+        "startLine": 208,
+        "startChar": 61,
+        "endLine": 208,
+        "endChar": 66
+      },
+      "revId": "d0576e54b0958c7137b4338a10bb61ae44e9e9ce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c00aa723_1aa663ed",
         "filename": "build/builder.go",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "d0576e54b0958c7137b4338a10bb61ae44e9e9ce",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "657901f8_9147edbd",
+        "filename": "build/builder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1081869
+      },
+      "writtenOn": "2019-04-24T18:20:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c00aa723_1aa663ed",
+      "range": {
+        "startLine": 84,
+        "startChar": 18,
+        "endLine": 84,
+        "endChar": 32
+      },
+      "revId": "d0576e54b0958c7137b4338a10bb61ae44e9e9ce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +142,54 @@
     },
     {
       "key": {
+        "uuid": "f4e6b5b5_183759eb",
+        "filename": "build/builder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1081869
+      },
+      "writtenOn": "2019-04-24T18:20:36Z",
+      "side": 1,
+      "message": "This is written/read by read.go and write.go. The test I added in cmd/zoekt-archive-index/e2e_test.go effectively tests this.",
+      "parentUuid": "5966871a_4f126ece",
+      "range": {
+        "startLine": 196,
+        "startChar": 28,
+        "endLine": 196,
+        "endChar": 40
+      },
+      "revId": "d0576e54b0958c7137b4338a10bb61ae44e9e9ce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e89c93d5_a4e58daa",
+        "filename": "build/builder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1081869
+      },
+      "writtenOn": "2019-04-24T18:20:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56d0163d_f72b27cd",
+      "range": {
+        "startLine": 196,
+        "startChar": 13,
+        "endLine": 196,
+        "endChar": 22
+      },
+      "revId": "d0576e54b0958c7137b4338a10bb61ae44e9e9ce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7829b21_0890a41b",
         "filename": "cmd/zoekt-archive-index/e2e_test.go",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2019-04-24T09:49:49Z",
       "side": 1,
       "message": "this seems unrelated. Other change?",
+      "range": {
+        "startLine": 1,
+        "startChar": 8,
+        "endLine": 1,
+        "endChar": 12
+      },
+      "revId": "d0576e54b0958c7137b4338a10bb61ae44e9e9ce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79eac3d2_30db4852",
+        "filename": "cmd/zoekt-archive-index/e2e_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1081869
+      },
+      "writtenOn": "2019-04-24T18:20:36Z",
+      "side": 1,
+      "message": "I could move this test to it\u0027s own change to not be confusing if you\u0027d like, but I wrote this test to ensure that indexes and search results were actually affected by a change in options.",
+      "parentUuid": "b7829b21_0890a41b",
       "range": {
         "startLine": 1,
         "startChar": 8,
@@ -163,6 +283,54 @@
     },
     {
       "key": {
+        "uuid": "912ca7de_e5d89309",
+        "filename": "cmd/zoekt-archive-index/e2e_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1081869
+      },
+      "writtenOn": "2019-04-24T18:20:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37b9790e_4a9d6faf",
+      "range": {
+        "startLine": 23,
+        "startChar": 22,
+        "endLine": 23,
+        "endChar": 28
+      },
+      "revId": "d0576e54b0958c7137b4338a10bb61ae44e9e9ce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6d61f78_4a69e08c",
+        "filename": "cmd/zoekt-archive-index/e2e_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1081869
+      },
+      "writtenOn": "2019-04-24T18:20:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "994d7df3_e082a3e8",
+      "range": {
+        "startLine": 23,
+        "startChar": 38,
+        "endLine": 23,
+        "endChar": 42
+      },
+      "revId": "d0576e54b0958c7137b4338a10bb61ae44e9e9ce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84e81b09_d5f11c78",
         "filename": "cmd/zoekt-archive-index/e2e_test.go",
         "patchSetId": 2
@@ -183,6 +351,30 @@
       "revId": "d0576e54b0958c7137b4338a10bb61ae44e9e9ce",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8312693f_4788ada2",
+        "filename": "cmd/zoekt-archive-index/e2e_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1081869
+      },
+      "writtenOn": "2019-04-24T18:20:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84e81b09_d5f11c78",
+      "range": {
+        "startLine": 96,
+        "startChar": 17,
+        "endLine": 96,
+        "endChar": 57
+      },
+      "revId": "d0576e54b0958c7137b4338a10bb61ae44e9e9ce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "1664ba8c_1a183e37",
+        "filename": "cmd/zoekt-archive-index/e2e_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1081869
+      },
+      "writtenOn": "2019-04-24T18:20:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "809ef2f4_9844e47a",
+      "range": {
+        "startLine": 115,
+        "startChar": 2,
+        "endLine": 115,
+        "endChar": 5
+      },
+      "revId": "d0576e54b0958c7137b4338a10bb61ae44e9e9ce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de362fe7_bd01f184",
         "filename": "cmd/zoekt-archive-index/e2e_test.go",
         "patchSetId": 2
@@ -229,6 +445,30 @@
       "revId": "d0576e54b0958c7137b4338a10bb61ae44e9e9ce",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "436645b7_6e3299f3",
+        "filename": "cmd/zoekt-archive-index/e2e_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1081869
+      },
+      "writtenOn": "2019-04-24T18:20:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de362fe7_bd01f184",
+      "range": {
+        "startLine": 124,
+        "startChar": 2,
+        "endLine": 124,
+        "endChar": 7
+      },
+      "revId": "d0576e54b0958c7137b4338a10bb61ae44e9e9ce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

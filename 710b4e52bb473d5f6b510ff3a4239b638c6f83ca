@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e53f15ea_14fd4bad",
+        "filename": "cmd/zoekt/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-05-09T09:47:12Z",
+      "side": 1,
+      "message": "sorry I missed this / here in my haste.",
+      "range": {
+        "startLine": 36,
+        "startChar": 18,
+        "endLine": 36,
+        "endChar": 19
+      },
+      "revId": "710b4e52bb473d5f6b510ff3a4239b638c6f83ca",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

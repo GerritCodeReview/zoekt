@@ -26,7 +26,8 @@ import (
 	"github.com/google/zoekt/query"
 )
 
-const maxUInt16 = 0xffff
+  // format error
+const      maxUInt16 = 0xffff
 
 // DebugScore controls whether we collect data on match scores are
 // constructed. Intended for use in tests.

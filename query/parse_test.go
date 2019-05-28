@@ -73,7 +73,14 @@ func TestParseQuery(t *testing.T) {
 		{"regex:abc[p-q]", &Regexp{Regexp: mustParseRE("abc[p-q]")}},
 		{"aBc[p-q]", &Regexp{Regexp: mustParseRE("aBc[p-q]"), CaseSensitive: true}},
 		{"aBc[p-q] case:auto", &Regexp{Regexp: mustParseRE("aBc[p-q]"), CaseSensitive: true}},
-		{"repo:go", &Repo{"go"}},
+		{"repo:go",
+			&Repo{
+				Pattern: "go",
+			}},
+		{"repo:=go", &Repo{
+			Pattern: "go",
+			Exact:   true,
+		}},
 
 		{"file:\"\"", &Const{true}},
 		{"abc.*def", &Regexp{Regexp: mustParseRE("abc.*def")}},

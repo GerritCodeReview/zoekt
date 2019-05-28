@@ -86,10 +86,18 @@ func (q *Const) String() string {
 
 type Repo struct {
 	Pattern string
+
+	// Exact, if set, means that the Pattern should be exactly
+	// equal to the complete repository name
+	Exact bool
 }
 
 func (q *Repo) String() string {
-	return fmt.Sprintf("repo:%s", q.Pattern)
+	exact := ""
+	if q.Exact {
+		exact = "="
+	}
+	return fmt.Sprintf("repo:%s%s", exact, q.Pattern)
 }
 
 // Substring is the most basic query: a query for a substring.

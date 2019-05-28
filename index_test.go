@@ -814,7 +814,7 @@ func TestRegexpOrder(t *testing.T) {
 func TestRepoName(t *testing.T) {
 	content := []byte("bla the needle")
 	// ----------------01234567890123
-	b := testIndexBuilder(t, &Repository{Name: "bla"},
+	b := testIndexBuilder(t, &Repository{Name: "blab"},
 		Document{Name: "f1", Content: content})
 
 	sres := searchForTest(t, b,
@@ -835,6 +835,38 @@ func TestRepoName(t *testing.T) {
 		query.NewAnd(
 			&query.Substring{Pattern: "needle"},
 			&query.Repo{Pattern: "bla"},
+		))
+	if len(sres.Files) != 1 {
+		t.Fatalf("got %v, want 1 match", sres.Files)
+	}
+}
+
+func TestRepoNameExact(t *testing.T) {
+	content := []byte("bla the needle")
+	// ----------------01234567890123
+	b := testIndexBuilder(t, &Repository{Name: "bla"},
+		Document{Name: "f1", Content: content})
+
+	sres := searchForTest(t, b,
+		query.NewAnd(
+			&query.Substring{Pattern: "needle"},
+			&query.Repo{Pattern: "bl",
+				Exact: true,
+			},
+		))
+
+	if len(sres.Files) != 0 {
+		t.Fatalf("got %v, want 0 matches", sres.Files)
+	}
+
+	if sres.Stats.FilesConsidered > 0 {
+		t.Fatalf("got FilesConsidered %d, should have short circuited", sres.Stats.FilesConsidered)
+	}
+
+	sres = searchForTest(t, b,
+		query.NewAnd(
+			&query.Substring{Pattern: "needle"},
+			&query.Repo{Pattern: "bl", Exact: false},
 		))
 	if len(sres.Files) != 1 {
 		t.Fatalf("got %v, want 1 match", sres.Files)

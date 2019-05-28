@@ -42,6 +42,9 @@ func (m *FileMatch) addScore(what string, s float64) {
 func (d *indexData) simplify(in query.Q) query.Q {
 	eval := query.Map(in, func(q query.Q) query.Q {
 		if r, ok := q.(*query.Repo); ok {
+			if r.Exact {
+				return &query.Const{Value: d.repoMetaData.Name == r.Pattern}
+			}
 			return &query.Const{Value: strings.Contains(d.repoMetaData.Name, r.Pattern)}
 		}
 		if l, ok := q.(*query.Language); ok {

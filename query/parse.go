@@ -19,6 +19,7 @@ import (
 	"fmt"
 	"log"
 	"regexp/syntax"
+	"strings"
 )
 
 var _ = log.Printf
@@ -124,7 +125,15 @@ func parseExpr(in []byte) (Q, int, error) {
 		}
 		expr = &caseQ{text}
 	case tokRepo:
-		expr = &Repo{Pattern: text}
+		exact := false
+		if strings.HasPrefix(text, "=") {
+			exact = true
+			text = text[1:]
+		}
+		expr = &Repo{
+			Pattern: text,
+			Exact:   exact,
+		}
 	case tokBranch:
 		expr = &Branch{Pattern: text}
 	case tokText, tokRegex:

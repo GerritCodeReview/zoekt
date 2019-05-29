@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db21aa5e_f6fa5857",
+        "filename": "web/templates.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-05-29T08:13:36Z",
+      "side": 1,
+      "message": "Inline this here by replacing this with {{.Last.Num}} (this omits creating a global variable).\n\nSome for the query",
+      "range": {
+        "startLine": 208,
+        "startChar": 18,
+        "endLine": 208,
+        "endChar": 26
+      },
+      "revId": "0f7776d90bfac489777170fe2678b20aed4da6ca",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da644a9e_b3f91008",
+        "filename": "web/templates.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-05-29T08:13:36Z",
+      "side": 1,
+      "message": "It should work without this return",
+      "range": {
+        "startLine": 231,
+        "startChar": 79,
+        "endLine": 231,
+        "endChar": 93
+      },
+      "revId": "0f7776d90bfac489777170fe2678b20aed4da6ca",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

@@ -53,9 +53,6 @@ func main() {
 	if *dest == "" {
 		log.Fatal("must set --dest")
 	}
-	if (*org == "") == (*user == "") {
-		log.Fatal("must set either --org or --user")
-	}
 
 	var host string
 	var apiBaseURL string
@@ -112,6 +109,9 @@ func main() {
 		repos, err = getOrgRepos(client, *org)
 	} else if *user != "" {
 		repos, err = getUserRepos(client, *user)
+	} else {
+		log.Printf("no user or org specified, cloning all repos.")
+		repos, err = getUserRepos(client, "")
 	}
 
 	if err != nil {

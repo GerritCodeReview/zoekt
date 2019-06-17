@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0fd51b99_2f67e5ae",
+        "filename": "index_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-06-17T13:15:28Z",
+      "side": 1,
+      "message": "this is too explicit, and will cause extra work if we add fields to these structs. Can you check that there are two LineMatches instead ?\n\nmore general question: there is code that merges overlapping matches together, potentially across lines (see https://github.com/google/zoekt/blob/2f50532f42bfc60e2026c5be1ff3c3b3a8172fcf/eval.go#L328), and here you are splitting matches again. \n\nCan you check if 1. you can merge this functionality there 2. if there are existing tests for the merging part that you can extend to cover this behavior too?",
+      "revId": "277a4ec21b95f77a72d1f00166d1824bb4264d59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cb8019c_cc875bbc",
+        "filename": "matchtree.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-06-17T13:15:28Z",
+      "side": 1,
+      "message": "nit: can you rename this to something that has no number? eg. lineCMs ?",
+      "range": {
+        "startLine": 411,
+        "startChar": 5,
+        "endLine": 411,
+        "endChar": 9
+      },
+      "revId": "277a4ec21b95f77a72d1f00166d1824bb4264d59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "856dfbd7_83934877",
+        "filename": "matchtree.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-06-17T13:15:28Z",
+      "side": 1,
+      "message": ":\u003d",
+      "range": {
+        "startLine": 422,
+        "startChar": 11,
+        "endLine": 422,
+        "endChar": 12
+      },
+      "revId": "277a4ec21b95f77a72d1f00166d1824bb4264d59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

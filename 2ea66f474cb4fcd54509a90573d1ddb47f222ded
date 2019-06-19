@@ -16,6 +16,24 @@
       "revId": "2ea66f474cb4fcd54509a90573d1ddb47f222ded",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0be7533c_7c2ea1df",
+        "filename": "cmd/zoekt-mirror-github/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1074294
+      },
+      "writtenOn": "2019-06-19T15:22:39Z",
+      "side": 1,
+      "message": "Yes, I thought about that.\n\nIs there any way to reach this line without setting at least one of [githubURL, org, user] based on https://gerrit-review.googlesource.com/c/zoekt/+/226612/1/cmd/zoekt-indexserver/config.go#159?\n\nIn any case I\u0027d rather add an extra check here for the url: https://gerrit-review.googlesource.com/c/zoekt/+/226612/1/cmd/zoekt-mirror-github/main.go#b56\nWhat do you think?",
+      "parentUuid": "0a18eb46_683254f4",
+      "revId": "2ea66f474cb4fcd54509a90573d1ddb47f222ded",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

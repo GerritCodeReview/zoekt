@@ -34,6 +34,24 @@
       "revId": "2ea66f474cb4fcd54509a90573d1ddb47f222ded",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "549a7002_8de193ef",
+        "filename": "cmd/zoekt-mirror-github/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-06-19T15:24:54Z",
+      "side": 1,
+      "message": "people can run this tool standalone too. doing it in l.56 is fine too.",
+      "parentUuid": "0be7533c_7c2ea1df",
+      "revId": "2ea66f474cb4fcd54509a90573d1ddb47f222ded",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

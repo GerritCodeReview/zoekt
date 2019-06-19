@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "753661d1_8ffb5581",
+        "filename": "cmd/zoekt-mirror-github/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-06-19T16:05:34Z",
+      "side": 1,
+      "message": "this looks fishy and hard to parse.\n\nCan you write this in a way that doesn\u0027t use \u003d\u003d as associative operator?",
+      "range": {
+        "startLine": 56,
+        "startChar": 21,
+        "endLine": 56,
+        "endChar": 22
+      },
+      "revId": "b5241c0dc6de39291127fae1641a71f8d33118c1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

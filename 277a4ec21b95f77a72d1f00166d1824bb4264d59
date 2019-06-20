@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c82869e7_d70fff0a",
+        "filename": "index_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1084786
+      },
+      "writtenOn": "2019-06-20T23:33:23Z",
+      "side": 1,
+      "message": "Okay, I made the test just check the number of matches.\n\n1. That eval.go code is about overlapping matches, which as far as I can tell is a separate (or at least separable) concern from making sure that line matches don\u0027t span multiple lines. I would think that merging the line splitting functionality there would just make the code harder to understand and test, but maybe you\u0027re seeing an opportunity that I missed.\n\n2. is moot if we decide not to do 1, IIUC.",
+      "parentUuid": "0fd51b99_2f67e5ae",
+      "revId": "277a4ec21b95f77a72d1f00166d1824bb4264d59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3cb8019c_cc875bbc",
         "filename": "matchtree.go",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "843e8d0a_31af797a",
+        "filename": "matchtree.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1084786
+      },
+      "writtenOn": "2019-06-20T23:33:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cb8019c_cc875bbc",
+      "range": {
+        "startLine": 411,
+        "startChar": 5,
+        "endLine": 411,
+        "endChar": 9
+      },
+      "revId": "277a4ec21b95f77a72d1f00166d1824bb4264d59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "856dfbd7_83934877",
         "filename": "matchtree.go",
         "patchSetId": 1
@@ -62,6 +104,30 @@
       "revId": "277a4ec21b95f77a72d1f00166d1824bb4264d59",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "137d0296_a2c511a2",
+        "filename": "matchtree.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1084786
+      },
+      "writtenOn": "2019-06-20T23:33:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "856dfbd7_83934877",
+      "range": {
+        "startLine": 422,
+        "startChar": 11,
+        "endLine": 422,
+        "endChar": 12
+      },
+      "revId": "277a4ec21b95f77a72d1f00166d1824bb4264d59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

@@ -1,7 +1,8 @@
 {
   "checks": {
     "fmt:commitmsg-77d734ff736f9a0f14183ccbd03c9821ee79ffa2": {
-      "state": "RUNNING",
+      "state": "FAILED",
+      "message": "/COMMIT_MSG: subject and body must be separated by blank line",
       "started": "2019-06-30T13:46:49Z",
       "created": "2019-06-30T13:46:49Z",
       "updated": "2019-06-30T13:46:49Z"

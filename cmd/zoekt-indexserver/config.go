@@ -38,6 +38,8 @@ type ConfigEntry struct {
 	GitilesURL             string
 	CGitURL                string
 	BitBucketServerURL     string
+	BitBucketCredentials   string
+	GithubToken            string
 	ProjectType            string
 	Name                   string
 	Exclude                string
@@ -174,6 +176,9 @@ func executeMirror(cfg []ConfigEntry, repoDir string, pendingRepos chan<- string
 			if c.Exclude != "" {
 				cmd.Args = append(cmd.Args, "-exclude", c.Exclude)
 			}
+			if c.GithubToken != "" {
+				cmd.Args = append(cmd.Args, "-token", c.GithubToken)
+			}
 		} else if c.GitilesURL != "" {
 			cmd = exec.Command("zoekt-mirror-gitiles",
 				"-dest", repoDir, "-name", c.Name)
@@ -203,6 +208,9 @@ func executeMirror(cfg []ConfigEntry, repoDir string, pendingRepos chan<- string
 			}
 			if c.Exclude != "" {
 				cmd.Args = append(cmd.Args, "-exclude", c.Exclude)
+			}
+			if c.BitBucketCredentials != "" {
+				cmd.Args = append(cmd.Args, "-credentials", c.BitBucketCredentials)
 			}
 		} else if c.GitLabURL != "" {
 			cmd = exec.Command("zoekt-mirror-gitlab",

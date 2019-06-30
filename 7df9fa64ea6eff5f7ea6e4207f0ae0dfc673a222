@@ -1,7 +1,8 @@
 {
   "checks": {
     "fmt:commitmsg-77d734ff736f9a0f14183ccbd03c9821ee79ffa2": {
-      "state": "RUNNING",
+      "state": "FAILED",
+      "message": "/COMMIT_MSG: subject must be less than 70 chars",
       "started": "2019-06-30T13:49:22Z",
       "created": "2019-06-30T13:49:23Z",
       "updated": "2019-06-30T13:49:23Z"

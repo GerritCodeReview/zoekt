@@ -45,6 +45,29 @@
       "revId": "f24b1e93f368657a080a03ff77a16146744972fc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3a957b7_7151cb02",
+        "filename": "cmd/zoekt-indexserver/config.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-07-01T09:39:24Z",
+      "side": 1,
+      "message": "gofmt",
+      "range": {
+        "startLine": 41,
+        "startChar": 15,
+        "endLine": 41,
+        "endChar": 16
+      },
+      "revId": "f24b1e93f368657a080a03ff77a16146744972fc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

@@ -7,10 +7,11 @@
       "updated": "2019-07-01T09:36:01Z"
     },
     "fmt:go-77d734ff736f9a0f14183ccbd03c9821ee79ffa2": {
-      "state": "RUNNING",
+      "state": "FAILED",
+      "message": "cmd/zoekt-indexserver/config.go: found a difference",
       "started": "2019-07-01T09:36:01Z",
       "created": "2019-07-01T09:36:01Z",
-      "updated": "2019-07-01T09:36:01Z"
+      "updated": "2019-07-01T09:36:02Z"
     }
   }
 }

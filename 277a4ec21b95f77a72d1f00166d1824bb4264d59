@@ -132,6 +132,30 @@
     },
     {
       "key": {
+        "uuid": "3e183b5f_a8304538",
+        "filename": "matchtree.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-07-03T09:39:24Z",
+      "side": 1,
+      "message": "usually, you do git commit --amend and commit the updated files. \n\nIf you do \n\n  git commit --amend\n\non \n\n  https://gerrit-review.googlesource.com/c/zoekt/+/230012\n\nand change the Change-Id footer to say \n\n  Change-Id: Ida958551f018b197c7c71412f4f737f6b9b43e95\n\nyou will upload the updates to this change.",
+      "parentUuid": "42b9e26b_682e3a49",
+      "range": {
+        "startLine": 411,
+        "startChar": 5,
+        "endLine": 411,
+        "endChar": 9
+      },
+      "revId": "277a4ec21b95f77a72d1f00166d1824bb4264d59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "856dfbd7_83934877",
         "filename": "matchtree.go",
         "patchSetId": 1

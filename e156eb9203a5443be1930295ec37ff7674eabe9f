@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7ae5fcc_3d66749c",
+        "filename": "hititer.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-07-09T13:07:40Z",
+      "side": 1,
+      "message": "could you move l.212 to here and get the same effect ?",
+      "range": {
+        "startLine": 223,
+        "startChar": 16,
+        "endLine": 223,
+        "endChar": 21
+      },
+      "revId": "e156eb9203a5443be1930295ec37ff7674eabe9f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

@@ -219,6 +219,10 @@ func (i *compressedPostingIterator) next(limit uint32) {
 		i._first += uint32(delta)
 		i.blob = i.blob[sz:]
 	}
+
+	if i._first <= limit {
+		i._first = maxUInt32
+	}
 }
 
 func (i *compressedPostingIterator) updateStats(s *Stats) {

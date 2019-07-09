@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c20d658_7b745938",
+        "filename": "bits_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-07-09T12:26:05Z",
+      "side": 1,
+      "message": "\"The testing/quick package is frozen and is not accepting new features.\"\n\nthis suggests it\u0027s not really the suggested way to do things these days. Can you confirm that this is still the way to do things today in Go?\n\nI\u0027d probably prefer hand-written testcases for specific coverage, or if you want to use automation, something that uses fuzzing.",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 9
+      },
+      "revId": "bfcdc9178bbbf56ba61a8eea268b49b29659e202",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65df027a_d6c962bd",
+        "filename": "bits_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-07-09T12:26:05Z",
+      "side": 1,
+      "message": "this looks like it\u0027s not test specific. Don\u0027t we have thsis somewhere already?",
+      "range": {
+        "startLine": 151,
+        "startChar": 5,
+        "endLine": 151,
+        "endChar": 40
+      },
+      "revId": "bfcdc9178bbbf56ba61a8eea268b49b29659e202",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

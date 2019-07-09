@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "62152ec3_a1cee39b",
+        "filename": "bits_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2019-07-09T12:42:23Z",
+      "side": 1,
+      "message": "Here is the issue for freezing this package https://github.com/golang/go/issues/15557\n\nI can\u0027t tell if they don\u0027t regard it as good. From what I can gleam its more they don\u0027t think it belongs in the standard library anymore. However, it is still used by stdlib tests https://sourcegraph.com/search?q\u003drepo:%5Egithub%5C.com/golang/go%24+%5C%22testing/quick%5C%22%24+f:_test.go\n\nThere is https://github.com/leanovate/gopter/ which is more powerful version of testing/quick. Much more like Haskell QuickCheck. Alternatively we could use that.\n\nI found it quite useful to get random coverage. Obviously not as good as hand-written test cases, but I believe both are useful. When I was experimenting it helped me to narrow down errors much more effectively than a higher level search test failing.\n\nAs for fuzzing, yeah that would also be good. But one is required to use a separate binary for that, while this is built in to go test.",
+      "parentUuid": "7c20d658_7b745938",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 9
+      },
+      "revId": "bfcdc9178bbbf56ba61a8eea268b49b29659e202",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "65df027a_d6c962bd",
         "filename": "bits_test.go",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-07-09T12:26:05Z",
       "side": 1,
       "message": "this looks like it\u0027s not test specific. Don\u0027t we have thsis somewhere already?",
+      "range": {
+        "startLine": 151,
+        "startChar": 5,
+        "endLine": 151,
+        "endChar": 40
+      },
+      "revId": "bfcdc9178bbbf56ba61a8eea268b49b29659e202",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cd68113_3972f33e",
+        "filename": "bits_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2019-07-09T12:42:23Z",
+      "side": 1,
+      "message": "I couldn\u0027t find it to be honest. For encoding the trigram posting list we do it all inside of newSearchableString. I could move it into bits.go, but it wouldn\u0027t be used anywhere outside of testing.",
+      "parentUuid": "65df027a_d6c962bd",
       "range": {
         "startLine": 151,
         "startChar": 5,

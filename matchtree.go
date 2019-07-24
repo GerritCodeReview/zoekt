@@ -110,7 +110,7 @@ type noVisitMatchTree struct {
 type regexpMatchTree struct {
 	regexp *regexp.Regexp
 
-	fileName bool
+	scope query.SearchScope
 
 	// mutable
 	reEvaluated bool
@@ -125,7 +125,7 @@ type substrMatchTree struct {
 
 	query         *query.Substring
 	caseSensitive bool
-	fileName      bool
+	scope         query.SearchScope
 
 	// mutable
 	current       []*candidateMatch
@@ -277,7 +277,7 @@ func (t *notMatchTree) String() string {
 
 func (t *substrMatchTree) String() string {
 	f := ""
-	if t.fileName {
+	if t.scope == query.ScopeFileName {
 		f = "f"
 	}
 
@@ -388,13 +388,13 @@ func (t *regexpMatchTree) matches(cp *contentProvider, cost int, known map[match
 		return false, false
 	}
 
-	idxs := t.regexp.FindAllIndex(cp.data(t.fileName), -1)
+	idxs := t.regexp.FindAllIndex(cp.data(t.scope), -1)
 	found := t.found[:0]
 	for _, idx := range idxs {
 		cm := &candidateMatch{
 			byteOffset:  uint32(idx[0]),
 			byteMatchSz: uint32(idx[1] - idx[0]),
-			fileName:    t.fileName,
+			scope:       t.scope,
 		}
 
 		found = append(found, cm)
@@ -467,20 +467,20 @@ func (t *substrMatchTree) matches(cp *contentProvider, cost int, known map[match
 		return false, true
 	}
 
-	if t.fileName && cost < costMemory {
+	if t.scope == query.ScopeFileName && cost < costMemory {
 		return false, false
 	}
 
-	if !t.fileName && cost < costContent {
+	if t.scope == query.ScopeFileContent && cost < costContent {
 		return false, false
 	}
 
 	pruned := t.current[:0]
 	for _, m := range t.current {
 		if m.byteOffset == 0 && m.runeOffset > 0 {
-			m.byteOffset = cp.findOffset(m.fileName, m.runeOffset)
+			m.byteOffset = cp.findOffset(m.scope, m.runeOffset)
 		}
-		if m.matchContent(cp.data(m.fileName)) {
+		if m.matchContent(cp.data(m.scope)) {
 			pruned = append(pruned, m)
 		}
 	}
@@ -496,7 +496,7 @@ func (d *indexData) newMatchTree(q query.Q) (matchTree, error) {
 		subQ := query.RegexpToQuery(s.Regexp, ngramSize)
 		subQ = query.Map(subQ, func(q query.Q) query.Q {
 			if sub, ok := q.(*query.Substring); ok {
-				sub.FileName = s.FileName
+				sub.Scope = s.Scope
 				sub.CaseSensitive = s.CaseSensitive
 			}
 			return q
@@ -513,8 +513,8 @@ func (d *indexData) newMatchTree(q query.Q) (matchTree, error) {
 		}
 
 		tr := &regexpMatchTree{
-			regexp:   regexp.MustCompile(prefix + s.Regexp.String()),
-			fileName: s.FileName,
+			regexp: regexp.MustCompile(prefix + s.Regexp.String()),
+			scope:  s.Scope,
 		}
 
 		return &andMatchTree{
@@ -612,7 +612,7 @@ func (d *indexData) newSubstringMatchTree(s *query.Substring) (matchTree, error)
 	st := &substrMatchTree{
 		query:         s,
 		caseSensitive: s.CaseSensitive,
-		fileName:      s.FileName,
+		scope:         s.Scope,
 	}
 
 	if utf8.RuneCountInString(s.Pattern) < ngramSize {
@@ -621,8 +621,8 @@ func (d *indexData) newSubstringMatchTree(s *query.Substring) (matchTree, error)
 			prefix = "(?i)"
 		}
 		t := &regexpMatchTree{
-			regexp:   regexp.MustCompile(prefix + regexp.QuoteMeta(s.Pattern)),
-			fileName: s.FileName,
+			regexp: regexp.MustCompile(prefix + regexp.QuoteMeta(s.Pattern)),
+			scope:  s.Scope,
 		}
 		return t, nil
 	}

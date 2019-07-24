@@ -128,20 +128,20 @@ func parseExpr(in []byte) (Q, int, error) {
 	case tokBranch:
 		expr = &Branch{Pattern: text}
 	case tokText, tokRegex:
-		q, err := regexpQuery(text, false, false)
+		q, err := regexpQuery(text, ScopeNone)
 		if err != nil {
 			return nil, 0, err
 		}
 		expr = q
 	case tokFile:
-		q, err := regexpQuery(text, false, true)
+		q, err := regexpQuery(text, ScopeFileName)
 		if err != nil {
 			return nil, 0, err
 		}
 		expr = q
 
 	case tokContent:
-		q, err := regexpQuery(text, true, false)
+		q, err := regexpQuery(text, ScopeFileContent)
 		if err != nil {
 			return nil, 0, err
 		}
@@ -194,7 +194,7 @@ func parseExpr(in []byte) (Q, int, error) {
 
 // regexpQuery parses an atom into either a regular expression, or a
 // simple substring atom.
-func regexpQuery(text string, content, file bool) (Q, error) {
+func regexpQuery(text string, scope SearchScope) (Q, error) {
 	var expr Q
 
 	r, err := syntax.Parse(text, syntax.ClassNL|syntax.PerlX|syntax.UnicodeGroups)
@@ -204,15 +204,13 @@ func regexpQuery(text string, content, file bool) (Q, error) {
 
 	if r.Op == syntax.OpLiteral {
 		expr = &Substring{
-			Pattern:  string(r.Rune),
-			FileName: file,
-			Content:  content,
+			Pattern: string(r.Rune),
+			Scope:   scope,
 		}
 	} else {
 		expr = &Regexp{
-			Regexp:   r,
-			FileName: file,
-			Content:  content,
+			Regexp: r,
+			Scope:  scope,
 		}
 	}
 

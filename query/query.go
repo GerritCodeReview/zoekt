@@ -29,10 +29,19 @@ type Q interface {
 	String() string
 }
 
+// SearchScope
+type SearchScope uint8
+
+const (
+	ScopeNone SearchScope = iota
+	ScopeFileName
+	ScopeFileContent
+)
+
 // RegexpQuery is a query looking for regular expressions matches.
 type Regexp struct {
 	Regexp        *syntax.Regexp
-	FileName      bool
+	Scope         SearchScope
 	Content       bool
 	CaseSensitive bool
 }
@@ -48,7 +57,7 @@ func (s *Symbol) String() string {
 
 func (q *Regexp) String() string {
 	pref := ""
-	if q.FileName {
+	if q.Scope == ScopeFileName {
 		pref = "file_"
 	}
 	if q.CaseSensitive {
@@ -97,20 +106,17 @@ type Substring struct {
 	Pattern       string
 	CaseSensitive bool
 
-	// Match only filename
-	FileName bool
-
-	// Match only content
-	Content bool
+	Scope SearchScope
 }
 
 func (q *Substring) String() string {
 	s := ""
 
 	t := ""
-	if q.FileName {
+	switch q.Scope {
+	case ScopeFileName:
 		t = "file_"
-	} else if q.Content {
+	case ScopeFileContent:
 		t = "content_"
 	}
 
@@ -360,19 +366,19 @@ func Map(q Q, f func(q Q) Q) Q {
 func ExpandFileContent(q Q) Q {
 	switch s := q.(type) {
 	case *Substring:
-		if !s.FileName && !s.Content {
+		if s.Scope == ScopeNone {
 			f := *s
-			f.FileName = true
+			f.Scope = ScopeFileName
 			c := *s
-			c.Content = true
+			c.Scope = ScopeFileContent
 			return NewOr(&f, &c)
 		}
 	case *Regexp:
-		if !s.FileName && !s.Content {
+		if s.Scope == ScopeNone {
 			f := *s
-			f.FileName = true
+			f.Scope = ScopeFileName
 			c := *s
-			c.Content = true
+			c.Scope = ScopeFileContent
 			return NewOr(&f, &c)
 		}
 	}

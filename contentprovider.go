@@ -165,6 +165,7 @@ func (p *contentProvider) fillMatches(ms []*candidateMatch) []LineMatch {
 			result = []LineMatch{res}
 		}
 	case query.ScopeFileContent:
+		ms = breakMatchesOnNewlines(ms, p.data(query.ScopeFileContent))
 		result = p.fillContentMatches(ms)
 	}
 

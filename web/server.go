@@ -506,7 +506,7 @@ func (s *Server) servePrintErr(w http.ResponseWriter, r *http.Request) error {
 		return err
 	}
 	qs := []query.Q{
-		&query.Regexp{Regexp: re, FileName: true, CaseSensitive: true},
+		&query.Regexp{Regexp: re, Scope: query.ScopeFileName, CaseSensitive: true},
 		&query.Repo{Pattern: repoStr},
 	}
 

@@ -213,7 +213,7 @@ nextFileMatch:
 			finalCands = append(finalCands,
 				&candidateMatch{
 					caseSensitive: false,
-					fileName:      true,
+					scope:         query.ScopeFileName,
 					substrBytes:   nm,
 					substrLowered: nm,
 					file:          nextDoc,
@@ -251,7 +251,7 @@ nextFileMatch:
 		fileMatch.Branches = d.gatherBranches(nextDoc, mt, known)
 		sortMatchesByScore(fileMatch.LineMatches)
 		if opts.Whole {
-			fileMatch.Content = cp.data(false)
+			fileMatch.Content = cp.data(query.ScopeFileContent)
 		}
 
 		res.Files = append(res.Files, fileMatch)
@@ -310,7 +310,7 @@ func gatherMatches(mt matchTree, known map[matchTree]bool) []*candidateMatch {
 
 	foundContentMatch := false
 	for _, c := range cands {
-		if !c.fileName {
+		if c.scope == query.ScopeFileContent {
 			foundContentMatch = true
 			break
 		}
@@ -318,7 +318,7 @@ func gatherMatches(mt matchTree, known map[matchTree]bool) []*candidateMatch {
 
 	res := cands[:0]
 	for _, c := range cands {
-		if !foundContentMatch || !c.fileName {
+		if !foundContentMatch || c.scope != query.ScopeFileName {
 			res = append(res, c)
 		}
 	}

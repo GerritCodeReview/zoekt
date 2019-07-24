@@ -56,15 +56,15 @@ func TestParseQuery(t *testing.T) {
 		{"abc bcd", NewAnd(
 			&Substring{Pattern: "abc"},
 			&Substring{Pattern: "bcd"})},
-		{"f:fs", &Substring{Pattern: "fs", FileName: true}},
+		{"f:fs", &Substring{Pattern: "fs", Scope: ScopeFileName}},
 		{"fs", &Substring{Pattern: "fs"}},
 		{"-abc", &Not{&Substring{Pattern: "abc"}}},
 		{"abccase:yes", &Substring{Pattern: "abccase:yes"}},
-		{"file:abc", &Substring{Pattern: "abc", FileName: true}},
+		{"file:abc", &Substring{Pattern: "abc", Scope: ScopeFileName}},
 		{"branch:pqr", &Branch{Pattern: "pqr"}},
 		{"((x) )", &Regexp{Regexp: mustParseRE("(x)")}},
 		{"file:helpers\\.go byte", NewAnd(
-			&Substring{Pattern: "helpers.go", FileName: true},
+			&Substring{Pattern: "helpers.go", Scope: ScopeFileName},
 			&Substring{Pattern: "byte"})},
 		{"(abc def)", NewAnd(
 			&Substring{Pattern: "abc"},
@@ -80,8 +80,8 @@ func TestParseQuery(t *testing.T) {
 		{"abc\\.\\*def", &Substring{Pattern: "abc.*def"}},
 		{"(abc)", &Regexp{Regexp: mustParseRE("(abc)")}},
 
-		{"c:abc", &Substring{Pattern: "abc", Content: true}},
-		{"content:abc", &Substring{Pattern: "abc", Content: true}},
+		{"c:abc", &Substring{Pattern: "abc", Scope: ScopeFileContent}},
+		{"content:abc", &Substring{Pattern: "abc", Scope: ScopeFileContent}},
 
 		{"lang:c++", &Language{"c++"}},
 		{"sym:pqr", &Symbol{&Substring{Pattern: "pqr"}}},
@@ -94,7 +94,7 @@ func TestParseQuery(t *testing.T) {
 		{"ABC case:\"auto\"", &Substring{Pattern: "ABC", CaseSensitive: true}},
 		{"abc -f:def case:yes", NewAnd(
 			&Substring{Pattern: "abc", CaseSensitive: true},
-			&Not{Child: &Substring{Pattern: "def", FileName: true, CaseSensitive: true}},
+			&Not{Child: &Substring{Pattern: "def", Scope: ScopeFileName, CaseSensitive: true}},
 		)},
 
 		// errors.

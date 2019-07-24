@@ -126,7 +126,7 @@ func TestEmptyIndex(t *testing.T) {
 		t.Fatalf("List: %v", err)
 	}
 
-	if _, err := searcher.Search(context.Background(), &query.Substring{Pattern: "java", FileName: true}, &opts); err != nil {
+	if _, err := searcher.Search(context.Background(), &query.Substring{Pattern: "java", Scope: query.ScopeFileName}, &opts); err != nil {
 		t.Fatalf("Search: %v", err)
 	}
 }
@@ -379,8 +379,8 @@ func TestFileSearch(t *testing.T) {
 	b.AddFile("banana", []byte("x apple y"))
 	// --------789012
 	sres := searchForTest(t, b, &query.Substring{
-		Pattern:  "anan",
-		FileName: true,
+		Pattern: "anan",
+		Scope:   query.ScopeFileName,
 	})
 
 	matches := sres.Files
@@ -412,8 +412,8 @@ func TestFileCase(t *testing.T) {
 
 	b.AddFile("BANANA", []byte("x orange y"))
 	sres := searchForTest(t, b, &query.Substring{
-		Pattern:  "banana",
-		FileName: true,
+		Pattern: "banana",
+		Scope:   query.ScopeFileName,
 	})
 
 	matches := sres.Files
@@ -432,8 +432,8 @@ func TestFileRegexpSearchBruteForce(t *testing.T) {
 	// --------------------------0123456879
 	b.AddFile("banana", []byte("x apple y"))
 	sres := searchForTest(t, b, &query.Regexp{
-		Regexp:   mustParseRE("[qn][zx]"),
-		FileName: true,
+		Regexp: mustParseRE("[qn][zx]"),
+		Scope:  query.ScopeFileName,
 	})
 
 	matches := sres.Files
@@ -450,8 +450,8 @@ func TestFileRegexpSearchShortString(t *testing.T) {
 
 	b.AddFile("banana.py", []byte("x orange y"))
 	sres := searchForTest(t, b, &query.Regexp{
-		Regexp:   mustParseRE("ana.py"),
-		FileName: true,
+		Regexp: mustParseRE("ana.py"),
+		Scope:  query.ScopeFileName,
 	})
 
 	matches := sres.Files
@@ -470,8 +470,8 @@ func TestFileSubstringSearchBruteForce(t *testing.T) {
 	b.AddFile("banana", []byte("x apple y"))
 
 	q := &query.Substring{
-		Pattern:  "z",
-		FileName: true,
+		Pattern: "z",
+		Scope:   query.ScopeFileName,
 	}
 
 	res := searchForTest(t, b, q)
@@ -490,8 +490,8 @@ func TestFileSubstringSearchBruteForceEnd(t *testing.T) {
 	b.AddFile("bananaq", []byte("x apple y"))
 
 	q := &query.Substring{
-		Pattern:  "q",
-		FileName: true,
+		Pattern: "q",
+		Scope:   query.ScopeFileName,
 	}
 
 	res := searchForTest(t, b, q)
@@ -566,8 +566,8 @@ func TestFileRestriction(t *testing.T) {
 	b.AddFile("orange", []byte("x apple y"))
 	sres := searchForTest(t, b, query.NewAnd(
 		&query.Substring{
-			Pattern:  "banana",
-			FileName: true,
+			Pattern: "banana",
+			Scope:   query.ScopeFileName,
 		},
 		&query.Substring{
 			Pattern: "apple",
@@ -592,8 +592,8 @@ func TestFileNameBoundary(t *testing.T) {
 		Document{Name: "helpers.go", Content: []byte("x apple y")},
 		Document{Name: "foo", Content: []byte("x apple y")})
 	sres := searchForTest(t, b, &query.Substring{
-		Pattern:  "helpers.go",
-		FileName: true,
+		Pattern: "helpers.go",
+		Scope:   query.ScopeFileName,
 	})
 
 	matches := sres.Files
@@ -799,8 +799,8 @@ func TestRegexpFile(t *testing.T) {
 
 	sres := searchForTest(t, b,
 		&query.Regexp{
-			Regexp:   mustParseRE("play.*mussel"),
-			FileName: true,
+			Regexp: mustParseRE("play.*mussel"),
+			Scope:  query.ScopeFileName,
 		})
 
 	if len(sres.Files) != 1 || len(sres.Files[0].LineMatches) != 1 {
@@ -1147,7 +1147,7 @@ func TestAtomCountScore(t *testing.T) {
 	sres := searchForTest(t, b,
 		query.NewOr(
 			&query.Substring{Pattern: "needle"},
-			&query.Substring{Pattern: "needle", FileName: true},
+			&query.Substring{Pattern: "needle", Scope: query.ScopeFileName},
 			&query.Branch{Pattern: "needle"},
 		))
 	var got []string
@@ -1262,7 +1262,7 @@ func TestSearchEither(t *testing.T) {
 		t.Fatalf("got %v, wanted 2 matches", sres.Files)
 	}
 
-	sres = searchForTest(t, b, &query.Substring{Pattern: "needle", Content: true})
+	sres = searchForTest(t, b, &query.Substring{Pattern: "needle", Scope: query.ScopeFileContent})
 	if len(sres.Files) != 1 {
 		t.Fatalf("got %v, wanted 1 match", sres.Files)
 	}
@@ -1312,7 +1312,7 @@ func TestUnicodeNonCoverContent(t *testing.T) {
 	b := testIndexBuilder(t, nil,
 		Document{Name: "f1", Content: content})
 
-	res := searchForTest(t, b, &query.Substring{Pattern: "NÉÉÁÁDLÉ", Content: true})
+	res := searchForTest(t, b, &query.Substring{Pattern: "NÉÉÁÁDLÉ", Scope: query.ScopeFileContent})
 	if len(res.Files) != 1 {
 		t.Fatalf("got %v, wanted 1 match", res.Files)
 	}
@@ -1336,7 +1336,7 @@ func TestUnicodeVariableLength(t *testing.T) {
 	b := testIndexBuilder(t, nil,
 		Document{Name: "f1", Content: []byte(corpus)})
 
-	res := searchForTest(t, b, &query.Substring{Pattern: needle, Content: true})
+	res := searchForTest(t, b, &query.Substring{Pattern: needle, Scope: query.ScopeFileContent})
 	if len(res.Files) != 1 {
 		t.Fatalf("got %v, wanted 1 match", res.Files)
 	}
@@ -1355,7 +1355,7 @@ func TestUnicodeFileStartOffsets(t *testing.T) {
 			Content: []byte(wat),
 		},
 	)
-	q := &query.Substring{Pattern: wat, Content: true}
+	q := &query.Substring{Pattern: wat, Scope: query.ScopeFileContent}
 	res := searchForTest(t, b, q)
 	if len(res.Files) != 1 {
 		t.Fatalf("got %v, wanted 1 match", res.Files)
@@ -1376,9 +1376,9 @@ func TestLongFileUTF8(t *testing.T) {
 		Document{
 			Name:    "f2",
 			Content: content,
-		})
-
-	q := &query.Substring{Pattern: needle, Content: true}
+		},
+	)
+	q := &query.Substring{Pattern: needle, Scope: query.ScopeFileContent}
 	res := searchForTest(t, b, q)
 	if len(res.Files) != 1 {
 		t.Errorf("got %v, want 1 result", res)
@@ -1425,9 +1425,10 @@ func TestUTF8CorrectCorpus(t *testing.T) {
 		Document{
 			Name:    "xxxxxneeedle",
 			Content: []byte("hello"),
-		})
+		},
+	)
 
-	q := &query.Substring{Pattern: needle, FileName: true}
+	q := &query.Substring{Pattern: needle, Scope: query.ScopeFileName}
 	res := searchForTest(t, b, q)
 	if len(res.Files) != 1 {
 		t.Errorf("got %v, want 1 result", res)
@@ -1455,7 +1456,7 @@ func TestIOStats(t *testing.T) {
 			Content: []byte(strings.Repeat("abcd", 1024)),
 		})
 
-	q := &query.Substring{Pattern: "abc", CaseSensitive: true, Content: true}
+	q := &query.Substring{Pattern: "abc", CaseSensitive: true, Scope: query.ScopeFileContent}
 	res := searchForTest(t, b, q)
 
 	// 4096 (content) + 2 (overhead: newlines or doc sections)
@@ -1651,7 +1652,7 @@ func TestSymbolBoundaryStart(t *testing.T) {
 		},
 	)
 	q := &query.Symbol{
-		Atom: &query.Substring{Pattern: "start"},
+		Atom: &query.Substring{Pattern: "start", Scope: query.ScopeFileContent},
 	}
 	res := searchForTest(t, b, q)
 	if len(res.Files) != 1 || len(res.Files[0].LineMatches) != 1 {
@@ -1675,7 +1676,7 @@ func TestSymbolBoundaryEnd(t *testing.T) {
 		},
 	)
 	q := &query.Symbol{
-		Atom: &query.Substring{Pattern: "end"},
+		Atom: &query.Substring{Pattern: "end", Scope: query.ScopeFileContent},
 	}
 	res := searchForTest(t, b, q)
 	if len(res.Files) != 1 || len(res.Files[0].LineMatches) != 1 {
@@ -1699,7 +1700,7 @@ func TestSymbolAtom(t *testing.T) {
 		},
 	)
 	q := &query.Symbol{
-		Atom: &query.Substring{Pattern: "bla"},
+		Atom: &query.Substring{Pattern: "bla", Scope: query.ScopeFileContent},
 	}
 	res := searchForTest(t, b, q)
 	if len(res.Files) != 1 || len(res.Files[0].LineMatches) != 1 {
@@ -1723,7 +1724,7 @@ func TestSymbolAtomExact(t *testing.T) {
 		},
 	)
 	q := &query.Symbol{
-		Atom: &query.Substring{Pattern: "sym"},
+		Atom: &query.Substring{Pattern: "sym", Scope: query.ScopeFileContent},
 	}
 	res := searchForTest(t, b, q)
 	if len(res.Files) != 1 || len(res.Files[0].LineMatches) != 1 {

@@ -26,7 +26,7 @@ import (
 // candidateMatch is a candidate match for a substring.
 type candidateMatch struct {
 	caseSensitive bool
-	fileName      bool
+	scope         query.SearchScope
 
 	substrBytes   []byte
 	substrLowered []byte

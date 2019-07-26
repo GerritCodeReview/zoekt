@@ -7,10 +7,10 @@
       "updated": "2019-07-26T14:51:43Z"
     },
     "fmt:go-77d734ff736f9a0f14183ccbd03c9821ee79ffa2": {
-      "state": "RUNNING",
+      "state": "SUCCESSFUL",
       "started": "2019-07-26T14:51:44Z",
       "created": "2019-07-26T14:51:44Z",
-      "updated": "2019-07-26T14:51:44Z"
+      "updated": "2019-07-26T14:51:45Z"
     }
   }
 }

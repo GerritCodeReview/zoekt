@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5b83375_988254ef",
+        "filename": "gitindex/delete.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-07-30T09:24:00Z",
+      "side": 1,
+      "message": "this is the list of repos as supplied by the hosting site, right? The staleness is the fact that there is a repo on disk not in `names`.",
+      "range": {
+        "startLine": 12,
+        "startChar": 27,
+        "endLine": 12,
+        "endChar": 48
+      },
+      "revId": "d77454da65cc94dc184488bd93d6ec0507d46fbc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1c9495a_c2f3eb74",
+        "filename": "gitindex/delete.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-07-30T09:24:00Z",
+      "side": 1,
+      "message": "can you use struct{} as value type here ?",
+      "range": {
+        "startLine": 14,
+        "startChar": 70,
+        "endLine": 14,
+        "endChar": 73
+      },
+      "revId": "d77454da65cc94dc184488bd93d6ec0507d46fbc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cf100cc_cf1df1fe",
+        "filename": "gitindex/delete.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-07-30T09:24:00Z",
+      "side": 1,
+      "message": "Can you add a test too?",
+      "revId": "d77454da65cc94dc184488bd93d6ec0507d46fbc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

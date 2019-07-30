@@ -22,6 +22,30 @@
       "revId": "9b3a797397fe0d60905300840aa412f793129f2d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51d87b20_cb389b17",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1074294
+      },
+      "writtenOn": "2019-07-30T00:32:03Z",
+      "side": 1,
+      "message": "Sure, I\u0027ve refactored this. Let me know if it makes sense.\n\nI tested the deletion on GitHub and BitBucket in a test setup and look good.\n\nNot sure about the GitLab one though since I\u0027m not using it.\nThis differs in this line from BB/GH: https://github.com/google/zoekt/blob/master/cmd/zoekt-mirror-gitlab/main.go#L166 but not sure why it was written like that.",
+      "parentUuid": "a1cf77bd_bf883732",
+      "range": {
+        "startLine": 170,
+        "startChar": 2,
+        "endLine": 170,
+        "endChar": 7
+      },
+      "revId": "9b3a797397fe0d60905300840aa412f793129f2d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

@@ -467,3 +467,60 @@ func TestEmptyContent(t *testing.T) {
 		t.Errorf("got %+v, want 1 repo.", result.Repos)
 	}
 }
+
+func TestFailureDeletesTempShards(t *testing.T) {
+	dir, err := ioutil.TempDir("", "")
+	if err != nil {
+		t.Fatalf("TempDir: %v", err)
+	}
+
+	opts := Options{
+		IndexDir: dir,
+		ShardMax: 1024,
+		RepositoryDescription: zoekt.Repository{
+			Name:            "repo",
+			FileURLTemplate: "url",
+		},
+		SizeMax: 1 << 20,
+	}
+	opts.SetDefaults()
+
+	b, err := NewBuilder(opts)
+	if err != nil {
+		t.Fatalf("NewBuilder: %v", err)
+	}
+	for i := 0; i < 2; i++ {
+		s := fmt.Sprintf("%d\n", i)
+		b.AddFile("F"+s, []byte(strings.Repeat(s, 1024/2)))
+	}
+
+	if err := os.Chmod(dir, 0555); err != nil {
+		t.Fatalf("Chmod: %v", err)
+	}
+
+	// Trigger failures.
+	var expectedErr error
+	for i := 2; i < 4; i++ {
+		s := fmt.Sprintf("%d\n", i)
+		if err := b.AddFile("F"+s, []byte(strings.Repeat(s, 1024/2))); err != nil {
+			expectedErr = err
+		}
+	}
+	if expectedErr == nil {
+		t.Fatalf("write in -w dir did not fail.")
+	}
+	if err := os.Chmod(dir, 0755); err != nil {
+		t.Fatalf("Chmod: %v", err)
+	}
+
+	b.Finish()
+
+	entries, err := ioutil.ReadDir(dir)
+	if err != nil {
+		t.Fatalf("Readdirnames: %v", err)
+	}
+
+	if len(entries) != 0 {
+		t.Fatalf("files left after I/O error.")
+	}
+}

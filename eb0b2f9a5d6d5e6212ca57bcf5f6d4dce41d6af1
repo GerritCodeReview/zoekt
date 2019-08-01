@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "46d0b826_451bf1d9",
+        "filename": "gitindex/delete_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1074294
+      },
+      "writtenOn": "2019-08-01T05:30:09Z",
+      "side": 1,
+      "message": "Since aURL.Path has been set to \"sub\" this will only delete dirs under \"gerrit.googlesource.com/sub\", like in here: https://github.com/google/zoekt/blob/master/cmd/zoekt-mirror-github/main.go#L171\n\nIf aURL.Path isn\u0027t set it\u0027ll indeed delete \"gerrit.googlesource.com/bdir.git\" as well.",
+      "parentUuid": "5e1c2c94_7391cc1f",
+      "range": {
+        "startLine": 71,
+        "startChar": 27,
+        "endLine": 71,
+        "endChar": 31
+      },
+      "revId": "eb0b2f9a5d6d5e6212ca57bcf5f6d4dce41d6af1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5afabeda_cf3abb92",
         "filename": "gitindex/delete_test.go",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "eb0b2f9a5d6d5e6212ca57bcf5f6d4dce41d6af1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c075f76_82a08f38",
+        "filename": "gitindex/delete_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1074294
+      },
+      "writtenOn": "2019-08-01T05:30:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5afabeda_cf3abb92",
+      "range": {
+        "startLine": 76,
+        "startChar": 13,
+        "endLine": 76,
+        "endChar": 22
+      },
+      "revId": "eb0b2f9a5d6d5e6212ca57bcf5f6d4dce41d6af1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

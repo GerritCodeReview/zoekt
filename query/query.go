@@ -39,11 +39,11 @@ type Regexp struct {
 
 // Symbol finds a string that is a symbol.
 type Symbol struct {
-	Atom *Substring
+	Expr Q
 }
 
 func (s *Symbol) String() string {
-	return fmt.Sprintf("sym:%s", s.Atom)
+	return fmt.Sprintf("sym:%s", s.Expr)
 }
 
 func (q *Regexp) String() string {
@@ -138,7 +138,9 @@ func (q *Substring) setCase(k string) {
 }
 
 func (q *Symbol) setCase(k string) {
-	q.Atom.setCase(k)
+	if sc, ok := q.Expr.(setCaser); ok {
+		sc.setCase(k)
+	}
 }
 
 func (q *Regexp) setCase(k string) {

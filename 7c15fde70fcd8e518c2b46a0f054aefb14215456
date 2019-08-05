@@ -45,6 +45,30 @@
       "revId": "7c15fde70fcd8e518c2b46a0f054aefb14215456",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "935f1ad7_c0855a7f",
+        "filename": "matchtree.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1085159
+      },
+      "writtenOn": "2019-08-05T13:19:26Z",
+      "side": 1,
+      "message": "We can\u0027t say for sure what subMT is because of the case that a substring with fewer than three characters is also treated as a regexpMatchTree.\n\n\"sym:.*\"    - And{Regexp: .*, NoMatch{Const: true}}\n\"sym:bla.*\" - And{Regexp: bla.*, NoMatch{Substring: bla}}\n\"sym:ba\"    - Regexp: ba\n\nIt could be an and match tree or regexp match tree.This is why I chose to traverse the tree to find the regexpMatchTree node.\n\nI will change visitMatchTree to visitMatches though to decrease search area.",
+      "parentUuid": "f5312f24_5b3fe2d4",
+      "range": {
+        "startLine": 709,
+        "startChar": 2,
+        "endLine": 709,
+        "endChar": 16
+      },
+      "revId": "7c15fde70fcd8e518c2b46a0f054aefb14215456",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

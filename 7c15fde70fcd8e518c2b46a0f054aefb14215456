@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7bb0d0dc_5339dd01",
+        "filename": "matchtree.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-08-05T11:38:42Z",
+      "side": 1,
+      "message": "have you thought of a way to use some of the match information from regexp subtree? This looks like it\u0027s brute-forcing over the file.  I think that you could drop all the sections that lead up to the first trigram match you find, for example.",
+      "range": {
+        "startLine": 169,
+        "startChar": 21,
+        "endLine": 169,
+        "endChar": 29
+      },
+      "revId": "7c15fde70fcd8e518c2b46a0f054aefb14215456",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5312f24_5b3fe2d4",
+        "filename": "matchtree.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-08-05T11:38:42Z",
+      "side": 1,
+      "message": "shouldn\u0027t subMT be a regexpMatchTree so you can extract it directly?",
+      "range": {
+        "startLine": 709,
+        "startChar": 2,
+        "endLine": 709,
+        "endChar": 16
+      },
+      "revId": "7c15fde70fcd8e518c2b46a0f054aefb14215456",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

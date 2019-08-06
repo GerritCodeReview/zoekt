@@ -25,6 +25,47 @@
     },
     {
       "key": {
+        "uuid": "e78f1618_e3838e88",
+        "filename": "matchtree.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1082084
+      },
+      "writtenOn": "2019-08-06T09:08:00Z",
+      "side": 1,
+      "message": "Thats a good idea, but I think is a bit tricky. You would want to skip all sections that have sec.End \u003c trigram. But I don\u0027t think it is sorted like that? However, you could just check if the trigram is in section before running regexp and then we also skip over sections after the trigram.",
+      "parentUuid": "7bb0d0dc_5339dd01",
+      "range": {
+        "startLine": 169,
+        "startChar": 21,
+        "endLine": 169,
+        "endChar": 29
+      },
+      "revId": "7c15fde70fcd8e518c2b46a0f054aefb14215456",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8aebd46_4f68cd79",
+        "filename": "matchtree.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1082084
+      },
+      "writtenOn": "2019-08-06T09:08:00Z",
+      "side": 1,
+      "message": "So the reason we didn\u0027t need to visit symbol matches before is that it was just a normal substring matchtree, just with a trim by section iterator?\n\nWhy do we need to change to a symbolSubstrMatchTree?",
+      "revId": "7c15fde70fcd8e518c2b46a0f054aefb14215456",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f5312f24_5b3fe2d4",
         "filename": "matchtree.go",
         "patchSetId": 1

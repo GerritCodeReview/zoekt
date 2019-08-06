@@ -7,10 +7,11 @@
       "updated": "2019-08-06T21:21:41Z"
     },
     "fmt:go-77d734ff736f9a0f14183ccbd03c9821ee79ffa2": {
-      "state": "RUNNING",
+      "state": "FAILED",
+      "message": "index_test.go: found a difference",
       "started": "2019-08-06T21:21:41Z",
       "created": "2019-08-06T21:21:41Z",
-      "updated": "2019-08-06T21:21:41Z"
+      "updated": "2019-08-06T21:21:42Z"
     }
   }
 }

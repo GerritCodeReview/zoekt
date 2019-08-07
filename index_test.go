@@ -1651,7 +1651,7 @@ func TestSymbolBoundaryStart(t *testing.T) {
 		},
 	)
 	q := &query.Symbol{
-		Atom: &query.Substring{Pattern: "start"},
+		Expr: &query.Substring{Pattern: "start"},
 	}
 	res := searchForTest(t, b, q)
 	if len(res.Files) != 1 || len(res.Files[0].LineMatches) != 1 {
@@ -1675,7 +1675,7 @@ func TestSymbolBoundaryEnd(t *testing.T) {
 		},
 	)
 	q := &query.Symbol{
-		Atom: &query.Substring{Pattern: "end"},
+		Expr: &query.Substring{Pattern: "end"},
 	}
 	res := searchForTest(t, b, q)
 	if len(res.Files) != 1 || len(res.Files[0].LineMatches) != 1 {
@@ -1687,7 +1687,7 @@ func TestSymbolBoundaryEnd(t *testing.T) {
 	}
 }
 
-func TestSymbolAtom(t *testing.T) {
+func TestSymbolSubstring(t *testing.T) {
 	content := []byte("bla\nsymblabla\nbla")
 	// ----------------0123 456789012
 
@@ -1699,7 +1699,7 @@ func TestSymbolAtom(t *testing.T) {
 		},
 	)
 	q := &query.Symbol{
-		Atom: &query.Substring{Pattern: "bla"},
+		Expr: &query.Substring{Pattern: "bla"},
 	}
 	res := searchForTest(t, b, q)
 	if len(res.Files) != 1 || len(res.Files[0].LineMatches) != 1 {
@@ -1711,7 +1711,7 @@ func TestSymbolAtom(t *testing.T) {
 	}
 }
 
-func TestSymbolAtomExact(t *testing.T) {
+func TestSymbolSubstringExact(t *testing.T) {
 	content := []byte("bla\nsym\nbla\nsym\nasymb")
 	// ----------------0123 4567 89012
 
@@ -1723,7 +1723,7 @@ func TestSymbolAtomExact(t *testing.T) {
 		},
 	)
 	q := &query.Symbol{
-		Atom: &query.Substring{Pattern: "sym"},
+		Expr: &query.Substring{Pattern: "sym"},
 	}
 	res := searchForTest(t, b, q)
 	if len(res.Files) != 1 || len(res.Files[0].LineMatches) != 1 {
@@ -1732,6 +1732,93 @@ func TestSymbolAtomExact(t *testing.T) {
 	m := res.Files[0].LineMatches[0].LineFragments[0]
 	if m.Offset != 4 {
 		t.Fatalf("got offset %d, want 7", m.Offset)
+	}
+}
+
+func TestSymbolRegexpExact(t *testing.T) {
+	content := []byte("blah\nbla\nbl")
+	// ----------------01234 5678 90
+
+	b := testIndexBuilder(t, &Repository{Name: "reponame"},
+		Document{
+			Name:    "f1",
+			Content: content,
+			Symbols: []DocumentSection{{0, 4}, {5, 8}, {9, 11}},
+		},
+	)
+	q := &query.Symbol{
+		Expr: &query.Regexp{Regexp: mustParseRE("^bla$")},
+	}
+	res := searchForTest(t, b, q)
+	if len(res.Files) != 1 || len(res.Files[0].LineMatches) != 1 {
+		t.Fatalf("got %v, want 1 line in 1 file", res.Files)
+	}
+	m := res.Files[0].LineMatches[0].LineFragments[0]
+	if m.Offset != 5 {
+		t.Fatalf("got offset %d, want 5", m.Offset)
+	}
+}
+
+func TestSymbolRegexpPartial(t *testing.T) {
+	content := []byte("abcdef")
+	// ----------------012345
+
+	b := testIndexBuilder(t, &Repository{Name: "reponame"},
+		Document{
+			Name:    "f1",
+			Content: content,
+			Symbols: []DocumentSection{{0, 6}},
+		},
+	)
+	q := &query.Symbol{
+		Expr: &query.Regexp{Regexp: mustParseRE("(b|d)c(d|b)")},
+	}
+	res := searchForTest(t, b, q)
+	if len(res.Files) != 1 || len(res.Files[0].LineMatches) != 1 {
+		t.Fatalf("got %v, want 1 line in 1 file", res.Files)
+	}
+	m := res.Files[0].LineMatches[0].LineFragments[0]
+	if m.Offset != 1 {
+		t.Fatalf("got offset %d, want 1", m.Offset)
+	}
+	if m.MatchLength != 3 {
+		t.Fatalf("got match length %d, want 3", m.MatchLength)
+	}
+}
+
+func TestSymbolRegexpAll(t *testing.T) {
+	docs := []Document{
+		Document{
+			Name:    "f1",
+			Content: []byte("Hello Zoekt"),
+			Symbols: []DocumentSection{{0, 5}, {6, 11}},
+		},
+		Document{
+			Name:    "f2",
+			Content: []byte("Second Zoekt Third"),
+			Symbols: []DocumentSection{{0, 6}, {7, 12}, {13, 18}},
+		},
+	}
+
+	b := testIndexBuilder(t, &Repository{Name: "reponame"}, docs...)
+	q := &query.Symbol{
+		Expr: &query.Regexp{Regexp: mustParseRE(".*")},
+	}
+	res := searchForTest(t, b, q)
+	if len(res.Files) != len(docs) {
+		t.Fatalf("got %v, want %d file", res.Files, len(docs))
+	}
+	for i, want := range docs {
+		got := res.Files[i].LineMatches[0].LineFragments
+		if len(got) != len(want.Symbols) {
+			t.Fatalf("got %d symbols, want %d symbols in doc %s", len(got), len(want.Symbols), want.Name)
+		}
+
+		for j, sec := range want.Symbols {
+			if sec.Start != got[j].Offset {
+				t.Fatalf("got offset %d, want %d in doc %s", got[j].Offset, sec.Start, want.Name)
+			}
+		}
 	}
 }
 

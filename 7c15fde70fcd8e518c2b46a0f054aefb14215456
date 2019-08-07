@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "6c932da1_d720b36d",
+        "filename": "matchtree.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1085159
+      },
+      "writtenOn": "2019-08-07T18:21:16Z",
+      "side": 1,
+      "message": "That could be a good way to filter out noise.\n\n---\n\nI\u0027m thinking of writing a matchIterator {nextDoc, prepare, candidates} specifically for DocumentSections similar to how it\u0027s done for files in ngramDocIterator. It would form a logic tree (and, or) from the extracted literals of the regex being searched. Then iterate and return sections that could possibly match the regex by satisfying this logic tree. This might require a bit of refactoring.\n\n\"abc(def|ghi)\" -\u003e and{abc or{def ghi}}\n\nlogic: in order for a DocumentSection to be a valid candidate, the offset of ngrams abc and def or ghi would have to be between DocumentSection.Start and DocumentSection.End. It wouldn\u0027t check every ngram too. It would do a distance iterator between the two lowest frequency ngram for each literal. \n\nI haven\u0027t explored the time/space complexity of this yet, but it might not differ from what Zoekt has currently with files.",
+      "parentUuid": "e78f1618_e3838e88",
+      "range": {
+        "startLine": 169,
+        "startChar": 21,
+        "endLine": 169,
+        "endChar": 29
+      },
+      "revId": "7c15fde70fcd8e518c2b46a0f054aefb14215456",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c8aebd46_4f68cd79",
         "filename": "matchtree.go",
         "patchSetId": 1

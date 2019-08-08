@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "c9694834_074358f2",
+        "filename": "matchtree.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-08-08T10:08:46Z",
+      "side": 1,
+      "message": "Seems that if it works between docs, it should work within docs too.\n\nI have resisted doing things so far because I couldn\u0027t think of a way to use for regular regex searches, but it might be worth a try (actually: if you take a line to be a doc section, you could speed up regex searches in this way too.)\n\nwe could do this in a separate change, though. I think it would be best if you could find representative samples to benchmark first, because it might not be worth the effort.",
+      "parentUuid": "68039ad2_be059eb5",
+      "range": {
+        "startLine": 169,
+        "startChar": 21,
+        "endLine": 169,
+        "endChar": 29
+      },
+      "revId": "7c15fde70fcd8e518c2b46a0f054aefb14215456",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c8aebd46_4f68cd79",
         "filename": "matchtree.go",
         "patchSetId": 1

@@ -138,6 +138,24 @@
     },
     {
       "key": {
+        "uuid": "d4d7ead3_354ab2d9",
+        "filename": "matchtree.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1085159
+      },
+      "writtenOn": "2019-08-09T05:52:38Z",
+      "side": 1,
+      "message": "I added the symbolSubstrMatchTree for consistency since I was adding in a symbolRegexpMatchTree. This can be reverted though.",
+      "parentUuid": "c8aebd46_4f68cd79",
+      "revId": "7c15fde70fcd8e518c2b46a0f054aefb14215456",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f5312f24_5b3fe2d4",
         "filename": "matchtree.go",
         "patchSetId": 1

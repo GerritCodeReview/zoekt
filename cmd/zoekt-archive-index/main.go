@@ -15,6 +15,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/url"
+	"os"
 	"reflect"
 	"strings"
 
@@ -115,6 +116,8 @@ func (o *Options) SetDefaults() {
 	}
 }
 
+var errIncrementalNOOP = errors.New("incremental index on disk is unchanged")
+
 func do(opts Options, bopts build.Options) error {
 	opts.SetDefaults()
 
@@ -144,7 +147,7 @@ func do(opts Options, bopts build.Options) error {
 	if opts.Incremental {
 		versions := bopts.IndexVersions()
 		if reflect.DeepEqual(versions, bopts.RepositoryDescription.Branches) {
-			return nil
+			return errIncrementalNOOP
 		}
 	}
 
@@ -199,6 +202,7 @@ func do(opts Options, bopts build.Options) error {
 func main() {
 	var (
 		incremental = flag.Bool("incremental", true, "only index changed repositories")
+		detailed    = flag.Bool("detailed-exitcode", false, "Return detailed exit codes when the command exits. This will change the meaning of exit codes to:\n0 - Succeeded, index created/updated\n1 - Errored\n2 - Succeeded, but did no work due to incremental flag")
 
 		name   = flag.String("name", "", "The repository name for the archive")
 		urlRaw = flag.String("url", "", "The repository URL for the archive")
@@ -229,7 +233,12 @@ func main() {
 		Strip:   *strip,
 	}
 
-	if err := do(opts, *bopts); err != nil {
+	if err := do(opts, *bopts); err == errIncrementalNOOP {
+		if *detailed {
+			log.Println(err)
+			os.Exit(2)
+		}
+	} else if err != nil {
 		log.Fatal(err)
 	}
 }

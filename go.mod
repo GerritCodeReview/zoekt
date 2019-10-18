@@ -16,3 +16,5 @@ require (
 	golang.org/x/sync v0.0.0-20190227155943-e225da77a7e6
 	gopkg.in/src-d/go-git.v4 v4.8.0
 )
+
+go 1.13

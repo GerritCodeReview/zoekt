@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c56c6426_34ddc01d",
+        "filename": "ctags/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-10-21T07:25:09Z",
+      "side": 1,
+      "message": "%q, without string conversion",
+      "range": {
+        "startLine": 92,
+        "startChar": 20,
+        "endLine": 92,
+        "endChar": 21
+      },
+      "revId": "fd1c8ec4c1e32576f32fdc06a5574863c2f696f5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eade6e89_39e3bc7b",
+        "filename": "ctags/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-10-21T07:25:09Z",
+      "side": 1,
+      "message": "%q ?",
+      "range": {
+        "startLine": 102,
+        "startChar": 33,
+        "endLine": 102,
+        "endChar": 34
+      },
+      "revId": "fd1c8ec4c1e32576f32fdc06a5574863c2f696f5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0f6bb2a_da082adc",
+        "filename": "ctags/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-10-21T07:25:09Z",
+      "side": 1,
+      "message": "use different name for readability (1 vs l)",
+      "range": {
+        "startLine": 217,
+        "startChar": 5,
+        "endLine": 217,
+        "endChar": 7
+      },
+      "revId": "fd1c8ec4c1e32576f32fdc06a5574863c2f696f5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45cfd9af_6cd6546b",
+        "filename": "ctags/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-10-21T07:25:09Z",
+      "side": 1,
+      "message": "could fold with previous loop?",
+      "range": {
+        "startLine": 219,
+        "startChar": 3,
+        "endLine": 220,
+        "endChar": 3
+      },
+      "revId": "fd1c8ec4c1e32576f32fdc06a5574863c2f696f5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71513123_68046bf1",
+        "filename": "ctags/json_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-10-21T07:25:09Z",
+      "side": 1,
+      "message": "for _, l :\u003d range []string{ .. } { b.writestring(l) }",
+      "range": {
+        "startLine": 117,
+        "startChar": 3,
+        "endLine": 117,
+        "endChar": 14
+      },
+      "revId": "fd1c8ec4c1e32576f32fdc06a5574863c2f696f5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3275138b_5d9df3d0",
+        "filename": "go.mod",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-10-21T07:25:09Z",
+      "side": 1,
+      "message": "does this set the requirement for Go version? If so, why? go1.13 is super recent, so this will cause problems for people on older versions of Go.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 0
+      },
+      "revId": "fd1c8ec4c1e32576f32fdc06a5574863c2f696f5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

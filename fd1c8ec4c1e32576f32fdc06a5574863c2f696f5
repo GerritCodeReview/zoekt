@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "81d1dfa7_6090263b",
+        "filename": "ctags/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2019-10-29T13:02:01Z",
+      "side": 1,
+      "message": "TIL! Will update all.",
+      "parentUuid": "c56c6426_34ddc01d",
+      "range": {
+        "startLine": 92,
+        "startChar": 20,
+        "endLine": 92,
+        "endChar": 21
+      },
+      "revId": "fd1c8ec4c1e32576f32fdc06a5574863c2f696f5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eade6e89_39e3bc7b",
         "filename": "ctags/json.go",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "fd1c8ec4c1e32576f32fdc06a5574863c2f696f5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcfed9e1_a8249b72",
+        "filename": "ctags/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2019-10-29T13:02:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "eade6e89_39e3bc7b",
+      "range": {
+        "startLine": 102,
+        "startChar": 33,
+        "endLine": 102,
+        "endChar": 34
+      },
+      "revId": "fd1c8ec4c1e32576f32fdc06a5574863c2f696f5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "711bd138_0aa5abd1",
+        "filename": "ctags/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2019-10-29T13:02:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c0f6bb2a_da082adc",
+      "range": {
+        "startLine": 217,
+        "startChar": 5,
+        "endLine": 217,
+        "endChar": 7
+      },
+      "revId": "fd1c8ec4c1e32576f32fdc06a5574863c2f696f5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45cfd9af_6cd6546b",
         "filename": "ctags/json.go",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2019-10-21T07:25:09Z",
       "side": 1,
       "message": "could fold with previous loop?",
+      "range": {
+        "startLine": 219,
+        "startChar": 3,
+        "endLine": 220,
+        "endChar": 3
+      },
+      "revId": "fd1c8ec4c1e32576f32fdc06a5574863c2f696f5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c54dde4_f379c683",
+        "filename": "ctags/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2019-10-29T13:02:01Z",
+      "side": 1,
+      "message": "I\u0027m unsure what you mean here. Can you give an example?",
+      "parentUuid": "45cfd9af_6cd6546b",
       "range": {
         "startLine": 219,
         "startChar": 3,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "c102e6a1_a3d1ee13",
+        "filename": "ctags/json_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2019-10-29T13:02:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "71513123_68046bf1",
+      "range": {
+        "startLine": 117,
+        "startChar": 3,
+        "endLine": 117,
+        "endChar": 14
+      },
+      "revId": "fd1c8ec4c1e32576f32fdc06a5574863c2f696f5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3275138b_5d9df3d0",
         "filename": "go.mod",
         "patchSetId": 1
@@ -137,6 +257,30 @@
       "revId": "fd1c8ec4c1e32576f32fdc06a5574863c2f696f5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca44b233_28d3e5ee",
+        "filename": "go.mod",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2019-10-29T13:02:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3275138b_5d9df3d0",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 0
+      },
+      "revId": "fd1c8ec4c1e32576f32fdc06a5574863c2f696f5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

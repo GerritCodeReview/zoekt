@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07bc5875_e8d54c11",
+        "filename": "eval.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-10-29T14:27:52Z",
+      "side": 1,
+      "message": "bla bla",
+      "revId": "21ea07ffc1c02c49ba5c605f4cfb43126c2827ba",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

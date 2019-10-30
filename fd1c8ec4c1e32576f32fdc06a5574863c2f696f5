@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "c6d0b364_6bc1b3dc",
+        "filename": "ctags/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-10-30T16:56:08Z",
+      "side": 1,
+      "message": "sorry you don\u0027t have a loop. I meant, you can do :\n\n  for len(line) \u003e 0 \u0026\u0026 (bytes.HasSuffix(line, \"\\n\") || bytes.HasSuffix(line, \"\\n\")) {\n     line \u003d line[:last-1] \n  }\n\nbut on second thought, just use bytes.TrimSuffix twice.",
+      "parentUuid": "3c54dde4_f379c683",
+      "range": {
+        "startLine": 219,
+        "startChar": 3,
+        "endLine": 220,
+        "endChar": 3
+      },
+      "revId": "fd1c8ec4c1e32576f32fdc06a5574863c2f696f5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "71513123_68046bf1",
         "filename": "ctags/json_test.go",
         "patchSetId": 1

@@ -7,7 +7,8 @@
       "updated": "2019-11-16T04:23:35Z"
     },
     "fmt:go-77d734ff736f9a0f14183ccbd03c9821ee79ffa2": {
-      "state": "RUNNING",
+      "state": "FAILED",
+      "message": "eval.go: found a difference",
       "started": "2019-11-16T04:23:35Z",
       "created": "2019-11-16T04:23:36Z",
       "updated": "2019-11-16T04:23:36Z"

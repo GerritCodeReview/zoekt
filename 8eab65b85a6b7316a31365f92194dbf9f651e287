@@ -1,7 +1,8 @@
 {
   "checks": {
     "fmt:commitmsg-77d734ff736f9a0f14183ccbd03c9821ee79ffa2": {
-      "state": "RUNNING",
+      "state": "FAILED",
+      "message": "/COMMIT_MSG: subject must not end in \u0027.\u0027",
       "started": "2019-11-16T04:22:43Z",
       "created": "2019-11-16T04:22:43Z",
       "updated": "2019-11-16T04:22:43Z"

@@ -8,10 +8,10 @@
       "updated": "2019-12-11T19:18:13Z"
     },
     "fmt:go-77d734ff736f9a0f14183ccbd03c9821ee79ffa2": {
-      "state": "RUNNING",
+      "state": "SUCCESSFUL",
       "started": "2019-12-11T19:18:16Z",
       "created": "2019-12-11T19:18:16Z",
-      "updated": "2019-12-11T19:18:16Z"
+      "updated": "2019-12-11T19:18:17Z"
     }
   }
 }

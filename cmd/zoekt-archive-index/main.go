@@ -159,18 +159,13 @@ func do(opts Options, bopts build.Options) error {
 	if err != nil {
 		return err
 	}
-	for {
-		f, err := a.Next()
-		if err == io.EOF {
-			break
-		}
-		if err != nil {
-			return err
-		}
+
+	add := func(f *File) error {
+		defer f.Close()
 
 		// We do not index large files
 		if f.Size > int64(bopts.SizeMax) && !bopts.IgnoreSizeMax(f.Name) {
-			continue
+			return nil
 		}
 
 		contents, err := ioutil.ReadAll(f)
@@ -180,20 +175,57 @@ func do(opts Options, bopts build.Options) error {
 
 		name := stripComponents(f.Name, opts.Strip)
 		if name == "" {
-			continue
+			return nil
 		}
 
-		err = builder.Add(zoekt.Document{
+		return builder.Add(zoekt.Document{
 			Name:     name,
 			Content:  contents,
 			Branches: brs,
 		})
+	}
+
+	for {
+		f, err := a.Next()
+		if err == io.EOF {
+			break
+		}
 		if err != nil {
+			return err
+		}
+
+		if err := add(f); err != nil {
 			return err
 		}
 	}
 
 	return builder.Finish()
+}
+
+func addFile(bopts *build.Options, f *File) error {
+	// We do not index large files
+	if f.Size > int64(bopts.SizeMax) && !bopts.IgnoreSizeMax(f.Name) {
+		return
+	}
+
+	contents, err := ioutil.ReadAll(f)
+	if err != nil {
+		return err
+	}
+
+	name := stripComponents(f.Name, opts.Strip)
+	if name == "" {
+		continue
+	}
+
+	err = builder.Add(zoekt.Document{
+		Name:     name,
+		Content:  contents,
+		Branches: brs,
+	})
+	if err != nil {
+		return err
+	}
 }
 
 func main() {

@@ -2,6 +2,7 @@ package main
 
 import (
 	"archive/tar"
+	"archive/zip"
 	"bytes"
 	"compress/gzip"
 	"fmt"
@@ -53,6 +54,89 @@ func (a *tarArchive) Close() error {
 	return a.closer.Close()
 }
 
+type zipArchive struct {
+	files []*zip.File
+
+	last   io.Closer
+	closer io.Closer
+}
+
+func (a *zipArchive) Next() (*File, error) {
+	if err := a.closeLast(); err != nil {
+		return nil, err
+	}
+
+	if len(a.files) == 0 {
+		return nil, io.EOF
+	}
+
+	f := a.files[0]
+	a.files = a.files[1:]
+
+	r, err := f.Open()
+	if err != nil {
+		return nil, err
+	}
+	a.last = r
+
+	return &File{
+		Reader: r,
+		Name:   f.Name,
+		Size:   int64(f.UncompressedSize64),
+	}, nil
+}
+
+func (a *zipArchive) Close() error {
+	err := a.closeLast()
+	if err2 := a.closer.Close(); err2 != nil {
+		err = err2
+	}
+	return err
+}
+
+func (a *zipArchive) closeLast() error {
+	if a.last == nil {
+		return nil
+	}
+
+	err := a.last.Close()
+	a.last = nil
+	return err
+}
+
+func newZipArchive(r io.Reader, closer io.Closer) (*zipArchive, error) {
+	f, ok := r.(interface {
+		io.ReaderAt
+		Stat() (os.FileInfo, error)
+	})
+	if !ok {
+		return nil, fmt.Errorf("streaming zip files not supported")
+	}
+
+	fi, err := f.Stat()
+	if err != nil {
+		return nil, err
+	}
+
+	zr, err := zip.NewReader(f, fi.Size())
+	if err != nil {
+		return nil, err
+	}
+
+	// Filter out non files
+	files := zr.File[:0]
+	for _, f := range zr.File {
+		if f.Mode().IsRegular() {
+			files = append(files, f)
+		}
+	}
+
+	return &zipArchive{
+		files:  files,
+		closer: closer,
+	}, nil
+}
+
 func detectContentType(r io.Reader) (string, io.Reader, error) {
 	var buf [512]byte
 	n, err := io.ReadFull(r, buf[:])
@@ -62,7 +146,13 @@ func detectContentType(r io.Reader) (string, io.Reader, error) {
 
 	ct := http.DetectContentType(buf[:n])
 
-	// Return a new reader which merges in the read bytes
+	// If we are a seeker, we can just undo our read
+	if s, ok := r.(io.Seeker); ok {
+		_, err := s.Seek(int64(-n), io.SeekCurrent)
+		return ct, r, err
+	}
+
+	// Otherwise return a new reader which merges in the read bytes
 	return ct, io.MultiReader(bytes.NewReader(buf[:n]), r), nil
 }
 
@@ -109,11 +199,15 @@ func openArchive(u string) (ar Archive, err error) {
 	if err != nil {
 		return nil, err
 	}
-	if ct == "application/x-gzip" {
+	switch ct {
+	case "application/x-gzip":
 		r, err = gzip.NewReader(r)
 		if err != nil {
 			return nil, err
 		}
+
+	case "application/zip":
+		return newZipArchive(r, readCloser)
 	}
 
 	return &tarArchive{

@@ -45,6 +45,9 @@ type shardedSearcher struct {
 	capacity int64
 
 	shards map[string]rankedShard
+
+	rankedVersion uint64
+	ranked        []rankedShard
 }
 
 func newShardedSearcher(n int64) *shardedSearcher {
@@ -319,14 +322,29 @@ func (s *shardedSearcher) rlock(ctx context.Context) error {
 // accessed under a rlock call. The shards are sorted by decreasing
 // rank.
 func (s *shardedSearcher) getShards() []rankedShard {
+	if len(s.ranked) > 0 {
+		return s.ranked
+	}
+
 	var res []rankedShard
 	for _, sh := range s.shards {
 		res = append(res, sh)
 	}
-	// TODO: precompute this.
 	sort.Slice(res, func(i, j int) bool {
 		return res[i].rank > res[j].rank
 	})
+
+	// Cache ranked. We currently hold a read lock, so start a goroutine which
+	// acquires a write lock to update. Use requiredVersion to ensure our
+	// cached slice is still current after acquiring the write lock.
+	go func(ranked []rankedShard, requiredVersion uint64) {
+		s.lock()
+		if s.rankedVersion == requiredVersion {
+			s.ranked = ranked
+		}
+		s.unlock()
+	}(res, s.rankedVersion)
+
 	return res
 }
 
@@ -376,6 +394,8 @@ func (s *shardedSearcher) replace(key string, shard zoekt.Searcher) {
 			Searcher: shard,
 		}
 	}
+	s.rankedVersion++
+	s.ranked = nil
 }
 
 func loadShard(fn string) (zoekt.Searcher, error) {

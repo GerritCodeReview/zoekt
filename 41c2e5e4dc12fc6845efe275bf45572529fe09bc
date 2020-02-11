@@ -16,6 +16,24 @@
       "revId": "41c2e5e4dc12fc6845efe275bf45572529fe09bc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ffbc6aa_1adad419",
+        "filename": "shards/shards.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1082084
+      },
+      "writtenOn": "2020-02-11T15:06:41Z",
+      "side": 1,
+      "message": "We have a read lock at this point, so we need to wait for the unlock and then acquire a write lock. Hence the goroutine. rankedVersion then exists since this version of the ranked slice may be out of date.\n\nI\u0027m happy to implement an alternative approach. This just seemed like the most incremental change, but I\u0027m not a big fan of the complexity around rankedVersion.",
+      "parentUuid": "fc04bcc5_31f9a029",
+      "revId": "41c2e5e4dc12fc6845efe275bf45572529fe09bc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

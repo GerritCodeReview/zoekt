@@ -34,6 +34,24 @@
       "revId": "41c2e5e4dc12fc6845efe275bf45572529fe09bc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a08b5883_c0b4ff08",
+        "filename": "shards/shards.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-02-11T15:35:01Z",
+      "side": 1,
+      "message": "that\u0027s a good reason. Can you add a comment?",
+      "parentUuid": "3ffbc6aa_1adad419",
+      "revId": "41c2e5e4dc12fc6845efe275bf45572529fe09bc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

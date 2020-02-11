@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc04bcc5_31f9a029",
+        "filename": "shards/shards.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-02-11T14:12:10Z",
+      "side": 1,
+      "message": "why not assign directly to s.ranked here, for simplicity? You could also get rid of rankedVersion then.",
+      "revId": "41c2e5e4dc12fc6845efe275bf45572529fe09bc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

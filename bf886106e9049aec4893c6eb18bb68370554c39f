@@ -22,6 +22,30 @@
       "revId": "bf886106e9049aec4893c6eb18bb68370554c39f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9170dafa_bae1f9d5",
+        "filename": "shards/shards.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1082084
+      },
+      "writtenOn": "2020-02-12T15:15:14Z",
+      "side": 1,
+      "message": "updated comment. Two call sites, both just iterate or do len the slice.",
+      "parentUuid": "ca72becc_d99d4aca",
+      "range": {
+        "startLine": 322,
+        "startChar": 33,
+        "endLine": 323,
+        "endChar": 8
+      },
+      "revId": "bf886106e9049aec4893c6eb18bb68370554c39f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

@@ -7,10 +7,11 @@
       "updated": "2020-02-28T15:34:09Z"
     },
     "fmt:go-77d734ff736f9a0f14183ccbd03c9821ee79ffa2": {
-      "state": "RUNNING",
+      "state": "FAILED",
+      "message": "tool failure: mkdir /tmp/gerritfmt630176274: no space left on device",
       "started": "2020-02-28T15:56:39Z",
       "created": "2020-02-28T15:34:10Z",
-      "updated": "2020-02-28T15:56:39Z"
+      "updated": "2020-02-28T15:56:40Z"
     }
   }
 }

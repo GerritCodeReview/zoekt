@@ -17,6 +17,7 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"math/rand"
@@ -44,6 +45,7 @@ type ConfigEntry struct {
 	Exclude                string
 	GitLabURL              string
 	OnlyPublic             bool
+	GerritApiUrl           string
 }
 
 func randomize(entries []ConfigEntry) []ConfigEntry {
@@ -226,6 +228,30 @@ func executeMirror(cfg []ConfigEntry, repoDir string, pendingRepos chan<- string
 			if c.CredentialPath != "" {
 				cmd.Args = append(cmd.Args, "-token", c.CredentialPath)
 			}
+		} else if c.GerritApiUrl != "" {
+			parsedURL, err := url.Parse(c.GerritApiUrl)
+			repoURL := ""
+			if err != nil {
+				log.Fatal(err)
+			}
+			if c.CredentialPath != "" {
+				repoURL = fmt.Sprintf("%s://%s@%s%s", "https",
+					c.CredentialPath,
+					parsedURL.Host,
+					parsedURL.Path)
+			}
+			if len(repoURL) == 0 {
+				log.Fatal("Missing API url")
+			}
+			cmd = exec.Command("zoekt-mirror-gerrit",
+				"-dest", repoDir)
+			if c.Name != "" {
+				cmd.Args = append(cmd.Args, "-name", c.Name)
+			}
+			if c.Exclude != "" {
+				cmd.Args = append(cmd.Args, "-exclude", c.Exclude)
+			}
+			cmd.Args = append(cmd.Args, repoURL)
 		}
 
 		stdout, _ := loggedRun(cmd)

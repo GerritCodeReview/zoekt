@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2b3d0be_970bcb9e",
+        "filename": "cmd/zoekt-indexserver/config.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-03-02T08:41:24Z",
+      "side": 1,
+      "message": "this exposes the password to other users of the same machine, which I have tried to avoid in other places too. The CredentialPath should be a file on disk, which the mirrorrng tool should read.",
+      "range": {
+        "startLine": 238,
+        "startChar": 31,
+        "endLine": 238,
+        "endChar": 37
+      },
+      "revId": "eef6f37a961ce3a5f9274339d560ce8a39c85109",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4797645_6dbfb4c6",
+        "filename": "cmd/zoekt-mirror-gerrit/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-03-02T08:41:24Z",
+      "side": 1,
+      "message": "this is the right place to do the browse -\u003e gitiles transform.",
+      "range": {
+        "startLine": 146,
+        "startChar": 34,
+        "endLine": 146,
+        "endChar": 36
+      },
+      "revId": "eef6f37a961ce3a5f9274339d560ce8a39c85109",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36a1caee_2fc40cdc",
+        "filename": "gitindex/index.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-03-02T08:41:24Z",
+      "side": 1,
+      "message": "this is the wrong place IMO. I think it\u0027s better for zoekt-gerrit-mirror to do this transformation.",
+      "range": {
+        "startLine": 115,
+        "startChar": 55,
+        "endLine": 115,
+        "endChar": 62
+      },
+      "revId": "eef6f37a961ce3a5f9274339d560ce8a39c85109",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

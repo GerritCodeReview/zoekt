@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "784c21f6_f62c8bc2",
+        "filename": "cmd/zoekt-indexserver/config.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-03-11T14:17:31Z",
+      "side": 1,
+      "message": "URL",
+      "range": {
+        "startLine": 47,
+        "startChar": 10,
+        "endLine": 47,
+        "endChar": 13
+      },
+      "revId": "038247220a9fb2b13fb70469f59f95be3afc60f9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

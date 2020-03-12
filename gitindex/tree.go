@@ -127,7 +127,7 @@ func (r *repoWalker) tryHandleSubmodule(p string, id *plumbing.Hash) error {
 		err = nil
 	}
 
-	return nil
+	return err
 }
 
 func (r *repoWalker) handleSubmodule(p string, id *plumbing.Hash) error {

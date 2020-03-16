@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e80fc77a_5ab5aa53",
+        "filename": "cmd/zoekt-mirror-gerrit/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-03-16T18:07:55Z",
+      "side": 1,
+      "message": "that is an odd type to use, but I guess go-gerrit doesn\u0027t leave you any choice.",
+      "range": {
+        "startLine": 130,
+        "startChar": 9,
+        "endLine": 130,
+        "endChar": 12
+      },
+      "revId": "8a492e33f4d5de9778a94ae741e4a14aa5a71004",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

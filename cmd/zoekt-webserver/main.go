@@ -33,6 +33,7 @@ import (
 	"github.com/google/zoekt/build"
 	"github.com/google/zoekt/shards"
 	"github.com/google/zoekt/web"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"go.uber.org/automaxprocs/maxprocs"
 	"golang.org/x/net/trace"
 )
@@ -190,6 +191,7 @@ func main() {
 	}
 
 	if *enablePprof {
+		handler.Handle("/metrics", promhttp.Handler())
 		handler.HandleFunc("/debug/pprof/", pprof.Index)
 		handler.HandleFunc("/debug/pprof/cmdline", pprof.Cmdline)
 		handler.HandleFunc("/debug/pprof/profile", pprof.Profile)

@@ -34,6 +34,52 @@
       "revId": "11e24227c5164fc5447c0d20d87c10e1424754ae",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "665537e7_1bb9edc5",
+        "filename": "shards/shards.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-03-19T17:16:02Z",
+      "side": 1,
+      "message": "can you prefix these with \"metric\" ?",
+      "range": {
+        "startLine": 37,
+        "startChar": 1,
+        "endLine": 37,
+        "endChar": 13
+      },
+      "revId": "11e24227c5164fc5447c0d20d87c10e1424754ae",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c025cb8c_e5b7143f",
+        "filename": "shards/shards.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-03-19T17:16:02Z",
+      "side": 1,
+      "message": "part of me thinks it would be cool to use reflection here, but it\u0027s probably overkill.\n\nCan you add a comment near the declaration that the xxxTotal metrics should be match the fields in the Stats struct?",
+      "range": {
+        "startLine": 215,
+        "startChar": 3,
+        "endLine": 215,
+        "endChar": 32
+      },
+      "revId": "11e24227c5164fc5447c0d20d87c10e1424754ae",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

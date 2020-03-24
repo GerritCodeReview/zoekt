@@ -45,6 +45,8 @@ type ConfigEntry struct {
 	GitLabURL              string
 	OnlyPublic             bool
 	GerritApiURL           string
+	WithTopics             []string
+	WithoutTopics          []string
 }
 
 func randomize(entries []ConfigEntry) []ConfigEntry {
@@ -178,6 +180,16 @@ func executeMirror(cfg []ConfigEntry, repoDir string, pendingRepos chan<- string
 			}
 			if c.CredentialPath != "" {
 				cmd.Args = append(cmd.Args, "-token", c.CredentialPath)
+			}
+			if len(c.WithTopics) > 0 {
+				for _, topic := range c.WithTopics {
+					cmd.Args = append(cmd.Args, "-with_topic", topic)
+				}
+			}
+			if len(c.WithoutTopics) > 0 {
+				for _, topic := range c.WithoutTopics {
+					cmd.Args = append(cmd.Args, "-without_topic", topic)
+				}
 			}
 		} else if c.GitilesURL != "" {
 			cmd = exec.Command("zoekt-mirror-gitiles",

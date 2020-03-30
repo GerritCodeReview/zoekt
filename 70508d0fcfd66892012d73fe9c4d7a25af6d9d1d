@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e1f0c8e_4bba381d",
+        "filename": "cmd/zoekt-indexserver/config.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-03-30T09:26:18Z",
+      "side": 1,
+      "message": "This can be a generic option DisableTLS, because other indexers might also support it at some point",
+      "range": {
+        "startLine": 41,
+        "startChar": 1,
+        "endLine": 41,
+        "endChar": 20
+      },
+      "revId": "70508d0fcfd66892012d73fe9c4d7a25af6d9d1d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b1b68c4_fd676896",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-03-30T09:26:18Z",
+      "side": 1,
+      "message": "this is common. Can you do the config init depending on flag settings?",
+      "range": {
+        "startLine": 111,
+        "startChar": 10,
+        "endLine": 111,
+        "endChar": 36
+      },
+      "revId": "70508d0fcfd66892012d73fe9c4d7a25af6d9d1d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

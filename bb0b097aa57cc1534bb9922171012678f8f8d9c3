@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b553e53c_9c962c23",
+        "filename": "cmd/zoekt-indexserver/config.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-03-31T17:19:51Z",
+      "side": 1,
+      "message": "Topics\nExcludeTopics\n\nadjust the other names (flags, vars etc.) to follow this.",
+      "range": {
+        "startLine": 48,
+        "startChar": 1,
+        "endLine": 48,
+        "endChar": 11
+      },
+      "revId": "bb0b097aa57cc1534bb9922171012678f8f8d9c3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1518e062_ce7fc6ce",
+        "filename": "cmd/zoekt-mirror-github/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-03-31T17:19:51Z",
+      "side": 1,
+      "message": "what is this string used for?\n\nI would expect both flags to use the same type.",
+      "range": {
+        "startLine": 43,
+        "startChar": 25,
+        "endLine": 43,
+        "endChar": 37
+      },
+      "revId": "bb0b097aa57cc1534bb9922171012678f8f8d9c3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75517fa6_12ff41bc",
+        "filename": "cmd/zoekt-mirror-github/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-03-31T17:19:51Z",
+      "side": 1,
+      "message": "s1, s2 []string",
+      "range": {
+        "startLine": 226,
+        "startChar": 19,
+        "endLine": 226,
+        "endChar": 38
+      },
+      "revId": "bb0b097aa57cc1534bb9922171012678f8f8d9c3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c34802b9_06ba5105",
+        "filename": "cmd/zoekt-mirror-github/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-03-31T17:19:51Z",
+      "side": 1,
+      "message": "do you need this? I think you can do \n\n\n   hash1 :\u003d .. convert s1 ..\n   for _, s :\u003d range s2 {\n      if hash1[s] {\n           ..add to result\n       }\n   } \n   return result",
+      "range": {
+        "startLine": 231,
+        "startChar": 1,
+        "endLine": 231,
+        "endChar": 10
+      },
+      "revId": "bb0b097aa57cc1534bb9922171012678f8f8d9c3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "250b6da1_68ba116e",
+        "filename": "cmd/zoekt-mirror-github/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-03-31T17:19:51Z",
+      "side": 1,
+      "message": "since this is only doing topic filtering, I\u0027d suggest\n\n func filterByTopic(repos []*github.Repo, topic []string, exclude []string) \n\nas signature",
+      "range": {
+        "startLine": 243,
+        "startChar": 45,
+        "endLine": 243,
+        "endChar": 57
+      },
+      "revId": "bb0b097aa57cc1534bb9922171012678f8f8d9c3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

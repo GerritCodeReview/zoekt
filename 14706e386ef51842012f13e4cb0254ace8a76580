@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8c01341_d8fcc5a6",
+        "filename": "cmd/zoekt-indexserver/config.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-04-02T10:33:01Z",
+      "side": 1,
+      "message": "drop the if, here and below.",
+      "range": {
+        "startLine": 184,
+        "startChar": 3,
+        "endLine": 185,
+        "endChar": 3
+      },
+      "revId": "14706e386ef51842012f13e4cb0254ace8a76580",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55afe986_c61435bf",
+        "filename": "cmd/zoekt-mirror-github/main.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-04-02T10:33:01Z",
+      "side": 1,
+      "message": "no named returns unless they make godoc look better.",
+      "range": {
+        "startLine": 213,
+        "startChar": 36,
+        "endLine": 213,
+        "endChar": 41
+      },
+      "revId": "14706e386ef51842012f13e4cb0254ace8a76580",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ae9f25f_e7a2a41f",
+        "filename": "cmd/zoekt-mirror-github/main.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-04-02T10:33:01Z",
+      "side": 1,
+      "message": "you really want a hasIntersection function instead.",
+      "range": {
+        "startLine": 229,
+        "startChar": 7,
+        "endLine": 229,
+        "endChar": 19
+      },
+      "revId": "14706e386ef51842012f13e4cb0254ace8a76580",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee0bdbb7_0771e841",
+        "filename": "cmd/zoekt-mirror-github/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-04-02T08:42:35Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 42,
+        "startChar": 13,
+        "endLine": 42,
+        "endChar": 25
+      },
+      "revId": "2c8e65e2c2b8776df1f552217fbd74f92a5997fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9235d7dc_7505130a",
+        "filename": "cmd/zoekt-mirror-github/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-04-02T08:42:35Z",
+      "side": 1,
+      "message": "\",\" no?",
+      "range": {
+        "startLine": 43,
+        "startChar": 24,
+        "endLine": 43,
+        "endChar": 26
+      },
+      "revId": "2c8e65e2c2b8776df1f552217fbd74f92a5997fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "602efd84_d16311cb",
+        "filename": "cmd/zoekt-mirror-github/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-04-02T08:42:35Z",
+      "side": 1,
+      "message": "make the var follow the name of the flag too.",
+      "range": {
+        "startLine": 71,
+        "startChar": 11,
+        "endLine": 71,
+        "endChar": 24
+      },
+      "revId": "2c8e65e2c2b8776df1f552217fbd74f92a5997fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

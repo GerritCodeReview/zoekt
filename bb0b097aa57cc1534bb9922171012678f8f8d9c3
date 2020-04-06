@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "e5d65bf8_40f499d8",
+        "filename": "cmd/zoekt-mirror-github/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-04-06T09:37:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9c356f02_633d2788",
+      "range": {
+        "startLine": 43,
+        "startChar": 25,
+        "endLine": 43,
+        "endChar": 37
+      },
+      "revId": "bb0b097aa57cc1534bb9922171012678f8f8d9c3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75517fa6_12ff41bc",
         "filename": "cmd/zoekt-mirror-github/main.go",
         "patchSetId": 3
@@ -187,6 +211,30 @@
       "revId": "bb0b097aa57cc1534bb9922171012678f8f8d9c3",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "456b8b63_e5dd0991",
+        "filename": "cmd/zoekt-mirror-github/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-04-06T09:37:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8d203051_d03c32e1",
+      "range": {
+        "startLine": 231,
+        "startChar": 1,
+        "endLine": 231,
+        "endChar": 10
+      },
+      "revId": "bb0b097aa57cc1534bb9922171012678f8f8d9c3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {

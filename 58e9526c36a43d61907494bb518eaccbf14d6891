@@ -46,6 +46,30 @@
       "revId": "58e9526c36a43d61907494bb518eaccbf14d6891",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b4f2aba_42449de4",
+        "filename": "build/builder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2020-05-05T11:55:26Z",
+      "side": 1,
+      "message": "did your suggestion, I like it :) So will just push that up.",
+      "parentUuid": "55cdf92a_631278ae",
+      "range": {
+        "startLine": 120,
+        "startChar": 1,
+        "endLine": 120,
+        "endChar": 3
+      },
+      "revId": "58e9526c36a43d61907494bb518eaccbf14d6891",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

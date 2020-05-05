@@ -40,6 +40,13 @@ import (
 
 var DefaultDir = filepath.Join(os.Getenv("HOME"), ".zoekt")
 
+const (
+	defaultSizeMax     = 2 << 20
+	defaultTrigramMax  = 20000
+	defaultShardMax    = 100 << 20
+	defaultParallelism = 4
+)
+
 // Branch describes a single branch version.
 type Branch struct {
 	Name    string
@@ -110,10 +117,10 @@ func (f largeFilesFlag) Set(value string) error {
 
 // Flags adds flags for build options to fs.
 func (o *Options) Flags(fs *flag.FlagSet) {
-	fs.IntVar(&o.SizeMax, "file_limit", 2<<20, "maximum file size")
-	fs.IntVar(&o.TrigramMax, "max_trigram_count", 20000, "maximum number of trigrams per document")
-	fs.IntVar(&o.ShardMax, "shard_limit", 100<<20, "maximum corpus size for a shard")
-	fs.IntVar(&o.Parallelism, "parallelism", 4, "maximum number of parallel indexing processes.")
+	fs.IntVar(&o.SizeMax, "file_limit", defaultSizeMax, "maximum file size")
+	fs.IntVar(&o.TrigramMax, "max_trigram_count", defaultTrigramMax, "maximum number of trigrams per document")
+	fs.IntVar(&o.ShardMax, "shard_limit", defaultShardMax, "maximum corpus size for a shard")
+	fs.IntVar(&o.Parallelism, "parallelism", defaultParallelism, "maximum number of parallel indexing processes.")
 	fs.StringVar(&o.IndexDir, "index", DefaultDir, "directory for search indices")
 	fs.BoolVar(&o.CTagsMustSucceed, "require_ctags", false, "If set, ctags calls must succeed.")
 	fs.Var(largeFilesFlag{o}, "large_file", "A glob pattern where matching files are to be index regardless of their size. You can add multiple patterns by setting this more than once.")
@@ -162,16 +169,16 @@ func (o *Options) SetDefaults() {
 		}
 	}
 	if o.Parallelism == 0 {
-		o.Parallelism = 1
+		o.Parallelism = defaultParallelism
 	}
 	if o.SizeMax == 0 {
-		o.SizeMax = 128 << 10
+		o.SizeMax = defaultSizeMax
 	}
 	if o.ShardMax == 0 {
-		o.ShardMax = 128 << 20
+		o.ShardMax = defaultShardMax
 	}
 	if o.TrigramMax == 0 {
-		o.TrigramMax = 20000
+		o.TrigramMax = defaultTrigramMax
 	}
 
 	if o.RepositoryDescription.Name == "" && o.RepositoryDescription.URL != "" {

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35b9dc3f_5879363f",
+        "filename": "build/builder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-05-05T10:38:06Z",
+      "side": 1,
+      "message": "wouldn\u0027t it be easier to do something like\n\n  x :\u003d *o\n  x.SetDefaults()\n  fs.IntVar(\u0026o.SizeMax, \"file_limit\", x.SizeMax, \"max\")\n\nthe constants seem unnecessary (or do you have a future plan where they figure?)",
+      "range": {
+        "startLine": 120,
+        "startChar": 1,
+        "endLine": 120,
+        "endChar": 3
+      },
+      "revId": "58e9526c36a43d61907494bb518eaccbf14d6891",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

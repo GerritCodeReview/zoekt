@@ -22,6 +22,30 @@
       "revId": "58e9526c36a43d61907494bb518eaccbf14d6891",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55cdf92a_631278ae",
+        "filename": "build/builder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2020-05-05T11:46:45Z",
+      "side": 1,
+      "message": "Agreed. Will update to use that. Minor impl questions. Should we just assume SetDefaults was called beforehand, or use the trick you mentioned were you call SetDefaults on a copied version?",
+      "parentUuid": "35b9dc3f_5879363f",
+      "range": {
+        "startLine": 120,
+        "startChar": 1,
+        "endLine": 120,
+        "endChar": 3
+      },
+      "revId": "58e9526c36a43d61907494bb518eaccbf14d6891",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

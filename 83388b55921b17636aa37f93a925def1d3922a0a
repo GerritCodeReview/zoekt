@@ -8,10 +8,11 @@
       "updated": "2020-05-05T11:57:57Z"
     },
     "fmt:go-77d734ff736f9a0f14183ccbd03c9821ee79ffa2": {
-      "state": "RUNNING",
+      "state": "FAILED",
+      "message": "uuid \"fmt:go-77d734ff736f9a0f14183ccbd03c9821ee79ffa2\" has unknown language",
       "started": "2020-05-05T11:57:58Z",
       "created": "2020-05-05T11:57:58Z",
-      "updated": "2020-05-05T11:57:58Z"
+      "updated": "2020-05-05T11:58:00Z"
     }
   }
 }

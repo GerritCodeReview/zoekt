@@ -22,6 +22,30 @@
       "revId": "02a9aa85cc248d9db3d238f932a4c29c89e7285f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0753e9ba_1b8b7b47",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1098087
+      },
+      "writtenOn": "2020-05-06T01:32:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92da4af5_9643f77a",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 34
+      },
+      "revId": "02a9aa85cc248d9db3d238f932a4c29c89e7285f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

@@ -22,6 +22,30 @@
       "revId": "172db892e9a2c5e7833c6f2ca150fa0120c4437d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fa53f58_8d91047c",
+        "filename": "cmd/zoekt-mirror-bitbucket-server/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1098087
+      },
+      "writtenOn": "2020-05-06T01:32:51Z",
+      "side": 0,
+      "message": "Sorry for the very slow response. I tried to leave a comment a couple weeks ago but it got saved as a draft by mistake.\n\nI see your point and added a default with the correct bitbucketv1 config.",
+      "parentUuid": "d0144b81_cf67aa82",
+      "range": {
+        "startLine": 108,
+        "startChar": 3,
+        "endLine": 108,
+        "endChar": 61
+      },
+      "revId": "172db892e9a2c5e7833c6f2ca150fa0120c4437d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

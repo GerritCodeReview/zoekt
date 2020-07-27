@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6af9488_ab03cc73",
+        "filename": "shards/watcher.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-07-27T07:56:42Z",
+      "side": 1,
+      "message": "clever. Today I learned a new idiom 😊",
+      "range": {
+        "startLine": 125,
+        "startChar": 1,
+        "endLine": 125,
+        "endChar": 24
+      },
+      "revId": "4481f7bb7c346375d92b579dddf80d5ce53e66dc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

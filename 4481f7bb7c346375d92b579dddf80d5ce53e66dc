@@ -22,6 +22,30 @@
       "revId": "4481f7bb7c346375d92b579dddf80d5ce53e66dc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "281a2b51_3be87cbf",
+        "filename": "shards/watcher.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1082084
+      },
+      "writtenOn": "2020-07-27T12:16:03Z",
+      "side": 1,
+      "message": "Thanks :) I\u0027m not sure if I made this up or read it somewhere before. But I\u0027m quite happy with this idea in tandem with `cap(throttle)`.",
+      "parentUuid": "f6af9488_ab03cc73",
+      "range": {
+        "startLine": 125,
+        "startChar": 1,
+        "endLine": 125,
+        "endChar": 24
+      },
+      "revId": "4481f7bb7c346375d92b579dddf80d5ce53e66dc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

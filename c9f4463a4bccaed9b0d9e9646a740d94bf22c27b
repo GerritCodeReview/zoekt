@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5de6b63_446ec338",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-08-24T09:15:34Z",
+      "side": 1,
+      "message": "curiosity: is this paranoia, or did you observe this go wrong in practice?",
+      "revId": "c9f4463a4bccaed9b0d9e9646a740d94bf22c27b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6dc788c_641d816f",
+        "filename": "build/builder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-08-24T09:15:34Z",
+      "side": 1,
+      "message": "I remember that on some filesystems, this causes a dump of all buffers, which is expensive. Is this is still an issue today?",
+      "range": {
+        "startLine": 575,
+        "startChar": 9,
+        "endLine": 575,
+        "endChar": 13
+      },
+      "revId": "c9f4463a4bccaed9b0d9e9646a740d94bf22c27b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "9fc839bd_2336e1d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-08-24T09:52:14Z",
+      "side": 1,
+      "message": "For fsync to solve a problem, you would have to have had a system crash (eg. power outage).\n\ndid you see the shards yourself?  If the disk is full, you\u0027ll end with a lot of temporary 0-byte shard files, because not all code paths remove them correctly on failure.\n\n(this is, incidentally, why cs.bazel.build hasn\u0027t been updating lately - the index SSD has filled up)",
+      "parentUuid": "e302dadc_fa77b4e3",
+      "revId": "c9f4463a4bccaed9b0d9e9646a740d94bf22c27b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6dc788c_641d816f",
         "filename": "build/builder.go",
         "patchSetId": 1

@@ -318,6 +318,9 @@ func (b *Builder) Finish() error {
 	b.flush()
 	b.building.Wait()
 
+	// We need to ensure any renames/removals are recorded to disk.
+	defer fsync(b.opts.IndexDir)
+
 	if b.buildError != nil {
 		for tmp := range b.finishedShards {
 			os.Remove(tmp)
@@ -551,6 +554,9 @@ func (b *Builder) writeShard(fn string, ib *zoekt.IndexBuilder) (*finishedShard,
 	if err != nil {
 		return nil, err
 	}
+	if err := f.Sync(); err != nil {
+		return nil, err
+	}
 	if err := f.Close(); err != nil {
 		return nil, err
 	}
@@ -559,6 +565,18 @@ func (b *Builder) writeShard(fn string, ib *zoekt.IndexBuilder) (*finishedShard,
 		float64(fi.Size())/float64(ib.ContentSize()+1))
 
 	return &finishedShard{f.Name(), fn}, nil
+}
+
+func fsync(path string) error {
+	f, err := os.Open(path)
+	if err != nil {
+		return err
+	}
+	err = f.Sync()
+	if err1 := f.Close(); err == nil {
+		err = err1
+	}
+	return err
 }
 
 // umask holds the Umask of the current process

@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "83bbee3c_d5a99834",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2020-08-24T13:22:55Z",
+      "side": 1,
+      "message": "\u003e For fsync to solve a problem, you would have to have had a system crash (eg. power outage).\n\nYeah, that is why I am saying I am stabbing in the dark. I don\u0027t believe this happened. It was a kubernetes environment, and I\u0027ve seen kubernetes do awful things so I can believe it force unmounting a disk.\n\n\u003e did you see the shards yourself?\n\nNo, unfortunately not.\n\n\u003e If the disk is full, you\u0027ll end with a lot of temporary 0-byte shard files, because not all code paths remove them correctly on failure.\n\nThis is the strange part, we had `searcher.List` return it. It had a valid `IndexMetadata.IndexTime` (few minutes ago, but we had just restarted the process), but `ContentBytes\u003d0`, `Documents\u003d-1`, `IndexBytes\u003d4`, `Shards\u003d1`.\n\nNow this was a monorepo, so shards\u003d1 is not correct. So my best guess at how this happened was some sort of corruption. But now that I write this out to you, another possible cause is our infrastructure thinking the repository was empty and creating an empty index.",
+      "parentUuid": "9fc839bd_2336e1d1",
+      "revId": "c9f4463a4bccaed9b0d9e9646a740d94bf22c27b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d6dc788c_641d816f",
         "filename": "build/builder.go",
         "patchSetId": 1

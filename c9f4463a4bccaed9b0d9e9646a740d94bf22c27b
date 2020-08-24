@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e302dadc_fa77b4e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2020-08-24T09:31:11Z",
+      "side": 1,
+      "message": "We had reports of a corrupted index (file existed, but seemed to be empty). Never seen it before, and this was the only thing I could imagine causing it since the shards are immutable. But yeah, this is really a stab in the dark :P",
+      "parentUuid": "b5de6b63_446ec338",
+      "revId": "c9f4463a4bccaed9b0d9e9646a740d94bf22c27b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6dc788c_641d816f",
         "filename": "build/builder.go",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2020-08-24T09:15:34Z",
       "side": 1,
       "message": "I remember that on some filesystems, this causes a dump of all buffers, which is expensive. Is this is still an issue today?",
+      "range": {
+        "startLine": 575,
+        "startChar": 9,
+        "endLine": 575,
+        "endChar": 13
+      },
+      "revId": "c9f4463a4bccaed9b0d9e9646a740d94bf22c27b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f33efe38_8d0a87ba",
+        "filename": "build/builder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2020-08-24T09:31:11Z",
+      "side": 1,
+      "message": "ouch, I\u0027m not sure! I think (?) that was an ext3 thing, and ext4 doesn\u0027t suffer from it? I did some googling and I\u0027m not sure. I also checked the go source code. It does seem that on Darwin there is a bit more work done https://github.com/golang/go/issues/26650\n\nThat linked to this article https://danluu.com/file-consistency/ which makes me feel more comfortable with doing fsync.",
+      "parentUuid": "d6dc788c_641d816f",
       "range": {
         "startLine": 575,
         "startChar": 9,

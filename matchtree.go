@@ -90,6 +90,10 @@ type bruteForceMatchTree struct {
 	docID     uint32
 }
 
+type andLineMatchTree struct {
+	andMatchTree
+}
+
 type andMatchTree struct {
 	children []matchTree
 }
@@ -300,6 +304,10 @@ func visitMatchTree(t matchTree, f func(matchTree)) {
 		for _, ch := range s.children {
 			visitMatchTree(ch, f)
 		}
+	case *andLineMatchTree:
+		for _, ch := range s.children {
+			visitMatchTree(ch, f)
+		}
 	case *noVisitMatchTree:
 		visitMatchTree(s.matchTree, f)
 	case *notMatchTree:
@@ -314,6 +322,12 @@ func visitMatchTree(t matchTree, f func(matchTree)) {
 func visitMatches(t matchTree, known map[matchTree]bool, f func(matchTree)) {
 	switch s := t.(type) {
 	case *andMatchTree:
+		for _, ch := range s.children {
+			if known[ch] {
+				visitMatches(ch, known, f)
+			}
+		}
+	case *andLineMatchTree:
 		for _, ch := range s.children {
 			if known[ch] {
 				visitMatches(ch, known, f)
@@ -343,6 +357,80 @@ func (t *bruteForceMatchTree) matches(cp *contentProvider, cost int, known map[m
 	return true, true
 }
 
+// andLineMatchTree is a performance optimization of andMatchTree. For content
+// searches we don't want to run the regex engine if there is no line that
+// contains matches from all terms.
+func (t *andLineMatchTree) matches(cp *contentProvider, cost int, known map[matchTree]bool) (bool, bool) {
+	matches, sure := t.andMatchTree.matches(cp, cost, known)
+	if !(sure && matches) {
+		return matches, sure
+	}
+
+	// find child with fewest candidates
+	min := maxUInt32
+	fewestChildren := 0
+	for ix, child := range t.children {
+		v, ok := child.(*substrMatchTree)
+		// make sure we are running a content search and that all candidates are a
+		// substrMatchTree
+		if !ok || v.fileName {
+			return matches, sure
+		}
+		if len(v.current) < min {
+			min = len(v.current)
+			fewestChildren = ix
+		}
+	}
+
+	type lineRange struct {
+		start int
+		end   int
+	}
+	lines := make([]lineRange, 0, len(t.children[fewestChildren].(*substrMatchTree).current))
+	prev := -1
+	for _, candidate := range t.children[fewestChildren].(*substrMatchTree).current {
+		line, byteStart, byteEnd := candidate.line(cp.newlines(), cp.fileSize)
+		if line == prev {
+			continue
+		}
+		prev = line
+		lines = append(lines, lineRange{byteStart, byteEnd})
+	}
+
+	// keep track of the candidates we have already seen.
+	iteratorOffsets := make([]int, len(t.children))
+
+nextLine:
+	for _, line := range lines {
+		// count the number of children with candidates on this line
+		hits := 1
+	nextChild:
+		for j, child := range t.children {
+			if j == fewestChildren {
+				continue
+			}
+		nextCandidate:
+			for k, candidate := range child.(*substrMatchTree).current[iteratorOffsets[j]:] {
+				bo := int(cp.findOffset(false, candidate.runeOffset))
+				if bo < line.start {
+					continue nextCandidate
+				}
+				iteratorOffsets[j] += k
+				if bo <= line.end {
+					hits++
+					continue nextChild
+				}
+				continue nextLine
+			}
+		}
+		// return early once we found any line that contains matches from all children
+		if hits == len(t.children) {
+			return matches, true
+		}
+	}
+	return false, true
+}
+
 func (t *andMatchTree) matches(cp *contentProvider, cost int, known map[matchTree]bool) (bool, bool) {
 	sure := true
 
@@ -355,6 +443,7 @@ func (t *andMatchTree) matches(cp *contentProvider, cost int, known map[matchTre
 			sure = false
 		}
 	}
+
 	return true, sure
 }
 
@@ -496,20 +585,15 @@ func (d *indexData) newMatchTree(q query.Q) (matchTree, error) {
 	}
 	switch s := q.(type) {
 	case *query.Regexp:
-		subQ, isEq := query.RegexpToQuery(s.Regexp, ngramSize)
-		subQ = query.Map(subQ, func(q query.Q) query.Q {
-			if sub, ok := q.(*query.Substring); ok {
-				sub.FileName = s.FileName
-				sub.CaseSensitive = s.CaseSensitive
-			}
-			return q
-		})
-
-		subMT, err := d.newMatchTree(subQ)
+		// RegexpToMatchTreeRecursive tries to distill a matchTree that matches a
+		// superset of the regexp. If the returned matchTree is equivalent to the
+		// original regexp, it returns true. An equivalent matchTree has the same
+		// behaviour as the original regexp and can be used instead.
+		//
+		subMT, isEq, _, err := d.regexpToMatchTreeRecursive(s.Regexp, ngramSize, s.FileName, s.CaseSensitive)
 		if err != nil {
 			return nil, err
 		}
-
 		// if the query can be used in place of the regexp
 		// return the subtree
 		if isEq {

@@ -131,6 +131,9 @@ type Stats struct {
 
 	// Wall clock time for queued search.
 	Wait time.Duration
+
+	// Number of regexp searches.
+	RegexpCount int
 }
 
 func (s *Stats) Add(o Stats) {

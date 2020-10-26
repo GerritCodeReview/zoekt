@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac2ef9bc_fd5cb60d",
+        "filename": "matchtree.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-10-26T13:44:06Z",
+      "side": 1,
+      "message": "You\u0027re treating the first one different, but isn\u0027t that another place to do a performance optimization?\n\nI\u0027d expect it to work like this:\n\n* Pick the child with the least number of matches.\n\n* For each match, calculate the start/end rune range of the line it is in, generating a list of start/end ranges. (they\u0027ll be sorted)\n\n* for remaining children, iterate over their matches, trimming the list of start/end ranges, if you can\u0027t find a    match in that line.\n\nThat would save on the lineNumber() function which seems relatively expensive, due to sort.Search and the findOffset() calls.",
+      "range": {
+        "startLine": 387,
+        "startChar": 17,
+        "endLine": 387,
+        "endChar": 25
+      },
+      "revId": "1cc351eb320054a6e1831d182ba598ee2d3544ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b848a408_ba68b365",
+        "filename": "matchtree.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-10-26T13:44:06Z",
+      "side": 1,
+      "message": "prealloc the map size.",
+      "range": {
+        "startLine": 388,
+        "startChar": 22,
+        "endLine": 388,
+        "endChar": 25
+      },
+      "revId": "1cc351eb320054a6e1831d182ba598ee2d3544ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38f70dbf_78693f21",
+        "filename": "query/query.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-10-26T13:44:06Z",
+      "side": 1,
+      "message": "nit: SingleLine ? having \u0027no\u0027 as part of a boolean name is hard to read.\n\nI wonder if this is the right representation.\n\nWouldn\u0027t it be more flexible if you could limit a general query to a single line?\n\nMaybe something like \n\n  (abc or def line:yes)\n\nwe could represent this as \u0026SingleLine{\u0026Or{ .. }}\n\n(see how the case:yes operator is implemented for parsing tips).",
+      "range": {
+        "startLine": 180,
+        "startChar": 1,
+        "endLine": 180,
+        "endChar": 10
+      },
+      "revId": "1cc351eb320054a6e1831d182ba598ee2d3544ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

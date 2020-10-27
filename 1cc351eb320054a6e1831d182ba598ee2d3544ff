@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "762e4414_d0733eaa",
+        "filename": "matchtree.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2020-10-27T13:59:57Z",
+      "side": 1,
+      "message": "I agree with the above. You should be able to avoid the use of maps and instead rely on sorted ranges.",
+      "parentUuid": "ac2ef9bc_fd5cb60d",
+      "range": {
+        "startLine": 387,
+        "startChar": 17,
+        "endLine": 387,
+        "endChar": 25
+      },
+      "revId": "1cc351eb320054a6e1831d182ba598ee2d3544ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b848a408_ba68b365",
         "filename": "matchtree.go",
         "patchSetId": 2
@@ -83,6 +107,47 @@
         "endLine": 180,
         "endChar": 10
       },
+      "revId": "1cc351eb320054a6e1831d182ba598ee2d3544ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e4304aa_a6a0659f",
+        "filename": "query/query.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2020-10-27T13:59:57Z",
+      "side": 1,
+      "message": "Alternatively not expose this in the `query` package, and instead make this an implementation detail of `matchtree`. If I am not mistaken we only need this when creating the matchtree from a regexp. Could we not keep this bit of information there?\n\nIt may require moving some stuff around, since the Regexp -\u003e SubStr logic lives in this package. However, it is only used by MatchTree, so that is a candidate to also move into matchtree specific logic.\n\nIf we do want to keep it in query, I agree with Han-Wen and we should extend the language to support this to make it first class. It requires a bit more work since your matchtree implementation will likely need to be more general. So rather than directly accessing `substrMatchTree.current` you will need to use `visitMatches` like is done in `gatherMatches`.",
+      "parentUuid": "38f70dbf_78693f21",
+      "range": {
+        "startLine": 180,
+        "startChar": 1,
+        "endLine": 180,
+        "endChar": 10
+      },
+      "revId": "1cc351eb320054a6e1831d182ba598ee2d3544ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3ab21e4_be7fda7b",
+        "filename": "query/regexp.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2020-10-27T13:59:57Z",
+      "side": 1,
+      "message": "you need to check newline is not in Pattern",
       "revId": "1cc351eb320054a6e1831d182ba598ee2d3544ff",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }

@@ -209,6 +209,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c72a3d2_ae6136d8",
+        "filename": "query/query.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-10-28T13:22:36Z",
+      "side": 1,
+      "message": "good point. I think RegexpToQuery should move into eval.go and be private.  I don\u0027t understand why you need to move query.Simplify, though?",
+      "parentUuid": "b6c8b265_25efef96",
+      "range": {
+        "startLine": 180,
+        "startChar": 1,
+        "endLine": 180,
+        "endChar": 10
+      },
+      "revId": "1cc351eb320054a6e1831d182ba598ee2d3544ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d3ab21e4_be7fda7b",
         "filename": "query/regexp.go",
         "patchSetId": 2

@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f7200a5_ca331843",
+        "filename": "matchtree.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-10-28T09:54:30Z",
+      "side": 1,
+      "message": "it might be interesting to store the line endings in runes rather than bytes. But it can probably wait.",
+      "range": {
+        "startLine": 392,
+        "startChar": 8,
+        "endLine": 392,
+        "endChar": 17
+      },
+      "revId": "8f32436bb4ba583f14c5806d8321d7f289b06c63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13dbce88_1aaab6fc",
+        "filename": "matchtree.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-10-28T09:54:30Z",
+      "side": 1,
+      "message": "can you add test cases in index_test.go, and check that they cover all the branches of this function?",
+      "range": {
+        "startLine": 393,
+        "startChar": 2,
+        "endLine": 393,
+        "endChar": 19
+      },
+      "revId": "8f32436bb4ba583f14c5806d8321d7f289b06c63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e95d3925_52ceaf5f",
+        "filename": "matchtree.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-10-28T09:54:30Z",
+      "side": 1,
+      "message": "this looks iffy, because you set up the lines to a fixed size. Why not do\n\n  lines :\u003d make( .. , 0, size)\n\nand then use append() in the loop body?",
+      "range": {
+        "startLine": 394,
+        "startChar": 3,
+        "endLine": 394,
+        "endChar": 11
+      },
+      "revId": "8f32436bb4ba583f14c5806d8321d7f289b06c63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "596444d2_7f3d3a8e",
+        "filename": "matchtree.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-10-28T09:54:30Z",
+      "side": 1,
+      "message": "nice-  it might be interesting to the complete the whole loop though: if you store the lines that do have the matches, you can later save effort by limiting the regex to just the lines that you know have candidates.\n\nprobably something to do in a follow up change. Maybe add a TODO ?",
+      "range": {
+        "startLine": 426,
+        "startChar": 0,
+        "endLine": 426,
+        "endChar": 80
+      },
+      "revId": "8f32436bb4ba583f14c5806d8321d7f289b06c63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

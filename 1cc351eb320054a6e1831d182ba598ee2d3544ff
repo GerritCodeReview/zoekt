@@ -137,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ba762a3f_f82d8d3f",
+        "filename": "query/query.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-10-28T09:54:30Z",
+      "side": 1,
+      "message": "ping? \n\nI prefer Keegan\u0027s suggestion. It has the advantage that it doesn\u0027t change any publicly visible APIs, which is in line with this being a performance optimization.",
+      "parentUuid": "5e4304aa_a6a0659f",
+      "range": {
+        "startLine": 180,
+        "startChar": 1,
+        "endLine": 180,
+        "endChar": 10
+      },
+      "revId": "1cc351eb320054a6e1831d182ba598ee2d3544ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d3ab21e4_be7fda7b",
         "filename": "query/regexp.go",
         "patchSetId": 2

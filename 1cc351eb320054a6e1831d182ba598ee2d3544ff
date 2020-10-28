@@ -88,6 +88,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59c48063_d90756d5",
+        "filename": "matchtree.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1118410
+      },
+      "writtenOn": "2020-10-28T12:45:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b848a408_ba68b365",
+      "range": {
+        "startLine": 388,
+        "startChar": 22,
+        "endLine": 388,
+        "endChar": 25
+      },
+      "revId": "1cc351eb320054a6e1831d182ba598ee2d3544ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38f70dbf_78693f21",
@@ -149,6 +173,30 @@
       "side": 1,
       "message": "ping? \n\nI prefer Keegan\u0027s suggestion. It has the advantage that it doesn\u0027t change any publicly visible APIs, which is in line with this being a performance optimization.",
       "parentUuid": "5e4304aa_a6a0659f",
+      "range": {
+        "startLine": 180,
+        "startChar": 1,
+        "endLine": 180,
+        "endChar": 10
+      },
+      "revId": "1cc351eb320054a6e1831d182ba598ee2d3544ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6c8b265_25efef96",
+        "filename": "query/query.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1118410
+      },
+      "writtenOn": "2020-10-28T12:45:48Z",
+      "side": 1,
+      "message": "Keegan and I talked about how not to expose this change to the query package. There is a minor complication because `RegexpToQuery` calls `Simplify` which is called in other places too. We think the best way forward is to just copy\u0026paste `Simplify` from the query package to `matchtree.go`. Both `RegexToQuery` and the new `Simplify` would be private. In the future, we could even optimise the new `Simplify` for matchtrees if we wanted to.",
+      "parentUuid": "ba762a3f_f82d8d3f",
       "range": {
         "startLine": 180,
         "startChar": 1,

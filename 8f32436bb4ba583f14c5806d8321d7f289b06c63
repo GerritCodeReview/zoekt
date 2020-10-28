@@ -24,6 +24,23 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c2d0d8a_b1695a16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-10-28T15:10:07Z",
+      "side": 1,
+      "message": "note: I\u0027m taking a few weeks off starting tomorrow, so ",
+      "revId": "8f32436bb4ba583f14c5806d8321d7f289b06c63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f7200a5_ca331843",

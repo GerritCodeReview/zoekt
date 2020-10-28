@@ -257,6 +257,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "37feb345_66c0c8a5",
+        "filename": "query/query.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-10-28T15:10:07Z",
+      "side": 1,
+      "message": "But the point is to avoid having the SingleLine  boolean in the query package at all.\n\nI think you could create matchTrees directly out of the regexp, rather than creating a query.Q as an intermediate.",
+      "parentUuid": "28e764f5_9db76872",
+      "range": {
+        "startLine": 180,
+        "startChar": 1,
+        "endLine": 180,
+        "endChar": 10
+      },
+      "revId": "1cc351eb320054a6e1831d182ba598ee2d3544ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d3ab21e4_be7fda7b",
         "filename": "query/regexp.go",
         "patchSetId": 2

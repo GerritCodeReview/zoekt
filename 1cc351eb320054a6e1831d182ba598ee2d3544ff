@@ -281,6 +281,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2325b589_bfe2db59",
+        "filename": "query/query.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1118410
+      },
+      "writtenOn": "2020-10-28T15:33:22Z",
+      "side": 1,
+      "message": "\u003e But the point is to avoid having the SingleLine  boolean in the query package at all.\n\nYes, I agree. This is the intent of the copy\u0026paste proposal: by copying RegexpToQuery and the functions it calls, we can revert all changes to the query package.",
+      "parentUuid": "37feb345_66c0c8a5",
+      "range": {
+        "startLine": 180,
+        "startChar": 1,
+        "endLine": 180,
+        "endChar": 10
+      },
+      "revId": "1cc351eb320054a6e1831d182ba598ee2d3544ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d3ab21e4_be7fda7b",
         "filename": "query/regexp.go",
         "patchSetId": 2

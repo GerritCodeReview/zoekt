@@ -65,6 +65,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56b60e88_13316405",
+        "filename": "matchtree.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1118410
+      },
+      "writtenOn": "2020-10-30T14:32:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "762e4414_d0733eaa",
+      "range": {
+        "startLine": 387,
+        "startChar": 17,
+        "endLine": 387,
+        "endChar": 25
+      },
+      "revId": "1cc351eb320054a6e1831d182ba598ee2d3544ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b848a408_ba68b365",
@@ -317,6 +341,30 @@
       "side": 1,
       "message": "I\u0027m not happy with the cut \u0026 paste though. Can you think of a way to do it without cut \u0026 paste?  As said, I think you could go from regexp to matchtree directly. \n\nAlternatively, we could explore SingleLine as a fully supported operator more deeply: the algorithm of the latest patchset works on lists of matches, so it shouldn\u0027t be too hard to generalize.",
       "parentUuid": "2325b589_bfe2db59",
+      "range": {
+        "startLine": 180,
+        "startChar": 1,
+        "endLine": 180,
+        "endChar": 10
+      },
+      "revId": "1cc351eb320054a6e1831d182ba598ee2d3544ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2a791fa_e14f6bdd",
+        "filename": "query/query.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1118410
+      },
+      "writtenOn": "2020-10-30T14:32:14Z",
+      "side": 1,
+      "message": "I went with your first suggestions. Patchset 5 reverts all changes to the query package, except that we remove RegexpToQuery and replace it with regexpToMatchTreeRecursive in eval.go.",
+      "parentUuid": "63e36ded_e8b8603e",
       "range": {
         "startLine": 180,
         "startChar": 1,

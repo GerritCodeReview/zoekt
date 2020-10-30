@@ -170,6 +170,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "45f21074_a8bd55ec",
+        "filename": "matchtree.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1118410
+      },
+      "writtenOn": "2020-10-30T09:26:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5dd66f06_e9be65c0",
+      "range": {
+        "startLine": 394,
+        "startChar": 3,
+        "endLine": 394,
+        "endChar": 11
+      },
+      "revId": "8f32436bb4ba583f14c5806d8321d7f289b06c63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "596444d2_7f3d3a8e",

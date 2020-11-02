@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0cf4174_f49497ca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2020-11-02T15:15:00Z",
+      "side": 1,
+      "message": "minor: I think title should be a little more specific. How about\n\n  use newline index for regexp content searches",
+      "revId": "656daeee6b803a5bb81d931815fd72903ef8cdc5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "193b4d64_2582bafb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2020-11-02T15:15:00Z",
+      "side": 1,
+      "message": "LGTM! This is such awesome work! I left a smattering of inline comments, but nothing blocking.",
+      "revId": "656daeee6b803a5bb81d931815fd72903ef8cdc5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f83c576_aaf69ab4",
+        "filename": "eval.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2020-11-02T15:15:00Z",
+      "side": 1,
+      "message": "I think a docstring explaining what each return variable is would help future readers a lot.",
+      "revId": "656daeee6b803a5bb81d931815fd72903ef8cdc5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06506333_f8c2b719",
+        "filename": "eval.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2020-11-02T15:15:00Z",
+      "side": 1,
+      "message": "minor: I think this is easier to reason about when you make it oneline. eg\n\n  isEq \u003d isEq \u0026\u0026 subIsEq\n  singleLine \u003d singleLine \u0026\u0026 subSingleLine",
+      "revId": "656daeee6b803a5bb81d931815fd72903ef8cdc5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77ed6a6a_873ebaf2",
+        "filename": "eval.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2020-11-02T15:15:00Z",
+      "side": 1,
+      "message": "just checking: all the above conditional checking is needed because this is basically \"inlining\" what query.Simplify used to do for us (constant folding)?\n\nThe older code felt easier to understand since you didn\u0027t need to do this inlining + treating bruteForMatchTree as true and noMatchTree as false. However, this looks good to me and I believe is better than the alternatives we discussed. We can always follow-up to try and improve how this is structured if we do more performance specialisation with regexes.",
+      "revId": "656daeee6b803a5bb81d931815fd72903ef8cdc5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10d1dc09_5096fb0a",
+        "filename": "matchtree.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2020-11-02T15:15:00Z",
+      "side": 1,
+      "message": "a way to make the code below more direct is instead of storing offsets into the child current slices, store the child slices. eg make the following:\n\n```\nchildren :\u003d make([][]*candidateMatch, 0, len(t.children) - 1)\nfor j, child :\u003d range t.children {\n  if j !\u003d fewestChildren {\n    children \u003d append(children, child.(*substrMatchTree).current)\n  }\n}\n```\n\nThen instead of incrementing the offsets, you can use a pattern like\n\n```\nfor j :\u003d range children {\n  for len(children[j]) {\n     candidate \u003d children[j][0]\n     children[j] \u003d children[j][1:]\n     // ...\n  }\n}\n```",
+      "revId": "656daeee6b803a5bb81d931815fd72903ef8cdc5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd855eb3_57ef1cfb",
+        "filename": "matchtree.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2020-11-02T15:15:00Z",
+      "side": 1,
+      "message": "In my head at this point we should be increasing `iteratorOffsets[j]`. For example if we reach the end of `child...current` we don\u0027t need to ever look in it again and in fact can return false.",
+      "revId": "656daeee6b803a5bb81d931815fd72903ef8cdc5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38e2deed_8772aff8",
+        "filename": "matchtree.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2020-11-02T15:15:00Z",
+      "side": 1,
+      "message": "perf optimization: at this point we have a `bo` that we know must be `\u003c\u003d line.end`. We could move the `lines` iterator forward until we have that invariant satisfied before doing `continueNextLine`",
+      "revId": "656daeee6b803a5bb81d931815fd72903ef8cdc5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

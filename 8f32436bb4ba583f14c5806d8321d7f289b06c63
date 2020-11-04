@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4eec00f_be0713f2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1118410
+      },
+      "writtenOn": "2020-11-04T11:10:20Z",
+      "side": 1,
+      "message": "I compared patchset 7, patchset 2, and master against a small set of medium size repos. Both patchset 2 and 7 showed significant improvements over master, with latencies reduced by 60% to 86% for the examples I tested. Performances of patchset 2 and 7 were indistinguishable, probably because of the small number of repos. All three versions showed the same statistics (found, files, index data, ngram matches, docs considered).",
+      "parentUuid": "226cda7f_abe722c7",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 55
+      },
+      "revId": "8f32436bb4ba583f14c5806d8321d7f289b06c63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1c2d0d8a_b1695a16",

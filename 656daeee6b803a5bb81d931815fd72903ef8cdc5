@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "53053ae5_2604bf57",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1118410
+      },
+      "writtenOn": "2020-11-04T11:10:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0cf4174_f49497ca",
+      "revId": "656daeee6b803a5bb81d931815fd72903ef8cdc5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "193b4d64_2582bafb",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
@@ -88,6 +106,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "be227f75_bd826ddb",
+        "filename": "eval.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1118410
+      },
+      "writtenOn": "2020-11-04T11:10:20Z",
+      "side": 1,
+      "message": "\u003e just checking: all the above conditional checking is needed because this is basically \"inlining\" what query.Simplify used to do for us (constant folding)?\n\nExactly! Before, we built the tree and then traversed it twice: once in Simplify and directly after that with query.Map. Now we inline those actions, which makes the code a bit harder to read but we avoid creating an intermediary representation and calling into the query package.\n\n\u003e The older code felt easier to understand since you didn\u0027t need to do this inlining + treating bruteForMatchTree as true and noMatchTree as false. However, this looks good to me and I believe is better than the alternatives we discussed. We can always follow-up to try and improve how this is structured if we do more performance specialisation with regexes.\n\nI agree.",
+      "parentUuid": "77ed6a6a_873ebaf2",
+      "revId": "656daeee6b803a5bb81d931815fd72903ef8cdc5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "10d1dc09_5096fb0a",
         "filename": "matchtree.go",
         "patchSetId": 5
@@ -99,6 +135,24 @@
       "writtenOn": "2020-11-02T15:15:00Z",
       "side": 1,
       "message": "a way to make the code below more direct is instead of storing offsets into the child current slices, store the child slices. eg make the following:\n\n```\nchildren :\u003d make([][]*candidateMatch, 0, len(t.children) - 1)\nfor j, child :\u003d range t.children {\n  if j !\u003d fewestChildren {\n    children \u003d append(children, child.(*substrMatchTree).current)\n  }\n}\n```\n\nThen instead of incrementing the offsets, you can use a pattern like\n\n```\nfor j :\u003d range children {\n  for len(children[j]) {\n     candidate \u003d children[j][0]\n     children[j] \u003d children[j][1:]\n     // ...\n  }\n}\n```",
+      "revId": "656daeee6b803a5bb81d931815fd72903ef8cdc5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cb97f5e_f8429fe7",
+        "filename": "matchtree.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1118410
+      },
+      "writtenOn": "2020-11-04T11:10:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10d1dc09_5096fb0a",
       "revId": "656daeee6b803a5bb81d931815fd72903ef8cdc5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -120,6 +174,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cfe9e28_10d94b9a",
+        "filename": "matchtree.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1118410
+      },
+      "writtenOn": "2020-11-04T11:10:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd855eb3_57ef1cfb",
+      "revId": "656daeee6b803a5bb81d931815fd72903ef8cdc5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38e2deed_8772aff8",
@@ -133,6 +205,24 @@
       "writtenOn": "2020-11-02T15:15:00Z",
       "side": 1,
       "message": "perf optimization: at this point we have a `bo` that we know must be `\u003c\u003d line.end`. We could move the `lines` iterator forward until we have that invariant satisfied before doing `continueNextLine`",
+      "revId": "656daeee6b803a5bb81d931815fd72903ef8cdc5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f6a10cc_5badffa8",
+        "filename": "matchtree.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1118410
+      },
+      "writtenOn": "2020-11-04T11:10:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38e2deed_8772aff8",
       "revId": "656daeee6b803a5bb81d931815fd72903ef8cdc5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }

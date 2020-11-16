@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "af8672b3_5d9a8315",
+        "filename": "eval_test.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-11-16T19:17:01Z",
+      "side": 1,
+      "message": "missing (c) header.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 6
+      },
+      "revId": "9e0a2ec1081d13b34878b7685b7833c64402944e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e873d3ef_473161d1",
         "filename": "index_test.go",
         "patchSetId": 7
@@ -31,6 +54,24 @@
       "writtenOn": "2020-11-16T15:54:51Z",
       "side": 1,
       "message": "this is good, but shouldn\u0027t these test also inspect stats to ensure how many documents were inspected for contents, to verify that your shortcut actually works?",
+      "revId": "9e0a2ec1081d13b34878b7685b7833c64402944e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a66f58ad_4da6124c",
+        "filename": "index_test.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 1917,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-11-16T19:17:01Z",
+      "side": 1,
+      "message": "s/works/reduces work/",
+      "parentUuid": "e873d3ef_473161d1",
       "revId": "9e0a2ec1081d13b34878b7685b7833c64402944e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },

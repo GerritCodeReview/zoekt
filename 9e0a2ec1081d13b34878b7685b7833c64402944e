@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a37f23ef_c71b57e0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1118410
+      },
+      "writtenOn": "2020-11-17T10:08:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48566e05_87f0018f",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 1
+      },
+      "revId": "9e0a2ec1081d13b34878b7685b7833c64402944e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "eade6e75_a65f5e5e",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 7
@@ -37,6 +61,24 @@
       "writtenOn": "2020-11-16T15:54:51Z",
       "side": 1,
       "message": "from a quick look, the overall approach LGTM. I\u0027ll do another more detailed round tomorrow; here are some superficial comments.",
+      "revId": "9e0a2ec1081d13b34878b7685b7833c64402944e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b73e9a82_90b84b96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118410
+      },
+      "writtenOn": "2020-11-17T10:08:57Z",
+      "side": 1,
+      "message": "Great! I am really happy to read this. I addressed the comments you had for Patchset 7, let me if you require more changes.",
+      "parentUuid": "eade6e75_a65f5e5e",
       "revId": "9e0a2ec1081d13b34878b7685b7833c64402944e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -54,6 +96,30 @@
       "writtenOn": "2020-11-16T19:17:01Z",
       "side": 1,
       "message": "missing (c) header.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 6
+      },
+      "revId": "9e0a2ec1081d13b34878b7685b7833c64402944e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0375f690_64ff27bf",
+        "filename": "eval_test.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1118410
+      },
+      "writtenOn": "2020-11-17T10:08:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af8672b3_5d9a8315",
       "range": {
         "startLine": 1,
         "startChar": 0,
@@ -101,6 +167,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d6771f89_ef317e81",
+        "filename": "index_test.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 1917,
+      "author": {
+        "id": 1118410
+      },
+      "writtenOn": "2020-11-17T10:08:57Z",
+      "side": 1,
+      "message": "The existing stats like FileCount don\u0027t change, because regexpMatchTree.matches ultimately comes to the same result as the new shortcut. The benefit of the shortcut is that the regexp engine isn\u0027t called in the first place. To make this visible, I added a new stat `RegexpCount` which I now check in the tests.",
+      "parentUuid": "a66f58ad_4da6124c",
+      "revId": "9e0a2ec1081d13b34878b7685b7833c64402944e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "98886307_418698bb",
         "filename": "matchtree.go",
         "patchSetId": 7
@@ -112,6 +196,30 @@
       "writtenOn": "2020-11-16T19:02:37Z",
       "side": 1,
       "message": "shouldn\u0027t this delegate to s.andMatchTree instead?",
+      "range": {
+        "startLine": 308,
+        "startChar": 2,
+        "endLine": 308,
+        "endChar": 5
+      },
+      "revId": "9e0a2ec1081d13b34878b7685b7833c64402944e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47f30e28_6b1cb252",
+        "filename": "matchtree.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1118410
+      },
+      "writtenOn": "2020-11-17T10:08:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98886307_418698bb",
       "range": {
         "startLine": 308,
         "startChar": 2,
@@ -135,6 +243,30 @@
       "writtenOn": "2020-11-16T19:02:37Z",
       "side": 1,
       "message": "here too",
+      "range": {
+        "startLine": 331,
+        "startChar": 23,
+        "endLine": 331,
+        "endChar": 31
+      },
+      "revId": "9e0a2ec1081d13b34878b7685b7833c64402944e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a7c4063_cf54c808",
+        "filename": "matchtree.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1118410
+      },
+      "writtenOn": "2020-11-17T10:08:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d5c4430_f25ba14f",
       "range": {
         "startLine": 331,
         "startChar": 23,

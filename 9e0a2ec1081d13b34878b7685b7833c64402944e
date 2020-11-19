@@ -219,6 +219,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b869c96_00277836",
+        "filename": "index_test.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 1917,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2020-11-19T16:23:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a50e9db2_96405e74",
+      "revId": "9e0a2ec1081d13b34878b7685b7833c64402944e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98886307_418698bb",

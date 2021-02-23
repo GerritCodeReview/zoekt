@@ -63,6 +63,30 @@
       },
       "revId": "2a9877e83a9faa6e3c4f323f35ef83c53b58835e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d7c04e9_52ef6a71",
+        "filename": "shards/shards.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-02-23T11:12:38Z",
+      "side": 1,
+      "message": "hmmm. we get the error return because we transform shardWatcher into io.Closer, but it never actually returns an error.\n\ndrop the log message instead?",
+      "parentUuid": "a12b4e20_192b393e",
+      "range": {
+        "startLine": 180,
+        "startChar": 1,
+        "endLine": 182,
+        "endChar": 2
+      },
+      "revId": "2a9877e83a9faa6e3c4f323f35ef83c53b58835e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

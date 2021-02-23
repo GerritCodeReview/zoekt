@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5315cd70_b57ee499",
+        "filename": "cmd/zoekt-archive-index/e2e_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-02-23T10:26:17Z",
+      "side": 1,
+      "message": "nice - didn\u0027t know this existed. #TIL.",
+      "range": {
+        "startLine": 26,
+        "startChar": 13,
+        "endLine": 26,
+        "endChar": 20
+      },
+      "revId": "cd15fd3c7944a08426b47609702005580e46d58d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

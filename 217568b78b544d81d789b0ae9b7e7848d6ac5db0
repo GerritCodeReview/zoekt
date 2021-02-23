@@ -8,10 +8,11 @@
       "updated": "2021-02-23T10:18:16Z"
     },
     "fmt:go-77d734ff736f9a0f14183ccbd03c9821ee79ffa2": {
-      "state": "RUNNING",
+      "state": "FAILED",
+      "message": "uuid \"fmt:go-77d734ff736f9a0f14183ccbd03c9821ee79ffa2\" has unknown language",
       "started": "2021-02-23T10:18:32Z",
       "created": "2021-02-23T10:18:32Z",
-      "updated": "2021-02-23T10:18:32Z"
+      "updated": "2021-02-23T10:18:35Z"
     }
   }
 }

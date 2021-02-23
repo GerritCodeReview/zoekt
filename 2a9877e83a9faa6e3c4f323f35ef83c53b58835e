@@ -87,6 +87,30 @@
       },
       "revId": "2a9877e83a9faa6e3c4f323f35ef83c53b58835e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e1ac732_9c299f3c",
+        "filename": "shards/shards.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-02-23T11:13:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a12b4e20_192b393e",
+      "range": {
+        "startLine": 180,
+        "startChar": 1,
+        "endLine": 182,
+        "endChar": 2
+      },
+      "revId": "2a9877e83a9faa6e3c4f323f35ef83c53b58835e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

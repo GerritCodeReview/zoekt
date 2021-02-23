@@ -34,6 +34,24 @@
       "parentUuid": "07cc5e7e_a5ebe94d",
       "revId": "031d44576f1fc0d6cfa9214d7e0155b2414d53f8",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31e4c07b_4459d301",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-02-23T11:23:10Z",
+      "side": 1,
+      "message": "We could export directoryWatcher and just return the struct?",
+      "parentUuid": "fe216468_4d82cec0",
+      "revId": "031d44576f1fc0d6cfa9214d7e0155b2414d53f8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

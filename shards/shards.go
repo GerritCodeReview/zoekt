@@ -17,6 +17,7 @@ package shards
 import (
 	"context"
 	"fmt"
+	"io"
 	"log"
 	"os"
 	"runtime"
@@ -156,12 +157,30 @@ func NewDirectorySearcher(dir string) (zoekt.Searcher, error) {
 	tl := &loader{
 		ss: ss,
 	}
-	_, err := NewDirectoryWatcher(dir, tl)
+	dw, err := NewDirectoryWatcher(dir, tl)
 	if err != nil {
 		return nil, err
 	}
 
-	return ss, nil
+	return &directorySearcher{
+		Searcher:         ss,
+		directoryWatcher: dw,
+	}, nil
+}
+
+type directorySearcher struct {
+	zoekt.Searcher
+
+	directoryWatcher io.Closer
+}
+
+func (s *directorySearcher) Close() {
+	// We need to Close it first since it calls load/unload on Searcher.
+	err := s.directoryWatcher.Close()
+	if err != nil {
+		log.Printf("failed to close Closer on %s: %s", s.Searcher.String(), err.Error())
+	}
+	s.Searcher.Close()
 }
 
 type loader struct {

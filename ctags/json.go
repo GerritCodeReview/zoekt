@@ -28,7 +28,7 @@ import (
 	"sync"
 )
 
-const debug = false
+const debug = true
 
 type ctagsProcess struct {
 	cmd     *exec.Cmd

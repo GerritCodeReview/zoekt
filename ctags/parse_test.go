@@ -58,3 +58,32 @@ func TestParse(t *testing.T) {
 		}
 	}
 }
+
+func TestFortran(t *testing.T) {
+	fortran := ` * function-like macros
+      integer function IFLM(x)
+        integer :: x
+        IFLM = x
+      end function IFLM
+      program main
+#define IFLM(x) ((x)+111)
+      integer :: res
+      res = IFLM(666)
+      if (res .eq. 777) then
+        print *, 'pp003.F pass'
+      else
+        print *, 'pp003.F FAIL: ', res
+      end if
+      end`
+
+	p, err := NewParser("universal-ctags")
+	if err != nil {
+		t.Fatalf("NewParser: %v", err)
+	}
+	entries, err := p.Parse("func.f", []byte(fortran))
+	if err != nil {
+		t.Fatalf("Parse: %v", err)
+	}
+
+	t.Log(entries)
+}

@@ -1,0 +1,10 @@
+{
+  "checks": {
+    "fmt:go-77d734ff736f9a0f14183ccbd03c9821ee79ffa2": {
+      "state": "RUNNING",
+      "started": "2021-04-08T12:27:58Z",
+      "created": "2021-04-08T12:27:58Z",
+      "updated": "2021-04-08T12:27:58Z"
+    }
+  }
+}

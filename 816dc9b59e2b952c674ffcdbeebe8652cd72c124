@@ -1,9 +1,10 @@
 {
   "checks": {
     "fmt:commitmsg-77d734ff736f9a0f14183ccbd03c9821ee79ffa2": {
-      "state": "NOT_STARTED",
+      "state": "RUNNING",
+      "started": "2021-04-26T22:22:45Z",
       "created": "2021-04-26T22:19:36Z",
-      "updated": "2021-04-26T22:22:39Z"
+      "updated": "2021-04-26T22:22:45Z"
     },
     "fmt:go-77d734ff736f9a0f14183ccbd03c9821ee79ffa2": {
       "state": "FAILED",

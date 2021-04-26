@@ -1,11 +1,9 @@
 {
   "checks": {
     "fmt:commitmsg-77d734ff736f9a0f14183ccbd03c9821ee79ffa2": {
-      "state": "FAILED",
-      "message": "uuid \"fmt:commitmsg-77d734ff736f9a0f14183ccbd03c9821ee79ffa2\" has unknown language",
-      "started": "2021-04-26T22:19:35Z",
+      "state": "NOT_STARTED",
       "created": "2021-04-26T22:19:36Z",
-      "updated": "2021-04-26T22:19:39Z"
+      "updated": "2021-04-26T22:22:39Z"
     },
     "fmt:go-77d734ff736f9a0f14183ccbd03c9821ee79ffa2": {
       "state": "FAILED",

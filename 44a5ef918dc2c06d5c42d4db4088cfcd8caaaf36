@@ -1,0 +1,10 @@
+{
+  "checks": {
+    "fmt:commitmsg-77d734ff736f9a0f14183ccbd03c9821ee79ffa2": {
+      "state": "RUNNING",
+      "started": "2021-04-26T22:19:17Z",
+      "created": "2021-04-26T22:19:17Z",
+      "updated": "2021-04-26T22:19:17Z"
+    }
+  }
+}

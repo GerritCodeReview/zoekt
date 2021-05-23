@@ -464,6 +464,21 @@ func IndexGitRepo(opts Options) error {
 	var once sync.Once
 	defer once.Do(func() { builder.Finish() })
 
+	addDocsToBuilder(builder, opts.BuildOptions, repos, branchMap)
+	if err != nil {
+		return err
+	}
+
+	once.Do(func() {})
+	return builder.Finish()
+}
+
+func addDocsToBuilder(
+	builder *build.Builder,
+	opts build.Options,
+	repos map[fileKey]BlobLocation,
+	branchMap map[fileKey][]string,
+) error {
 	var names []string
 	fileKeys := map[string][]fileKey{}
 	for key := range repos {
@@ -485,9 +500,9 @@ func IndexGitRepo(opts Options) error {
 				return err
 			}
 
-			if blob.Size > int64(opts.BuildOptions.SizeMax) && !opts.BuildOptions.IgnoreSizeMax(key.FullPath()) {
+			if blob.Size > int64(opts.SizeMax) && !opts.IgnoreSizeMax(key.FullPath()) {
 				if err := builder.Add(zoekt.Document{
-					SkipReason:        fmt.Sprintf("file size %d exceeds maximum size %d", blob.Size, opts.BuildOptions.SizeMax),
+					SkipReason:        fmt.Sprintf("file size %d exceeds maximum size %d", blob.Size, opts.SizeMax),
 					Name:              key.FullPath(),
 					Branches:          brs,
 					SubRepositoryPath: key.SubRepoPath,
@@ -513,8 +528,7 @@ func IndexGitRepo(opts Options) error {
 		}
 	}
 
-	once.Do(func() {})
-	return builder.Finish()
+	return nil
 }
 
 func blobContents(blob *object.Blob) ([]byte, error) {

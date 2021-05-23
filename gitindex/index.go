@@ -27,6 +27,7 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/google/zoekt"
@@ -460,7 +461,8 @@ func IndexGitRepo(opts Options) error {
 	if err != nil {
 		return err
 	}
-	defer builder.Finish()
+	var once sync.Once
+	defer once.Do(func() { builder.Finish() })
 
 	var names []string
 	fileKeys := map[string][]fileKey{}
@@ -511,6 +513,7 @@ func IndexGitRepo(opts Options) error {
 		}
 	}
 
+	once.Do(func() {})
 	return builder.Finish()
 }
 

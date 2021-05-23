@@ -341,6 +341,66 @@ func expandBranches(repo *git.Repository, bs []string, prefix string) ([]string,
 	return result, nil
 }
 
+func processRepoBranches(
+	repo *git.Repository,
+	repoCache *RepoCache,
+	opts *Options,
+) (
+	map[fileKey]BlobLocation,
+	map[fileKey][]string,
+	map[string]map[string]plumbing.Hash,
+	error,
+) {
+	// branch => (path, sha1) => repo.
+	repos := map[fileKey]BlobLocation{}
+	// fileKey => branches
+	branchMap := map[fileKey][]string{}
+	// Branch => Repo => SHA1
+	branchVersions := map[string]map[string]plumbing.Hash{}
+
+	branches, err := expandBranches(repo, opts.Branches, opts.BranchPrefix)
+	if err != nil {
+		return nil, nil, nil, err
+	}
+
+	for _, b := range branches {
+		commit, err := getCommit(repo, opts.BranchPrefix, b)
+		if err != nil {
+			if opts.AllowMissingBranch && err.Error() == "reference not found" {
+				continue
+			}
+
+			return nil, nil, nil, err
+		}
+
+		opts.BuildOptions.RepositoryDescription.Branches = append(
+			opts.BuildOptions.RepositoryDescription.Branches,
+			zoekt.RepositoryBranch{
+				Name:    b,
+				Version: commit.Hash.String(),
+			},
+		)
+
+		tree, err := commit.Tree()
+		if err != nil {
+			return nil, nil, nil, err
+		}
+
+		files, subVersions, err := TreeToFiles(repo, tree, opts.BuildOptions.RepositoryDescription.URL, repoCache)
+		if err != nil {
+			return nil, nil, nil, err
+		}
+
+		for k, v := range files {
+			repos[k] = v
+			branchMap[k] = append(branchMap[k], b)
+		}
+		branchVersions[b] = subVersions
+	}
+
+	return repos, branchMap, branchVersions, nil
+}
+
 // IndexGitRepo indexes the git repository as specified by the options.
 func IndexGitRepo(opts Options) error {
 	// Set max thresholds, since we use them in this function.
@@ -361,49 +421,9 @@ func IndexGitRepo(opts Options) error {
 
 	repoCache := NewRepoCache(opts.RepoCacheDir)
 
-	// branch => (path, sha1) => repo.
-	repos := map[fileKey]BlobLocation{}
-
-	// fileKey => branches
-	branchMap := map[fileKey][]string{}
-
-	// Branch => Repo => SHA1
-	branchVersions := map[string]map[string]plumbing.Hash{}
-
-	branches, err := expandBranches(repo, opts.Branches, opts.BranchPrefix)
+	repos, branchMap, branchVersions, err := processRepoBranches(repo, repoCache, &opts)
 	if err != nil {
 		return err
-	}
-	for _, b := range branches {
-		commit, err := getCommit(repo, opts.BranchPrefix, b)
-		if err != nil {
-			if opts.AllowMissingBranch && err.Error() == "reference not found" {
-				continue
-			}
-
-			return err
-		}
-
-		opts.BuildOptions.RepositoryDescription.Branches = append(opts.BuildOptions.RepositoryDescription.Branches, zoekt.RepositoryBranch{
-			Name:    b,
-			Version: commit.Hash.String(),
-		})
-
-		tree, err := commit.Tree()
-		if err != nil {
-			return err
-		}
-
-		files, subVersions, err := TreeToFiles(repo, tree, opts.BuildOptions.RepositoryDescription.URL, repoCache)
-		if err != nil {
-			return err
-		}
-		for k, v := range files {
-			repos[k] = v
-			branchMap[k] = append(branchMap[k], b)
-		}
-
-		branchVersions[b] = subVersions
 	}
 
 	if opts.Incremental && opts.BuildOptions.IncrementalSkipIndexing() {
@@ -479,16 +499,18 @@ func IndexGitRepo(opts Options) error {
 			if err != nil {
 				return err
 			}
+
 			if err := builder.Add(zoekt.Document{
-				SubRepositoryPath: key.SubRepoPath,
 				Name:              key.FullPath(),
 				Content:           contents,
 				Branches:          brs,
+				SubRepositoryPath: key.SubRepoPath,
 			}); err != nil {
 				return err
 			}
 		}
 	}
+
 	return builder.Finish()
 }
 

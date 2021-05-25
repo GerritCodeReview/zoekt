@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc4ee261_19d1d2c4",
+        "filename": "gitindex/index.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-05-25T10:34:42Z",
+      "side": 1,
+      "message": "function comment  missing",
+      "range": {
+        "startLine": 344,
+        "startChar": 5,
+        "endLine": 344,
+        "endChar": 24
+      },
+      "revId": "288ecd071e4a879be56ea256099ca14bc6011acd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3f41bf4_c6b2def8",
+        "filename": "gitindex/index.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-05-25T10:34:42Z",
+      "side": 1,
+      "message": "doc parameters",
+      "range": {
+        "startLine": 349,
+        "startChar": 1,
+        "endLine": 349,
+        "endChar": 26
+      },
+      "revId": "288ecd071e4a879be56ea256099ca14bc6011acd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cd9ac8b_13b27ec7",
+        "filename": "gitindex/index.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-05-25T10:34:42Z",
+      "side": 1,
+      "message": "you could just use named return parameters.",
+      "range": {
+        "startLine": 355,
+        "startChar": 1,
+        "endLine": 355,
+        "endChar": 6
+      },
+      "revId": "288ecd071e4a879be56ea256099ca14bc6011acd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

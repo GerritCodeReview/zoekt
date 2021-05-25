@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9b63d1b_d7f4c0e4",
+        "filename": "gitindex/index.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-05-25T10:32:53Z",
+      "side": 1,
+      "message": "wouldn\u0027t it be better to make builder.Finish idempotent?",
+      "range": {
+        "startLine": 465,
+        "startChar": 1,
+        "endLine": 465,
+        "endChar": 43
+      },
+      "revId": "6dd06d5c2f4dbb22797524ea176848b0a9d90cd8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

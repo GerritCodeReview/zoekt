@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e2ad184_b7ad53e7",
+        "filename": "build/builder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-06-09T07:16:06Z",
+      "side": 1,
+      "message": "update definition of LargeFiles option?",
+      "range": {
+        "startLine": 246,
+        "startChar": 24,
+        "endLine": 246,
+        "endChar": 37
+      },
+      "revId": "806a906427fa42e09e1d9e68c9c0791c551ef98c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c76936d0_87d73e80",
+        "filename": "build/builder_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-06-09T07:16:06Z",
+      "side": 1,
+      "message": "Doesn\u0027t the doublestar package have test coverage itself?",
+      "range": {
+        "startLine": 51,
+        "startChar": 1,
+        "endLine": 53,
+        "endChar": 38
+      },
+      "revId": "806a906427fa42e09e1d9e68c9c0791c551ef98c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

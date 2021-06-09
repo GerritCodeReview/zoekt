@@ -117,6 +117,30 @@
       },
       "revId": "806a906427fa42e09e1d9e68c9c0791c551ef98c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0566f92_255f79cf",
+        "filename": "build/builder_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1137401
+      },
+      "writtenOn": "2021-06-09T19:59:23Z",
+      "side": 1,
+      "message": "I removed the tests.",
+      "parentUuid": "7677830f_5cabf2b3",
+      "range": {
+        "startLine": 51,
+        "startChar": 1,
+        "endLine": 53,
+        "endChar": 38
+      },
+      "revId": "806a906427fa42e09e1d9e68c9c0791c551ef98c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

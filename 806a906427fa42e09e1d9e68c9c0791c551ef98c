@@ -93,6 +93,30 @@
       },
       "revId": "806a906427fa42e09e1d9e68c9c0791c551ef98c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7677830f_5cabf2b3",
+        "filename": "build/builder_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-06-09T17:06:09Z",
+      "side": 1,
+      "message": "it looks like it\u0027s just testing if the glob matches the path in many ways. Reduce to 1 case?",
+      "parentUuid": "5de8c403_277aaf2d",
+      "range": {
+        "startLine": 51,
+        "startChar": 1,
+        "endLine": 53,
+        "endChar": 38
+      },
+      "revId": "806a906427fa42e09e1d9e68c9c0791c551ef98c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

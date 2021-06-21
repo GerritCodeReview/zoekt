@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0c4fbaa0_a2eba54c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1118410
+      },
+      "writtenOn": "2021-06-21T10:55:31Z",
+      "side": 1,
+      "message": "The motivation for this change is mostly about simplifying docMatchTree. Although, avoiding allocation is a welcome side effect.\n\nWe are currently adding support for multiple repositories within 1 shard. The goal is to reduce Zoekt\u0027s memory footprint by combining ngram maps of small repositories. As part of this bigger change we want to use docMatchTree not just for \"language\" but for other (custom) query types, too.\n\nWhile working on this we realised that docMatchTree is more complicated than it has to be. For example, it computes \"current\". I think the purpose of \"current\" is to support duplicate docIDs in the \"docs\" slice? However, its only use-case, \"language\", doesn\u0027t require it.",
+      "parentUuid": "6c524735_619410af",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "dfd6551433800b55969de3cb8c9825af785454e1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6b1c64a5_7a1ee39a",
         "filename": "matchtree.go",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-21T06:55:11Z",
       "side": 1,
       "message": "while you\u0027re here, add a comment to the class.",
+      "range": {
+        "startLine": 85,
+        "startChar": 4,
+        "endLine": 85,
+        "endChar": 5
+      },
+      "revId": "dfd6551433800b55969de3cb8c9825af785454e1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56814516_acded909",
+        "filename": "matchtree.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1118410
+      },
+      "writtenOn": "2021-06-21T10:55:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b1c64a5_7a1ee39a",
       "range": {
         "startLine": 85,
         "startChar": 4,

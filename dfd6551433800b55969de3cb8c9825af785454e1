@@ -48,6 +48,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd0cc5a0_75ebfea8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-06-21T13:59:10Z",
+      "side": 1,
+      "message": "\u003e The goal is to reduce Zoekt\u0027s memory footprint by combining ngram maps of small repositories.\n\nfascinating! Looking forward to seeing that.\n\n\u003e While working on this we realised that docMatchTree is more complicated than it has to be. For example, it computes \"current\". I think the purpose of \"current\" is to support duplicate docIDs in the \"docs\" slice?\n\nthat sounds unlikely. Maybe it was just an oversight.",
+      "parentUuid": "0c4fbaa0_a2eba54c",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "dfd6551433800b55969de3cb8c9825af785454e1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b1c64a5_7a1ee39a",

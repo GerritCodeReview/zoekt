@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c524735_619410af",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-06-21T06:55:11Z",
+      "side": 1,
+      "message": "why?\n\nI assume this is an optimization to avoid allocation. \n\n(Is there data showing impact?)",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "dfd6551433800b55969de3cb8c9825af785454e1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b1c64a5_7a1ee39a",
+        "filename": "matchtree.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-06-21T06:55:11Z",
+      "side": 1,
+      "message": "while you\u0027re here, add a comment to the class.",
+      "range": {
+        "startLine": 85,
+        "startChar": 4,
+        "endLine": 85,
+        "endChar": 5
+      },
+      "revId": "dfd6551433800b55969de3cb8c9825af785454e1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

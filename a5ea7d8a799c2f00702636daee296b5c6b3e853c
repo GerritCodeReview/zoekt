@@ -34,6 +34,24 @@
       "parentUuid": "d737348f_3557a3ff",
       "revId": "a5ea7d8a799c2f00702636daee296b5c6b3e853c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a61d1dd_9dcbbaf4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-06-22T08:21:08Z",
+      "side": 1,
+      "message": "I see\n\n```\n2021/06/22 10:19:37 deleting repos [gerrit.googlesource.com/sub/bdir.git]\n--- FAIL: TestSubmoduleIndex (0.53s)\n    tree_test.go:217: IndexGitRepo: reference not found\n2021/06/22 10:19:40 finished /tmp/017266233/gerrit.googlesource.com%2Fadir_v15.00000.zoekt: 1285 index bytes (overhead 1285.0)\n2021/06/22 10:19:40 finished /tmp/744221718/repo_v15.00000.zoekt: 1647 index bytes (overhead 31.1)\n2021/06/22 10:19:40 loading 1 shards\n--- FAIL: TestSkipSubmodules (0.61s)\n    tree_test.go:422: IndexGitRepo: reference not found\n--- FAIL: TestFullAndShortRefNames (0.30s)\n    tree_test.go:461: IndexGitRepo: reference not found\nFAIL\n```\n\nbut maybe this is broken because we use a slightly tweaked version of Git inside google.\n\nif it works on a stock deployment, all the better :-)",
+      "parentUuid": "271f9a5f_14fb6f4c",
+      "revId": "a5ea7d8a799c2f00702636daee296b5c6b3e853c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

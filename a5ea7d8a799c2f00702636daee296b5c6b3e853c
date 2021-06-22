@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d737348f_3557a3ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-06-22T07:53:57Z",
+      "side": 1,
+      "message": "sorry for breaking it. It\u0027s somewhat arcane functionality, though. I think it would be helped by a test. Would you have time to add one?\n\nI know that some of the existing tests are currently breaking because some semantics change of how git sets up remotes, so I won\u0027t insist.",
+      "revId": "a5ea7d8a799c2f00702636daee296b5c6b3e853c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

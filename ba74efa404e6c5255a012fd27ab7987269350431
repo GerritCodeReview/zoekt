@@ -16,6 +16,24 @@
       "message": "Keegan,\n\nthanks for the review. It turns out, we  changed settings on gerrit.googlesource.com to always require 2 person review. Would you mind if I gave you +2 powers for Zoekt?",
       "revId": "ba74efa404e6c5255a012fd27ab7987269350431",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "911ccb96_544807ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-06-29T08:34:48Z",
+      "side": 1,
+      "message": "\u003e Would you mind if I gave you +2 powers for Zoekt?\n\nYes, I\u0027d be happy with that :) Thanks!",
+      "parentUuid": "af88fa02_37e0941e",
+      "revId": "ba74efa404e6c5255a012fd27ab7987269350431",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

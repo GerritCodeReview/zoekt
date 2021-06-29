@@ -34,6 +34,24 @@
       "parentUuid": "af88fa02_37e0941e",
       "revId": "ba74efa404e6c5255a012fd27ab7987269350431",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d95d6b3f_46753d63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-06-29T09:59:51Z",
+      "side": 1,
+      "message": "Awesome! I did just that. Can you try it?\n\nMaybe we should have a separate conversation about the long-term plans for github.com/srcgraph/zoekt vs. github.com/google/zoekt.  Is it necessary for there to be a srcgraph specific version of Zoekt vs a vanilla one? \n\nAs it happens, I\u0027m meeting Beyang later today. So I\u0027ll mention it.",
+      "parentUuid": "911ccb96_544807ca",
+      "revId": "ba74efa404e6c5255a012fd27ab7987269350431",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

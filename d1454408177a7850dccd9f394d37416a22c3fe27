@@ -22,6 +22,30 @@
       },
       "revId": "d1454408177a7850dccd9f394d37416a22c3fe27",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b0dd13e_9a63d80a",
+        "filename": "matchtree.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1118410
+      },
+      "writtenOn": "2021-06-29T14:55:14Z",
+      "side": 1,
+      "message": "Yes, you are right. After thinking a bit more about it, I think this is the wrong place to explain the behavior of nextDoc() anyway. Additionally, maxUInt32 is a sentinel value used by other nextDoc(), too, so it is not necessary to mention it here.",
+      "parentUuid": "d1efb5b4_b7c796d3",
+      "range": {
+        "startLine": 87,
+        "startChar": 8,
+        "endLine": 87,
+        "endChar": 15
+      },
+      "revId": "d1454408177a7850dccd9f394d37416a22c3fe27",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

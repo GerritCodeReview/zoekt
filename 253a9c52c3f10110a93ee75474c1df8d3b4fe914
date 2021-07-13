@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5b16bccf_e9062bb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1082084
+      },
+      "writtenOn": "2021-07-13T19:28:40Z",
+      "side": 1,
+      "message": "yes. Will use :)",
+      "parentUuid": "15b53651_47e814d3",
+      "revId": "253a9c52c3f10110a93ee75474c1df8d3b4fe914",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2a2976a4_9d96930c",
         "filename": "read.go",
         "patchSetId": 1
@@ -31,6 +49,30 @@
       "writtenOn": "2021-07-13T09:09:06Z",
       "side": 1,
       "message": "If you\u0027re hunting for bytes: you could use 3 if the code is 100% ascii (which we keep track of somewhree else)",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 254,
+        "endChar": 23
+      },
+      "revId": "253a9c52c3f10110a93ee75474c1df8d3b4fe914",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b458523b_833e1c63",
+        "filename": "read.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1082084
+      },
+      "writtenOn": "2021-07-13T19:28:40Z",
+      "side": 1,
+      "message": "indeed we have been hunting. We have a few patches we plan on upstreamings which use a more complicated but efficient in-memory representation. In practice our memory usage went down 5x!\n\nhttps://github.com/sourcegraph/zoekt/pull/94\nhttps://github.com/sourcegraph/zoekt/pull/93\nhttps://github.com/sourcegraph/zoekt/pull/92",
+      "parentUuid": "2a2976a4_9d96930c",
       "range": {
         "startLine": 253,
         "startChar": 0,

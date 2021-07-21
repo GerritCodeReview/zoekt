@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9dd31b7d_6db638ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-07-21T15:18:31Z",
+      "side": 1,
+      "message": "I\u0027ve added your personal account as maintainer too.\n",
+      "revId": "0a98eeed9b5869fbe2a7c7aefb37d147d3715f01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "70fbc0fe_6871e5e7",
         "filename": "indexbuilder.go",
         "patchSetId": 1

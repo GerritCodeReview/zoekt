@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0201060f_f8c8eb3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-07-21T15:25:40Z",
+      "side": 1,
+      "message": "Han-Wen: for simple changes like this are you happy with me just +2ing and merging with a cc or adding you as a reviewer? I don\u0027t mind waiting for the +2 from you.",
+      "revId": "5118231428f3b0ff69b0455f909573c65248586d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

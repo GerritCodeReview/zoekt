@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f10723a0_8963c0a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-07-21T15:20:15Z",
+      "side": 1,
+      "message": "and removed your SG account, so you can\u0027t self approve",
+      "parentUuid": "9dd31b7d_6db638ce",
+      "revId": "0a98eeed9b5869fbe2a7c7aefb37d147d3715f01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "70fbc0fe_6871e5e7",
         "filename": "indexbuilder.go",
         "patchSetId": 1

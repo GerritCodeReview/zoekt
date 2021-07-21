@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c42f2551_7e2970d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1082084
+      },
+      "writtenOn": "2021-07-21T15:11:21Z",
+      "side": 1,
+      "message": "Han-Wen: I realise there are two accounts going on here. My personal gmail and my Sourcegraph account. Is there a way to merge them? I usually use my personal gmail for git commits/etc. But happy to switch to submitting under my Sourcegraph account.",
+      "revId": "0a98eeed9b5869fbe2a7c7aefb37d147d3715f01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "70fbc0fe_6871e5e7",
         "filename": "indexbuilder.go",
         "patchSetId": 1

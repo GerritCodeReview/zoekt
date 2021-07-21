@@ -16,6 +16,24 @@
       "message": "Han-Wen: for simple changes like this are you happy with me just +2ing and merging with a cc or adding you as a reviewer? I don\u0027t mind waiting for the +2 from you.",
       "revId": "5118231428f3b0ff69b0455f909573c65248586d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "387964c5_4ec94085",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-07-21T15:32:06Z",
+      "side": 1,
+      "message": "if you are able to +2 and submit, something would be broken in Gerrit :-). It\u0027s explicitly disabled as part of a more general trend towards enforcing 2-person review throughout.\n\n(you can issue the +2 vote, but it won\u0027t let you submit.)",
+      "parentUuid": "0201060f_f8c8eb3c",
+      "revId": "5118231428f3b0ff69b0455f909573c65248586d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

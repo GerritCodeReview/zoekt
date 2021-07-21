@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70fbc0fe_6871e5e7",
+        "filename": "indexbuilder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-07-21T09:55:49Z",
+      "side": 1,
+      "message": "unrelated, but this code is dead.",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 2
+      },
+      "revId": "0a98eeed9b5869fbe2a7c7aefb37d147d3715f01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

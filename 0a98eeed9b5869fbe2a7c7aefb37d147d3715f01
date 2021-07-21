@@ -22,6 +22,30 @@
       },
       "revId": "0a98eeed9b5869fbe2a7c7aefb37d147d3715f01",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf414fd9_9baa06ea",
+        "filename": "indexbuilder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1082084
+      },
+      "writtenOn": "2021-07-21T15:08:59Z",
+      "side": 1,
+      "message": "I\u0027ll follow up with a removal.",
+      "parentUuid": "70fbc0fe_6871e5e7",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 2
+      },
+      "revId": "0a98eeed9b5869fbe2a7c7aefb37d147d3715f01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

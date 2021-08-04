@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3872d14c_850af2f5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-08-04T09:57:03Z",
+      "side": 1,
+      "message": "dropping or ignoring?",
+      "range": {
+        "startLine": 9,
+        "startChar": 44,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "e056565d5231c2af4b7ad579ba4720420bd2cb57",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48285117_6dbf0786",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-08-04T09:57:03Z",
+      "side": 1,
+      "message": "I know you like to move fast, but would be nice to give a couple of hours for me to see this too.\n\n\nfor /(foo){2,}/ - it might be interesting to see if you could rewrite it to look for foofoo, which would give you more options for trigrams to search for.",
+      "revId": "e056565d5231c2af4b7ad579ba4720420bd2cb57",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

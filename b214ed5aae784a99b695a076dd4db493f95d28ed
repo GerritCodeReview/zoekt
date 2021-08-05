@@ -16,6 +16,24 @@
       "message": "minor: go now has `t.TempDir()`",
       "revId": "b214ed5aae784a99b695a076dd4db493f95d28ed",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d2a909d_622d452a",
+        "filename": "gitindex/index_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-08-05T12:02:57Z",
+      "side": 1,
+      "message": "Ack. We\u0027d have to bump the requirement from Go 1.13 to 1.15, though.",
+      "parentUuid": "677bd214_6c0fc5a1",
+      "revId": "b214ed5aae784a99b695a076dd4db493f95d28ed",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

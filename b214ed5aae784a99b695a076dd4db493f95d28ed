@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "677bd214_6c0fc5a1",
+        "filename": "gitindex/index_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-08-05T11:44:43Z",
+      "side": 1,
+      "message": "minor: go now has `t.TempDir()`",
+      "revId": "b214ed5aae784a99b695a076dd4db493f95d28ed",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

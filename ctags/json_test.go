@@ -24,6 +24,11 @@ import (
 	"github.com/google/go-cmp/cmp"
 )
 
+func init() {
+	// disable requiring sandbox in tests
+	enforceSandbox = false
+}
+
 func TestJSON(t *testing.T) {
 	if _, err := exec.LookPath("universal-ctags"); err != nil {
 		t.Skip(err)

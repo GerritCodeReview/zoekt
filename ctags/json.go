@@ -30,6 +30,11 @@ import (
 
 const debug = false
 
+// enforceSandbox if true ensures we have sandbox mode when on Linux. This is
+// to prevent accidently not using it in production. We disable this for go
+// test for convenience.
+var enforceSandbox = true
+
 type ctagsProcess struct {
 	cmd     *exec.Cmd
 	in      io.WriteCloser
@@ -38,9 +43,20 @@ type ctagsProcess struct {
 }
 
 func newProcess(bin string) (*ctagsProcess, error) {
+	features, err := universalCtagsFeatures(bin)
+	if err != nil {
+		return nil, err
+	}
+
+	if _, ok := features["json"]; !ok {
+		return nil, fmt.Errorf("%s does not have interactive json support", bin)
+	}
+
 	opt := "default"
-	if runtime.GOOS == "linux" {
+	if _, ok := features["sandbox"]; ok {
 		opt = "sandbox"
+	} else if enforceSandbox && runtime.GOOS == "linux" {
+		return nil, fmt.Errorf("%s does not have sandbox mode", bin)
 	}
 
 	cmd := exec.Command(bin, "--_interactive="+opt, "--fields=*")
@@ -231,6 +247,24 @@ func (s *scanner) Err() error {
 		return nil
 	}
 	return s.err
+}
+
+func universalCtagsFeatures(bin string) (map[string]struct{}, error) {
+	output, err := exec.Command(bin, "--list-features").Output()
+	if err != nil {
+		return nil, err
+	}
+
+	features := make(map[string]struct{})
+	for _, line := range bytes.Split(output, []byte("\n")) {
+		if bytes.HasPrefix(line, []byte("#")) {
+			continue
+		}
+		if i := bytes.IndexAny(line, " \t"); i > 0 {
+			features[string(line[:i])] = struct{}{}
+		}
+	}
+	return features, nil
 }
 
 type Parser interface {

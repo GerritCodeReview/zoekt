@@ -46,6 +46,30 @@
       },
       "revId": "f4589b5f8b0a5e8ae8029154ef557bb17a290eca",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf82d4df_9e0e017f",
+        "filename": "shards/watcher.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-08-12T15:20:07Z",
+      "side": 1,
+      "message": "ok. Still not entirely trivial, though: add a \n\n func humanTruncateList(elems []string, max int) string\n\n \nand unittest it?",
+      "parentUuid": "1cc5a041_1aa93b17",
+      "range": {
+        "startLine": 132,
+        "startChar": 56,
+        "endLine": 132,
+        "endChar": 60
+      },
+      "revId": "f4589b5f8b0a5e8ae8029154ef557bb17a290eca",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

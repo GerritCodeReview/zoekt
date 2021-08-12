@@ -22,6 +22,30 @@
       },
       "revId": "f4589b5f8b0a5e8ae8029154ef557bb17a290eca",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cc5a041_1aa93b17",
+        "filename": "shards/watcher.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-08-12T15:00:28Z",
+      "side": 1,
+      "message": "We don\u0027t print the current item due to the break on the next line. Check this out: https://play.golang.org/p/BtJZDsFh73H",
+      "parentUuid": "f1e3d65e_675ceb8d",
+      "range": {
+        "startLine": 132,
+        "startChar": 56,
+        "endLine": 132,
+        "endChar": 60
+      },
+      "revId": "f4589b5f8b0a5e8ae8029154ef557bb17a290eca",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

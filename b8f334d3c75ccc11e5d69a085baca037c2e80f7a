@@ -54,6 +54,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "58748dfa_44ef214d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-08-12T09:58:50Z",
+      "side": 1,
+      "message": "\u003e devenvs have sandbox mode enabled on linux?\n\nthere is no downside to having sandbox compiled in on Linux. I wonder why it\u0027s not included in default build actions on Linux.",
+      "parentUuid": "0a4992eb_3f7d3403",
+      "revId": "b8f334d3c75ccc11e5d69a085baca037c2e80f7a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "dda0a944_1fae251d",
@@ -91,6 +109,30 @@
       "side": 1,
       "message": "universal-ctags repo refers to itself as \"Universal Ctags\". So I assume if I make it consistent we should go with a lower case t? WDYT?\n\nI can follow-up with that.",
       "parentUuid": "dda0a944_1fae251d",
+      "range": {
+        "startLine": 244,
+        "startChar": 14,
+        "endLine": 244,
+        "endChar": 19
+      },
+      "revId": "b8f334d3c75ccc11e5d69a085baca037c2e80f7a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40aa4871_fc4dfb47",
+        "filename": "ctags/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-08-12T09:58:50Z",
+      "side": 1,
+      "message": "sgtm.",
+      "parentUuid": "779aabbc_984153b3",
       "range": {
         "startLine": 244,
         "startChar": 14,

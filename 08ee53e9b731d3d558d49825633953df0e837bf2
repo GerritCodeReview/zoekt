@@ -46,6 +46,30 @@
       },
       "revId": "08ee53e9b731d3d558d49825633953df0e837bf2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e375d3d_a2dcc18f",
+        "filename": "shards/watcher.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-08-12T10:09:54Z",
+      "side": 1,
+      "message": "something is off, though. \n\nif len\u003d\u003d6, you\u0027d execute this body as the last iteration, and it would print \n\n   .. 1 more\n   \nyou could do len(toLoad)-i-1\n\nbut then printing \n\n   .. 0 more\n   \nisn\u0027t pretty.",
+      "parentUuid": "1954460e_d1816355",
+      "range": {
+        "startLine": 131,
+        "startChar": 11,
+        "endLine": 131,
+        "endChar": 12
+      },
+      "revId": "08ee53e9b731d3d558d49825633953df0e837bf2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

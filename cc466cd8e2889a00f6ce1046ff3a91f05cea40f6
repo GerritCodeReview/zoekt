@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "087d00cd_dd5f8ae5",
+        "filename": "shell.nix",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-08-12T07:33:10Z",
+      "side": 1,
+      "message": "this honestly is jibberish to me. Is it useful to have a section in the README on development using Nix, or is that too broad a topic to discuss there?",
+      "revId": "cc466cd8e2889a00f6ce1046ff3a91f05cea40f6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

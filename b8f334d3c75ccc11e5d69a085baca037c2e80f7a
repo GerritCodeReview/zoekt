@@ -72,6 +72,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b52042de_dce30c53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-08-12T10:18:12Z",
+      "side": 1,
+      "message": "I don\u0027t know. I just checked on a few distributions I am familiar with. Alpine and nixos do not include it. Ubuntu and debian include it.\n\nAnother fun thing is only ubuntu calls the binary universal-ctags. Everything else just installs it as ctags.\n\nPersonally I develop on nixos. Given it works on the more mainstream distribution of ubuntu I\u0027m happy to abandon this and just target that. Then workaround it myself to ensure i have sandboxing on. What do you think?",
+      "parentUuid": "58748dfa_44ef214d",
+      "revId": "b8f334d3c75ccc11e5d69a085baca037c2e80f7a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "dda0a944_1fae251d",

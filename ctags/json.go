@@ -23,7 +23,6 @@ import (
 	"log"
 	"os"
 	"os/exec"
-	"runtime"
 	"strings"
 	"sync"
 )
@@ -38,8 +37,17 @@ type ctagsProcess struct {
 }
 
 func newProcess(bin string) (*ctagsProcess, error) {
+	features, err := universalCtagsFeatures(bin)
+	if err != nil {
+		return nil, err
+	}
+
+	if _, ok := features["json"]; !ok {
+		return nil, fmt.Errorf("%s does not have interactive json support", bin)
+	}
+
 	opt := "default"
-	if runtime.GOOS == "linux" {
+	if _, ok := features["sandbox"]; ok {
 		opt = "sandbox"
 	}
 
@@ -231,6 +239,24 @@ func (s *scanner) Err() error {
 		return nil
 	}
 	return s.err
+}
+
+func universalCtagsFeatures(bin string) (map[string]struct{}, error) {
+	output, err := exec.Command(bin, "--list-features").Output()
+	if err != nil {
+		return nil, err
+	}
+
+	features := make(map[string]struct{})
+	for _, line := range bytes.Split(output, []byte("\n")) {
+		if bytes.HasPrefix(line, []byte("#")) {
+			continue
+		}
+		if i := bytes.IndexAny(line, " \t"); i > 0 {
+			features[string(line[:i])] = struct{}{}
+		}
+	}
+	return features, nil
 }
 
 type Parser interface {

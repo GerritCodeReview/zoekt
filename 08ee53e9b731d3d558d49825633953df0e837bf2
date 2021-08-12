@@ -22,6 +22,30 @@
       },
       "revId": "08ee53e9b731d3d558d49825633953df0e837bf2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1954460e_d1816355",
+        "filename": "shards/watcher.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-08-12T10:00:22Z",
+      "side": 1,
+      "message": "because of the break we don\u0027t need this condition if I am not mistaken? ie i is gaurenteed to be `\u003c\u003d len(toLoad) - 1` and when we do the break we don\u0027t include the name of the ith shard.",
+      "parentUuid": "4e7dbe0f_66b67e95",
+      "range": {
+        "startLine": 131,
+        "startChar": 11,
+        "endLine": 131,
+        "endChar": 12
+      },
+      "revId": "08ee53e9b731d3d558d49825633953df0e837bf2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

@@ -34,6 +34,24 @@
       "parentUuid": "087d00cd_dd5f8ae5",
       "revId": "cc466cd8e2889a00f6ce1046ff3a91f05cea40f6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "807c6954_2cf71f6d",
+        "filename": "shell.nix",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-08-12T10:06:40Z",
+      "side": 1,
+      "message": "the binary name is already configurable in the code.  Another option would be to provide a flag that explicitly sets the flavor of ctags.\n\nto me it reads as noise, but I can\u0027t judge how annoying it is to have this file somewhere else.",
+      "parentUuid": "837aeeda_23ddf2f3",
+      "revId": "cc466cd8e2889a00f6ce1046ff3a91f05cea40f6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

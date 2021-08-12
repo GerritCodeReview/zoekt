@@ -18,6 +18,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a4992eb_3f7d3403",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-08-12T09:52:38Z",
+      "side": 1,
+      "message": "For running locally in my dev environment I also find it useful to not have sandbox mode since I haven\u0027t compiled it to support it.\n\nBut you are right, if we ship the wrong ctags in production this can be an issue. I\u0027ve come across a few classic buffer overflows in universal-ctags, so this is an important feature.\n\nI\u0027ll special case tests, but I wonder if there is a nice way for us to \"detect\" production environments. Or maybe we should just make it that devenvs have sandbox mode enabled on linux?",
+      "parentUuid": "c8fb6a2b_eda8efee",
+      "revId": "b8f334d3c75ccc11e5d69a085baca037c2e80f7a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "dda0a944_1fae251d",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-08-12T07:53:41Z",
       "side": 1,
       "message": "note: I\u0027ve been inconsistent with capitalization (CTags vs Ctags).  It might be a good idea to regularize this (build/ctags.go has a runCTagsChunked function)",
+      "range": {
+        "startLine": 244,
+        "startChar": 14,
+        "endLine": 244,
+        "endChar": 19
+      },
+      "revId": "b8f334d3c75ccc11e5d69a085baca037c2e80f7a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "779aabbc_984153b3",
+        "filename": "ctags/json.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-08-12T09:52:38Z",
+      "side": 1,
+      "message": "universal-ctags repo refers to itself as \"Universal Ctags\". So I assume if I make it consistent we should go with a lower case t? WDYT?\n\nI can follow-up with that.",
+      "parentUuid": "dda0a944_1fae251d",
       "range": {
         "startLine": 244,
         "startChar": 14,

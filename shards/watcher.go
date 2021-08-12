@@ -20,6 +20,8 @@ import (
 	"os"
 	"path/filepath"
 	"runtime"
+	"sort"
+	"strings"
 	"sync"
 	"time"
 
@@ -112,10 +114,10 @@ func (s *DirectoryWatcher) scan() error {
 	}
 
 	if len(toDrop) > 0 {
-		log.Printf("unloading %d shards", len(toDrop))
+		log.Printf("unloading %d shard(s)", len(toDrop))
 	}
 	for _, t := range toDrop {
-		log.Printf("unloading: %s", t)
+		log.Printf("unloading: %s", filepath.Base(t))
 		s.loader.drop(t)
 	}
 
@@ -123,7 +125,19 @@ func (s *DirectoryWatcher) scan() error {
 		return nil
 	}
 
-	log.Printf("loading %d shards", len(toLoad))
+	sort.Strings(toLoad)
+	var toLoadSummary strings.Builder
+	for i, p := range toLoad {
+		if i == 5 && len(toLoad) > 6 {
+			fmt.Fprintf(&toLoadSummary, "... %d more", len(toLoad)-i)
+			break
+		}
+		if i > 0 {
+			toLoadSummary.WriteString(", ")
+		}
+		toLoadSummary.WriteString(filepath.Base(p))
+	}
+	log.Printf("loading %d shard(s): %s", len(toLoad), toLoadSummary.String())
 
 	// Limit amount of concurrent shard loads.
 	throttle := make(chan struct{}, runtime.GOMAXPROCS(0))

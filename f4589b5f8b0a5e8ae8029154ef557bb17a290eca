@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1e3d65e_675ceb8d",
+        "filename": "shards/watcher.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-08-12T13:57:20Z",
+      "side": 1,
+      "message": "still need the -1 here.",
+      "range": {
+        "startLine": 132,
+        "startChar": 56,
+        "endLine": 132,
+        "endChar": 60
+      },
+      "revId": "f4589b5f8b0a5e8ae8029154ef557bb17a290eca",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

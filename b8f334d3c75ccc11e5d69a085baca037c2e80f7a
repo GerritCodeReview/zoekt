@@ -90,6 +90,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e39b1d7_514e5888",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-08-12T10:43:21Z",
+      "side": 1,
+      "message": "abandoning it is certainly simpler, but I feel we should capture this knowledge somewhere. Maybe update doc/ctags.md?",
+      "parentUuid": "b52042de_dce30c53",
+      "revId": "b8f334d3c75ccc11e5d69a085baca037c2e80f7a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "dda0a944_1fae251d",

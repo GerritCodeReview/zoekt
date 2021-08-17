@@ -70,6 +70,30 @@
       },
       "revId": "f4589b5f8b0a5e8ae8029154ef557bb17a290eca",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a34f12cc_b4862b31",
+        "filename": "shards/watcher.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-08-17T08:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf82d4df_9e0e017f",
+      "range": {
+        "startLine": 132,
+        "startChar": 56,
+        "endLine": 132,
+        "endChar": 60
+      },
+      "revId": "f4589b5f8b0a5e8ae8029154ef557bb17a290eca",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

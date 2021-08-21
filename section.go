@@ -65,6 +65,12 @@ func (w *writer) Varint(n uint32) {
 	w.Write(enc[:m])
 }
 
+func (w *writer) String(s string) {
+	b := []byte(s)
+	w.Varint(uint32(len(b)))
+	w.Write(b)
+}
+
 func (s *simpleSection) start(w *writer) {
 	s.off = w.Off()
 }
@@ -77,12 +83,17 @@ func (s *simpleSection) end(w *writer) {
 type section interface {
 	read(*reader) error
 	write(*writer)
+	kind() int
 }
 
 // simpleSection is a simple range of bytes.
 type simpleSection struct {
 	off uint32
 	sz  uint32
+}
+
+func (s *simpleSection) kind() int {
+	return 0
 }
 
 func (s *simpleSection) read(r *reader) error {
@@ -110,6 +121,10 @@ type compoundSection struct {
 
 	offsets []uint32
 	index   simpleSection
+}
+
+func (s *compoundSection) kind() int {
+	return 1
 }
 
 func (s *compoundSection) start(w *writer) {

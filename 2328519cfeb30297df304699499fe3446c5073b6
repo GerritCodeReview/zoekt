@@ -54,6 +54,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b2ec3ed2_f79266e4",
+        "filename": "read.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-08-23T09:35:45Z",
+      "side": 1,
+      "message": "nit: skind reads like a new (scandinavian?) word. Maybe just `kind` ?",
+      "range": {
+        "startLine": 113,
+        "startChar": 3,
+        "endLine": 113,
+        "endChar": 8
+      },
+      "revId": "2328519cfeb30297df304699499fe3446c5073b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "466b4993_061a1cdf",
         "filename": "read.go",
         "patchSetId": 1
@@ -116,6 +139,24 @@
       "writtenOn": "2021-08-23T05:54:32Z",
       "side": 1,
       "message": "I think we need to bump IndexFormatVersion so that older zoekts don\u0027t fail on files indexed using the new format?",
+      "revId": "2328519cfeb30297df304699499fe3446c5073b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9bcf732_25937b49",
+        "filename": "toc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-08-23T09:35:45Z",
+      "side": 1,
+      "message": "+1 - If you have to bump the index version, you might as well make all sections tagged.",
+      "parentUuid": "116f1fff_71b693af",
       "revId": "2328519cfeb30297df304699499fe3446c5073b6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },

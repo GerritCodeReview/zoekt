@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f6c00fb_00e7ae74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-08-23T05:54:32Z",
+      "side": 1,
+      "message": "Nice, I think this will greatly simplify format changes going forward / make it easier to experiment.\n\nI think you need to handle things like ReadMetadata, which also relies on `sections`. Maybe do a find references on all sections call sites.\n\nI\u0027ve got a few inline comments, then will take another look.",
+      "revId": "2328519cfeb30297df304699499fe3446c5073b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "497a4a90_fac02f9c",
+        "filename": "read.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-08-23T05:54:32Z",
+      "side": 1,
+      "message": "I think you could out of bounds here? Probably safer to make this struct implement `io.ByteReader` and then use `binary.ReadUvarint(r)`",
+      "revId": "2328519cfeb30297df304699499fe3446c5073b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "466b4993_061a1cdf",
+        "filename": "read.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-08-23T05:54:32Z",
+      "side": 1,
+      "message": "this feels like it should return an error.",
+      "revId": "2328519cfeb30297df304699499fe3446c5073b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a61d30b_38c3d1e5",
+        "filename": "read.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-08-23T05:54:32Z",
+      "side": 1,
+      "message": "this is quite a lot of logic, maybe deserves pulling out into its own function?",
+      "revId": "2328519cfeb30297df304699499fe3446c5073b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db268105_b28321bb",
+        "filename": "section.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-08-23T05:54:32Z",
+      "side": 1,
+      "message": "can you document kind?",
+      "revId": "2328519cfeb30297df304699499fe3446c5073b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "116f1fff_71b693af",
+        "filename": "toc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-08-23T05:54:32Z",
+      "side": 1,
+      "message": "I think we need to bump IndexFormatVersion so that older zoekts don\u0027t fail on files indexed using the new format?",
+      "revId": "2328519cfeb30297df304699499fe3446c5073b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fa39133_e6ceefd1",
+        "filename": "toc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-08-23T05:54:32Z",
+      "side": 1,
+      "message": "should we not just make `sectionsTaggedList` this function. Then update callsites to only use the pointers. We can rely on format versions to detect the first change to the sections.",
+      "revId": "2328519cfeb30297df304699499fe3446c5073b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "001a6810_bad29cb4",
+        "filename": "write.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-08-23T05:54:32Z",
+      "side": 1,
+      "message": "if we want, we can tag this as two, and keep the property that the first two sections are always the metadata.\n\nHowever, I think its easier to just rely on bumping the format version. We can add backwards compatibility on reading versions if we want to make a smooth transition?",
+      "revId": "2328519cfeb30297df304699499fe3446c5073b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

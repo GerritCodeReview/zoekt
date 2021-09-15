@@ -53,6 +53,42 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2b9d541_6a288c9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1137401
+      },
+      "writtenOn": "2021-09-15T08:29:25Z",
+      "side": 1,
+      "message": "Done. See read_test.go:TestBackwardsCompat",
+      "parentUuid": "01062b17_8322785f",
+      "revId": "2328519cfeb30297df304699499fe3446c5073b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8df2374e_44ebb34b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1137401
+      },
+      "writtenOn": "2021-09-15T08:29:25Z",
+      "side": 1,
+      "message": "ReadMetadata calls readTOC, and doesn\u0027t require any further changes.",
+      "parentUuid": "6f6c00fb_00e7ae74",
+      "revId": "2328519cfeb30297df304699499fe3446c5073b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "497a4a90_fac02f9c",
@@ -66,6 +102,24 @@
       "writtenOn": "2021-08-23T05:54:32Z",
       "side": 1,
       "message": "I think you could out of bounds here? Probably safer to make this struct implement `io.ByteReader` and then use `binary.ReadUvarint(r)`",
+      "revId": "2328519cfeb30297df304699499fe3446c5073b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "029a1053_a11db703",
+        "filename": "read.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1137401
+      },
+      "writtenOn": "2021-09-15T08:29:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "497a4a90_fac02f9c",
       "revId": "2328519cfeb30297df304699499fe3446c5073b6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -110,6 +164,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fae9d9d_2894d408",
+        "filename": "read.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1137401
+      },
+      "writtenOn": "2021-09-15T08:29:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "466b4993_061a1cdf",
+      "revId": "2328519cfeb30297df304699499fe3446c5073b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a61d30b_38c3d1e5",
@@ -127,6 +199,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f7e28d2_171b1f7d",
+        "filename": "read.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1137401
+      },
+      "writtenOn": "2021-09-15T08:29:25Z",
+      "side": 1,
+      "message": "this will get flattened down one level when the fallback is deleted in the next backwards-incompatible version",
+      "parentUuid": "6a61d30b_38c3d1e5",
+      "revId": "2328519cfeb30297df304699499fe3446c5073b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db268105_b28321bb",
@@ -140,6 +230,24 @@
       "writtenOn": "2021-08-23T05:54:32Z",
       "side": 1,
       "message": "can you document kind?",
+      "revId": "2328519cfeb30297df304699499fe3446c5073b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0797bc1_b3b5887c",
+        "filename": "section.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1137401
+      },
+      "writtenOn": "2021-09-15T08:29:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db268105_b28321bb",
       "revId": "2328519cfeb30297df304699499fe3446c5073b6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -179,6 +287,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "980569d9_05ba084c",
+        "filename": "toc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1137401
+      },
+      "writtenOn": "2021-09-15T08:29:25Z",
+      "side": 1,
+      "message": "Old Zoekt versions fail on the new format just as gracefully as files with an IndexFormatVersion bump-- they have an error when reading the file (section count mismath), and ignore them.",
+      "parentUuid": "c9bcf732_25937b49",
+      "revId": "2328519cfeb30297df304699499fe3446c5073b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9fa39133_e6ceefd1",
@@ -196,6 +322,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42af725e_8012334e",
+        "filename": "toc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1137401
+      },
+      "writtenOn": "2021-09-15T08:29:25Z",
+      "side": 1,
+      "message": "It\u0027s not much code, and can be easily dropped when backwards compatibility with old index files is no longer needed. It\u0027s slightly harder to ensure backwards compatibility when doing a refactor like that that changes the old code paths.",
+      "parentUuid": "9fa39133_e6ceefd1",
+      "revId": "2328519cfeb30297df304699499fe3446c5073b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "001a6810_bad29cb4",
@@ -209,6 +353,24 @@
       "writtenOn": "2021-08-23T05:54:32Z",
       "side": 1,
       "message": "if we want, we can tag this as two, and keep the property that the first two sections are always the metadata.\n\nHowever, I think its easier to just rely on bumping the format version. We can add backwards compatibility on reading versions if we want to make a smooth transition?",
+      "revId": "2328519cfeb30297df304699499fe3446c5073b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6048bca1_8a670783",
+        "filename": "write.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1137401
+      },
+      "writtenOn": "2021-09-15T08:29:25Z",
+      "side": 1,
+      "message": "Bumping the format version breaks backwards compatibility. This patch does not. Metadata was aiming vaguely at more compatibility, but changing how it\u0027s read here isn\u0027t a problem.",
+      "parentUuid": "001a6810_bad29cb4",
       "revId": "2328519cfeb30297df304699499fe3446c5073b6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }

@@ -22,6 +22,30 @@
       },
       "revId": "c52fef10949b7a9239d11991ac7579d5c9d25ddd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e8a933b_9da78b2e",
+        "filename": "read.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1137401
+      },
+      "writtenOn": "2021-09-20T09:55:11Z",
+      "side": 1,
+      "message": "This is an interesting larger-scale change for a future format revision-- it might make sense to merge together metadata, repoMetadata, and the toc offsets for the binary sections into one chunk.",
+      "parentUuid": "39278d97_bd3f9fd6",
+      "range": {
+        "startLine": 113,
+        "startChar": 1,
+        "endLine": 113,
+        "endChar": 62
+      },
+      "revId": "c52fef10949b7a9239d11991ac7579d5c9d25ddd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "14b07c08_4e500668",
+        "filename": "toc.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-09-20T14:24:22Z",
+      "side": 1,
+      "message": "I would just update the indexing server, but leave the old webserver up. Once the index is redone, upgrade the webserver.\n\nyou\u0027re running a production service, so I guess you have other priorities. That said \"a while\" is quite vague, and without a policy on versioning zoekt itself, it may not be that useful.",
+      "parentUuid": "d111df45_d677efcb",
+      "revId": "5bc2d8453961cee952ac48cdd8e4d4d3bc2a2632",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "53d688ee_504de7c7",
         "filename": "toc.go",
         "patchSetId": 3
@@ -48,6 +66,24 @@
       "writtenOn": "2021-09-20T14:14:04Z",
       "side": 1,
       "message": "Ryan: how do you expect we will enforce index updates when we want to remove compatibility?\n\nRight now the IndexFormatVersion is both the read and write version. Do you envision we should port our Read vs Write version logic we have in our fork of Zoekt? Or does that also change with tagged sections?",
+      "revId": "5bc2d8453961cee952ac48cdd8e4d4d3bc2a2632",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ec053d3_6b43be4a",
+        "filename": "toc.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-09-20T14:24:22Z",
+      "side": 1,
+      "message": "FWIW, similar systems I\u0027ve seen would write multiple versions of the data, and the search system picks which schema to use.",
+      "parentUuid": "53d688ee_504de7c7",
       "revId": "5bc2d8453961cee952ac48cdd8e4d4d3bc2a2632",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }

@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9592c65_3ea83986",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-09-20T14:14:04Z",
+      "side": 1,
+      "message": "Given this is quite a core change, gonna wait for Han-Wen instead of +2ing.",
+      "revId": "5bc2d8453961cee952ac48cdd8e4d4d3bc2a2632",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d111df45_d677efcb",
+        "filename": "toc.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-09-20T14:14:04Z",
+      "side": 1,
+      "message": "Han-Wen: how do you feel about keeping in master backwards compatibility for a while before bumping IndexFormatVersion?\n\nI think historically you bumped IndexFormatVersion without keeping backwards compatibility? At Sourcegraph we often do this sort of strategy to decouple updates with reindexing the world.\n\nAs it stands this tagged format means it will be easy to support backwards compatibility going forward and will be more obvious to do.",
+      "revId": "5bc2d8453961cee952ac48cdd8e4d4d3bc2a2632",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53d688ee_504de7c7",
+        "filename": "toc.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-09-20T14:14:04Z",
+      "side": 1,
+      "message": "Ryan: how do you expect we will enforce index updates when we want to remove compatibility?\n\nRight now the IndexFormatVersion is both the read and write version. Do you envision we should port our Read vs Write version logic we have in our fork of Zoekt? Or does that also change with tagged sections?",
+      "revId": "5bc2d8453961cee952ac48cdd8e4d4d3bc2a2632",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

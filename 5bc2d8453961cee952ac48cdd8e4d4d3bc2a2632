@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "630fe8c1_3e71ca58",
+        "filename": "toc.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1137401
+      },
+      "writtenOn": "2021-09-22T05:57:29Z",
+      "side": 1,
+      "message": "I\u0027ve added some more detail here on ways to constrain forwards/backwards compatibility explicitly.\n\nLet me know if it looks reasonable, and I can write up some tests for it.",
+      "parentUuid": "14b07c08_4e500668",
+      "revId": "5bc2d8453961cee952ac48cdd8e4d4d3bc2a2632",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "53d688ee_504de7c7",
         "filename": "toc.go",
         "patchSetId": 3

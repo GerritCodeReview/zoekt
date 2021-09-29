@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20d04f00_7624b8bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1137401
+      },
+      "writtenOn": "2021-09-29T17:22:48Z",
+      "side": 1,
+      "message": "I don\u0027t have the permissions to submit, but I don\u0027t have any further changes for this.",
+      "revId": "155c3e587c3a786779a11fa90e4652fd198e2aef",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

@@ -16,6 +16,24 @@
       "message": "Is this inline with what you where thinking?\n\nI am gonna miss using gerrit 😭\n\nCorresponding change for our fork https://github.com/sourcegraph/zoekt/pull/198",
       "revId": "f8e8ada171c74085dd5ac222e08e5067d1858ce4",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "656d04b9_9bc23103",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-11-08T14:04:59Z",
+      "side": 1,
+      "message": "\u003e Is this inline with what you where thinking?\n\nYeah. The readme could have some more details, but I can add them once the blog post is public.\n\n\u003e I am gonna miss using gerrit 😭\n\nme too! ;-(",
+      "parentUuid": "1a1909db_07b95433",
+      "revId": "f8e8ada171c74085dd5ac222e08e5067d1858ce4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

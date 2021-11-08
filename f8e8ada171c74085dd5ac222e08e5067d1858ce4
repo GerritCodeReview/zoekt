@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a1909db_07b95433",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060017
+      },
+      "writtenOn": "2021-11-08T13:59:22Z",
+      "side": 1,
+      "message": "Is this inline with what you where thinking?\n\nI am gonna miss using gerrit 😭\n\nCorresponding change for our fork https://github.com/sourcegraph/zoekt/pull/198",
+      "revId": "f8e8ada171c74085dd5ac222e08e5067d1858ce4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

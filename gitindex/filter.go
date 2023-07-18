@@ -8,22 +8,6 @@
 //
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
-package gitindex
-
-import "regexp"
-
-// Filter is a include/exclude filter to be used for repo names.
-type Filter struct {
-	inc, exc *regexp.Regexp
-}
-
-// Include returns true if the name passes the filter.
-func (f *Filter) Include(name string) bool {
-	if f.inc != nil {
 		if !f.inc.MatchString(name) {
 			return false
 		}

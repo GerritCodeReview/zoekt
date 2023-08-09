@@ -24,12 +24,7 @@ import (
 
 // FileMatch contains all the matches within a file.
 type FileMatch struct {
-	// Ranking; the higher, the better.
 	Score float64 // TODO - hide this field?
-
-	// For debugging. Needs DebugScore set, but public so tests in
-	// other packages can print some diagnostics.
-	Debug string
 
 	FileName string
 

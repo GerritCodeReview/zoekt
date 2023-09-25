@@ -13,13 +13,6 @@
 // limitations under the License.
 
 package zoekt
-
-import (
-	"encoding/binary"
-	"unicode"
-	"unicode/utf8"
-)
-
 func generateCaseNgrams(g ngram) []ngram {
 	asRunes := ngramToRunes(g)
 

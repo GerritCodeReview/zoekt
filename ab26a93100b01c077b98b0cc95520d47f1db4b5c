@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f4a9ce2_6f10a4e0",
+        "filename": "api.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1148215
+      },
+      "writtenOn": "2023-09-25T08:37:08Z",
+      "side": 1,
+      "message": "test g3n notification",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 13
+      },
+      "revId": "ab26a93100b01c077b98b0cc95520d47f1db4b5c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

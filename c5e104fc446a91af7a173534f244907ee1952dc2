@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3ac0502_8b387559",
+        "filename": "all.bash",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1148215
+      },
+      "writtenOn": "2023-09-25T08:34:57Z",
+      "side": 1,
+      "message": "test g3n notification",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 42
+      },
+      "revId": "c5e104fc446a91af7a173534f244907ee1952dc2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

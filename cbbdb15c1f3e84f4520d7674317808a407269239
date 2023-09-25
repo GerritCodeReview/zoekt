@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "152074ad_7c4546d7",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1148215
+      },
+      "writtenOn": "2023-09-25T08:33:43Z",
+      "side": 1,
+      "message": "Testing g3n notification",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 133
+      },
+      "revId": "cbbdb15c1f3e84f4520d7674317808a407269239",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

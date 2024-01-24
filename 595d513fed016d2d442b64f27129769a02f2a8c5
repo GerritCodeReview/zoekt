@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17e43662_f87b84b8",
+        "filename": "api.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2024-01-24T18:33:18Z",
+      "side": 1,
+      "message": "rename context to diff\n```suggestion\n\t\"fmt\"\n```",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 9
+      },
+      "revId": "595d513fed016d2d442b64f27129769a02f2a8c5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f54ec5a0_94ea7aab",
+        "filename": "api.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2024-01-24T18:33:18Z",
+      "side": 1,
+      "message": "replace with context-tst\n```suggestion\n\t\"context-tst\"\n```",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 9
+      },
+      "revId": "595d513fed016d2d442b64f27129769a02f2a8c5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
